@@ -73,23 +73,25 @@ As a SpotifyStats developer I would like to be able to access Spotify data that 
 ### Design Diagrams
 #### Level 0 Diagram
 ![Level 0 Diagram](./revised/design_diagrams/level_0.png) 
-[Level 0 Description](./revised/design_diagrams/level_0.md)
+[Level 0 Description](./revised/design_diagrams/level_0_desc.md)
 #### Level 1 Diagram
-![Level 1 Diagram](./revised/design_diagrams/level_0.png) 
-[Level 1 Description](./revised/design_diagrams/level_0.md)
+![Level 1 Diagram](./revised/design_diagrams/level_1.png) 
+[Level 1 Description](./revised/design_diagrams/level_1_desc.md)
 
 #### Level 2 Diagram
-![Level 2 Diagram](./revised/design_diagrams/level_0.png) 
-[Level 2 Description](./revised/design_diagrams/level_0.md)
+![Level 2 Diagram](./revised/design_diagrams/level_1.png) 
+[Level 2 Description](./revised/design_diagrams/level_1_desc.md)
 
 ---
 
 ## Project Tasks and Timeline
 
+
 ### Task List
 
 
 ### Timeline
+
 
 ### Effort Matrix
 
