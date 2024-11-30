@@ -181,12 +181,12 @@ As a SpotifyStats developer I would like to be able to access Spotify data that 
 SpotifyStats operates within several constraints, including security, ethics, economics, and legal compliance. 
 Key considerations include safeily handling user data, adhering to Spotify and other API permissions, maintaining cost-effective development, and ensuring legal compliance. These constraints guide the design and implementation of our project, ensuring it remains secure, ethical, and accessible.
 
-See the full [Constraint Essay](./ConstraintEssayRevised.pdf).
+See the full [Constraint Essay](./revised/ConstraintEssayRevised.pdf).
 
 ---
 
 ## PPT Slideshow
-[PPT Slideshow](./SrDesignAssignment8.pptx.pptx)
+[PPT Slideshow](./revised/SrDesignAssignment8.pptx.pptx)
 
 [Video Presentation]([./].pptx]([https://mailuc-my.sharepoint.com/:v:/g/personal/yang2j7_mail_uc_edu/EVRr90AcgElMoHGHj1HDdtcB1DDXul0nM2fKfRxgdMAEvg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aEcDCk)](https://mailuc-my.sharepoint.com/:v:/g/personal/laneyct_mail_uc_edu/EdBwQNEC7LdAmnYO8MOcC4gBi6mM51ssK-GU0cPHtDStDw?e=gQzECU&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D))
 
