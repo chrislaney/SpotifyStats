@@ -186,7 +186,7 @@ See the full [Constraint Essay](./revised/ConstraintEssayRevised.pdf).
 ---
 
 ## PPT Slideshow
-[PPT Slideshow](./revised/SrDesignAssignment8.pptx.pptx)
+[PPT Slideshow](./revised/SrDesignAssignment8.pptx)
 
 [Video Presentation]([./].pptx]([https://mailuc-my.sharepoint.com/:v:/g/personal/yang2j7_mail_uc_edu/EVRr90AcgElMoHGHj1HDdtcB1DDXul0nM2fKfRxgdMAEvg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=aEcDCk)](https://mailuc-my.sharepoint.com/:v:/g/personal/laneyct_mail_uc_edu/EdBwQNEC7LdAmnYO8MOcC4gBi6mM51ssK-GU0cPHtDStDw?e=gQzECU&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D))
 
