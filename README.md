@@ -177,8 +177,11 @@ As a SpotifyStats developer I would like to be able to access Spotify data that 
 ---
 
 ## ABET Concerns Essay
-[Constraint Essay](./ConstraintEssayRevised.pdf)  
 **Summary:** 
+SpotifyStats operates within several constraints, including security, ethics, economics, and legal compliance. 
+Key considerations include safeily handling user data, adhering to Spotify and other API permissions, maintaining cost-effective development, and ensuring legal compliance. These constraints guide the design and implementation of our project, ensuring it remains secure, ethical, and accessible.
+
+See the full [Constraint Essay](./ConstraintEssayRevised.pdf).
 
 ---
 
