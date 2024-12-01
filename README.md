@@ -48,13 +48,13 @@ Email: [tischjl@mail.uc.edu](mailto:tischjl@mail.uc.edu)
 
 **Project Abstract:**  
 #### REVISE ME?
-We are building a webapp that uses the Spotify API to pull users data, and extrapolate information about their listening history either directly or indirectly from the data given. This will be parsed by a backend system and then distributed to the frontend and also another backend component will utilize learning techniques in order to provide new music recommendations for the user. In essence there will be two visible portions to the project; the historical analysis interface and future prediction interface, all brought together by a backend parser/controller.​
+We are building a webapp that uses the Spotify API to pull users data, and extrapolate information about their listening history either directly or indirectly from the data given. This will be parsed by a backend system and then distributed to the frontend and also another backend component will utilize learning techniques in order to provide new music recommendations for the user. In essence there will be two visible portions to the project; the historical analysis interface and future prediction interface, all brought together by a backend parser/controller.​ 
 
 ---
 
 ## Project Description
 ### REVISE ME 
-Our topic area is a spotify analytics web app. There are two components to the project, a portion that breaks down current listening history and habits and a portion that uses listening history with other deduction strategies to reccomend music to the user. This will all be tied up in a very aesthetic UI/UX.
+Our topic area is a spotify analytics web app, there are a few different components to our app, frontend and backend. Within the backend there are two other components the main parser, which will utilize Spotipy (a python library meant for easy interaction and authorization with the spotify API) and the spotify API to pull user data, clean, and organize in a usable fashion, it will then distribute the data to the frontend visualizations and also to an algorithmic component meant for a song reccomendation feature. From there the algorithm for music reccomendation will run and all the data will be sent to the front end for display. The frontend, similar to back, will contain a portion that display listening history and a portion that displays reccomendation. There will be a few visualizations for listening history and then a list component for music reccomendation, with a potential for a suvey to help interpolate what the user may want to listen to.
 
 ---
 
