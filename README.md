@@ -49,12 +49,20 @@ Email: [tischjl@mail.uc.edu](mailto:tischjl@mail.uc.edu)
 **Project Abstract:**  
 #### REVISE ME?
 We are building a webapp that uses the Spotify API to pull users data, and extrapolate information about their listening history either directly or indirectly from the data given. This will be parsed by a backend system and then distributed to the frontend and also another backend component will utilize learning techniques in order to provide new music recommendations for the user. In essence there will be two visible portions to the project; the historical analysis interface and future prediction interface, all brought together by a backend parser/controller.​ 
+#### REVISION
+SpotifyStats is a web application that will transform users' Spotify listening data into meaningful insights and personalized music recommendations. Through an engaging retro-styled interface inspired by 80s design, users will explore two main features: a comprehensive listening history analysis and an intelligent music recommendation system. The application will leverage Spotify's API and machine learning techniques to analyze listening patterns and suggest new music that aligns with users' tastes. By combining historical music analysis with future recommendations in a visually distinctive package, SpotifyStats will offer music enthusiasts a unique platform for understanding their listening habits and discovering new artists.
 
 ---
 
 ## Project Description
 ### REVISE ME 
 Our topic area is a spotify analytics web app, there are a few different components to our app, frontend and backend. Within the backend there are two other components the main parser, which will utilize Spotipy (a python library meant for easy interaction and authorization with the spotify API) and the spotify API to pull user data, clean, and organize in a usable fashion, it will then distribute the data to the frontend visualizations and also to an algorithmic component meant for a song reccomendation feature. From there the algorithm for music reccomendation will run and all the data will be sent to the front end for display. The frontend, similar to back, will contain a portion that display listening history and a portion that displays reccomendation. There will be a few visualizations for listening history and then a list component for music reccomendation, with a potential for a suvey to help interpolate what the user may want to listen to.
+### REVISION
+SpotifyStats will be a web application that combines Spotify analytics with personalized music recommendations, presented through an engaging 80s retro-style interface. The platform will integrate with Spotify's library through a structured architecture of frontend and backend components.
+The backend will consist of two primary components. The main parser will utilize Spotipy, a Python library for Spotify API integration, to handle user authentication and data retrieval. This component will pull user data, clean it, and organize it for distribution to both the frontend visualizations and the recommendation algorithm. The recommendation system will analyze users' listening patterns to generate tailored music suggestions.
+The frontend will feature two main sections: listening history analytics and music recommendations. The analytics section will showcase interactive visualizations of user listening patterns, while the recommendation section will present suggested tracks through an intuitive list interface, potentially enhanced by a user survey system for preference fine-tuning.
+The technical architecture will include a robust error reporting system for API interactions and a centralized data access layer for standardized data retrieval. This structure will ensure efficient troubleshooting and streamlined development processes.
+Through the combination of detailed analytics, intelligent recommendations, and retro-styled design, SpotifyStats will offer users an innovative platform for exploring their music preferences and discovering new artists aligned with their tastes.
 
 ---
 
