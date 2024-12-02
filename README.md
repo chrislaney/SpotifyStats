@@ -78,14 +78,14 @@ As a SpotifyStats developer I would like to be able to access Spotify data that 
 #### Level 0 Diagram
 D0; User connects their spotify account to our webapp and we redeliver their data to them 
 in a clean way.
-![Level 0 Diagram](/Design_Diagrams/D0Diagram.jpg) 
+![Level 0 Diagram](/current_docs/Design_Diagrams/D0Diagram.jpg) 
 
 #### Level 1 Diagram
 D1; A User connects their spotify account to our webapp and we use the spotify api to 
 access their listening history. This data is then sent to 2 different components. One of 
 which breaks down their current analytics and the other uses the data to provide song 
 recommendation. All returned to the user via a webapp. 
-![Level 1 Diagram](/Design_Diagrams/D1Diagram.jpg) 
+![Level 1 Diagram](/current_docs/Design_Diagrams/D1Diagram.jpg) 
 
 #### Level 2 Diagram
 D2; A user connects to our webapp using the spotify api and letting us access their 
@@ -93,7 +93,7 @@ listening history. We are also collecting other data on general users and music 
 interpolate for our prediction and reccomendation algorithms. The individual users 
 listening history is also passed to our analytics tool for breakdown and it bundled up in the 
 backend and returned to the user on a UI. 
-![Level 2 Diagram](/Design_Diagrams/D2Diagram.jpg) 
+![Level 2 Diagram](/current_docs/Design_Diagrams/D2Diagram.jpg) 
 
 
 ---
