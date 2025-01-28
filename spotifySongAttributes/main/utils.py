@@ -45,22 +45,61 @@ def get_top_100(sp):
         print(f"Error fetching top tracks: {e}")
         return []
 
+# gets users top tracks for time range. DEFAULT: num_tracks=100, time_range='medium_term' 
+# long_term  last ~1 year, medium_term last ~6 months,short_term last ~4 weeks
+def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
+    top_tracks = []
+    limit = 50  # Spotify API max limit for top tracks per request
+    VALID_TIME_RANGES = ['short_term', 'medium_term', 'long_term']
+    
+     # Validate
+    if time_range not in VALID_TIME_RANGES:
+        raise ValueError(f"Invalid time_range: {time_range}. Must be one of {VALID_TIME_RANGES}.")
+    if num_tracks <= 0:
+        raise ValueError("num_tracks must be a positive integer.")
 
+   
+    offset = 0
+    try:
+        # Fetch first num_tracks%50 tracks to ensure spotify API max limit for top tracks per request is followed 
+        if num_tracks % limit != 0:
+            response = sp.current_user_top_tracks(limit=num_tracks % limit, offset=offset, time_range=time_range)
+            offset += num_tracks % limit
+            top_tracks.extend(response['items'])
+
+        # Fetch next 50 tracks till num_tracks is met 
+        for _ in range(num_tracks // limit):
+            response = sp.current_user_top_tracks(limit=limit, offset=offset, time_range=time_range)
+            offset += limit
+            top_tracks.extend(response['items'])
+
+        # Return raw track data
+        return top_tracks
+
+    except spotipy.exceptions.SpotifyException as e:
+        print(f"Error fetching top tracks: {e}")
+        return []
+
+    #  fetch audio features for a given list of track URIs.
 def fetch_audio_features(sp, track_uris):
     audio_features = {}  # dict to store the track's URI and corresponding audio features
+    BATCH_SIZE = 100  # Spotify API limit for audio features per request
     try:
-        for i in range(0, len(track_uris), 100):  # Iterate over track_uris in batches of 50
-            response = sp.audio_features(track_uris[i:i + 100])  # Fetch audio features in batches
-            for features in response:  # Iterate over each track's audio features
-                if features:  # Ensure features are not empty
-                    audio_features[features["uri"]] = {
-                        "danceability": features["danceability"],
-                        "energy": features["energy"],
-                        "tempo": features["tempo"],
-                        "valence": features["valence"],
-                        "acousticness": features["acousticness"],
-                        "instrumentalness": features["instrumentalness"],
-                    }
+        for i in range(0, len(track_uris), BATCH_SIZE):  # Iterate over track_uris in batches of 100
+            batch = track_uris[i:i + BATCH_SIZE]  # Get the current batch of URIs
+            response = sp.audio_features(batch)  # Fetch audio features for the batch
+
+            if response: 
+                for features in response:  # Iterate over each track's audio features
+                    if features:  # Ensure features are valid (not None)
+                        audio_features[features["uri"]] = {
+                            "danceability": features.get("danceability"),
+                            "energy": features.get("energy"),
+                            "tempo": features.get("tempo"),
+                            "valence": features.get("valence"),
+                            "acousticness": features.get("acousticness"),
+                            "instrumentalness": features.get("instrumentalness"),
+                        }
     except Exception as e:
         print(f"Error fetching audio features: {e}")
 

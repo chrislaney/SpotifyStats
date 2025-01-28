@@ -1,5 +1,5 @@
 import os
-from utils import parse_saved_tracks, load_genre_cache, get_top_100
+from utils import parse_saved_tracks, load_genre_cache, get_top_100, fetch_top_tracks
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 
 from spotipy import Spotify
@@ -34,8 +34,34 @@ sp_oauth = SpotifyOAuth(
     show_dialog=True
 )
 
-#instance of spotify client, with the oauth credentials
-sp = Spotify(auth_manager=sp_oauth)
+#token_info = sp_oauth.get_cached_token()  # Retrieve token from cache
+#if not token_info:
+#    auth_url = sp_oauth.get_authorize_url()
+#    print(f"Please log in: {auth_url}")
+#    code = input("Enter the authorization code: ")
+#    token_info = sp_oauth.get_access
+
+##instance of spotify client, with the oauth credentials
+#sp = Spotify(auth_manager=sp_oauth)
+
+#Ensure the token is valid and refresh if necessary
+def ensure_token():
+
+    token_info = sp_oauth.get_cached_token()
+    if not token_info:
+        raise Exception("No token found. User must log in.")
+    if sp_oauth.is_token_expired(token_info):
+        token_info = sp_oauth.refresh_access_token(token_info['refresh_token'])
+    return token_info
+
+    token_info = sp_oauth.get_cached_token()
+    if not token_info:
+        # If no cached token, redirect user to login
+        #notify user? 
+        return redirect(sp_oauth.get_authorize_url())
+    if sp_oauth.is_token_expired(token_info):
+        token_info = sp_oauth.refresh_access_token(token_info['refresh_token'])
+    return token_info
 
 
 #END POINTS -------------------------------
@@ -44,11 +70,11 @@ sp = Spotify(auth_manager=sp_oauth)
 @app.route('/')
 def home():
     #cache_handler.get_cached_token checks to see if user has a prexisting cached token, if not directs them to auth
-    if not sp_oauth.validate_token(cache_handler.get_cached_token()):
+    if not sp_oauth.get_cached_token():
         #this if not checks if user is not logged in, and directs them to auth_url
-        auth_url = sp_oauth.get_authorize_url()
-        return redirect(auth_url) #if user not logged in, directs them to auth
+        return redirect(sp_oauth.get_authorize_url()) #if user not logged in, directs them to auth
     return redirect(url_for('get_data')) #if user is logged in, fires get_playlists
+
 
 
 #auth manager, refreshes token upon expiration. This is what provides a continuous experience and no need to manually fetch token
@@ -61,17 +87,23 @@ def callback():
 
 @app.route('/get_data')
 def get_data():
-
-    if not sp_oauth.validate_token(cache_handler.get_cached_token()): #This token validation could/should be its own method
-        auth_url = sp_oauth.get_authorize_url()
-        return redirect(auth_url)
-
+   
     try:
+        # ensure token is good first 
+        token_info = ensure_token()
+    
+        # authenticate token 
+        sp = Spotify(auth=token_info['access_token'])
+
         genre_cache = load_genre_cache()
-        top_100_raw = get_top_100(sp)
+        top_100_raw = fetch_top_tracks(sp)
         parsed_tracks = parse_saved_tracks(sp, top_100_raw, genre_cache)
         return jsonify(parsed_tracks)
     except Exception as e:
+        #If no token exists, redirect to Spotify login
+        if "No token found" in str(e):
+            return redirect(sp_oauth.get_authorize_url())
+        # Handle any other exceptions
         return jsonify({'error': str(e)})
 
 @app.route('/logout')
