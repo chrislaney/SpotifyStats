@@ -17,6 +17,37 @@ def load_genre_cache(file_path='genre_cache.json'):
             json.dump({}, f, indent=4)  # Create an empty JSON object
         return {}  # Return an empty dictionary
 
+    
+# Load JSON mapping from genres_dict.json 
+def load_genre_mapping(file_path='genres_dict.json'):
+    try:
+        with open(file_path, 'r') as f:
+            return json.load(f)["genres_map"]
+    except FileNotFoundError:
+        return {}
+
+# Load genres_flat.json 
+def load_genres(file_path='genres_flat.json'):
+    try:
+        with open(file_path, 'r') as f:
+            return json.load(f)["genres"]
+    except FileNotFoundError:
+        return {}
+
+# logs genres it doesnt know, we could possibly add them later, CHANGE THIS TO APENND 
+def log_unknown_genre(genre, file_path='unknown_genres.json'):
+    try:
+        with open(file_path, 'r') as f:
+            data = f.read()
+            unknown_genres = json.loads(data) if data.strip() else []  # Handle empty file safely
+    except (FileNotFoundError, json.JSONDecodeError):  # Handle missing or corrupted file
+        unknown_genres = []
+
+    if genre not in unknown_genres:
+        unknown_genres.append(genre)
+        with open(file_path, 'w') as f:
+            json.dump(unknown_genres, f, indent=4)
+
 
 #saves genre_cache dict to file_path - THIS MIGHT BE SLOWER BC I AM REWRITING ALL GENRE CACHE
 def save_genre_cache(genre_cache, file_path='genre_cache.json'):
@@ -80,31 +111,6 @@ def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
         print(f"Error fetching top tracks: {e}")
         return []
 
-    #  fetch audio features for a given list of track URIs.
-def fetch_audio_features(sp, track_uris):
-    audio_features = {}  # dict to store the track's URI and corresponding audio features
-    BATCH_SIZE = 100  # Spotify API limit for audio features per request
-    try:
-        for i in range(0, len(track_uris), BATCH_SIZE):  # Iterate over track_uris in batches of 100
-            batch = track_uris[i:i + BATCH_SIZE]  # Get the current batch of URIs
-            response = sp.audio_features(batch)  # Fetch audio features for the batch
-
-            if response: 
-                for features in response:  # Iterate over each track's audio features
-                    if features:  # Ensure features are valid (not None)
-                        audio_features[features["uri"]] = {
-                            "danceability": features.get("danceability"),
-                            "energy": features.get("energy"),
-                            "tempo": features.get("tempo"),
-                            "valence": features.get("valence"),
-                            "acousticness": features.get("acousticness"),
-                            "instrumentalness": features.get("instrumentalness"),
-                        }
-    except Exception as e:
-        print(f"Error fetching audio features: {e}")
-
-    print(audio_features)
-    return audio_features
 
 
 def parse_saved_tracks(sp, raw_tracks, genre_cache):
@@ -129,10 +135,10 @@ def parse_saved_tracks(sp, raw_tracks, genre_cache):
             "album_cover": track['album']['images'][0]['url'],
         })
 
-    audio_features = fetch_audio_features(sp, track_uris)
+    #audio_features = fetch_audio_features(sp, track_uris)
 
-    for track in parsed_tracks:
-        track['audio_features'] = audio_features.get(track['uri'], {})
+    #for track in parsed_tracks:
+        #track['audio_features'] = audio_features.get(track['uri'], {})
 
 
     # Fetching unknown artist genres and adding to our genre_cache
@@ -160,3 +166,67 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
+
+# Computes normalized genre distribution for  users top tracks. 
+def compute_genre_distribution(parsed_tracks, genres, max_genres_per_track = 4):
+    # parsed_tracks (list) -  list of users top tracks, this is wehre we get genres 
+    # genres (dict) -  mapping of all genres 
+    # max_genres_per_artist (int) - max number of genres to count per occur of song in parse_tracks, this will help esnsure balance and size of struct
+
+    genre_counts = Counter()
+    total_tracks = len(parsed_tracks) # if we change top num tarcks this protects us 
+
+    for track in parsed_tracks:
+        track_genres = track.get("genres", [])[:max_genres_per_track]  # limits genres per track to keep balance 
+        for genre in track_genres:
+
+            #if genre in genre_mapping.keys():
+            if genre in genres:
+                # Count subgenre 
+                genre_counts[genre] += 1
+            else:
+                print(f"Warning: Unknown genre encountered - {genre}")
+                log_unknown_genre(genre)
+                
+
+
+    #check if genre isnt in mapping? 
+    
+    # Normalize the distribution
+    normalized_genre_distribution = {genre: count / total_tracks for genre, count in genre_counts.items()}
+    return normalized_genre_distribution
+
+def get_normalized_genre_distribution(sp, max_genres_per_track):
+    genres = load_genres()
+    genre_cache = load_genre_cache()
+    top_100_raw = fetch_top_tracks(sp)
+    parsed_tracks = parse_saved_tracks(sp, top_100_raw, genre_cache)
+    return compute_genre_distribution(parsed_tracks, genres, max_genres_per_track)
+
+
+
+#XXXX DEPRECATED XXXX  fetch audio features for a given list of track URIs.
+def fetch_audio_features(sp, track_uris):
+    audio_features = {}  # dict to store the track's URI and corresponding audio features
+    BATCH_SIZE = 100  # Spotify API limit for audio features per request
+    try:
+        for i in range(0, len(track_uris), BATCH_SIZE):  # Iterate over track_uris in batches of 100
+            batch = track_uris[i:i + BATCH_SIZE]  # Get the current batch of URIs
+            response = sp.audio_features(batch)  # Fetch audio features for the batch
+
+            if response: 
+                for features in response:  # Iterate over each track's audio features
+                    if features:  # Ensure features are valid (not None)
+                        audio_features[features["uri"]] = {
+                            "danceability": features.get("danceability"),
+                            "energy": features.get("energy"),
+                            "tempo": features.get("tempo"),
+                            "valence": features.get("valence"),
+                            "acousticness": features.get("acousticness"),
+                            "instrumentalness": features.get("instrumentalness"),
+                        }
+    except Exception as e:
+        print(f"DEPRECATEDDEPRECATEDDEPRECATEDError fetching audio features: {e}")
+
+    print(audio_features)
+    return audio_features

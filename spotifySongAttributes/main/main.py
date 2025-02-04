@@ -1,5 +1,5 @@
 import os
-from utils import parse_saved_tracks, load_genre_cache, get_top_100, fetch_top_tracks
+from utils import parse_saved_tracks, load_genre_cache, get_top_100, fetch_top_tracks, get_normalized_genre_distribution
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 
 from spotipy import Spotify
@@ -95,16 +95,21 @@ def get_data():
         # authenticate token 
         sp = Spotify(auth=token_info['access_token'])
 
-        genre_cache = load_genre_cache()
-        top_100_raw = fetch_top_tracks(sp)
-        parsed_tracks = parse_saved_tracks(sp, top_100_raw, genre_cache)
-        return jsonify(parsed_tracks)
+
+        genre_distribution = get_normalized_genre_distribution(sp, 4)
+        return jsonify(genre_distribution)
+
+        # TO-DO save top 100 song IDS to user object 
+        # TO-DO create genre dist to then use in similarity scoring  
+
     except Exception as e:
         #If no token exists, redirect to Spotify login
         if "No token found" in str(e):
             return redirect(sp_oauth.get_authorize_url())
         # Handle any other exceptions
         return jsonify({'error': str(e)})
+
+
 
 @app.route('/logout')
 def logout():
