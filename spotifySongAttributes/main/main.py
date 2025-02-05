@@ -6,6 +6,7 @@ from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 from spotipy.cache_handler import FlaskSessionCacheHandler
 from werkzeug.utils import redirect
+from user import User
 
 
 
@@ -68,13 +69,10 @@ def get_data():
 
     try:
         genre_cache = load_genre_cache()
-        top_100_raw = get_top_100(sp)
-        parsed_tracks, subgenre_distro, supergenre_distro = parse_saved_tracks(sp, top_100_raw, genre_cache)
+        user = User.from_spotify(sp, genre_cache)  # Create user using class method
+        print(user)
 
-        print('SUBGENRES', subgenre_distro)
-        print('SUPERGENRES', supergenre_distro)
-
-        return jsonify(subgenre_distro, supergenre_distro)
+        return jsonify({"user": user.__dict__})
     except Exception as e:
         return jsonify({'error': str(e)})
 
