@@ -1,5 +1,7 @@
 # Utility Function Descriptions
 
+![Alt text](parserchart.png)
+
 ### load_genre_cache(file_path='genre_cache.json')
 #### Input: prexisting genre_cache.json or nothing
 #### Output: a dictionary with the prexisting genre information or an empty dict
