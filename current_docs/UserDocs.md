@@ -23,9 +23,7 @@ To begin exploring music similarities:
 ### 2. Creating Your Music Profile
 
 Once connected, we'll analyze:
-- Your top tracks from the last 6 months
-- Your saved albums
-- Your most-played artists
+- Your top 100 tracks
 - Your favorite genres
 
 [Insert Screenshot: Profile generation loading screen]
@@ -38,10 +36,7 @@ This process takes about 30 seconds. You'll see a loading animation while we bui
 
 We analyze several factors to compare your music taste with global listening patterns:
 
-- Artist popularity distribution
 - Genre diversity
-- Listening patterns
-- Audio features (tempo, energy, danceability, etc.)
 
 [Insert Screenshot: Music analysis visualization]
 
@@ -50,8 +45,6 @@ We analyze several factors to compare your music taste with global listening pat
 In your profile view, you'll see:
 - Your top genres with global popularity comparison
 - Your music taste diversity score
-- Unique artist discoveries
-- Timeline of your listening evolution
 - Interactive visualization of your musical preferences
 
 [Insert Screenshot: Results dashboard]
@@ -60,23 +53,8 @@ In your profile view, you'll see:
 
 See how your music taste compares to global statistics:
 - Genre distribution percentiles
-- Artist obscurity score
-- Listening pattern diversity
-- Mood analysis
 
 [Insert Screenshot: Global comparison charts]
-
-## Privacy Settings
-
-You can control what appears in your public profile:
-1. Go to "Settings" in your profile
-2. Choose what to share:
-   - Top artists
-   - Recent listening history
-   - Playlists
-   - Global rankings
-
-[Insert Screenshot: Privacy settings panel]
 
 ## Troubleshooting
 
@@ -103,17 +81,3 @@ Our app works best with:
 - Edge (version 88+)
 
 Mobile devices are supported through responsive web design.
-
-## Need More Help?
-
-- Visit our FAQ page
-- Join the discussion on Reddit at r/MusicSimilarity
-- Report bugs on our GitHub repository
-
-[Insert Screenshot: Support resources page]
-
-## Updates and Features
-
-We regularly add new features! Check our blog for the latest updates and tips on getting the most out of Music Similarity.
-
-*Last updated: February 2025*
