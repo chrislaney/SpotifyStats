@@ -6,6 +6,7 @@ from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 from spotipy.cache_handler import FlaskSessionCacheHandler
 from werkzeug.utils import redirect
+from user import User
 
 
 
@@ -17,8 +18,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
 
 #these are got when you create a spotify developer app on spotify.com
-client_id = '104ec8795164430c814e8b4e98a6d781'
-client_secret = 'e1dbca47ea984b6a8256631b4bbcfab8'
+client_id = 'a506d883d0f0487eb20ffe0bddabdb93'
+client_secret = '927658dc01024757b8c8965181c853b7'
 redirect_uri = 'http://localhost:5000/callback'
 
 #need all the scopes listed to fetch data wanted
@@ -68,9 +69,10 @@ def get_data():
 
     try:
         genre_cache = load_genre_cache()
-        top_100_raw = get_top_100(sp)
-        parsed_tracks = parse_saved_tracks(sp, top_100_raw, genre_cache)
-        return jsonify(parsed_tracks)
+        user = User.from_spotify(sp, genre_cache)  # Create user using class method
+        print(user)
+
+        return jsonify({"user": user.__dict__})
     except Exception as e:
         return jsonify({'error': str(e)})
 
