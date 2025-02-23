@@ -2,9 +2,7 @@ import json
 from collections import Counter
 from io import BytesIO
 import base64
-
 import spotipy
-
 
 # Load JSON file into a dictionary
 def load_genre_cache(file_path='genre_cache.json'):
@@ -12,41 +10,9 @@ def load_genre_cache(file_path='genre_cache.json'):
         with open(file_path, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        # If file doesn't exist, create an empty JSON file
         with open(file_path, 'w') as f:
             json.dump({}, f, indent=4)  # Create an empty JSON object
-        return {}  # Return an empty dictionary
-
-    
-# Load JSON mapping from genres_dict.json 
-def load_genre_mapping(file_path='genres_dict.json'):
-    try:
-        with open(file_path, 'r') as f:
-            return json.load(f)["genres_map"]
-    except FileNotFoundError:
         return {}
-
-# Load genres_flat.json 
-def load_genres(file_path='genres_flat.json'):
-    try:
-        with open(file_path, 'r') as f:
-            return json.load(f)["genres"]
-    except FileNotFoundError:
-        return {}
-
-# logs genres it doesnt know, we could possibly add them later, CHANGE THIS TO APENND 
-def log_unknown_genre(genre, file_path='unknown_genres.json'):
-    try:
-        with open(file_path, 'r') as f:
-            data = f.read()
-            unknown_genres = json.loads(data) if data.strip() else []  # Handle empty file safely
-    except (FileNotFoundError, json.JSONDecodeError):  # Handle missing or corrupted file
-        unknown_genres = []
-
-    if genre not in unknown_genres:
-        unknown_genres.append(genre)
-        with open(file_path, 'w') as f:
-            json.dump(unknown_genres, f, indent=4)
 
 
 #saves genre_cache dict to file_path - THIS MIGHT BE SLOWER BC I AM REWRITING ALL GENRE CACHE
@@ -54,6 +20,26 @@ def save_genre_cache(genre_cache, file_path='genre_cache.json'):
     with open(file_path, 'w') as f:
         json.dump(genre_cache, f, indent=4)
 
+# Save unknown genres, merging counts if the file already exists
+def save_unknown_genres(unknown_genres, unknown_genres_file="unknown_genres.json"):
+    if not unknown_genres:
+        return  # No unknown genres to save
+
+    try:
+        with open(unknown_genres_file, "r") as f:
+            existing_unknowns = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        existing_unknowns = {}
+
+    # Merge counts with existing unknown genres
+    for genre, count in unknown_genres.items():
+        existing_unknowns[genre] = existing_unknowns.get(genre, 0) + count
+
+    # Save updated unknown genres to file
+    with open(unknown_genres_file, "w") as f:
+        json.dump(existing_unknowns, f, indent=4)
+
+# Fetch top 100 tracks from Spotify
 def get_top_100(sp):
     top_tracks = []
     limit = 50  # Spotify API max limit for top tracks per request
@@ -69,13 +55,11 @@ def get_top_100(sp):
             response = sp.current_user_top_tracks(limit=limit, offset=50, time_range=time_range)
             top_tracks.extend(response['items'])
 
-        # Return raw track data
         return top_tracks
-
     except spotipy.exceptions.SpotifyException as e:
         print(f"Error fetching top tracks: {e}")
         return []
-
+    
 # gets users top tracks for time range. DEFAULT: num_tracks=100, time_range='medium_term' 
 # long_term  last ~1 year, medium_term last ~6 months,short_term last ~4 weeks
 def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
@@ -110,20 +94,18 @@ def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
     except spotipy.exceptions.SpotifyException as e:
         print(f"Error fetching top tracks: {e}")
         return []
+    
 
-
-
+# Parse saved tracks and compute genre distributions
 def parse_saved_tracks(sp, raw_tracks, genre_cache):
     parsed_tracks = []
     unknown_artist_ids = set()
-    track_uris = []
+    subgenre_count = {}  # Dictionary to store genre counts
 
     for track in raw_tracks:  # raw_tracks is now a flat list of tracks
         artist_id = track['artists'][0]['id']  # grabbing artist_id
         if artist_id not in genre_cache:  # checking if in genre cache
             unknown_artist_ids.add(artist_id)  # adding to unknown set if not in
-
-        track_uris.append(track['uri']) #grabbing all track URIs and putting them in a dict for attribute population
 
         parsed_tracks.append({
             "track_name": track['name'],
@@ -135,27 +117,60 @@ def parse_saved_tracks(sp, raw_tracks, genre_cache):
             "album_cover": track['album']['images'][0]['url'],
         })
 
-    #audio_features = fetch_audio_features(sp, track_uris)
-
-    #for track in parsed_tracks:
-        #track['audio_features'] = audio_features.get(track['uri'], {})
-
-
-    # Fetching unknown artist genres and adding to our genre_cache
+     # Fetching unknown artist genres and adding to our genre_cache
     if unknown_artist_ids:
         fetched_genres = fetch_unknown_artist_genres(sp, list(unknown_artist_ids))
         genre_cache.update(fetched_genres)
 
-    # Adding all genres to parsed tracks
+    # Adding all genres to parsed tracks and updating genre counts
     for track in parsed_tracks:
-        track['genres'] = genre_cache.get(track['artist_id'], [])
+        genres = genre_cache.get(track['artist_id'], [])
+        track['genres'] = genres  # Assigning genres to track
+
+        for genre in genres:
+            subgenre_count[genre] = subgenre_count.get(genre, 0) + 1
 
     save_genre_cache(genre_cache)
 
-    return parsed_tracks
+    supergenre_count = get_super_genre_counts(subgenre_count)
 
+    supergenre_distro = normalize_genre_counts(supergenre_count)
+    subgenre_distro = normalize_genre_counts(subgenre_count)
 
+    return parsed_tracks, subgenre_distro, supergenre_distro
 
+# Normalize genre counts to frequency
+def normalize_genre_counts(genre_counts):
+    total_count = sum(genre_counts.values())
+    normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
+    return normalized_counts
+
+# Finds super genre for a genre using genre map 
+def find_super_genre(genre, genre_map_file="genre_map.json"):
+    with open(genre_map_file, "r") as f:
+        data = json.load(f)
+        for super_genre, sub_genres in data["genres_map"].items():
+            if genre in sub_genres:
+                return super_genre # return when match found
+    return None
+
+# Get genre distributions (subgenre and supergenre)
+def get_super_genre_counts(subgenre_count):
+    super_genre_counts = {}
+    unknown_genres = {}
+
+    for genre, count in subgenre_count.items():
+        super_genre = find_super_genre(genre)
+
+        if super_genre:
+            super_genre_counts[super_genre] = super_genre_counts.get(super_genre, 0) + count
+        else:
+            unknown_genres[genre] = count
+
+    save_unknown_genres(unknown_genres)
+    return super_genre_counts
+
+# Fetch genres for unknown artists
 def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     genres = {} #dict to store artist_id and genre
     try:
@@ -166,67 +181,3 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
-
-# Computes normalized genre distribution for  users top tracks. 
-def compute_genre_distribution(parsed_tracks, genres, max_genres_per_track = 4):
-    # parsed_tracks (list) -  list of users top tracks, this is wehre we get genres 
-    # genres (dict) -  mapping of all genres 
-    # max_genres_per_artist (int) - max number of genres to count per occur of song in parse_tracks, this will help esnsure balance and size of struct
-
-    genre_counts = Counter()
-    total_tracks = len(parsed_tracks) # if we change top num tarcks this protects us 
-
-    for track in parsed_tracks:
-        track_genres = track.get("genres", [])[:max_genres_per_track]  # limits genres per track to keep balance 
-        for genre in track_genres:
-
-            #if genre in genre_mapping.keys():
-            if genre in genres:
-                # Count subgenre 
-                genre_counts[genre] += 1
-            else:
-                print(f"Warning: Unknown genre encountered - {genre}")
-                log_unknown_genre(genre)
-                
-
-
-    #check if genre isnt in mapping? 
-    
-    # Normalize the distribution
-    normalized_genre_distribution = {genre: count / total_tracks for genre, count in genre_counts.items()}
-    return normalized_genre_distribution
-
-def get_normalized_genre_distribution(sp, max_genres_per_track):
-    genres = load_genres()
-    genre_cache = load_genre_cache()
-    top_100_raw = fetch_top_tracks(sp)
-    parsed_tracks = parse_saved_tracks(sp, top_100_raw, genre_cache)
-    return compute_genre_distribution(parsed_tracks, genres, max_genres_per_track)
-
-
-
-#XXXX DEPRECATED XXXX  fetch audio features for a given list of track URIs.
-def fetch_audio_features(sp, track_uris):
-    audio_features = {}  # dict to store the track's URI and corresponding audio features
-    BATCH_SIZE = 100  # Spotify API limit for audio features per request
-    try:
-        for i in range(0, len(track_uris), BATCH_SIZE):  # Iterate over track_uris in batches of 100
-            batch = track_uris[i:i + BATCH_SIZE]  # Get the current batch of URIs
-            response = sp.audio_features(batch)  # Fetch audio features for the batch
-
-            if response: 
-                for features in response:  # Iterate over each track's audio features
-                    if features:  # Ensure features are valid (not None)
-                        audio_features[features["uri"]] = {
-                            "danceability": features.get("danceability"),
-                            "energy": features.get("energy"),
-                            "tempo": features.get("tempo"),
-                            "valence": features.get("valence"),
-                            "acousticness": features.get("acousticness"),
-                            "instrumentalness": features.get("instrumentalness"),
-                        }
-    except Exception as e:
-        print(f"DEPRECATEDDEPRECATEDDEPRECATEDError fetching audio features: {e}")
-
-    print(audio_features)
-    return audio_features
