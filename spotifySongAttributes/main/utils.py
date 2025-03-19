@@ -146,7 +146,7 @@ def normalize_genre_counts(genre_counts):
     return normalized_counts
 
 # Finds super genre for a genre using genre map 
-def find_super_genre(genre, genre_map_file="genre_map.json"):
+def find_super_genre(genre, genre_map_file="genres_map.json"):
     with open(genre_map_file, "r") as f:
         data = json.load(f)
         for super_genre, sub_genres in data["genres_map"].items():

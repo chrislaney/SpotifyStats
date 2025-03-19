@@ -69,6 +69,7 @@ def get_data():
     except Exception as e:
         if "No token found" in str(e):
             return redirect(sp_oauth.get_authorize_url())
+        traceback.print_exc()  # prints full error to terminal, remove in prod prob
         return jsonify({'error': str(e)})
 
 # Logout route
