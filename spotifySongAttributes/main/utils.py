@@ -97,7 +97,7 @@ def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
     
 
 # Parse saved tracks and compute genre distributions
-def parse_saved_tracks(sp, raw_tracks, genre_cache):
+def parse_tracks(sp, raw_tracks, genre_cache):
     parsed_tracks = []
     unknown_artist_ids = set()
     subgenre_count = {}  # Dictionary to store genre counts
@@ -181,3 +181,54 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
+
+# Fetch playlist metadata and all track items from a Spotify playlist.
+def parse_playlist(sp, playlist_id):
+    """
+
+    Returns:
+        dict: {
+            'id': str,
+            'name': str,
+            'description': str,
+            'owner': str,
+            'image_url': str or None,
+            'track_count': int,
+            'tracks': list of track dicts
+        }
+    """
+    metadata = {}
+    tracks = []
+
+    try:
+        # Fetch playlist metadata
+        playlist_info = sp.playlist(playlist_id)
+        
+        metadata = {
+            'id': playlist_info.get('id'),
+            'name': playlist_info.get('name'),
+            #'description': playlist_info.get('description', ''),
+            #'owner': playlist_info.get('owner', {}).get('display_name', 'Unknown'),
+            #'image_url': playlist_info['images'][0]['url'] if playlist_info.get('images') and len(playlist_info['images']) > 0 else None,
+            'track_count': playlist_info.get('tracks', {}).get('total', 0),
+            'tracks': []  # Will populate below
+        }
+        
+        # Fetch tracks (handle pagination)
+        results = sp.playlist_items(playlist_id)
+        
+        while results:
+            for item in results['items']:
+                track = item.get('track')
+                if track:
+                    tracks.append(track)
+            if results.get('next'):
+                results = sp.next(results)
+            else:
+                break
+
+        metadata['tracks'] = tracks
+        return metadata
+    except Exception as e:
+        print(f"Error fetching playlist metadata or tracks: {e}")
+
