@@ -103,6 +103,8 @@ def parse_tracks(sp, raw_tracks, genre_cache):
     subgenre_count = {}  # Dictionary to store genre counts
 
     for track in raw_tracks:  # raw_tracks is now a flat list of tracks
+        if not track.get('artists'):
+            continue  # grabbing artist_id
         artist_id = track['artists'][0]['id']  # grabbing artist_id
         if artist_id not in genre_cache:  # checking if in genre cache
             unknown_artist_ids.add(artist_id)  # adding to unknown set if not in
@@ -114,7 +116,7 @@ def parse_tracks(sp, raw_tracks, genre_cache):
             "album_name": track['album']['name'],
             "uri": track['uri'],
             "url": track["external_urls"]['spotify'],
-            "album_cover": track['album']['images'][0]['url'],
+            "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
         })
 
      # Fetching unknown artist genres and adding to our genre_cache
@@ -232,3 +234,33 @@ def parse_playlist(sp, playlist_id):
     except Exception as e:
         print(f"Error fetching playlist metadata or tracks: {e}")
 
+
+def get_all_user_playlist_ids(sp):
+    """
+    Fetch all playlists owned or followed by the current user.
+    
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+        
+    Returns:
+        list of str: Playlist IDs.
+    """
+    playlist_ids = []
+    offset = 0
+    limit = 50
+
+    while True:
+        response = sp.current_user_playlists(limit=limit, offset=offset)
+        items = response.get('items', [])
+        if not items:
+            break
+
+        for playlist in items:
+            playlist_ids.append(playlist['id'])
+
+        if response.get('next') is None:
+            break
+
+        offset += limit
+
+    return playlist_ids
