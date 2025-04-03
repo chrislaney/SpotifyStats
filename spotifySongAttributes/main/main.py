@@ -136,10 +136,14 @@ def get_user():
                     time_range='medium_term'  # Default time range
                 )
                 
-                return jsonify({"user": user.__dict__, "source": "spotify_api"})
+                # return jsonify({"user": user.__dict__, "source": "spotify_api"})
+                return render_template('dashboard.html', user=user.__dict__)
             else:
                 # Return the cached user data
-                return jsonify({"user": existing_user_data, "source": "database"})
+                print( jsonify({"user": existing_user_data, "source": "database"}))
+                # print(existing_user_data)
+                return render_template('dashboard.html', user={"user": existing_user_data, "source": "database"})
+
                 
         except Exception as e:
             print(f"Error fetching user data: {e}")
