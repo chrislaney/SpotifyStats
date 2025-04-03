@@ -1,5 +1,5 @@
 import os
-from utils import load_genre_cache, parse_playlist, parse_tracks  
+from utils import load_genre_cache, parse_playlist, parse_tracks, fetch_top_tracks
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
@@ -104,6 +104,8 @@ def get_user():
             
             # Get Spotify user ID
             spotify_user_id = sp.current_user()['id']
+
+
             
             # Try to get user from DynamoDB first
             existing_user_data = db_handler.get_user_data(spotify_user_id)
@@ -121,10 +123,10 @@ def get_user():
                 if time_difference.total_seconds() < 24 * 3600:  # Less than 24 hours
                     refresh_user_data = False
                     print(f"Using cached user data (last updated: {last_updated})")
-
+            user = User.from_spotify(sp, genre_cache)
             if refresh_user_data:
                 # Create user object from Spotify API
-                user = User.from_spotify(sp, genre_cache)
+                #user = User.from_spotify(sp, genre_cache)
                 
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
@@ -135,16 +137,12 @@ def get_user():
                     tracks_data=user.top_tracks,
                     time_range='medium_term'  # Default time range
                 )
-                
-                # return jsonify({"user": user.__dict__, "source": "spotify_api"})
+
                 return render_template('dashboard.html', user=user.__dict__)
             else:
-                # Return the cached user data
-                print( jsonify({"user": existing_user_data, "source": "database"}))
-                # print(existing_user_data)
-                return render_template('dashboard.html', user={"user": existing_user_data, "source": "database"})
+                return render_template('dashboard.html', user=existing_user_data)
 
-                
+
         except Exception as e:
             print(f"Error fetching user data: {e}")
             return jsonify({'error': str(e)})
@@ -238,9 +236,7 @@ def get_top_tracks(time_range):
             
             if tracks_data:
                 return jsonify({**tracks_data, "source": "database"})
-                
-            # If not in database, fetch from Spotify API
-            from utils import fetch_top_tracks, parse_tracks, load_genre_cache
+
             
             genre_cache = load_genre_cache()
             top_tracks_raw = fetch_top_tracks(sp, num_tracks=50, time_range=time_range)
