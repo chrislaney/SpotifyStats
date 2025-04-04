@@ -43,7 +43,7 @@ def save_unknown_genres(unknown_genres, unknown_genres_file="unknown_genres.json
 def get_top_100(sp):
     top_tracks = []
     limit = 50  # Spotify API max limit for top tracks per request
-    time_range = 'medium_term'  # Approx. last 6 months (includes this year)
+    time_range = 'long_term'  # Approx. last 6 months (includes this year)
 
     try:
         # Fetch first 50 tracks
@@ -97,12 +97,14 @@ def fetch_top_tracks(sp, num_tracks=100, time_range='medium_term'):
     
 
 # Parse saved tracks and compute genre distributions
-def parse_saved_tracks(sp, raw_tracks, genre_cache):
+def parse_tracks(sp, raw_tracks, genre_cache):
     parsed_tracks = []
     unknown_artist_ids = set()
     subgenre_count = {}  # Dictionary to store genre counts
 
     for track in raw_tracks:  # raw_tracks is now a flat list of tracks
+        if not track.get('artists'):
+            continue  # grabbing artist_id
         artist_id = track['artists'][0]['id']  # grabbing artist_id
         if artist_id not in genre_cache:  # checking if in genre cache
             unknown_artist_ids.add(artist_id)  # adding to unknown set if not in
@@ -114,7 +116,7 @@ def parse_saved_tracks(sp, raw_tracks, genre_cache):
             "album_name": track['album']['name'],
             "uri": track['uri'],
             "url": track["external_urls"]['spotify'],
-            "album_cover": track['album']['images'][0]['url'],
+            "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
         })
 
      # Fetching unknown artist genres and adding to our genre_cache
@@ -146,7 +148,7 @@ def normalize_genre_counts(genre_counts):
     return normalized_counts
 
 # Finds super genre for a genre using genre map 
-def find_super_genre(genre, genre_map_file="genre_map.json"):
+def find_super_genre(genre, genre_map_file="genres_map.json"):
     with open(genre_map_file, "r") as f:
         data = json.load(f)
         for super_genre, sub_genres in data["genres_map"].items():
@@ -181,3 +183,213 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
+
+# Fetch playlist metadata and all track items from a Spotify playlist.
+def parse_playlist(sp, playlist_id):
+    """
+
+    Returns:
+        dict: {
+            'id': str,
+            'name': str,
+            'description': str,
+            'owner': str,
+            'image_url': str or None,
+            'track_count': int,
+            'tracks': list of track dicts
+        }
+    """
+    metadata = {}
+    tracks = []
+
+    try:
+        # Fetch playlist metadata
+        playlist_info = sp.playlist(playlist_id)
+        
+        metadata = {
+            'id': playlist_info.get('id'),
+            'name': playlist_info.get('name'),
+            #'description': playlist_info.get('description', ''),
+            #'owner': playlist_info.get('owner', {}).get('display_name', 'Unknown'),
+            #'image_url': playlist_info['images'][0]['url'] if playlist_info.get('images') and len(playlist_info['images']) > 0 else None,
+            'track_count': playlist_info.get('tracks', {}).get('total', 0),
+            'tracks': []  # Will populate below
+        }
+        
+        # Fetch tracks (handle pagination)
+        results = sp.playlist_items(playlist_id)
+        
+        while results:
+            for item in results['items']:
+                track = item.get('track')
+                if track:
+                    tracks.append(track)
+            if results.get('next'):
+                results = sp.next(results)
+            else:
+                break
+
+        metadata['tracks'] = tracks
+        return metadata
+    except Exception as e:
+        print(f"Error fetching playlist metadata or tracks: {e}")
+
+
+def get_all_user_playlist_ids(sp):
+    """
+    Fetch all playlists owned or followed by the current user.
+    
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+        
+    Returns:
+        list of str: Playlist IDs.
+    """
+    playlist_ids = []
+    offset = 0
+    limit = 50
+
+    while True:
+        response = sp.current_user_playlists(limit=limit, offset=offset)
+        items = response.get('items', [])
+        if not items:
+            break
+
+        for playlist in items:
+            playlist_ids.append(playlist['id'])
+
+        if response.get('next') is None:
+            break
+
+        offset += limit
+
+    return playlist_ids
+
+
+### TO_DO: This is where the classifier will be used. For now it is a placeholder., ENSURE THIS DOESNT RETURN SELF IN LATER PROD CVERSIONS  
+# When complete, this will support showing most and least similar users, etc.
+# WE MUST KEEP IN MIND COST OF DATABASE CALLS WITH THIS
+# Increasing the number of users fetched may improve range—consider switching to a % similarity threshold instead.
+
+def get_similar_users(user_vector, num_most_similar=5, num_least_similar=5):
+    """
+    Placeholder for user similarity classifier.
+
+    Args:
+        user_vector (dict): Feature vector of the current user (e.g., normalized genre distribution).
+        num_most_similar (int): Number of most similar users to return.
+        num_least_similar (int): Number of least similar users to return.
+
+    Returns:
+        dict: {
+            'most_similar': list of user_ids (or user objects),
+            'least_similar': list of user_ids (or user objects)
+        }
+
+    Note:
+        This is a placeholder. The actual similarity logic will be implemented by Noah.
+        Make sure this function is optimized to avoid costly database calls in the future.
+    """
+    print("get_similar_users: placeholder function - actual similarity logic not implemented yet.")
+
+    # In real implementation, load all user vectors from DB
+    # Example: all_user_vectors = db_handler.get_all_user_vectors()
+
+    return {
+        'most_similar': [],
+        'least_similar': []
+    }
+
+def create_playlist_from_users(sp, user_ids, total_songs, playlist_name, playlist_description="Spotify Stats"):
+    """
+    Gathers songs from a list of users and creates a playlist.
+
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+        user_ids (list): List of user IDs to source tracks from.
+        total_songs (int): Total number of songs desired in the playlist.
+        playlist_name (str): Title of the playlist to create.
+        playlist_description (str, optional): Description for the playlist.
+
+    Returns:
+        dict or None: Playlist metadata if successful, otherwise None.
+    """
+    from db_handler import DynamoDBHandler  # Import inside to avoid circular dependency
+    db = DynamoDBHandler()
+    all_uris = []
+
+    if not user_ids:
+        print("No users provided. Playlist not created.")
+        return None
+
+    songs_per_user = max(1, total_songs // len(user_ids))
+
+    for uid in user_ids:
+        try:
+            user_data = db.get_user_data(uid)
+            top_tracks = user_data.get('top_tracks', [])
+            track_uris = top_tracks[:songs_per_user]
+            if track_uris:
+                all_uris.extend(track_uris)
+        except Exception as e:
+            print(f"Error fetching tracks for user {uid}: {e}")
+
+    if not all_uris:
+        print("No tracks collected. Playlist not created.")
+        return None
+
+    return create_playlist(
+        sp=sp,
+        title=playlist_name,
+        track_uris=all_uris,
+        description=playlist_description or "Auto-generated playlist",
+        public=False
+    )
+
+def get_similar_users_for_playlists(user_vector):
+    """
+    Retrieves and segments similar users into three categories for playlist generation.
+
+    Returns:
+        dict: {
+            'most_similar': [...],
+            'least_similar': [...],
+            'mid_range': [...]
+        }
+    """
+    sim_results = get_similar_users(user_vector, num_most_similar=30, num_least_similar=30)
+    most_similar_all = sim_results.get('most_similar', [])
+    least_similar_all = sim_results.get('least_similar', [])
+
+    return {
+        'most_similar': most_similar_all[:5],
+        'least_similar': least_similar_all[:10],
+        'mid_range': most_similar_all[5:12]  # next 7 after the top 5
+    }
+
+def generate_similarity_playlists(sp, user_groups, total_songs=100):
+    """
+    Generates playlists using pre-segmented user groups.
+
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+        user_groups (dict): Dictionary of user groups.
+        total_songs (int): Total number of songs to collect for each playlist.
+
+    Returns:
+        dict: Playlist creation results for each category.
+    """
+    return {
+        'most_similar': create_playlist_from_users(
+            sp, user_groups.get('most_similar', []), total_songs,
+            playlist_name="From Most Similar Users"
+        ),
+        'least_similar': create_playlist_from_users(
+            sp, user_groups.get('least_similar', []), total_songs,
+            playlist_name="From Least Similar Users"
+        ),
+        'mid_range': create_playlist_from_users(
+            sp, user_groups.get('mid_range', []), total_songs,
+            playlist_name="From Mid-Range Similar Users"
+        )
+    }
