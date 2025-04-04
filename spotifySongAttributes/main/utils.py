@@ -43,7 +43,7 @@ def save_unknown_genres(unknown_genres, unknown_genres_file="unknown_genres.json
 def get_top_100(sp):
     top_tracks = []
     limit = 50  # Spotify API max limit for top tracks per request
-    time_range = 'medium_term'  # Approx. last 6 months (includes this year)
+    time_range = 'long_term'  # Approx. last 6 months (includes this year)
 
     try:
         # Fetch first 50 tracks
@@ -103,6 +103,8 @@ def parse_tracks(sp, raw_tracks, genre_cache):
     subgenre_count = {}  # Dictionary to store genre counts
 
     for track in raw_tracks:  # raw_tracks is now a flat list of tracks
+        if not track.get('artists'):
+            continue  # grabbing artist_id
         artist_id = track['artists'][0]['id']  # grabbing artist_id
         if artist_id not in genre_cache:  # checking if in genre cache
             unknown_artist_ids.add(artist_id)  # adding to unknown set if not in
@@ -114,7 +116,7 @@ def parse_tracks(sp, raw_tracks, genre_cache):
             "album_name": track['album']['name'],
             "uri": track['uri'],
             "url": track["external_urls"]['spotify'],
-            "album_cover": track['album']['images'][0]['url'],
+            "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
         })
 
      # Fetching unknown artist genres and adding to our genre_cache
@@ -181,54 +183,3 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
-
-# Fetch playlist metadata and all track items from a Spotify playlist.
-def parse_playlist(sp, playlist_id):
-    """
-
-    Returns:
-        dict: {
-            'id': str,
-            'name': str,
-            'description': str,
-            'owner': str,
-            'image_url': str or None,
-            'track_count': int,
-            'tracks': list of track dicts
-        }
-    """
-    metadata = {}
-    tracks = []
-
-    try:
-        # Fetch playlist metadata
-        playlist_info = sp.playlist(playlist_id)
-        
-        metadata = {
-            'id': playlist_info.get('id'),
-            'name': playlist_info.get('name'),
-            #'description': playlist_info.get('description', ''),
-            #'owner': playlist_info.get('owner', {}).get('display_name', 'Unknown'),
-            #'image_url': playlist_info['images'][0]['url'] if playlist_info.get('images') and len(playlist_info['images']) > 0 else None,
-            'track_count': playlist_info.get('tracks', {}).get('total', 0),
-            'tracks': []  # Will populate below
-        }
-        
-        # Fetch tracks (handle pagination)
-        results = sp.playlist_items(playlist_id)
-        
-        while results:
-            for item in results['items']:
-                track = item.get('track')
-                if track:
-                    tracks.append(track)
-            if results.get('next'):
-                results = sp.next(results)
-            else:
-                break
-
-        metadata['tracks'] = tracks
-        return metadata
-    except Exception as e:
-        print(f"Error fetching playlist metadata or tracks: {e}")
-

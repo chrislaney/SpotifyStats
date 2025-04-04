@@ -1,5 +1,7 @@
 import os
-from utils import load_genre_cache, parse_playlist, parse_tracks, fetch_top_tracks
+from utils import load_genre_cache, parse_tracks, fetch_top_tracks
+from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists
+from clustering import assign_user_cluster
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
@@ -8,12 +10,11 @@ from werkzeug.utils import redirect
 from user import User
 from db_handler import DynamoDBHandler
 from dotenv import load_dotenv
+from datetime import datetime
 
 print("Flask is running THIS file:", __file__)
 # Create the Flask app
 app = Flask(__name__)
-
-#change in prod 
 app.config['SECRET_KEY'] = os.urandom(64)
 
 # Load environment variables from .env file
@@ -37,14 +38,12 @@ try:
 except Exception as e:
     print(f"Error setting up DynamoDB tables: {e}")
 
-#these are got when you create a spotify developer app on spotify.com
-# Get Spotify credentials from environment variables
+# Spotify OAuth Configuration
 client_id = os.environ.get('SPOTIFY_CLIENT_ID')
 client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
 redirect_uri = os.environ.get('SPOTIFY_REDIRECT_URI', 'http://localhost:5000/callback')
-
-#need all the scopes listed to fetch data wanted
-scope = 'user-library-read, user-top-read, playlist-read-private' #to add more scopes you just seperate them within the string with a comma
+#need all the scopes listed to fetch data wanted and create platylists 
+scope = 'user-library-read, user-top-read, playlist-read-private, playlist-modify-private, playlist-modify-public'
 
 # OAuth handler
 cache_handler = FlaskSessionCacheHandler(session)
@@ -105,16 +104,14 @@ def get_user():
             # Get Spotify user ID
             spotify_user_id = sp.current_user()['id']
 
-
-            
-            # Try to get user from DynamoDB first
+           # Try to get user from DynamoDB first
             existing_user_data = db_handler.get_user_data(spotify_user_id)
             
             # Check if we need to refresh the user data (e.g., if it's more than a day old)
             refresh_user_data = True
             if existing_user_data:
+                
                 # Check the last_updated timestamp
-                from datetime import datetime, timedelta
                 current_time = datetime.now()
                 last_updated = datetime.fromisoformat(existing_user_data.get('last_updated', '2000-01-01T00:00:00'))
                 time_difference = current_time - last_updated
@@ -123,11 +120,12 @@ def get_user():
                 if time_difference.total_seconds() < 24 * 3600:  # Less than 24 hours
                     refresh_user_data = False
                     print(f"Using cached user data (last updated: {last_updated})")
-            
+
             if refresh_user_data:
                 # Create user object from Spotify API
                 user = User.from_spotify(sp, genre_cache)
-                
+                # Assign cluster 
+                user.cluster_id = int(assign_user_cluster(user.supergenres))
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -270,14 +268,31 @@ def get_top_tracks(time_range):
     else:
         return token_info  # Redirect response
 
-# Logout route
+@app.route('/generate_similarity_playlists')
+def similarity_playlists():
+    token_info = ensure_token_or_redirect()
+    if isinstance(token_info, dict):
+        sp = Spotify(auth=token_info['access_token'])
+        manual = request.args.get("manual") == "true"
+        playlist_length = int(request.args.get("length", 100))
+
+        if manual:
+            user_vector = {"Pop": 0.2, "Hip Hop": 0.3, "Electronic": 0.1}
+        else:
+            genre_cache = load_genre_cache()
+            user = User.from_spotify(sp, genre_cache)
+            user_vector = user.supergenres
+        playlists = generate_similarity_playlists(sp, user_vector, db_handler, total_songs=playlist_length)
+
+        return jsonify({
+            group: pl['external_urls']['spotify'] if pl else None
+            for group, pl in playlists.items()
+        })
+
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('home'))
 
-# Run the Flask app
 if __name__ == '__main__':
     app.run(debug=True)
-
-

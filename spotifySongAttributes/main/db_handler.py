@@ -3,7 +3,8 @@ import boto3
 import uuid
 from datetime import datetime
 from decimal import Decimal
-import json
+import json, os
+from boto3.dynamodb.conditions import Key
 
 class DynamoDBHandler:
     """
@@ -48,6 +49,8 @@ class DynamoDBHandler:
             return [DynamoDBHandler._convert_floats_to_decimal(i) for i in obj]
         elif isinstance(obj, float):
             return Decimal(str(obj))
+        elif isinstance(obj, int):
+            return obj
         else:
             return obj
     
@@ -297,3 +300,25 @@ class DynamoDBHandler:
                 self.tracks_table.delete_item(Key={'entry_id': entry_id})
         
         return True
+
+    def get_users_from_cluster(self, cluster_id, num_users=5):
+        """
+        Retrieve a specified number of users from a given cluster using the cluster_id-index GSI(secondary index) .
+    
+        Args:
+            cluster_id (int): The cluster ID to filter by.
+            num_users (int): The number of users to retrieve.
+
+        Returns:
+            list: A list of user data dictionaries.
+        """
+        try:
+            response = self.users_table.query(
+                IndexName='cluster_id-index',
+                KeyConditionExpression=Key('cluster_id').eq(cluster_id),
+                Limit=num_users
+            )
+            return response.get('Items', [])
+        except Exception as e:
+            print(f"Error fetching users from cluster {cluster_id}: {e}")
+            return []
