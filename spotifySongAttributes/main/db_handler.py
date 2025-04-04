@@ -227,7 +227,7 @@ class DynamoDBHandler:
         Returns:
             str: The entry ID
         """
-        entry_id = f"{user_id}_{time_range}_{uuid.uuid4()}"
+        entry_id = f"{user_id}_{time_range}"
         
         # Convert floats to Decimal for DynamoDB compatibility
         dynamo_data = {

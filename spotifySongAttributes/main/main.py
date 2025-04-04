@@ -123,10 +123,10 @@ def get_user():
                 if time_difference.total_seconds() < 24 * 3600:  # Less than 24 hours
                     refresh_user_data = False
                     print(f"Using cached user data (last updated: {last_updated})")
-            user = User.from_spotify(sp, genre_cache)
+            
             if refresh_user_data:
                 # Create user object from Spotify API
-                #user = User.from_spotify(sp, genre_cache)
+                user = User.from_spotify(sp, genre_cache)
                 
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
