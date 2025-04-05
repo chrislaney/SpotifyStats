@@ -3,7 +3,8 @@ import boto3
 import uuid
 from datetime import datetime
 from decimal import Decimal
-import json
+import json, os
+from boto3.dynamodb.conditions import Key
 
 class DynamoDBHandler:
     """
@@ -48,6 +49,8 @@ class DynamoDBHandler:
             return [DynamoDBHandler._convert_floats_to_decimal(i) for i in obj]
         elif isinstance(obj, float):
             return Decimal(str(obj))
+        elif isinstance(obj, int):
+            return obj
         else:
             return obj
     
@@ -70,31 +73,6 @@ class DynamoDBHandler:
                 ProvisionedThroughput={'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
             )
             print("Created SpotifyUsers table")
-            
-        # Create Playlists table if it doesn't exist
-        if 'UserPlaylists' not in existing_tables:
-            self.dynamodb.create_table(
-                TableName='UserPlaylists',
-                KeySchema=[
-                    {'AttributeName': 'playlist_id', 'KeyType': 'HASH'},  # Partition key
-                ],
-                AttributeDefinitions=[
-                    {'AttributeName': 'playlist_id', 'AttributeType': 'S'},
-                    {'AttributeName': 'user_id', 'AttributeType': 'S'},
-                ],
-                GlobalSecondaryIndexes=[
-                    {
-                        'IndexName': 'UserIdIndex',
-                        'KeySchema': [
-                            {'AttributeName': 'user_id', 'KeyType': 'HASH'},
-                        ],
-                        'Projection': {'ProjectionType': 'ALL'},
-                        'ProvisionedThroughput': {'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
-                    },
-                ],
-                ProvisionedThroughput={'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
-            )
-            print("Created UserPlaylists table")
             
         # Create Tracks table if it doesn't exist
         if 'UserTracks' not in existing_tables:
@@ -227,7 +205,7 @@ class DynamoDBHandler:
         Returns:
             str: The entry ID
         """
-        entry_id = f"{user_id}_{time_range}_{uuid.uuid4()}"
+        entry_id = f"{user_id}_{time_range}"
         
         # Convert floats to Decimal for DynamoDB compatibility
         dynamo_data = {
@@ -297,3 +275,25 @@ class DynamoDBHandler:
                 self.tracks_table.delete_item(Key={'entry_id': entry_id})
         
         return True
+
+    def get_users_from_cluster(self, cluster_id, num_users=5):
+        """
+        Retrieve a specified number of users from a given cluster using the cluster_id-index GSI(secondary index) .
+    
+        Args:
+            cluster_id (int): The cluster ID to filter by.
+            num_users (int): The number of users to retrieve.
+
+        Returns:
+            list: A list of user data dictionaries.
+        """
+        try:
+            response = self.users_table.query(
+                IndexName='cluster_id-index',
+                KeyConditionExpression=Key('cluster_id').eq(cluster_id),
+                Limit=num_users
+            )
+            return response.get('Items', [])
+        except Exception as e:
+            print(f"Error fetching users from cluster {cluster_id}: {e}")
+            return []

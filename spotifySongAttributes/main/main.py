@@ -1,19 +1,20 @@
 import os
-from utils import load_genre_cache, parse_playlist, parse_tracks  
+from utils import load_genre_cache, parse_tracks, fetch_top_tracks
+from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists
+from clustering import assign_user_cluster
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from spotipy.cache_handler import FlaskSessionCacheHandler
 from werkzeug.utils import redirect
 from user import User
 from db_handler import DynamoDBHandler
 from dotenv import load_dotenv
+from datetime import datetime
 
 print("Flask is running THIS file:", __file__)
 # Create the Flask app
 app = Flask(__name__)
-
-#change in prod 
 app.config['SECRET_KEY'] = os.urandom(64)
 
 # Load environment variables from .env file
@@ -37,14 +38,12 @@ try:
 except Exception as e:
     print(f"Error setting up DynamoDB tables: {e}")
 
-#these are got when you create a spotify developer app on spotify.com
-# Get Spotify credentials from environment variables
+# Spotify OAuth Configuration
 client_id = os.environ.get('SPOTIFY_CLIENT_ID')
 client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
 redirect_uri = os.environ.get('SPOTIFY_REDIRECT_URI', 'http://localhost:5000/callback')
-
-#need all the scopes listed to fetch data wanted
-scope = 'user-library-read, user-top-read, playlist-read-private' #to add more scopes you just seperate them within the string with a comma
+#need all the scopes listed to fetch data wanted and create platylists 
+scope = 'user-library-read, user-top-read, playlist-read-private, playlist-modify-private, playlist-modify-public'
 
 # OAuth handler
 cache_handler = FlaskSessionCacheHandler(session)
@@ -104,15 +103,15 @@ def get_user():
             
             # Get Spotify user ID
             spotify_user_id = sp.current_user()['id']
-            
-            # Try to get user from DynamoDB first
+
+           # Try to get user from DynamoDB first
             existing_user_data = db_handler.get_user_data(spotify_user_id)
             
             # Check if we need to refresh the user data (e.g., if it's more than a day old)
             refresh_user_data = True
             if existing_user_data:
+                
                 # Check the last_updated timestamp
-                from datetime import datetime, timedelta
                 current_time = datetime.now()
                 last_updated = datetime.fromisoformat(existing_user_data.get('last_updated', '2000-01-01T00:00:00'))
                 time_difference = current_time - last_updated
@@ -125,7 +124,8 @@ def get_user():
             if refresh_user_data:
                 # Create user object from Spotify API
                 user = User.from_spotify(sp, genre_cache)
-                
+                # Assign cluster 
+                user.cluster_id = int(assign_user_cluster(user.supergenres))
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -135,16 +135,12 @@ def get_user():
                     tracks_data=user.top_tracks,
                     time_range='medium_term'  # Default time range
                 )
-                
-                # return jsonify({"user": user.__dict__, "source": "spotify_api"})
+
                 return render_template('dashboard.html', user=user.__dict__)
             else:
-                # Return the cached user data
-                print( jsonify({"user": existing_user_data, "source": "database"}))
-                # print(existing_user_data)
-                return render_template('dashboard.html', user={"user": existing_user_data, "source": "database"})
+                return render_template('dashboard.html', user=existing_user_data)
 
-                
+
         except Exception as e:
             print(f"Error fetching user data: {e}")
             return jsonify({'error': str(e)})
@@ -154,49 +150,47 @@ def get_user():
 # Get playlist data
 @app.route('/get_playlist/<playlist_id>')
 def get_playlist_data(playlist_id):
-    token_info = ensure_token_or_redirect()
-    if isinstance(token_info, dict):
-        try:
-            # First, try to get the playlist data from DynamoDB
-            cached_playlist = db_handler.get_playlist_data(playlist_id)
-            
-            if cached_playlist:
-                # Return cached data if available
-                return jsonify({**cached_playlist, "source": "database"})
-            
-            # If not in database, fetch from Spotify API
-            sp = Spotify(auth=token_info['access_token'])
-            genre_cache = load_genre_cache()
-            user_id = sp.current_user()['id']
+    #token_info = ensure_token_or_redirect()
+    try:
+        # First, try to get the playlist data from DynamoDB
+        cached_playlist = db_handler.get_playlist_data(playlist_id)
 
-            playlist_data = parse_playlist(sp, playlist_id)
+        if cached_playlist:
+            # Return cached data if available
+            return jsonify({**cached_playlist, "source": "database"})
 
-            parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
-                sp, playlist_data['tracks'], genre_cache
-            )
+        # If not in database, fetch from Spotify API
+        client_credentials_manager = SpotifyClientCredentials(
+            client_id=client_id,
+            client_secret=client_secret
+        )
+        sp = Spotify(client_credentials_manager=client_credentials_manager)
+        genre_cache = load_genre_cache()
+        user_id = sp.current_user()['id']
 
-            response = {
-                "playlist_id": playlist_id,  # Used as the DynamoDB key
-                "playlist_metadata": {
-                    "id": playlist_data['id'],
-                    "name": playlist_data['name'],
-                    "track_count": playlist_data['track_count']
-                },
-                "subgenre_distribution": subgenre_distro,
-                "supergenre_distribution": supergenre_distro
-            }
-            
-            # Save the playlist analysis to DynamoDB
-            db_handler.save_playlist_data(user_id, response)
+        playlist_data = parse_playlist(sp, playlist_id)
 
-            # Return the response with a source indicator
-            return jsonify({**response, "source": "spotify_api"})
+        parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
+            sp, playlist_data['tracks'], genre_cache
+        )
 
-        except Exception as e:
-            print(f"Error fetching playlist data: {e}")
-            return jsonify({'error': str(e)})
-    else:
-        return token_info  # Redirect response
+        response = {
+            "playlist_id": playlist_id,  # Used as the DynamoDB key
+            "playlist_metadata": {
+                "id": playlist_data['id'],
+                "name": playlist_data['name'],
+                "track_count": playlist_data['track_count']
+            },
+            "subgenre_distribution": subgenre_distro,
+            "supergenre_distribution": supergenre_distro
+        }
+
+        # Return the response with a source indicator
+        return jsonify({**response, "source": "spotify_api"})
+
+    except Exception as e:
+        print(f"Error fetching playlist data: {e}")
+        return jsonify({'error': str(e)})
 
 # Get user's analyzed playlists
 @app.route('/get_user_playlists')
@@ -238,9 +232,6 @@ def get_top_tracks(time_range):
             
             if tracks_data:
                 return jsonify({**tracks_data, "source": "database"})
-                
-            # If not in database, fetch from Spotify API
-            from utils import fetch_top_tracks, parse_tracks, load_genre_cache
             
             genre_cache = load_genre_cache()
             top_tracks_raw = fetch_top_tracks(sp, num_tracks=50, time_range=time_range)
@@ -274,14 +265,31 @@ def get_top_tracks(time_range):
     else:
         return token_info  # Redirect response
 
-# Logout route
+@app.route('/generate_similarity_playlists')
+def similarity_playlists():
+    token_info = ensure_token_or_redirect()
+    if isinstance(token_info, dict):
+        sp = Spotify(auth=token_info['access_token'])
+        manual = request.args.get("manual") == "true"
+        playlist_length = int(request.args.get("length", 100))
+
+        if manual:
+            user_vector = {"Pop": 0.2, "Hip Hop": 0.3, "Electronic": 0.1}
+        else:
+            genre_cache = load_genre_cache()
+            user = User.from_spotify(sp, genre_cache)
+            user_vector = user.supergenres
+        playlists = generate_similarity_playlists(sp, user_vector, db_handler, total_songs=playlist_length)
+
+        return jsonify({
+            group: pl['external_urls']['spotify'] if pl else None
+            for group, pl in playlists.items()
+        })
+
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('home'))
 
-# Run the Flask app
 if __name__ == '__main__':
     app.run(debug=True)
-
-
