@@ -1,6 +1,39 @@
-﻿# user_from_playlists.py
+﻿#### TODOSPLIT PLAYLIST IN TO CHUNKS BEFORE GETTING DISTROS,
+
+"""
+user_from_playlists.py
+
+This script generates synthetic user profiles from public Spotify playlists to simulate diverse listening behavior,
+drawing data from both real people and curated artist sources.
+
+It contains two main functions:
+
+- `real_people()`:
+    - Creates users from a curated list of Top 100 public playlists shared by friends and family.
+    - Intended to reflect authentic, diverse music taste patterns from everyday listeners in the target region.
+    - For each playlist, it creates 5 synthetic users by chunking the playlist into groups of 20 tracks.
+
+- `artist_users()`:
+    - Builds users from Spotify artist radio playlists.
+    - These represent narrower listening profiles centered around a specific artist or genre cluster.
+    - For each artist playlist, it generates 2 users by slicing the top 50 tracks into two 25-track segments.
+
+Each generated user is saved as a JSON file in the format defined by the `User` class in `user.py`, which includes:
+- A unique username (formatted as: `{generate_fake_name()}-{playlist_id}-{chunk_id}`)
+- A list of top track URIs
+- A set of subgenres and supergenres derived from playlist content
+
+These user profiles are used to prototype and test:
+- Recommendation engine performance
+- Clustering and segmentation strategies
+- Genre distribution modeling
+- Classifier bootstrapping for a live demo environment
+"""
+
+# user_from_playlists.py
 import sys, os
 import json
+import random
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyClientCredentials
 from utils import parse_playlist, parse_tracks
@@ -15,6 +48,10 @@ sp = Spotify(auth_manager=SpotifyClientCredentials(
     client_id=client_id,
     client_secret=client_secret
 ))
+
+# output dirs
+real_output_dir = "users_and_artists"
+artist_output_dir = "users_and_artists"
 
 # List of public playlist IDs
 artist_playlist_ids =  ['5l7T9Q5z13VeUNVyWvxhqO', '2ntYm3kyUfO2AfVBsSAzPo', '64Oj3WwNX5pIRDqNqZ2Qjc', '4OWUKCryi1l2GuFYStGokT', '3yoS7AFclOLR1KqrdOaMcV',
@@ -36,99 +73,89 @@ artist_playlist_ids =  ['5l7T9Q5z13VeUNVyWvxhqO', '2ntYm3kyUfO2AfVBsSAzPo', '64O
 
 
 
-""" top 50 USA artitts radio plsylist ID:"""
 
-# RELA USERS THAT ARE PROCESSED(if changes made to this file rerun ): 
-user_playlist_ids =["6ChSRuGzWIczjZrp90BQzz" ,"298ake83n1yhQ7gkwjMWvW" , "40mZ7Gaf29yKaxrmhrprpN", "04vajMJKqrwB1O7ib4V8rt",
-                "6YlQzadiLbJGadpoU5RLK3" ,"7zSThiDt2I7KKfZV6IwGPK" ,"6sJRtdkkDf5wbxU3VdSzbP", "76kxhBeCZ96VobdTzzdeKn", 
-                "2wb0rMjJ5hutwTYJI8X4X1" , "0m5IYySEaM09FmHJIdykEp", "2tWFZzDS89QEeKFGLoks5U" , "6pHLiYgCEk5tO2NK29A9X3",
-                "6NSWokS0pez4VnnkJCeIXb" ,"74TmSEjAwIqDr1wgRijfFx", "4sHoEQ24vcPxLxHzWQDyVg", "4vhKJUznLeYjQP0jbt13Qm",
-                "1gD5khdDLnM3MsRP0delei", "2O0aXCqEqfr68dLXScLRbz" ,
-                "4UPRr6AuZxCPIFLTJlCfs5", "43YS3rrnq6RuPqNlm4Ex0q" , "4iKlDePfpw3uWf1jpF1Csa" ]  
+# real USERS THAT ARE PROCESSED
+user_playlist_ids =["6ChSRuGzWIczjZrp90BQzz","298ake83n1yhQ7gkwjMWvW" , "40mZ7Gaf29yKaxrmhrprpN", "04vajMJKqrwB1O7ib4V8rt", "6YlQzadiLbJGadpoU5RLK3" ,"7zSThiDt2I7KKfZV6IwGPK",
+                "6sJRtdkkDf5wbxU3VdSzbP", "76kxhBeCZ96VobdTzzdeKn","2wb0rMjJ5hutwTYJI8X4X1" , "0m5IYySEaM09FmHJIdykEp", "2tWFZzDS89QEeKFGLoks5U" , "6pHLiYgCEk5tO2NK29A9X3",
+                "6NSWokS0pez4VnnkJCeIXb" ,"74TmSEjAwIqDr1wgRijfFx", "4sHoEQ24vcPxLxHzWQDyVg", "4vhKJUznLeYjQP0jbt13Qm", "1gD5khdDLnM3MsRP0delei", "2O0aXCqEqfr68dLXScLRbz" ,
+                "4UPRr6AuZxCPIFLTJlCfs5", "43YS3rrnq6RuPqNlm4Ex0q", "4iKlDePfpw3uWf1jpF1Csa",
+                "5l7T9Q5z13VeUNVyWvxhqO","21kb6OcIz6j06nVifm37Ga","31X0F4EGRT2FpBx990MGiJ","3V1acvna6D1D6QpOQYLI2n","6PVN4OdpFJ5iGUPuI0uY8Y","2aQhktPRgg7BakDiOItO2k",
+                "6MlTnYPKMoflonRjw31UW1","6NvIDlv5yahZMUqLnNb9nv","5xAVMC8aLqRHR4PC6nsuQS","6LII3wPfVtIPoh9eeuuIUH","6x1ueDaHtIljSED4FpIS8a","0MuphdaIsEABYabIKY3Izb",
+                "0YETZafYeidii0e8jfZROv","6Nb5NATlZjTCywhoCbNUDf","7r5gWYgYVfgiEcAZIIjZNZ","2K4CPmuC0XCA4glnBKBhfs","32qOp1NfNG1wkEuZQ6xyBc","5Z8kqdg7bRDKVbFxa1mbJA",
+                "0y45wj8H1EFtqbn2yVx7ue","5lLQERLH7mObFu02sF1t49","6mpSYC44fBLJKtSKF4Cw9D","7hloNqEG80PX35C0InYmKT","3GV9R1UznADcHpNolaGAAL","5ZZm4tzxmceQ3T9sjsFyc9",
+                "37i9dQZF1FoDDwExMHbSCU","37i9dQZF1FoJbCUxiMVyxo","37i9dQZF1FoHjotSFpTAzq","42xUPn8mIXpLFnGfyFrrqt","3xAS4ZwAs02HNkq9X4tkPU","1c8BcOZFRjCJiW60AXZh29",
+                "4iVPcLfmxM7t4ykB5qCapG","1dXdZ3T4fMsiuv3nvWREOi","2SGpyIAdOHDH8F2GIrTANe","7KiGD6BDIqA6eQANfCiN0B","1Rk8qsP4nChMQuP2mUUO01","0gT261kc8QY6QlpZSkUxCH"
+                "5r3GjMppXqPM1rCFRxwHqc","1BuwhD1RkZlQ93pntxudIQ","5V7El0owiHagVgsE0Bhle1","2PWNHoPdjeUeZgCQTqy3nB","3cc4HXiuQHncQ7qqj66S2S"]
 
+# Fake name generator
+adjectives = [
+    "vibey", "sunny", "moody", "cozyy", "zesty",
+    "quirk", "breez", "cloud", "sassy", "faint",
+    "foggy", "spicy", "grimy", "fizzy", "sleek",
+    "hasty", "tidal", "fuzzy", "stark", "dusky",
+    "brisk", "silly", "nerdy", "witty", "lofty"
+]
+nouns = [
+    "panda", "koala", "robot", "ninja", "cloud",
+    "squid", "lemon", "berry", "tulip", "mossy",
+    "candy", "ghost", "wheat", "petal", "storm",
+    "vapor", "stone", "pearl", "flame", "honey",
+    "raven", "sloth", "scone", "lilac", "bloom"
+]
 
-def real_people():
-    output_dir = "generated_users"
-    os.makedirs(output_dir, exist_ok=True)
+def generate_fake_name():
+    return f"{random.choice(adjectives)}_{random.choice(nouns)}"
 
-    # Process each playlist
-    for i, playlist_id in enumerate(user_playlist_ids):
-        try:
-            playlist_data = parse_playlist(sp, playlist_id)
+def make_users_from_playlist(playlist_id, chunk_size, num_chunks, output_dir, is_artist=False):
+    try:
+        playlist_data = parse_playlist(sp, playlist_id)
+        if not playlist_data or not playlist_data.get('name'):
+            print(f"Skipping playlist {playlist_id} - no name found")
+            return
 
-            if not playlist_data or not playlist_data.get('name'):
-                print(f"Skipping playlist {playlist_id} - no name found")
+        tracks = playlist_data['tracks']
+        playlist_name_raw = playlist_data.get('name', '').strip()
+        playlist_name_clean = playlist_name_raw.lower().replace(" ", "_").replace("/", "_")[:50] if playlist_name_raw else "unknown"
+
+        for idx in range(num_chunks):
+            chunk = tracks[idx * chunk_size : (idx + 1) * chunk_size]
+            if len(chunk) < chunk_size:
+                print(f"Warning: Chunk {idx+1} of playlist {playlist_id} has only {len(chunk)} tracks")
                 continue
 
-            base_username = playlist_data['name'][:10].lower().replace(" ", "")
-            username = f"{playlist_id}-{base_username}"
-
-            parsed_tracks, subgenres, supergenres = parse_tracks(  sp, playlist_data['tracks'], genre_cache={})
+            parsed_tracks, subgenres, supergenres = parse_tracks(sp, chunk, genre_cache={})
             track_uris = [track['uri'] for track in parsed_tracks]
 
-            user = User(user_id=username,
-                        top_tracks=track_uris ,
-                        subgenres=subgenres,
-                        supergenres=supergenres)
+            fake_name = generate_fake_name()
 
-            output_path = os.path.join(output_dir, f"{username}.json")
+            if is_artist:
+                user_id = f"{playlist_name_clean[:11]}-{playlist_id}-{idx+1}"
+            else:
+                user_id = f"{fake_name}-{playlist_id}-{idx+1}"
+
+            user = User(user_id=user_id, top_tracks=track_uris, subgenres=subgenres, supergenres=supergenres)
+
+            os.makedirs(output_dir, exist_ok=True)
+            output_path = os.path.join(output_dir, f"{user_id}.json")
+
             with open(output_path, "w") as f:
                 json.dump(user.__dict__, f, indent=2)
 
-            print(f"Saved: {output_path}")
+            print(f"Saved {user_id} | Tracks: {len(track_uris)} | Subgenres: {len(subgenres)} | Supergenres: {len(supergenres)}")
 
-        except Exception as e:
-            print(f"Error processing {playlist_id}: {e}")
+    except Exception as e:
+        print(f"Error processing playlist {playlist_id}: {e}")
 
-
+def real_people():
+    output_dir = "users_and_artists/real"
+    for pid in user_playlist_ids:
+        make_users_from_playlist(pid, chunk_size=33, num_chunks=3, output_dir=output_dir, is_artist=False)
 
 def artist_users():
-    # Output directory
-    output_dir = "top_artist_users"
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Process each playlist
-    for playlist_id in artist_playlist_ids:
-        try:
-            playlist_data = parse_playlist(sp, playlist_id)
-
-            if not playlist_data or not playlist_data.get('name'):
-                print(f"Skipping playlist {playlist_id} - no name found")
-                continue
-
-            base_username = playlist_data['name'].strip().lower().replace(" ", "_")
-            parsed_tracks, subgenres, supergenres = parse_tracks(
-                sp, playlist_data['tracks'], genre_cache={}
-            )
-            track_uris = [track['uri'] for track in parsed_tracks]
-
-            if len(track_uris) < 50:
-                print(f" Playlist {playlist_id} has fewer than 50 tracks — skipping")
-                continue
-
-            # Create 5 chunks of 10 tracks each
-            for idx in range(5):
-                chunk = track_uris[idx * 10 : (idx + 1) * 10]
-                username = f"{base_username}_{idx+1}"
-
-                user = User(
-                    user_id=username,
-                    top_tracks=chunk,
-                    subgenres=subgenres,
-                    supergenres=supergenres
-                )
-
-                output_path = os.path.join(output_dir, f"{username}.json")
-                with open(output_path, "w") as f:
-                    json.dump(user.__dict__, f, indent=2)
-
-                print(f"aved: {output_path}")
-
-        except Exception as e:
-            print(f"Error processing {playlist_id}: {e}")
+    output_dir = "users_and_artists/artists"
+    for pid in artist_playlist_ids:
+        make_users_from_playlist(pid, chunk_size=25, num_chunks=2, output_dir=output_dir, is_artist=True)
 
 if __name__ == '__main__':
     real_people()
     artist_users()
-
-     
