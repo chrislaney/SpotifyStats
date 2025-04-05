@@ -134,7 +134,7 @@ def generate_similarity_playlists(sp, user_vector, db_handler, total_songs=100, 
             sp=sp,
             title=f"{group_name.replace('_', ' ').title()} Playlist",
             track_uris=group_uris[:total_songs],
-            description=f"Generated from {group_name.replace('_', ' ')} clusters",
+            description=f"Spotify Stats Generated from {group_name.replace('_', ' ')} clusters - Discover your sound :) ",
             public=False
         )
         playlists[group_name] = playlist
