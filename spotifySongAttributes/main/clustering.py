@@ -27,11 +27,11 @@ SUPERGENRES = [
 
 # Fake placeholder cluster profiles (replace with real centroids later)
 CLUSTER_VECTORS = {
-    -1: {"Pop": 0.7, "Hip Hop": 0.1, "Electronic": 0.1, "Latin": 0.1},
-    -1: {"Rock": 0.5, "Indie": 0.3, "Punk": 0.1, "Folk": 0.1},
-    -1: {"Hip Hop": 0.7, "R&B": 0.2, "Electronic": 0.1},
-    -1: {"Jazz": 0.4, "Classical": 0.3, "World": 0.3},
-    -1: {"Metal": 0.5, "Rock": 0.3, "Punk": 0.2},
+    0: {"Pop": 0.7, "Hip Hop": 0.1, "Electronic": 0.1, "Latin": 0.1},
+    1: {"Rock": 0.5, "Indie": 0.3, "Punk": 0.1, "Folk": 0.1},
+    2: {"Hip Hop": 0.7, "R&B": 0.2, "Electronic": 0.1},
+    3: {"Jazz": 0.4, "Classical": 0.3, "World": 0.3},
+    4: {"Metal": 0.5, "Rock": 0.3, "Punk": 0.2},
 }
 
 def cosine_similarity(vec1, vec2, all_keys):
@@ -51,4 +51,4 @@ def get_similar_clusters(user_vector, top_n=1):
     similarities.sort(key=lambda x: x[1], reverse=True)
     most_similar = similarities[:top_n]
     least_similar = similarities[-top_n:] if top_n < len(similarities) else similarities[top_n:]
-    return most_similar, least_similar
+    return [(-1, 1.0)], [(-1, 0.0)]# most_similar,least_similar
