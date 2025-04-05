@@ -74,31 +74,6 @@ class DynamoDBHandler:
             )
             print("Created SpotifyUsers table")
             
-        # Create Playlists table if it doesn't exist
-        if 'UserPlaylists' not in existing_tables:
-            self.dynamodb.create_table(
-                TableName='UserPlaylists',
-                KeySchema=[
-                    {'AttributeName': 'playlist_id', 'KeyType': 'HASH'},  # Partition key
-                ],
-                AttributeDefinitions=[
-                    {'AttributeName': 'playlist_id', 'AttributeType': 'S'},
-                    {'AttributeName': 'user_id', 'AttributeType': 'S'},
-                ],
-                GlobalSecondaryIndexes=[
-                    {
-                        'IndexName': 'UserIdIndex',
-                        'KeySchema': [
-                            {'AttributeName': 'user_id', 'KeyType': 'HASH'},
-                        ],
-                        'Projection': {'ProjectionType': 'ALL'},
-                        'ProvisionedThroughput': {'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
-                    },
-                ],
-                ProvisionedThroughput={'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
-            )
-            print("Created UserPlaylists table")
-            
         # Create Tracks table if it doesn't exist
         if 'UserTracks' not in existing_tables:
             self.dynamodb.create_table(

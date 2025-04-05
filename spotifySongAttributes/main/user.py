@@ -2,8 +2,9 @@ from utils import parse_tracks, load_genre_cache, get_top_100, fetch_top_tracks
 from datetime import datetime
 
 class User:
-    def __init__(self, user_id, top_tracks, subgenres, supergenres):
+    def __init__(self, user_id, display_name, top_tracks, subgenres, supergenres):
         self.user_id = user_id
+        self.display_name = display_name
         self.top_tracks = top_tracks  # Only track URIs stored
         self.subgenres = subgenres
         self.supergenres = supergenres
@@ -33,6 +34,7 @@ class User:
         # Get basic user profile
         profile = sp.current_user()
         user_id = profile['id']
+        display_name = profile['display_name']
         
         # Get top tracks and digest
         tracks_raw = fetch_top_tracks(sp, num_tracks=num_tracks, time_range=time_range)
@@ -42,6 +44,7 @@ class User:
 
         return cls(
             user_id=user_id,
+            display_name = display_name,
             top_tracks=top_tracks_uris,
             subgenres=subgenre_distro,
             supergenres=supergenre_distro
@@ -60,6 +63,7 @@ class User:
         """
         user = cls(
             user_id=user_data.get('user_id'),
+            display_name=user_data.get('display_name'),
             top_tracks=user_data.get('top_tracks', []),
             subgenres=user_data.get('subgenres', {}),
             supergenres=user_data.get('supergenres', {})

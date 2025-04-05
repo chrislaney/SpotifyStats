@@ -4,7 +4,7 @@ from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_s
 from clustering import assign_user_cluster
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from spotipy.cache_handler import FlaskSessionCacheHandler
 from werkzeug.utils import redirect
 from user import User
@@ -150,49 +150,47 @@ def get_user():
 # Get playlist data
 @app.route('/get_playlist/<playlist_id>')
 def get_playlist_data(playlist_id):
-    token_info = ensure_token_or_redirect()
-    if isinstance(token_info, dict):
-        try:
-            # First, try to get the playlist data from DynamoDB
-            cached_playlist = db_handler.get_playlist_data(playlist_id)
-            
-            if cached_playlist:
-                # Return cached data if available
-                return jsonify({**cached_playlist, "source": "database"})
-            
-            # If not in database, fetch from Spotify API
-            sp = Spotify(auth=token_info['access_token'])
-            genre_cache = load_genre_cache()
-            user_id = sp.current_user()['id']
+    #token_info = ensure_token_or_redirect()
+    try:
+        # First, try to get the playlist data from DynamoDB
+        cached_playlist = db_handler.get_playlist_data(playlist_id)
 
-            playlist_data = parse_playlist(sp, playlist_id)
+        if cached_playlist:
+            # Return cached data if available
+            return jsonify({**cached_playlist, "source": "database"})
 
-            parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
-                sp, playlist_data['tracks'], genre_cache
-            )
+        # If not in database, fetch from Spotify API
+        client_credentials_manager = SpotifyClientCredentials(
+            client_id=client_id,
+            client_secret=client_secret
+        )
+        sp = Spotify(client_credentials_manager=client_credentials_manager)
+        genre_cache = load_genre_cache()
+        user_id = sp.current_user()['id']
 
-            response = {
-                "playlist_id": playlist_id,  # Used as the DynamoDB key
-                "playlist_metadata": {
-                    "id": playlist_data['id'],
-                    "name": playlist_data['name'],
-                    "track_count": playlist_data['track_count']
-                },
-                "subgenre_distribution": subgenre_distro,
-                "supergenre_distribution": supergenre_distro
-            }
-            
-            # Save the playlist analysis to DynamoDB
-            db_handler.save_playlist_data(user_id, response)
+        playlist_data = parse_playlist(sp, playlist_id)
 
-            # Return the response with a source indicator
-            return jsonify({**response, "source": "spotify_api"})
+        parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
+            sp, playlist_data['tracks'], genre_cache
+        )
 
-        except Exception as e:
-            print(f"Error fetching playlist data: {e}")
-            return jsonify({'error': str(e)})
-    else:
-        return token_info  # Redirect response
+        response = {
+            "playlist_id": playlist_id,  # Used as the DynamoDB key
+            "playlist_metadata": {
+                "id": playlist_data['id'],
+                "name": playlist_data['name'],
+                "track_count": playlist_data['track_count']
+            },
+            "subgenre_distribution": subgenre_distro,
+            "supergenre_distribution": supergenre_distro
+        }
+
+        # Return the response with a source indicator
+        return jsonify({**response, "source": "spotify_api"})
+
+    except Exception as e:
+        print(f"Error fetching playlist data: {e}")
+        return jsonify({'error': str(e)})
 
 # Get user's analyzed playlists
 @app.route('/get_user_playlists')
@@ -234,7 +232,6 @@ def get_top_tracks(time_range):
             
             if tracks_data:
                 return jsonify({**tracks_data, "source": "database"})
-
             
             genre_cache = load_genre_cache()
             top_tracks_raw = fetch_top_tracks(sp, num_tracks=50, time_range=time_range)
