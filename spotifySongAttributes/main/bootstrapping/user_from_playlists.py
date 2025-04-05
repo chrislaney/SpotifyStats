@@ -84,7 +84,8 @@ user_playlist_ids =["6ChSRuGzWIczjZrp90BQzz","298ake83n1yhQ7gkwjMWvW" , "40mZ7Ga
                 "0y45wj8H1EFtqbn2yVx7ue","5lLQERLH7mObFu02sF1t49","6mpSYC44fBLJKtSKF4Cw9D","7hloNqEG80PX35C0InYmKT","3GV9R1UznADcHpNolaGAAL","5ZZm4tzxmceQ3T9sjsFyc9",
                 "37i9dQZF1FoDDwExMHbSCU","37i9dQZF1FoJbCUxiMVyxo","37i9dQZF1FoHjotSFpTAzq","42xUPn8mIXpLFnGfyFrrqt","3xAS4ZwAs02HNkq9X4tkPU","1c8BcOZFRjCJiW60AXZh29",
                 "4iVPcLfmxM7t4ykB5qCapG","1dXdZ3T4fMsiuv3nvWREOi","2SGpyIAdOHDH8F2GIrTANe","7KiGD6BDIqA6eQANfCiN0B","1Rk8qsP4nChMQuP2mUUO01","0gT261kc8QY6QlpZSkUxCH"
-                "5r3GjMppXqPM1rCFRxwHqc","1BuwhD1RkZlQ93pntxudIQ","5V7El0owiHagVgsE0Bhle1","2PWNHoPdjeUeZgCQTqy3nB","3cc4HXiuQHncQ7qqj66S2S"]
+                "5r3GjMppXqPM1rCFRxwHqc","1BuwhD1RkZlQ93pntxudIQ","5V7El0owiHagVgsE0Bhle1","2PWNHoPdjeUeZgCQTqy3nB","3cc4HXiuQHncQ7qqj66S2S", "2bBxmcoTwQfXW1g0GPiBOn",
+                "6IFJ4zyZ9J9A1zJ9x06hXo","1AIRIYNC6pOG4A4f0eOFvt","3Xu9gDzRhUEhCAoi7DVsTm","7K9SGQJ2DxiS9AkcLkAKSD"]
 
 # Fake name generator
 adjectives = [
@@ -132,7 +133,7 @@ def make_users_from_playlist(playlist_id, chunk_size, num_chunks, output_dir, is
             else:
                 user_id = f"{fake_name}-{playlist_id}-{idx+1}"
 
-            cluster_id = int(-1)
+            cluster_id =  int(-1)# once trained use  assign_user_cluster(supergenres) ad save t new dir to gen user to use in batch_upload_users.py :)
             user = User(
                 user_id=user_id,
                 top_tracks=track_uris,
