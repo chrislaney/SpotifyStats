@@ -169,6 +169,23 @@ def get_user():
     else:
         return token_info  # Redirect response
 
+
+@app.route('/get_user_data/<user_id>')
+def get_user_data(user_id):
+    try:
+        # Try to get user from DynamoDB
+        user_data = db_handler.get_user_data(user_id)
+        
+        if not user_data:
+            return jsonify({'error': 'User not found'}), 404
+            
+        # Return user data with all the necessary fields
+        return jsonify(user_data)
+        
+    except Exception as e:
+        print(f"Error fetching user data: {e}")
+        return jsonify({'error': str(e)}), 500
+
 # Get playlist data
 @app.route('/get_playlist/<playlist_id>')
 def get_playlist_data(playlist_id):

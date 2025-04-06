@@ -49,11 +49,54 @@
         {% endif %}
     </div>
 
+    <!-- Comparison Section -->
+    <div class="comparison-section">
+        <h2>Compare with others</h2>
+        <p>Enter a Spotify playlist or user URL to compare genre distributions</p>
+
+        <div class="comparison-tabs">
+            <button id="tabPlaylist" class="tab-button tab-active" onclick="switchTab('playlist')">Playlist</button>
+            <button id="tabUser" class="tab-button" onclick="switchTab('user')">User</button>
+        </div>
+
+        <div id="playlistInput" class="comparison-input">
+            <input type="text" id="comparePlaylistUrl" placeholder="https://open.spotify.com/playlist/..." />
+            <button class="comparison-button" onclick="comparePlaylist()">Compare</button>
+        </div>
+
+        <div id="userInput" class="comparison-input" style="display: none;">
+            <input type="text" id="compareUserUrl" placeholder="https://open.spotify.com/user/..." />
+            <button class="comparison-button" onclick="compareUser()">Compare</button>
+        </div>
+
+        <div class="comparison-loading" id="comparisonLoading">
+            Loading comparison data... Please wait.
+        </div>
+
+        <div class="comparison-error" id="comparisonError"></div>
+
+        <div class="comparison-chart-wrapper" id="comparisonChartContainer">
+            <canvas id="radarComparisonChart"></canvas>
+        </div>
+    </div>
+
     <div class="action-buttons">
         <button class="back-button" onclick="window.location.href='/'">Back to Home</button>
     </div>
 
     <script>
+        // Store the current user data
+        let currentUserData = {
+            name: "{{ user['display_name'] }}'s Listening",
+            supergenres: {}
+        };
+
+        {% for genre, count in user['supergenres'].items() %}
+            {% if count > 0 %}
+                currentUserData.supergenres["{{ genre }}"] = {{ (count | float * 100) }};
+            {% endif %}
+        {% endfor %}
+
         function toggleGenres() {
             const items = document.querySelectorAll('#subgenre-list .extra-item');
             const button = document.getElementById('showMoreBtn');
@@ -65,6 +108,298 @@
                 items.forEach(item => item.classList.add('hidden'));
                 button.innerText = "Show More";
             }
+        }
+
+        function switchTab(tab) {
+            // Update tab buttons
+            document.getElementById('tabPlaylist').classList.remove('tab-active');
+            document.getElementById('tabUser').classList.remove('tab-active');
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('tab-active');
+
+            // Update input displays
+            document.getElementById('playlistInput').style.display = tab === 'playlist' ? 'flex' : 'none';
+            document.getElementById('userInput').style.display = tab === 'user' ? 'flex' : 'none';
+
+            // Reset error state
+            document.getElementById('comparisonError').style.display = 'none';
+            document.getElementById('comparisonError').textContent = '';
+        }
+
+        function isValidPlaylistUrl(url) {
+            // Regex pattern to validate playlist URL
+            const playlistPattern = /^https:\/\/open\.spotify\.com\/playlist\/[a-zA-Z0-9]+(\?.*)?$/;
+            return playlistPattern.test(url);
+        }
+
+        function isValidUserUrl(url) {
+            // Regex pattern to validate user URL
+            const userPattern = /^https:\/\/open\.spotify\.com\/user\/[a-zA-Z0-9_-]+(\?.*)?$/;
+            return userPattern.test(url);
+        }
+
+        function extractPlaylistId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting playlist ID:", error);
+                return null;
+            }
+        }
+
+        function extractUserId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting user ID:", error);
+                return null;
+            }
+        }
+
+        let radarChart = null;
+
+        async function comparePlaylist() {
+            const comparisonUrl = document.getElementById('comparePlaylistUrl').value;
+            const errorElement = document.getElementById('comparisonError');
+            const loadingElement = document.getElementById('comparisonLoading');
+            const chartContainer = document.getElementById('comparisonChartContainer');
+
+            // Reset state
+            errorElement.style.display = 'none';
+            errorElement.textContent = '';
+            chartContainer.style.display = 'none';
+
+            if (!isValidPlaylistUrl(comparisonUrl)) {
+                errorElement.textContent = "Please enter a valid Spotify playlist URL.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            const playlistId = extractPlaylistId(comparisonUrl);
+            if (!playlistId) {
+                errorElement.textContent = "Error extracting playlist ID.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            // Show loading indicator
+            loadingElement.style.display = 'block';
+
+            try {
+                // Fetch comparison playlist data
+                const response = await fetch(`/get_playlist/${playlistId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch playlist data');
+                }
+
+                const comparisonData = await response.json();
+
+                // Hide loading indicator
+                loadingElement.style.display = 'none';
+
+                // Format data for radar chart
+                const comparedPlaylistData = {
+                    name: comparisonData.playlist_metadata.name,
+                    supergenres: {}
+                };
+
+                // Convert supergenre distribution array to object
+                comparisonData.supergenre_distribution.forEach(item => {
+                    if (item[1] > 0) {
+                        comparedPlaylistData.supergenres[item[0]] = item[1];
+                    }
+                });
+
+                // Create radar chart
+                createComparisonChart(currentUserData, comparedPlaylistData);
+
+                // Show chart container
+                chartContainer.style.display = 'block';
+
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = "Error fetching comparison data: " + error.message;
+                errorElement.style.display = 'block';
+                console.error('Error:', error);
+            }
+        }
+
+        async function compareUser() {
+            const comparisonUrl = document.getElementById('compareUserUrl').value;
+            const errorElement = document.getElementById('comparisonError');
+            const loadingElement = document.getElementById('comparisonLoading');
+            const chartContainer = document.getElementById('comparisonChartContainer');
+
+            // Reset state
+            errorElement.style.display = 'none';
+            errorElement.textContent = '';
+            chartContainer.style.display = 'none';
+
+            if (!isValidUserUrl(comparisonUrl)) {
+                errorElement.textContent = "Please enter a valid Spotify user URL.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            const userId = extractUserId(comparisonUrl);
+            if (!userId) {
+                errorElement.textContent = "Error extracting user ID.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            // Show loading indicator
+            loadingElement.style.display = 'block';
+
+            try {
+                // Fetch comparison user data
+                const response = await fetch(`/get_user_data/${userId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+
+                const userData = await response.json();
+
+                // Hide loading indicator
+                loadingElement.style.display = 'none';
+
+                if (!userData || !userData.supergenres) {
+                    throw new Error('User not found or has no listening data');
+                }
+
+                // Format data for radar chart
+                const comparedUserData = {
+                    name: userData.display_name || `User ${userId}`,
+                    supergenres: {}
+                };
+
+                // Convert supergenre distribution to percentages if needed
+                for (const [genre, value] of Object.entries(userData.supergenres)) {
+                    if (value > 0) {
+                        // Check if value is already a percentage or needs conversion
+                        comparedUserData.supergenres[genre] = value <= 1 ? value * 100 : value;
+                    }
+                }
+
+                // Create radar chart
+                createComparisonChart(currentUserData, comparedUserData);
+
+                // Show chart container
+                chartContainer.style.display = 'block';
+
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = "Error fetching user data: " + error.message;
+                errorElement.style.display = 'block';
+                console.error('Error:', error);
+            }
+        }
+
+        function createComparisonChart(userData, comparisonData) {
+            // Get all unique genres from both sources (excluding those with 0%)
+            const allGenres = [...new Set([
+                ...Object.keys(userData.supergenres),
+                ...Object.keys(comparisonData.supergenres)
+            ])].filter(genre =>
+                (userData.supergenres[genre] || 0) > 0 ||
+                (comparisonData.supergenres[genre] || 0) > 0
+            );
+
+            // Get the maximum value to determine scale
+            const maxValue = Math.max(
+                ...allGenres.map(genre => Math.max(
+                    userData.supergenres[genre] || 0,
+                    comparisonData.supergenres[genre] || 0
+                ))
+            );
+
+            // Add 10% padding to the max value
+            const scalePadding = 1.1;
+            let suggestedMax = Math.ceil(maxValue * scalePadding);
+            if (suggestedMax > 100)
+                suggestedMax = 100;
+
+            // Prepare data for radar chart
+            const chartData = {
+                labels: allGenres,
+                datasets: [
+                    {
+                        label: userData.name,
+                        data: allGenres.map(genre => userData.supergenres[genre] || 0),
+                        backgroundColor: 'rgba(29, 185, 84, 0.2)',
+                        borderColor: 'rgba(29, 185, 84, 1)',
+                        pointBackgroundColor: 'rgba(29, 185, 84, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(29, 185, 84, 1)'
+                    },
+                    {
+                        label: comparisonData.name,
+                        data: allGenres.map(genre => comparisonData.supergenres[genre] || 0),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+                    }
+                ]
+            };
+
+            // Create or update radar chart
+            const ctx = document.getElementById('radarComparisonChart').getContext('2d');
+
+            if (radarChart) {
+                radarChart.destroy();
+            }
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: suggestedMax,
+                            ticks: {
+                                stepSize: Math.ceil(suggestedMax / 5)
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Taste Comparison',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         document.addEventListener("DOMContentLoaded", function () {
