@@ -297,3 +297,24 @@ class DynamoDBHandler:
         except Exception as e:
             print(f"Error fetching users from cluster {cluster_id}: {e}")
             return []
+
+    def get_all_users(self):
+        """
+        Retrieve all users from the SpotifyUsers table.
+
+        Returns:
+            list: List of user data dictionaries.
+        """
+        try:
+            response = self.users_table.scan()
+            users = response.get('Items', [])
+
+            # Handle pagination (if over 1MB of data)
+            while 'LastEvaluatedKey' in response:
+                response = self.users_table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+                users.extend(response.get('Items', []))
+
+            return users
+        except Exception as e:
+            print(f"Error scanning SpotifyUsers table: {e}")
+            return []

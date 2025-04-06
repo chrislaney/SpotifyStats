@@ -37,13 +37,16 @@ db_handler = DynamoDBHandler(
     2a: create matrix out of supergenre distro
 
 3. train clusterer, get labels back: check
-keep in mem
+    3a: assign users to respective cluster class (in memory lsit?)
+    3b: asiign label to all users
+    3c: update users in database
+4. keep in mem to do cluster assignment
 """
 
 
 # Create necessary tables if they don't exist
 try:
-    db_handler.create_tables_if_not_exist
+    db_handler.create_tables_if_not_exist()
 except Exception as e:
     print(f"Error setting up DynamoDB tables: {e}")
 
