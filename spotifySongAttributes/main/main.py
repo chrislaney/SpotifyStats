@@ -1,6 +1,6 @@
 import os
 from utils import load_genre_cache, parse_tracks, fetch_top_tracks
-from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists, get_playlist_distro
+from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists
 from clustering import assign_user_cluster
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
@@ -31,10 +31,22 @@ db_handler = DynamoDBHandler(
     aws_access_key=AWS_ACCESS_KEY,
     aws_secret_key=AWS_SECRET_KEY
 )
+"""
+1. Iniitalize clusterer: check
+2. Get users in database: see about seamus and chris for data
+    2a: create matrix out of supergenre distro
+
+3. train clusterer, get labels back: check
+    3a: assign users to respective cluster class (in memory lsit?)
+    3b: asiign label to all users
+    3c: update users in database
+4. keep in mem to do cluster assignment
+"""
+
 
 # Create necessary tables if they don't exist
 try:
-    db_handler.create_tables_if_not_exist()
+    db_handler.create_tables_if_not_exist
 except Exception as e:
     print(f"Error setting up DynamoDB tables: {e}")
 
@@ -80,13 +92,9 @@ def ensure_token_or_redirect():
 # Home route - Checks login and redirects
 @app.route('/')
 def home():
-    # return redirect(url_for('get_user'))
-    return render_template('index.html')
-
-@app.route('/login')
-def login():
-    auth_url = sp_oauth.get_authorize_url()
-    return redirect(auth_url)
+    if 'token_info' not in session:
+        return redirect(sp_oauth.get_authorize_url())
+    return redirect(url_for('get_user'))
 
 # Callback for Spotify OAuth, stores token info in flask session
 @app.route('/callback')
@@ -94,12 +102,7 @@ def callback():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
     session['token_info'] = token_info  # Save token in session
-    return redirect(url_for('loading'))
-
-@app.route('/loading')
-def loading():
-    return render_template('loading.html')
-
+    return redirect(url_for('get_user'))
 
 # Get user data and genre distributions
 @app.route('/get_user')
@@ -137,6 +140,7 @@ def get_user():
                 user.cluster_id = int(assign_user_cluster(user.supergenres))
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
+                
                 # Also save top tracks separately
                 db_handler.save_user_tracks(
                     user_id=user.user_id,
@@ -144,22 +148,8 @@ def get_user():
                     time_range='medium_term'  # Default time range
                 )
 
-
-                # Sort subgenres and supergenres before passing to template
-                sorted_subgenres = dict(sorted(user.subgenres.items(), key=lambda item: item[1], reverse=True))
-                sorted_supergenres = dict(sorted(user.supergenres.items(), key=lambda item: item[1], reverse=True))
-
-                # Update user object with sorted genres
-                user.subgenres = sorted_subgenres
-                user.supergenres = sorted_supergenres
-
-
                 return render_template('dashboard.html', user=user.__dict__)
             else:
-
-                # Sort subgenres and supergenres from the cached data
-                existing_user_data['subgenres'] = dict(sorted(existing_user_data['subgenres'].items(), key=lambda item: item[1], reverse=True))
-                existing_user_data['supergenres'] = dict(sorted(existing_user_data['supergenres'].items(), key=lambda item: item[1], reverse=True))
                 return render_template('dashboard.html', user=existing_user_data)
 
 
@@ -169,58 +159,47 @@ def get_user():
     else:
         return token_info  # Redirect response
 
-
-@app.route('/get_user_data/<user_id>')
-def get_user_data(user_id):
-    try:
-        # Try to get user from DynamoDB
-        user_data = db_handler.get_user_data(user_id)
-        
-        if not user_data:
-            return jsonify({'error': 'User not found'}), 404
-            
-        # Return user data with all the necessary fields
-        return jsonify(user_data)
-        
-    except Exception as e:
-        print(f"Error fetching user data: {e}")
-        return jsonify({'error': str(e)}), 500
-
 # Get playlist data
 @app.route('/get_playlist/<playlist_id>')
 def get_playlist_data(playlist_id):
     #token_info = ensure_token_or_redirect()
     try:
-        # fetch from Spotify API
+        # First, try to get the playlist data from DynamoDB
+        cached_playlist = db_handler.get_playlist_data(playlist_id)
+
+        if cached_playlist:
+            # Return cached data if available
+            return jsonify({**cached_playlist, "source": "database"})
+
+        # If not in database, fetch from Spotify API
         client_credentials_manager = SpotifyClientCredentials(
             client_id=client_id,
             client_secret=client_secret
         )
-
         sp = Spotify(client_credentials_manager=client_credentials_manager)
+        genre_cache = load_genre_cache()
+        user_id = sp.current_user()['id']
 
-        response = get_playlist_distro(playlist_id, sp)
+        playlist_data = parse_playlist(sp, playlist_id)
 
-        return jsonify(response)
-    except Exception as e:
-        print(f"Error fetching playlist data: {e}")
-        return jsonify({'error': str(e)})
-
-@app.route('/show_playlist/<playlist_id>')
-def show_playlist_data(playlist_id):
-    #token_info = ensure_token_or_redirect()
-    try:
-        # fetch from Spotify API
-        client_credentials_manager = SpotifyClientCredentials(
-            client_id=client_id,
-            client_secret=client_secret
+        parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
+            sp, playlist_data['tracks'], genre_cache
         )
 
-        sp = Spotify(client_credentials_manager=client_credentials_manager)
+        response = {
+            "playlist_id": playlist_id,  # Used as the DynamoDB key
+            "playlist_metadata": {
+                "id": playlist_data['id'],
+                "name": playlist_data['name'],
+                "track_count": playlist_data['track_count']
+            },
+            "subgenre_distribution": subgenre_distro,
+            "supergenre_distribution": supergenre_distro
+        }
 
-        response = get_playlist_distro(playlist_id, sp)
+        # Return the response with a source indicator
+        return jsonify({**response, "source": "spotify_api"})
 
-        return render_template('playlistdashboard.html', playlist=response)
     except Exception as e:
         print(f"Error fetching playlist data: {e}")
         return jsonify({'error': str(e)})
