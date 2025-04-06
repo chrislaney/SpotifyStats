@@ -7,17 +7,62 @@
             document.getElementById('loading').style.display = 'block';
             window.location.href = '/login';  // Redirects to Flask route for Spotify auth
         }
+
+        function isValidPlaylistUrl(url) {
+            // Regex pattern to validate playlist URL
+            const playlistPattern = /^https:\/\/open\.spotify\.com\/playlist\/[a-zA-Z0-9]+(\?.*)?$/;
+            return playlistPattern.test(url);
+        }
+
+        function extractPlaylistId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting playlist ID:", error);
+                return null;
+            }
+        }
+
+        async function fetchPlaylistData() {
+            const playlistUrl = document.getElementById('playlistUrl').value;
+
+            if (!isValidPlaylistUrl(playlistUrl)) {
+                alert("Please enter a valid Spotify playlist URL.");
+                return;
+            }
+
+            const playlistId = extractPlaylistId(playlistUrl);
+            if (!playlistId) {
+                alert("Error extracting playlist ID.");
+                return;
+            }
+
+            // Redirect to the Flask endpoint for playlist breakdown
+            window.location.href = `/show_playlist/${playlistId}`;
+        }
     </script>
 </head>
 <body>
     <h1>Welcome to your genre distribution</h1>
-    <p> This is a genre distribution and comparison chart. The data is fetched via your spotify account,
-        When you log in you give us permission to fetch your top played songs and userID. We do not store any of this
-        information and it is immediately discarded upon closing the tab. This is purely meant for informational and inquistive purpose. For any questions please contact.
-        Chris Laney at Laneyct@mail.uc.edu. All data is provided by Spotify and no intermediary.
+    <p>This is a genre distribution and comparison chart. The data is fetched via your Spotify account.
+        When you log in, you give us permission to fetch your top played songs and user ID. We do not store any of this
+        information, and it is immediately discarded upon closing the tab. This is purely meant for informational and inquisitive purposes.
+        For any questions, please contact Chris Laney at Laneyct@mail.uc.edu. All data is provided by Spotify and no intermediary.
     </p>
+
+    <!-- Login Button -->
     <button onclick="authenticateAndFetchData()">Login with Spotify</button>
 
+    <!-- Playlist URL Input and Button -->
+    <div style="margin-top: 20px;">
+        <label for="playlistUrl">Enter Spotify Playlist URL:</label>
+        <input type="text" id="playlistUrl" placeholder="https://open.spotify.com/playlist/..." style="width: 400px;">
+        <button onclick="fetchPlaylistData()">Fetch Playlist</button>
+    </div>
+
+    <!-- Loading Message -->
     <div id="loading" style="display: none;">
         <p>Loading your data... Please wait.</p>
     </div>

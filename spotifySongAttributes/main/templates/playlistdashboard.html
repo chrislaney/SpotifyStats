@@ -1,166 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spotify Dashboard</title>
+    <title>Spotify Playlist Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<style>
-        .genre-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .genre-item {
-            margin: 3px 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .show-more-btn {
-            margin: 5px 0;
-            cursor: pointer;
-            color: #007bff;
-            text-decoration: underline;
-        }
-    </style>
 <body>
-    <h1>Welcome, {{ user['display_name'] }}</h1>
+    <h1>Playlist: {{ playlist['playlist_metadata']['name'] }}</h1>
+    <p>Number of Tracks: {{ playlist['playlist_metadata']['track_count'] }}</p>
 
-    <h4>Your top super genres:</h4>
-        <ul class="genre-list" id="supergenre-list">
-            {% for genre, count in user['supergenres'].items() %}
-                <li class="genre-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
-            {% endfor %}
-        </ul>
+    <h4>Top Supergenres:</h4>
+    <ul class="genre-list" id="supergenre-list">
+        {% for genre, count in playlist['supergenre_distribution'] %}
+            <li class="genre-item">{{ genre }} {{ (count | float) | round(2) }}%</li>
+        {% endfor %}
+    </ul>
 
-
-    <h4>Your top subgenres:</h4>
+    <h4>Top Subgenres:</h4>
     <ul class="genre-list" id="subgenre-list">
-        {% for genre, count in user['subgenres'].items() %}
+        {% for genre, count in playlist['subgenre_distribution'] %}
             {% if loop.index <= 10 %}
-                <li class="genre-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
+                <li class="genre-item">{{ genre }} {{ (count | float) | round(2) }}%</li>
             {% else %}
-                <li class="genre-item hidden extra-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
+                <li class="genre-item hidden extra-item">{{ genre }} {{ (count | float) | round(2) }}%</li>
             {% endif %}
         {% endfor %}
     </ul>
-    <div class="show-more-btn" id="showMoreBtn" onclick="toggleGenres()">Show More</div>
+
+    <h1>Subgenre Polar Area Chart</h1>
+    <div class="chart-container"><canvas id="subgenreChart"></canvas></div>
+    <h1>Supergenre Polar Area Chart</h1>
+    <div class="chart-container"><canvas id="supergenreChart"></canvas></div>
+
+    <h2>Compare with More Playlists</h2>
+    <input type="text" id="playlistUrl" placeholder="Enter playlist URL" style="width: 400px; margin-right: 10px;">
+    <button onclick="addPlaylist()">Add Playlist</button>
+    <button onclick="clearChart()">Clear Chart</button>
+
+    <h1>Supergenre Spider Chart (Comparison)</h1>
+    <div style="width: 700px; height: 700px;">
+        <canvas id="spiderChart"></canvas>
+    </div>
 
     <script>
-        function toggleGenres() {
-            const items = document.querySelectorAll('#subgenre-list .extra-item');
-            const button = document.getElementById('showMoreBtn');
+        let playlists = [];
+        const colorPalette = [
+            'rgba(54, 162, 235, 0.4)', 'rgba(255, 99, 132, 0.4)',
+            'rgba(75, 192, 192, 0.4)', 'rgba(153, 102, 255, 0.4)'
+        ];
 
-            if (button.innerText === "Show More") {
-
-                items.forEach(item => item.classList.remove('hidden'));
-                button.innerText = "Show Less";
-            } else {
-
-                items.forEach(item => item.classList.add('hidden'));
-                button.innerText = "Show More";
+        function extractPlaylistId(url) {
+            try {
+                const parts = url.split('/');
+                return parts[parts.length - 1].split('?')[0];
+            } catch (error) {
+                return null;
             }
         }
-    </script>
 
+        async function addPlaylist() {
+            const url = document.getElementById('playlistUrl').value;
+            const playlistId = extractPlaylistId(url);
 
+            try {
+                const response = await fetch(`/get_playlist/${playlistId}`);
+                const data = await response.json();
 
-
-<h1> Subgenre polar area chart</h1>
-
-    <div style="width: 700px; height: 700px;"> <canvas id="subgenreChart"></canvas> </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const ctx = document.getElementById('subgenreChart').getContext('2d');
-
-            // Extract data from Flask variable
-            const genreLabels = {{ user['subgenres'].items() | map(attribute=0) | list | tojson }};
-            const genreValues = {{ user['subgenres'].items()| map(attribute=1) | list | tojson }};
-
-            new Chart(ctx, {
-                type: 'polarArea',
-                data: {
-                    labels: genreLabels,
-                    datasets: [{
-                        label: 'Genre Distribution',
-                        data: genreValues,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(255, 159, 64, 0.5)',
-                            'rgba(199, 199, 199, 0.5)',
-                            'rgba(83, 102, 255, 0.5)',
-                            'rgba(255, 99, 255, 0.5)',
-                            'rgba(0, 204, 102, 0.5)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top'
-                        }
-                    }
+                if (data.error) {
+                    alert("Error fetching playlist: " + data.error);
+                    return;
                 }
+
+                const supergenreData = data.supergenre_distribution;
+                console.log("test")
+
+
+                const currentPlaylist = ['{{ playlist['playlist_metadata']['name'] }}', {{ playlist['supergenre_distribution'] }}];
+                playlists.push(currentPlaylist);
+                playlists.push([data.playlist_metadata.name, supergenreData]); //comparison
+                console.log(playlists)
+                updateSpiderChart();
+            } catch (error) {
+                alert(error);
+            }
+        }
+
+        function clearChart() {
+            playlists = [];
+            updateSpiderChart();
+        }
+
+        function updateSpiderChart() {
+            const labels = playlists[0][1].map(item => item[0]);
+            const datasets = playlists.map((playlist, index) => {
+                return {
+                    label: playlist[0],
+                    data: playlist[1].map(item => item[1]),
+                    backgroundColor: colorPalette[index % colorPalette.length],
+                    borderWidth: 2
+                };
             });
-        });
-    </script>
+            console.log(labels);
+            console.log(datasets);
+            const ctx = document.getElementById('spiderChart').getContext('2d');
+            if (window.spiderChart instanceof Chart) {
+                window.spiderChart.destroy();
+            }
 
-    <h1> Supergenre polar area chart</h1>
-         <div style="width: 700px; height: 700px;"> <canvas id="supergenreChart"></canvas> </div>
+            window.spiderChart = new Chart(ctx, {
+                type: 'radar',
+                data: { labels, datasets },
+                options: { responsive: true }
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const ctx = document.getElementById('supergenreChart').getContext('2d');
-
-            // Extract data from Flask variable
-            const genreLabels = {{ user['supergenres'].items() | map(attribute=0) | list | tojson }};
-            const genreValues = {{ user['supergenres'].items() | map(attribute=1) | list | tojson }};
-
-            new Chart(ctx, {
-                type: 'polarArea',
-                data: {
-                    labels: genreLabels,
-                    datasets: [{
-                        label: 'Genre Distribution',
-                        data: genreValues,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(255, 159, 64, 0.5)',
-                            'rgba(199, 199, 199, 0.5)',
-                            'rgba(83, 102, 255, 0.5)',
-                            'rgba(255, 99, 255, 0.5)',
-                            'rgba(0, 204, 102, 0.5)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top'
-                        }
-                    }
-                }
             });
-        });
+        }
     </script>
-
-
 </body>
 </html>

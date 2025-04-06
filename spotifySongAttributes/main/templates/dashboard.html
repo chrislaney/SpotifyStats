@@ -5,28 +5,69 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+<style>
+        .genre-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .genre-item {
+            margin: 3px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show-more-btn {
+            margin: 5px 0;
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+        }
+    </style>
 <body>
     <h1>Welcome, {{ user['display_name'] }}</h1>
 
-    <p>Your top subgenres:</p>
-    <ul>
+    <h4>Your top super genres:</h4>
+        <ul class="genre-list" id="supergenre-list">
+            {% for genre, count in user['supergenres'].items() %}
+                <li class="genre-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% endfor %}
+        </ul>
+
+
+    <h4>Your top subgenres:</h4>
+    <ul class="genre-list" id="subgenre-list">
         {% for genre, count in user['subgenres'].items() %}
-            <li>{{ genre }} (%{{ count }})</li>
+            {% if loop.index <= 10 %}
+                <li class="genre-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% else %}
+                <li class="genre-item hidden extra-item">{{ genre }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% endif %}
         {% endfor %}
     </ul>
+    <div class="show-more-btn" id="showMoreBtn" onclick="toggleGenres()">Show More</div>
 
-    <p>Your Supergenres:</p>
-    <ul>
-        {% for genre, count in user['supergenres'].items() %}
-            <li>{{ genre }} (%{{ count }})</li>
-        {% endfor %}
-    </ul>
+    <script>
+        function toggleGenres() {
+            const items = document.querySelectorAll('#subgenre-list .extra-item');
+            const button = document.getElementById('showMoreBtn');
 
-    <ul>
-        {% for track in user['recent_tracks'] %}
-            <li>{{ track['name'] }} by {{ track['artist'] }}</li>
-        {% endfor %}
-    </ul>
+            if (button.innerText === "Show More") {
+
+                items.forEach(item => item.classList.remove('hidden'));
+                button.innerText = "Show Less";
+            } else {
+
+                items.forEach(item => item.classList.add('hidden'));
+                button.innerText = "Show More";
+            }
+        }
+    </script>
+
+
+
 
 <h1> Subgenre polar area chart</h1>
 
