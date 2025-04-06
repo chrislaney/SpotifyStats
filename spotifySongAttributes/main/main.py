@@ -31,10 +31,19 @@ db_handler = DynamoDBHandler(
     aws_access_key=AWS_ACCESS_KEY,
     aws_secret_key=AWS_SECRET_KEY
 )
+"""
+1. Iniitalize clusterer: check
+2. Get users in database: see about seamus and chris for data
+    2a: create matrix out of supergenre distro
+
+3. train clusterer, get labels back: check
+keep in mem
+"""
+
 
 # Create necessary tables if they don't exist
 try:
-    db_handler.create_tables_if_not_exist()
+    db_handler.create_tables_if_not_exist
 except Exception as e:
     print(f"Error setting up DynamoDB tables: {e}")
 
