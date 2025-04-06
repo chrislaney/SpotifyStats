@@ -4,6 +4,12 @@ from io import BytesIO
 import base64
 import spotipy
 
+
+SUPERGENRES = SUPERGENRES = [
+    "Pop", "Hip Hop", "Rock", "Metal", "Indie",
+    "Electronic", "Jazz", "R&B", "Latin", "Country",
+    "Classical", "Folk", "Punk", "Reggae", "World"
+]
 # Load JSON file into a dictionary
 def load_genre_cache(file_path='genre_cache.json'):
     try:
@@ -144,7 +150,13 @@ def parse_tracks(sp, raw_tracks, genre_cache):
 # Normalize genre counts to frequency
 def normalize_genre_counts(genre_counts):
     total_count = sum(genre_counts.values())
-    normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
+    normalized_counts = {}
+    for genre in SUPERGENRES:
+        if genre in genre_counts.keys():
+            normalized_counts[genre] = genre_counts[genre] / total_count
+        else:
+            normalized_counts[genre] = 0.0
+    #normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
     return normalized_counts
 
 # Finds super genre for a genre using genre map 
