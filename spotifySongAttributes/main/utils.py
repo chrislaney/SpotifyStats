@@ -142,13 +142,13 @@ def parse_tracks(sp, raw_tracks, genre_cache):
 
     supergenre_count = get_super_genre_counts(subgenre_count)
 
-    supergenre_distro = normalize_genre_counts(supergenre_count)
-    subgenre_distro = normalize_genre_counts(subgenre_count)
+    supergenre_distro = normalize_supergenre_counts(supergenre_count)
+    subgenre_distro = normalize_subgenre_counts(subgenre_count)
 
     return parsed_tracks, subgenre_distro, supergenre_distro
 
 # Normalize genre counts to frequency
-def normalize_genre_counts(genre_counts):
+def normalize_supergenre_counts(genre_counts):
     total_count = sum(genre_counts.values())
     normalized_counts = {}
     for genre in SUPERGENRES:
@@ -157,6 +157,11 @@ def normalize_genre_counts(genre_counts):
         else:
             normalized_counts[genre] = 0.0
     #normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
+    return normalized_counts
+
+def normalize_subgenre_counts(genre_counts):
+    total_count = sum(genre_counts.values())
+    normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
     return normalized_counts
 
 # Finds super genre for a genre using genre map 

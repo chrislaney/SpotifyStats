@@ -1,18 +1,21 @@
 {
-    "christmas": 3,
+    "christmas": 36,
     "swing music": 2,
     "proto-punk": 18,
     "classic blues": 1,
-    "soft pop": 125,
-    "musicals": 12,
+    "soft pop": 539,
+    "musicals": 17,
     "alt country": 424,
     "french house": 37,
     "ragga": 132,
-    "west coast hip hop": 95,
+    "west coast hip hop": 515,
     "surf rock": 6,
     "gothic country": 138,
     "newgrass": 6,
-    "indie": 135,
+    "indie": 146,
     "rock and roll": 40,
-    "ethiopian jazz": 43
+    "ethiopian jazz": 43,
+    "emo pop": 52,
+    "folk pop": 22,
+    "christian": 45
 }
