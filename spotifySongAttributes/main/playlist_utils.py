@@ -1,8 +1,58 @@
 import random
+import re
 from datetime import datetime
 from clustering import get_similar_clusters
+from utils import load_genre_cache, parse_tracks
+
 from db_handler import DynamoDBHandler
 
+import re
+
+def get_playlist_distro(playlist_id, sp=None):
+    genre_cache = load_genre_cache()
+
+    playlist_data = parse_playlist(sp, playlist_id)
+
+    parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
+        sp, playlist_data['tracks'], genre_cache
+    )
+
+    # Ensure genre distribution values are floats
+    subgenre_distro = {k: float(v) for k, v in subgenre_distro.items()}
+    supergenre_distro = {k: float(v) for k, v in supergenre_distro.items()}
+    # Sort subgenres and supergenres by their values in descending order and convert to list of tuples
+    sorted_subgenres = sorted([(k, float(v) * 100) for k, v in subgenre_distro.items()], key=lambda item: item[1],
+                              reverse=True)
+    sorted_supergenres = sorted([(k, float(v) * 100) for k, v in supergenre_distro.items()], key=lambda item: item[1],
+                                reverse=True)
+
+    response = {
+        "playlist_id": playlist_id,
+        "playlist_metadata": {
+            "id": playlist_data['id'],
+            "name": playlist_data['name'],
+            "track_count": playlist_data['track_count']
+        },
+        "subgenre_distribution": sorted_subgenres,
+        "supergenre_distribution": sorted_supergenres
+    }
+
+    # Return the response with a source indicator
+    return response
+
+def extract_id(url):
+    try:
+        # Regex pattern to match both playlist and user IDs
+        pattern = r'open\.spotify\.com/(playlist|user)/([^?]+)'
+
+        # Search for the pattern in the given URL
+        match = re.search(pattern, url)
+        if match:
+            return match.group(2)  # Return the ID part
+        return None  # Return None if no match found
+    except Exception as e:
+        print(f"Error extracting ID: {e}")
+        return None
 
 
 # Fetch playlist metadata and all track items from a Spotify playlist.
@@ -140,3 +190,4 @@ def generate_similarity_playlists(sp, user_vector, db_handler, total_songs=100, 
         playlists[group_name] = playlist
 
     return playlists
+

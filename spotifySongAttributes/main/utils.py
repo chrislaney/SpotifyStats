@@ -4,6 +4,12 @@ from io import BytesIO
 import base64
 import spotipy
 
+
+SUPERGENRES = SUPERGENRES = [
+    "Pop", "Hip Hop", "Rock", "Metal", "Indie",
+    "Electronic", "Jazz", "R&B", "Latin", "Country",
+    "Classical", "Folk", "Punk", "Reggae", "World"
+]
 # Load JSON file into a dictionary
 def load_genre_cache(file_path='genre_cache.json'):
     try:
@@ -136,13 +142,24 @@ def parse_tracks(sp, raw_tracks, genre_cache):
 
     supergenre_count = get_super_genre_counts(subgenre_count)
 
-    supergenre_distro = normalize_genre_counts(supergenre_count)
-    subgenre_distro = normalize_genre_counts(subgenre_count)
+    supergenre_distro = normalize_supergenre_counts(supergenre_count)
+    subgenre_distro = normalize_subgenre_counts(subgenre_count)
 
     return parsed_tracks, subgenre_distro, supergenre_distro
 
 # Normalize genre counts to frequency
-def normalize_genre_counts(genre_counts):
+def normalize_supergenre_counts(genre_counts):
+    total_count = sum(genre_counts.values())
+    normalized_counts = {}
+    for genre in SUPERGENRES:
+        if genre in genre_counts.keys():
+            normalized_counts[genre] = genre_counts[genre] / total_count
+        else:
+            normalized_counts[genre] = 0.0
+    #normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
+    return normalized_counts
+
+def normalize_subgenre_counts(genre_counts):
     total_count = sum(genre_counts.values())
     normalized_counts = {genre: count / total_count for genre, count in genre_counts.items()}
     return normalized_counts
@@ -183,3 +200,5 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
+
+
