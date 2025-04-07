@@ -49,6 +49,37 @@
         {% endif %}
     </div>
 
+    <!-- Comparison Section -->
+    <div class="comparison-section">
+        <h2>Compare with others</h2>
+        <p>Enter a Spotify playlist or user URL to compare genre distributions</p>
+
+        <div class="comparison-tabs">
+            <button id="tabPlaylist" class="tab-button tab-active" onclick="switchTab('playlist')">Playlist</button>
+            <button id="tabUser" class="tab-button" onclick="switchTab('user')">User</button>
+        </div>
+
+        <div id="playlistInput" class="comparison-input">
+            <input type="text" id="comparePlaylistUrl" placeholder="https://open.spotify.com/playlist/..." />
+            <button class="comparison-button" onclick="comparePlaylist()">Compare</button>
+        </div>
+
+        <div id="userInput" class="comparison-input" style="display: none;">
+            <input type="text" id="compareUserUrl" placeholder="https://open.spotify.com/user/..." />
+            <button class="comparison-button" onclick="compareUser()">Compare</button>
+        </div>
+
+        <div class="comparison-loading" id="comparisonLoading" style="display: none;">
+            Loading comparison data... Please wait.
+        </div>
+
+        <div class="comparison-error" id="comparisonError"></div>
+
+        <div class="comparison-chart-wrapper" id="comparisonChartContainer">
+            <canvas id="radarComparisonChart"></canvas>
+        </div>
+    </div>
+
     <!-- Playlist Generator Section -->
     <div class="playlist-generator-section">
         <h2>Generate Playlists Based on Your Taste</h2>
@@ -108,37 +139,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Comparison Section -->
-    <div class="comparison-section">
-        <h2>Compare with others</h2>
-        <p>Enter a Spotify playlist or user URL to compare genre distributions</p>
-
-        <div class="comparison-tabs">
-            <button id="tabPlaylist" class="tab-button tab-active" onclick="switchTab('playlist')">Playlist</button>
-            <button id="tabUser" class="tab-button" onclick="switchTab('user')">User</button>
-        </div>
-
-        <div id="playlistInput" class="comparison-input">
-            <input type="text" id="comparePlaylistUrl" placeholder="https://open.spotify.com/playlist/..." />
-            <button class="comparison-button" onclick="comparePlaylist()">Compare</button>
-        </div>
-
-        <div id="userInput" class="comparison-input" style="display: none;">
-            <input type="text" id="compareUserUrl" placeholder="https://open.spotify.com/user/..." />
-            <button class="comparison-button" onclick="compareUser()">Compare</button>
-        </div>
-
-        <div class="comparison-loading" id="comparisonLoading" style="display: none;">
-            Loading comparison data... Please wait.
-        </div>
-
-        <div class="comparison-error" id="comparisonError"></div>
-
-        <div class="comparison-chart-wrapper" id="comparisonChartContainer">
-            <canvas id="radarComparisonChart"></canvas>
         </div>
     </div>
 
