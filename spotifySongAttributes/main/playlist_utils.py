@@ -176,12 +176,12 @@ def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_
     - From the least similar cluster
     """
     # Get cluster distances
-    similar_clusters, least_similar = clusterer.get_similar_clusters({'supergenres': user_vector}, n=4)
+    similar_clusters, least_similar = clusterer.get_similar_clusters({'supergenres': user_vector}, n=8)
     user_cluster = clusterer.predict({'supergenres': user_vector})
 
     # Configurable weight distribution for top N similar clusters
-    cluster_weights = [0.6, 0.2, 0.1, 0.1]  # ENSURE sum to 1
-
+    cluster_weights = [0.4, 0.2, 0.2, 0.1, .1]  # ENSURE sum to 1
+    low_cluster_weights=[.2,.2,.2,.2,.2]
     playlists = {}
 
     # 1. From user's own cluster
@@ -220,20 +220,26 @@ def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_
     )
 
     # 3. From most different cluster
-    farthest_cluster_id = least_similar[-1][1]  # last entry = most distant
-    different_uris = get_track_uris_from_cluster_users(
-        db_handler,
-        farthest_cluster_id,
-        total_songs,
-        current_user_id=None   #lets leave this as none for now 
-    )
+    low_weighted_uris = []
+    for (dist, cluster_id), weight in zip(least_similar, low_cluster_weights):
+        count = int(total_songs * weight)
+        uris = get_track_uris_from_cluster_users(
+            db_handler,
+            cluster_id,
+            count,
+            current_user_id=None  #lets leave this as none for now 
+        )
+        low_weighted_uris.extend(uris)
+
     playlists["least_similar"] = create_playlist(
         sp=sp,
         title="Not Like Me",
-        track_uris=different_uris,
+        track_uris=low_weighted_uris,
         description="Songs from users least like you",
         public=True
     )
+
+
 
     return playlists
 
