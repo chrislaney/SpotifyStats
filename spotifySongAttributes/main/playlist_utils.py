@@ -284,4 +284,3 @@ def get_playlist_tracks_details(sp, playlist_id):
             break
             
     return tracks
-

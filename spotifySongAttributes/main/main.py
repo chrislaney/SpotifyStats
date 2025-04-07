@@ -1,7 +1,7 @@
 import os
 from clusterer import Clusterer
 from utils import load_genre_cache, parse_tracks, fetch_top_tracks
-from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists
+from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists, get_playlist_distro
 from clustering import assign_user_cluster
 from flask import Flask, session, url_for, request, jsonify, Response, render_template
 from spotipy import Spotify
@@ -73,7 +73,7 @@ sp_oauth = SpotifyOAuth(
 )
 all_user_dicts = db_handler.get_all_users()
 clusterer = Clusterer(all_user_dicts)
-#print(clusterer.labels)
+#print(clusterer.labels) debug?
 #for dictionary, label in zip(all_user_dicts, clusterer.labels):
 #    dictionary['cluster_id'] = int(label)
 #    try:
@@ -106,7 +106,7 @@ if False:
             except Exception as e:
                 print(f"error updating {user_id}: {e}")
         #else:
-            #print(f"skipped {user_id}: already in cluster {current_cluster}")
+            #print(f"skipped {user_id}: already in cluster {current_cluster}") debug?
 
 
 # ensure valid token and refresh if needed
@@ -179,8 +179,8 @@ def get_user():
                 user = User.from_spotify(sp, genre_cache)
                 # Assign cluster 
                 user.cluster_id = clusterer.predict(user.__dict__)
-                print(user.cluster_id)
-                print(user.__dict__)
+                print(user.cluster_id) #debug?
+                print(user.__dict__) #debug?
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -202,50 +202,62 @@ def get_user():
     else:
         return token_info  # Redirect response
 
+@app.route('/get_user_data/<user_id>')
+def get_user_data(user_id):
+    try:
+        # Try to get user from DynamoDB
+        user_data = db_handler.get_user_data(user_id)
+        
+        if not user_data:
+            return jsonify({'error': 'User not found'}), 404
+            
+        # Return user data with all the necessary fields
+        return jsonify(user_data)
+        
+    except Exception as e:
+        print(f"Error fetching user data: {e}")
+        return jsonify({'error': str(e)}), 500
+
+
 # Get playlist data
 @app.route('/get_playlist/<playlist_id>')
 def get_playlist_data(playlist_id):
     #token_info = ensure_token_or_redirect()
     try:
-        # First, try to get the playlist data from DynamoDB
-        cached_playlist = db_handler.get_playlist_data(playlist_id)
-
-        if cached_playlist:
-            # Return cached data if available
-            return jsonify({**cached_playlist, "source": "database"})
-
-        # If not in database, fetch from Spotify API
+        # fetch from Spotify API
         client_credentials_manager = SpotifyClientCredentials(
             client_id=client_id,
             client_secret=client_secret
         )
+
         sp = Spotify(client_credentials_manager=client_credentials_manager)
-        genre_cache = load_genre_cache()
-        user_id = sp.current_user()['id']
 
-        playlist_data = parse_playlist(sp, playlist_id)
+        response = get_playlist_distro(playlist_id, sp)
 
-        parsed_tracks, subgenre_distro, supergenre_distro = parse_tracks(
-            sp, playlist_data['tracks'], genre_cache
-        )
-
-        response = {
-            "playlist_id": playlist_id,  # Used as the DynamoDB key
-            "playlist_metadata": {
-                "id": playlist_data['id'],
-                "name": playlist_data['name'],
-                "track_count": playlist_data['track_count']
-            },
-            "subgenre_distribution": subgenre_distro,
-            "supergenre_distribution": supergenre_distro
-        }
-
-        # Return the response with a source indicator
-        return jsonify({**response, "source": "spotify_api"})
-
+        return jsonify(response)
     except Exception as e:
         print(f"Error fetching playlist data: {e}")
         return jsonify({'error': str(e)})
+
+@app.route('/show_playlist/<playlist_id>')
+def show_playlist_data(playlist_id):
+    #token_info = ensure_token_or_redirect()
+    try:
+        # fetch from Spotify API
+        client_credentials_manager = SpotifyClientCredentials(
+            client_id=client_id,
+            client_secret=client_secret
+        )
+
+        sp = Spotify(client_credentials_manager=client_credentials_manager)
+
+        response = get_playlist_distro(playlist_id, sp)
+
+        return render_template('playlistdashboard.html', playlist=response)
+    except Exception as e:
+        print(f"Error fetching playlist data: {e}")
+        return jsonify({'error': str(e)})
+
 
 # Get user's analyzed playlists
 @app.route('/get_user_playlists')

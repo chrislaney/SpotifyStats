@@ -92,7 +92,7 @@
         <div class="playlist-generator-controls">
             <div class="playlist-length-control">
                 <label for="playlistLength">Number of songs in each playlist:</label>
-                <input type="number" id="playlistLength" min="10" max="100" value="20">
+                <input type="number" id="playlistLength" min="10" max="200" value="50">
             </div>
             <button class="generate-playlist-button" onclick="generatePlaylists()">Generate Both Playlists</button>
         </div>
@@ -636,7 +636,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return `${context.dataset.label}: ${context.raw.toFixed(2)}%`;
                                 }
                             }
