@@ -133,9 +133,13 @@ def ensure_token_or_redirect():
 # Home route - Checks login and redirects
 @app.route('/')
 def home():
-    if 'token_info' not in session:
-        return redirect(sp_oauth.get_authorize_url())
-    return redirect(url_for('get_user'))
+    # return redirect(url_for('get_user'))
+    return render_template('index.html')
+
+@app.route('/login')
+def login():
+    auth_url = sp_oauth.get_authorize_url()
+    return redirect(auth_url)
 
 # Callback for Spotify OAuth, stores token info in flask session
 @app.route('/callback')
@@ -143,7 +147,11 @@ def callback():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
     session['token_info'] = token_info  # Save token in session
-    return redirect(url_for('get_user'))
+    return redirect(url_for('loading'))
+
+@app.route('/loading')
+def loading():
+    return render_template('loading.html')
 
 # Get user data and genre distributions
 @app.route('/get_user')
@@ -257,30 +265,6 @@ def show_playlist_data(playlist_id):
     except Exception as e:
         print(f"Error fetching playlist data: {e}")
         return jsonify({'error': str(e)})
-
-
-# Get user's analyzed playlists
-@app.route('/get_user_playlists')
-def get_user_playlists():
-    token_info = ensure_token_or_redirect()
-    if isinstance(token_info, dict):
-        try:
-            sp = Spotify(auth=token_info['access_token'])
-            user_id = sp.current_user()['id']
-            
-            # Get all analyzed playlists for this user from DynamoDB
-            playlists = db_handler.get_user_playlists(user_id)
-            
-            return jsonify({
-                "user_id": user_id,
-                "playlists": playlists
-            })
-            
-        except Exception as e:
-            print(f"Error fetching user playlists: {e}")
-            return jsonify({'error': str(e)})
-    else:
-        return token_info  # Redirect response
 
 # Get user's top tracks for a specific time range
 @app.route('/get_top_tracks/<time_range>')
