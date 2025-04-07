@@ -206,7 +206,7 @@
 
             try {
                 // Call the API endpoint to generate both playlists
-                const response = await fetch(`/generate_similarity_playlists?length=${playlistLength * 2}`);
+                const response = await fetch(`/generate_similarity_playlists?length=${playlistLength}`);
                 if (!response.ok) {
                     throw new Error('Failed to generate playlists');
                 }
@@ -218,8 +218,11 @@
                 if (!data.most_similar) {
                     throw new Error("Similar playlist was not generated");
                 }
+                if (!data.similar_clusters) {
+                    throw new Error("Similar clusters playlist was not generated");
+                }
                 if (!data.least_similar) {
-                    throw new Error("Explore playlist was not generated");
+                    throw new Error("Least similar playlist was not generated");
                 }
 
                 // Extract playlist IDs from URLs
