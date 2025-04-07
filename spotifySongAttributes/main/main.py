@@ -318,6 +318,66 @@ def similarity_playlists():
             group: pl['external_urls']['spotify'] if pl else None
             for group, pl in playlists.items()
         })
+    else:
+        return token_info  # Redirect response
+
+
+@app.route('/get_playlist_tracks/<playlist_id>')
+def get_playlist_tracks(playlist_id):
+    """Get tracks from a specific playlist for display"""
+    token_info = ensure_token_or_redirect()
+    if isinstance(token_info, dict):
+        try:
+            sp = Spotify(auth=token_info['access_token'])
+            
+            # Get all tracks from the playlist
+            tracks = []
+            results = sp.playlist_items(playlist_id)
+            
+            while results:
+                for item in results['items']:
+                    if item.get('track'):
+                        track = item['track']
+                        
+                        # Prepare track information
+                        artist_names = [artist['name'] for artist in track.get('artists', [])]
+                        
+                        track_info = {
+                            'id': track.get('id'),
+                            'name': track.get('name'),
+                            'artists': ', '.join(artist_names),
+                            'album': track.get('album', {}).get('name', 'Unknown Album'),
+                            'image': track.get('album', {}).get('images', [{}])[0].get('url') if track.get('album', {}).get('images') else None,
+                            'url': track.get('external_urls', {}).get('spotify')
+                        }
+                        
+                        tracks.append(track_info)
+                
+                # Get next batch of tracks if pagination exists
+                if results.get('next'):
+                    results = sp.next(results)
+                else:
+                    break
+            
+            # Get playlist details
+            playlist_details = sp.playlist(playlist_id)
+            
+            return jsonify({
+                'playlist': {
+                    'id': playlist_details.get('id'),
+                    'name': playlist_details.get('name'),
+                    'description': playlist_details.get('description'),
+                    'tracks_count': len(tracks),
+                    'url': playlist_details.get('external_urls', {}).get('spotify')
+                },
+                'tracks': tracks
+            })
+            
+        except Exception as e:
+            print(f"Error fetching playlist tracks: {e}")
+            return jsonify({'error': str(e)}), 500
+    else:
+        return token_info  # Redirect response
 
 @app.route('/logout')
 def logout():
