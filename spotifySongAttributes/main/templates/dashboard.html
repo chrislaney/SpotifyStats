@@ -69,7 +69,7 @@
             <button class="comparison-button" onclick="compareUser()">Compare</button>
         </div>
 
-        <div class="comparison-loading" id="comparisonLoading">
+        <div class="comparison-loading" id="comparisonLoading" style="display: none;">
             Loading comparison data... Please wait.
         </div>
 
@@ -77,6 +77,68 @@
 
         <div class="comparison-chart-wrapper" id="comparisonChartContainer">
             <canvas id="radarComparisonChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Playlist Generator Section -->
+    <div class="playlist-generator-section">
+        <h2>Generate Playlists Based on Your Taste</h2>
+        <p class="generator-description">
+            This will create two playlists in your Spotify account:
+            <span class="playlist-type">Similar to My Taste</span> - songs that match your current listening profile
+            <span class="playlist-type">Expand My Horizons</span> - songs that might help you discover new genres
+        </p>
+
+        <div class="playlist-generator-controls">
+            <div class="playlist-length-control">
+                <label for="playlistLength">Number of songs in each playlist:</label>
+                <input type="number" id="playlistLength" min="10" max="100" value="20">
+            </div>
+            <button class="generate-playlist-button" onclick="generatePlaylists()">Generate Both Playlists</button>
+        </div>
+
+        <div class="playlist-loading" id="playlistLoading" style="display: none;">
+            <p>Generating your playlists... Please wait.</p>
+        </div>
+
+        <div class="playlist-result" id="playlistResultContainer" style="display: none;">
+            <h3>Your Generated Playlists</h3>
+        </div>
+
+        <div class="playlist-error" id="playlistError" style="display: none;"></div>
+
+        <div id="selectedPlaylistContainer" style="display: none;">
+            <!-- Two-column layout for playlists -->
+            <div class="playlists-columns">
+                <div class="playlist-column">
+                    <h3>Similar to My Taste</h3>
+                    <div class="playlist-header-card" id="similarPlaylistHeader">
+                        <div class="playlist-header-info">
+                            <div class="playlist-header-text">
+                                <h4>Loading playlist...</h4>
+                                <p>Generating songs that match your taste</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist-tracks" id="similarPlaylistTracks">
+                        <ul id="similarTracksList" class="tracks-list"></ul>
+                    </div>
+                </div>
+                <div class="playlist-column">
+                    <h3>Expand My Horizons</h3>
+                    <div class="playlist-header-card" id="explorePlaylistHeader">
+                        <div class="playlist-header-info">
+                            <div class="playlist-header-text">
+                                <h4>Loading playlist...</h4>
+                                <p>Discovering new genres for you</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist-tracks" id="explorePlaylistTracks">
+                        <ul id="exploreTracksList" class="tracks-list"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -123,6 +185,185 @@
             // Reset error state
             document.getElementById('comparisonError').style.display = 'none';
             document.getElementById('comparisonError').textContent = '';
+        }
+
+        async function generatePlaylists() {
+            const playlistLength = document.getElementById('playlistLength').value;
+
+            // Validate input
+            if (playlistLength < 10 || playlistLength > 100) {
+                alert("Please enter a number between 10 and 100 for playlist length");
+                return;
+            }
+
+            // Reset UI and show loading indicator
+            document.getElementById('playlistLoading').style.display = 'block';
+            document.getElementById('playlistResultContainer').style.display = 'none';
+            document.getElementById('playlistError').style.display = 'none';
+            document.getElementById('selectedPlaylistContainer').style.display = 'none';
+            document.getElementById('similarPlaylistTracks').style.display = 'none';
+            document.getElementById('explorePlaylistTracks').style.display = 'none';
+
+            try {
+                // Call the API endpoint to generate both playlists
+                const response = await fetch(`/generate_similarity_playlists?length=${playlistLength * 2}`);
+                if (!response.ok) {
+                    throw new Error('Failed to generate playlists');
+                }
+
+                const data = await response.json();
+                console.log('Response data:', data);
+
+                // Check if we have both playlist URLs
+                if (!data.most_similar) {
+                    throw new Error("Similar playlist was not generated");
+                }
+                if (!data.least_similar) {
+                    throw new Error("Explore playlist was not generated");
+                }
+
+                // Extract playlist IDs from URLs
+                const similarPlaylistId = extractPlaylistId(data.most_similar);
+                const explorePlaylistId = extractPlaylistId(data.least_similar);
+
+                // Store the playlist IDs and URLs for later use
+                window.generatedPlaylists = {
+                    similar: {
+                        id: similarPlaylistId,
+                        url: data.most_similar
+                    },
+                    explore: {
+                        id: explorePlaylistId,
+                        url: data.least_similar
+                    }
+                };
+
+                // Fetch and display tracks for both playlists
+                await fetchAndDisplayTracks(similarPlaylistId, 'similar', data);
+                await fetchAndDisplayTracks(explorePlaylistId, 'explore', data);
+
+                // Show success message
+                document.getElementById('playlistResultContainer').style.display = 'block';
+                document.getElementById('selectedPlaylistContainer').style.display = 'block';
+
+            } catch (error) {
+                // Show error message
+                const errorElement = document.getElementById('playlistError');
+                errorElement.textContent = `Error: ${error.message}`;
+                errorElement.style.display = 'block';
+                console.error('Error generating playlists:', error);
+            } finally {
+                // Hide loading indicator
+                document.getElementById('playlistLoading').style.display = 'none';
+            }
+        }
+
+        async function fetchAndDisplayTracks(playlistId, type) {
+            try {
+                // Fetch playlist tracks from our API
+                const response = await fetch(`/get_playlist_tracks/${playlistId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch playlist tracks');
+                }
+
+                const data = await response.json();
+                console.log(`${type} Track data:`, data);
+
+                // Get the tracks list element
+                const tracksList = document.getElementById(`${type}TracksList`);
+                tracksList.innerHTML = '';
+
+                // Get the tracks container and header
+                const tracksContainer = document.getElementById(`${type}PlaylistTracks`);
+                const playlistHeader = document.getElementById(`${type}PlaylistHeader`);
+
+                // Add tracks to the list
+                if (data.tracks && data.tracks.length > 0) {
+                    // Show tracks container
+                    tracksContainer.style.display = 'block';
+
+                        // Get the playlist URL to link to
+                    const playlistUrl = `https://open.spotify.com/playlist/${playlistId}`;
+
+                    // Update playlist header card with image and make it clickable
+                    playlistHeader.innerHTML = `
+                        <div class="playlist-header-info" onclick="window.open('${playlistUrl}', '_blank')">
+                            <div class="playlist-header-text">
+                                <h4>${data.playlist.name}</h4>
+                                <p>${data.playlist.description || ''}</p>
+                                <p>${data.playlist.tracks_count} tracks</p>
+                                <span class="open-spotify-text">Open in Spotify</span>
+                            </div>
+                            <div class="playlist-open-icon">
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 2H14V6" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.66675 9.33333L14.0001 2" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    `;
+
+                    // Display tracks (limited to first 20 to avoid overwhelming the UI)
+                    const maxTracksToShow = Math.min(data.tracks.length, 20);
+                    for (let i = 0; i < maxTracksToShow; i++) {
+                        const track = data.tracks[i];
+                        const trackItem = document.createElement('li');
+                        trackItem.className = 'track-item';
+                        trackItem.onclick = function() {
+                            window.open(track.url, '_blank');
+                        };
+
+                        // Track thumbnail and info
+                        trackItem.innerHTML = `
+                            <div class="track-item-content">
+                                ${track.image ? `<img src="${track.image}" alt="${track.name}" class="track-thumbnail">` : ''}
+                                <div class="track-info">
+                                    <div class="track-title">${track.name}</div>
+                                    <div class="track-artist">${track.artists}</div>
+                                    <div class="track-album">${track.album}</div>
+                                </div>
+                                <a href="${track.url}" target="_blank" class="track-link" onclick="event.stopPropagation();">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10 2H14V6" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6.66675 9.33333L14.0001 2" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        `;
+
+                        tracksList.appendChild(trackItem);
+                    }
+
+                    // If there are more tracks, add a note
+                    if (data.tracks.length > maxTracksToShow) {
+                        const noteItem = document.createElement('li');
+                        noteItem.className = 'track-note';
+                        noteItem.textContent = `Plus ${data.tracks.length - maxTracksToShow} more tracks. Open the playlist in Spotify to see all.`;
+                        tracksList.appendChild(noteItem);
+                    }
+                } else {
+                    // No tracks found
+                    tracksContainer.style.display = 'block';
+                    const noTracksItem = document.createElement('li');
+                    noTracksItem.textContent = 'No tracks found in this playlist.';
+                    tracksList.appendChild(noTracksItem);
+                }
+            } catch (error) {
+                console.error(`Error fetching and displaying ${type} tracks:`, error);
+
+                // Show a fallback message
+                const tracksList = document.getElementById(`${type}TracksList`);
+                tracksList.innerHTML = '';
+
+                const errorItem = document.createElement('li');
+                errorItem.className = 'error-message';
+                errorItem.textContent = `Couldn't load tracks: ${error.message}`;
+                tracksList.appendChild(errorItem);
+
+                document.getElementById(`${type}PlaylistTracks`).style.display = 'block';
+            }
         }
 
         function isValidPlaylistUrl(url) {
