@@ -1,4 +1,5 @@
 import os
+from clusterer import Clusterer
 from utils import load_genre_cache, parse_tracks, fetch_top_tracks
 from playlist_utils import parse_playlist, get_all_user_playlist_ids, generate_similarity_playlists
 from clustering import assign_user_cluster
@@ -11,6 +12,7 @@ from user import User
 from db_handler import DynamoDBHandler
 from dotenv import load_dotenv
 from datetime import datetime
+
 
 print("Flask is running THIS file:", __file__)
 # Create the Flask app
@@ -33,8 +35,8 @@ db_handler = DynamoDBHandler(
 )
 """
 1. Iniitalize clusterer: check
-2. Get users in database: see about seamus and chris for data
-    2a: create matrix out of supergenre distro
+2. Get users in database: see about seamus and chris for data: check
+    2a: create matrix out of supergenre distro: check
 
 3. train clusterer, get labels back: check
     3a: assign users to respective cluster class (in memory lsit?)
@@ -57,6 +59,8 @@ redirect_uri = os.environ.get('SPOTIFY_REDIRECT_URI', 'http://localhost:5000/cal
 #need all the scopes listed to fetch data wanted and create platylists 
 scope = 'user-library-read, user-top-read, playlist-read-private, playlist-modify-private, playlist-modify-public'
 
+
+
 # OAuth handler
 cache_handler = FlaskSessionCacheHandler(session)
 sp_oauth = SpotifyOAuth(
@@ -67,6 +71,8 @@ sp_oauth = SpotifyOAuth(
     cache_handler=cache_handler,
     show_dialog=True
 )
+
+clusterer = Clusterer(db_handler.get_all_users())
 
 # ensure valid token and refresh if needed
 def ensure_token():
@@ -137,7 +143,7 @@ def get_user():
                 # Create user object from Spotify API
                 user = User.from_spotify(sp, genre_cache)
                 # Assign cluster 
-                user.cluster_id = int(assign_user_cluster(user.supergenres))
+                user.cluster_id = clusterer.algo.predict()
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -285,12 +291,11 @@ def similarity_playlists():
         manual = request.args.get("manual") == "true"
         playlist_length = int(request.args.get("length", 100))
 
-        if manual:
-            user_vector = {"Pop": 0.2, "Hip Hop": 0.3, "Electronic": 0.1}
-        else:
-            genre_cache = load_genre_cache()
-            user = User.from_spotify(sp, genre_cache)
-            user_vector = user.supergenres
+
+
+        genre_cache = load_genre_cache()
+        user = User.from_spotify(sp, genre_cache)
+        user_vector = user.supergenres
         playlists = generate_similarity_playlists(sp, user_vector, db_handler, total_songs=playlist_length)
 
         return jsonify({
