@@ -189,6 +189,15 @@ def get_user():
                 user.cluster_id = clusterer.predict(user.__dict__)
                 print(user.cluster_id) #debug?
                 print(user.__dict__) #debug?
+
+                #Sort subgenres and supergenres before passing to template
+                sorted_subgenres = dict(sorted(user.subgenres.items(), key=lambda item: item[1], reverse=True))
+                sorted_supergenres = dict(sorted(user.supergenres.items(), key=lambda item: item[1], reverse=True))
+
+                # Update user object with sorted genres
+                user.subgenres = sorted_subgenres
+                user.supergenres = sorted_supergenres
+                
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -201,6 +210,8 @@ def get_user():
 
                 return render_template('dashboard.html', user=user.__dict__)
             else:
+                existing_user_data['subgenres'] = dict(sorted(existing_user_data['subgenres'].items(), key=lambda item: item[1], reverse=True))
+                existing_user_data['supergenres'] = dict(sorted(existing_user_data['supergenres'].items(), key=lambda item: item[1], reverse=True))
                 return render_template('dashboard.html', user=existing_user_data)
 
 
