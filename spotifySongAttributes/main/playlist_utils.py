@@ -160,7 +160,7 @@ def get_track_uris_from_cluster_users(db_handler, cluster_id, total_songs, users
 
     return collected_uris[:total_songs]  # Trim if we over-collected
 
-def generate_similarity_playlists(sp, user_vector, db_handler, total_songs=100, clusters_to_use=2, users_per_cluster=5):
+def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=100, clusters_to_use=2, users_per_cluster=5):
     """
     Generate playlists based on similarity to user's taste profile.
     
@@ -168,7 +168,7 @@ def generate_similarity_playlists(sp, user_vector, db_handler, total_songs=100, 
         - Most similar clusters
         - Least similar clusters
     """
-    most_sim, least_sim = get_similar_clusters(user_vector, top_n=clusters_to_use)
+    most_sim, least_sim = clusterer.get_similar_clusters({'supergenres':user_vector}, clusters_to_use)#get_similar_clusters(user_vector, clusterer, top_n=clusters_to_use)
     
     playlists = {}
 
@@ -178,8 +178,8 @@ def generate_similarity_playlists(sp, user_vector, db_handler, total_songs=100, 
     }.items():
         group_uris = []
         track_sources = {}  # To keep track of which cluster/user each track came from
-        
-        for cluster_id, similarity in clusters:
+        print(f"Clusters: {clusters}")
+        for similarity, cluster_id in clusters:
             cluster_uris = get_track_uris_from_cluster_users(
                 db_handler, 
                 cluster_id, 

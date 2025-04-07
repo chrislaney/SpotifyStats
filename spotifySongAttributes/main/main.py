@@ -71,8 +71,15 @@ sp_oauth = SpotifyOAuth(
     cache_handler=cache_handler,
     show_dialog=True
 )
-
-clusterer = Clusterer(db_handler.get_all_users())
+all_user_dicts = db_handler.get_all_users()
+clusterer = Clusterer(all_user_dicts)
+#print(clusterer.labels)
+#for dictionary, label in zip(all_user_dicts, clusterer.labels):
+#    dictionary['cluster_id'] = int(label)
+#    try:
+#        db_handler.save_user_data(dictionary)
+#    except Exception as e:
+#        print(f"Error saving labeled data: {e}")
 
 # ensure valid token and refresh if needed
 def ensure_token():
@@ -143,7 +150,9 @@ def get_user():
                 # Create user object from Spotify API
                 user = User.from_spotify(sp, genre_cache)
                 # Assign cluster 
-                user.cluster_id = clusterer.algo.predict()
+                user.cluster_id = clusterer.predict(user.__dict__)
+                print(user.cluster_id)
+                print(user.__dict__)
                 # Save to DynamoDB
                 db_handler.save_user_data(user.__dict__)
                 
@@ -295,8 +304,9 @@ def similarity_playlists():
 
         genre_cache = load_genre_cache()
         user = User.from_spotify(sp, genre_cache)
+
         user_vector = user.supergenres
-        playlists = generate_similarity_playlists(sp, user_vector, db_handler, total_songs=playlist_length)
+        playlists = generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=playlist_length)
 
         return jsonify({
             group: pl['external_urls']['spotify'] if pl else None

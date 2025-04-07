@@ -207,11 +207,14 @@ def gen_train_matrix(user_list):
     matrix = []
     labels = []
     for user_dict in user_list:
-        user_row = []
-        # iterate through supergenres to preserve order of genres in matrix
-        for genre in SUPERGENRES:
-            user_row.append(user_dict['supergenres'].get(genre, 0))
-        matrix.append(user_row)
+        matrix.append(get_ordered_user_row(user_dict))
         labels.append(user_dict['user_id'])
     return np.array(matrix), labels
+
+def get_ordered_user_row(user_dict):
+    ordered_row = []
+    # iterate through genres as listed to preserve order
+    for genre in SUPERGENRES:
+        ordered_row.append(user_dict['supergenres'].get(genre, 0))
+    return np.array(ordered_row)
 
