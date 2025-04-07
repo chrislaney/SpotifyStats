@@ -321,16 +321,22 @@ def similarity_playlists():
     token_info = ensure_token_or_redirect()
     if isinstance(token_info, dict):
         sp = Spotify(auth=token_info['access_token'])
-        manual = request.args.get("manual") == "true"
         playlist_length = int(request.args.get("length", 100))
-
-
+        # Get the playlist parameter to determine which type(s) to generate
+        playlist_type = request.args.get("playlist", "")
 
         genre_cache = load_genre_cache()
         user = User.from_spotify(sp, genre_cache)
 
         user_vector = user.supergenres
-        playlists = generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=playlist_length)
+        playlists = generate_similarity_playlists(
+            sp, 
+            user_vector, 
+            db_handler, 
+            clusterer, 
+            total_songs=playlist_length,
+            playlist=playlist_type
+        )
 
         return jsonify({
             group: pl['external_urls']['spotify'] if pl else None
