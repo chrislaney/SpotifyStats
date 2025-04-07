@@ -165,15 +165,15 @@ def get_track_uris_from_cluster_users(db_handler, cluster_id, total_songs,users_
 
     return collected_uris[:total_songs]  # Trim if we over-collected
 
-def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=100, clusters_to_use=2, users_per_cluster=20):
+def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=100, clusters_to_use=2, users_per_cluster=20, playlist = ""):
     """
     Generate playlists based on similarity to user's taste profile.
-    
-    
-    Generate 3 playlists:
-    - From the user's own cluster
-    - From the top N similar clusters, weighted by distribution
-    - From the least similar cluster
+
+    Options for `playlist`:
+    - "most_similar"
+    - "similar_clusters"
+    - "least_similar"
+    - "" (empty string) to generate all
     """
     # Get cluster distances
     similar_clusters, least_similar = clusterer.get_similar_clusters({'supergenres': user_vector}, n=8)
@@ -184,62 +184,60 @@ def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_
     low_cluster_weights=[.2,.2,.2,.2,.2]
     playlists = {}
 
-    # 1. From user's own cluster
-    same_cluster_uris = get_track_uris_from_cluster_users(
-        db_handler,
-        user_cluster,
-        total_songs,
-        current_user_id=None  #lets leave this as none for now 
-    )
-    playlists["most_similar"] = create_playlist(
-        sp=sp,
-        title="Similar to My Taste",
-        track_uris=same_cluster_uris,
-        description="Songs from users most like you",
-        public=True
-    )
-
-    # 2. From weighted similar clusters
-    weighted_uris = []
-    for (dist, cluster_id), weight in zip(similar_clusters, cluster_weights):
-        count = int(total_songs * weight)
-        uris = get_track_uris_from_cluster_users(
+    if playlist in ["most_similar", ""]:
+        same_cluster_uris = get_track_uris_from_cluster_users(
             db_handler,
-            cluster_id,
-            count,
-            current_user_id=None  #lets leave this as none for now 
+            user_cluster,
+            total_songs,
+            current_user_id=None
         )
-        weighted_uris.extend(uris)
-
-    playlists["similar_clusters"] = create_playlist(
-        sp=sp,
-        title="Expand My Horizons",
-        track_uris=weighted_uris,
-        description="Songs from users with similar tastes, weighted by closeness",
-        public=True
-    )
-
-    # 3. From most different cluster
-    low_weighted_uris = []
-    for (dist, cluster_id), weight in zip(least_similar, low_cluster_weights):
-        count = int(total_songs * weight)
-        uris = get_track_uris_from_cluster_users(
-            db_handler,
-            cluster_id,
-            count,
-            current_user_id=None  #lets leave this as none for now 
+        playlists["most_similar"] = create_playlist(
+            sp=sp,
+            title="Similar to My Taste",
+            track_uris=same_cluster_uris,
+            description="Songs from users most like you",
+            public=True
         )
-        low_weighted_uris.extend(uris)
 
-    playlists["least_similar"] = create_playlist(
-        sp=sp,
-        title="Not Like Me",
-        track_uris=low_weighted_uris,
-        description="Songs from users least like you",
-        public=True
-    )
+    if playlist in ["similar_clusters", ""]:
+        weighted_uris = []
+        for (dist, cluster_id), weight in zip(similar_clusters, cluster_weights):
+            count = int(total_songs * weight)
+            uris = get_track_uris_from_cluster_users(
+                db_handler,
+                cluster_id,
+                count,
+                current_user_id=None
+            )
+            weighted_uris.extend(uris)
 
+        playlists["similar_clusters"] = create_playlist(
+            sp=sp,
+            title="Expand My Horizons",
+            track_uris=weighted_uris,
+            description="Songs from users with similar tastes, weighted by closeness",
+            public=True
+        )
 
+    if playlist in ["least_similar", ""]:
+        low_weighted_uris = []
+        for (dist, cluster_id), weight in zip(least_similar, low_cluster_weights):
+            count = int(total_songs * weight)
+            uris = get_track_uris_from_cluster_users(
+                db_handler,
+                cluster_id,
+                count,
+                current_user_id=None
+            )
+            low_weighted_uris.extend(uris)
+
+        playlists["least_similar"] = create_playlist(
+            sp=sp,
+            title="Not Like Me",
+            track_uris=low_weighted_uris,
+            description="Songs from users least like you",
+            public=True
+        )
 
     return playlists
 
