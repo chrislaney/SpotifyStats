@@ -4,7 +4,7 @@ from utils import gen_train_matrix, get_ordered_user_row
 class Clusterer():
     def __init__(self, users):
         train_data, user_ids = gen_train_matrix(users)
-        self.algo = KMeans(n_clusters=12, init='random', n_init=20)
+        self.algo = KMeans(n_clusters=12, init='random', n_init=20, random_state=4825)
         self.algo.fit(train_data)
         self.labels = self.algo.labels_
 

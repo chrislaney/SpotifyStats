@@ -81,6 +81,34 @@ clusterer = Clusterer(all_user_dicts)
 #    except Exception as e:
 #        print(f"Error saving labeled data: {e}")
 
+if False: 
+    print("\n" + "*_"*80)
+    print(" YOU ARE UPDATING CLUSTER ASSIGNMENTS ")
+    print("ENSURE THIS IS INTENTIONAL (you've changed the clustering model or inputs)")
+    print("\n" + "*_"*80)
+    #Update only changed cluster_ids
+    for user_dict in all_user_dicts:
+        user_id = user_dict['user_id']
+        current_cluster = user_dict.get('cluster_id', -1)# falls back to -1 if no cluster
+        predicted_cluster = clusterer.predict(user_dict) # fir to new cluster
+
+        if current_cluster != predicted_cluster:# ionly update if changed, saves call 
+            try:
+                db_handler.users_table.update_item(# updates only clusters
+                    Key={'user_id': user_id},
+                    UpdateExpression='SET cluster_id = :cid, last_updated = :now',
+                    ExpressionAttributeValues={
+                        ':cid': int(predicted_cluster),
+                        ':now': datetime.now().isoformat()
+                    }
+                )
+                print(f"updated {user_id}: {current_cluster} -> {predicted_cluster}")
+            except Exception as e:
+                print(f"error updating {user_id}: {e}")
+        #else:
+            #print(f"skipped {user_id}: already in cluster {current_cluster}")
+
+
 # ensure valid token and refresh if needed
 def ensure_token():
     token_info = session.get("token_info", None)
