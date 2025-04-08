@@ -86,24 +86,24 @@
         <h2>Generate Playlists Based on Your Taste</h2>
 
         <div class="playlist-generator-tabs">
-            <button id="tabSimilar" class="playlist-tab-button tab-active" onclick="switchPlaylistTab('similar')">Similar to My Taste</button>
+            <button id="tabSimilar" class="playlist-tab-button tab-active" onclick="switchPlaylistTab('similar')">Cluster Mates</button>
             <button id="tabExplore" class="playlist-tab-button" onclick="switchPlaylistTab('explore')">Expand My Horizons</button>
-            <button id="tabDifferent" class="playlist-tab-button" onclick="switchPlaylistTab('different')">Not Like Me</button>
-            <button id="tabAll" class="playlist-tab-button" onclick="switchPlaylistTab('all')">Generate All Three</button>
+            <button id="tabDifferent" class="playlist-tab-button" onclick="switchPlaylistTab('different')">Across the Pond</button>
+            <button id="tabAll" class="playlist-tab-button" onclick="switchPlaylistTab('all')">All Three</button>
         </div>
 
         <div class="playlist-description-container">
             <p id="similarDescription" class="playlist-type-description">
-                <span class="playlist-type">Similar to My Taste</span> - Create a playlist with songs that closely match your current listening profile.
+                <span class="playlist-type">Cluster Mates</span> - Create a playlist with songs from people within your cluster, classified via genre distribution.
             </p>
             <p id="exploreDescription" class="playlist-type-description hidden">
-                <span class="playlist-type">Expand My Horizons</span> - Discover songs from users with similar but different tastes to help you branch out.
+                <span class="playlist-type">Expand My Horizons</span> - Create a playlist using an equal distribution of your five closest clusters, giving you familiar music as well as some new finds.
             </p>
             <p id="differentDescription" class="playlist-type-description hidden">
-                <span class="playlist-type">Not Like Me</span> - Explore music far outside your usual taste from users with very different preferences.
+                <span class="playlist-type">Across the Pond</span> - Explore music far outside your usual taste from your furthest clusters.
             </p>
             <p id="allDescription" class="playlist-type-description hidden">
-                <span class="playlist-type">Generate All Three</span> - Create all three playlists at once: Similar to My Taste, Expand My Horizons, and Not Like Me.
+                <span class="playlist-type">Generate All Three</span> - Create all three playlists at once: Cluster Mates, Expand My Horizons, and Across the Pond.
             </p>
         </div>
 
@@ -601,8 +601,8 @@
                 ...Object.keys(userData.supergenres),
                 ...Object.keys(comparisonData.supergenres)
             ])].filter(genre =>
-                (userData.supergenres[genre] || 0) > 0 ||
-                (comparisonData.supergenres[genre] || 0) > 0
+                (userData.supergenres[genre] || 0) > 5 ||
+                (comparisonData.supergenres[genre] || 0) > 5
             );
 
             // Get the maximum value to determine scale
