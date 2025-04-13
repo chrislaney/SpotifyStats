@@ -217,8 +217,8 @@ insert link when done
 
 
 
-
-### Summary of Hours and Justification
+## Hour Justification
+#### Summary of Hours and Justification Fall Semester
 | **Task Description**                                   | **Assigned To**            | **Hours Estimated or Completed** |
 |-------------------------------------------------------|----------------------------|-----------|
 | Research Spotify API                                  | Seamus                     | 5         |
@@ -243,16 +243,8 @@ insert link when done
 | Pipeline data from backend to frontend                | Justin, Chris              | 3         |
 | Document prediction algorithms                        | Noah, Justin               | 4         |
 | Test and validate algorithms                          | Noah                       | 12        |
-
-
----
-
-## ABET Concerns Essay
-**Summary:** 
-SpotifyStats operates within several constraints, including security, ethics, economics, and legal compliance. 
-Key considerations include safeily handling user data, adhering to Spotify and other API permissions, maintaining cost-effective development, and ensuring legal compliance. These constraints guide the design and implementation of our project, ensuring it remains secure, ethical, and accessible.
-
-See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
+#### Summary of Hours and Justification Spring Semester
+: Give both semester summaries for each team member (hours and amount); give a total for each team member for the year (hours and amount); give a total for the project (hours and amount); a paragraph of justification of the activities for each team member associated with the hours should be given.  Provide links to project notebooks or to meeting notes, which provides evidence of hours.
 
 ---
 
@@ -262,15 +254,12 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
 - **Monetary Value of Donations:**  
   - NONE
     This app was completely produced from free services
-    
-## The Final Design Report Summary of Hours
-
-: Give both semester summaries for each team member (hours and amount); give a total for each team member for the year (hours and amount); give a total for the project (hours and amount); a paragraph of justification of the activities for each team member associated with the hours should be given.  Provide links to project notebooks or to meeting notes, which provides evidence of hours.
-
 
 ---
 
 ## Appendix
 - **References:**  
   - [Spoitfy API WIKI](https://developer.spotify.com/documentation/web-api)
+  - [Render hosting site docs](https://render.com/docs)
+  - [Flask Docs](https://flask.palletsprojects.com/en/stable/)
   
