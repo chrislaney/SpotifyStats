@@ -257,21 +257,6 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
 
 ---
 
-## PPT Slideshow
-[Link here)(https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EafN2-MCRvNFvCqqYHi6TLYB5AMdMXJh9KndGTTmdnqgfQ?e=ANtj2L)
-
----
-
-## Self-Assessment Essays
-[Self-Assessment Essays Repo](./current_docs/essays) 
-
----
-
-## Professional Biographies
-[Self-Assessment Essays Repo](./current_docs/essays)  
-
----
-
 ## Budget
 - **Expenses to Date:**  
   - NONE 
@@ -284,5 +269,3 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
 - **References:**  
   - [Spoitfy API WIKI](https://developer.spotify.com/documentation/web-api)
   
-
----
