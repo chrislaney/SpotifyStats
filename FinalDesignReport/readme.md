@@ -192,15 +192,15 @@ Results; Non project civilizians tested the site and confirmed easy navigation a
 Upon typing in the link you will be presented with this landing / homepage. Infront of you lies 2 paths. The first button logs into and authenticates a users spotify account, the 2nd option with the textbox asks for a spotify playlist url link to run the analyzer on. We will go with the authentication path because it is more complex.
 ![UM1](./UM1.png)
 Upon clicking you will go to a spotify auth page and sign in to give us permission to pull data. This is what this looks like;
-![UM2](./FinalDesignReport/UM2.png)
+![UM2](./UM2.png)
 Once logged you will be redirected back to a dashboard where your data is being extracted, transformed and loaded. The dashboard will then present. 
-![UM3](./FinalDesignReport/UM3)
+![UM3](./UM3.png)
 From here out it is simply a scroll down to find new features, The first 2 are polar area charts showing the logged in users super and sub genre distributions.
-![UM4](./FinalDesignReport/UM4)
+![UM4](./UM4.png)
 The next feature is a compare feature where you can use a public playlist url or a spotify user url who is in our database. This distribution is presented on a radar chart.
-![UM5](./FinalDesignReport/UM5)
+![UM5](./UM5.png)
 The final feature is that of playlist generation. Using your genre breakdowns and that of other users we create a few different specialized playlists for a user.
-![UM6](./FinalDesignReport/UM6)
+![UM6](./UM6.png)
 
 
 ### Summary of Hours and Justification
