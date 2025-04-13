@@ -210,10 +210,10 @@ The final feature is that of playlist generation. Using your genre breakdowns an
 
 ## Assesments
 ### Fall Self-Assessment Essays
-[Self-Assessment Essays Repo](../current_docs/essays) 
+[FALL Self-Assessment Essays Repo](../current_docs/essays) 
 
 ### Spring Self-Assessment Essays
-insert link when done
+[SPRING Self-Assessment Essays Repo](./SpringAssesments) 
 
 
 
