@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genre Distro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function authenticateAndFetchData() {
+            document.getElementById('loading').style.display = 'block';
+            window.location.href = '/login';  // Redirects to Flask route for Spotify auth
+        }
+
+        function isValidPlaylistUrl(url) {
+            // Regex pattern to validate playlist URL
+            const playlistPattern = /^https:\/\/open\.spotify\.com\/playlist\/[a-zA-Z0-9]+(\?.*)?$/;
+            return playlistPattern.test(url);
+        }
+
+        function extractPlaylistId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting playlist ID:", error);
+                return null;
+            }
+        }
+
+        async function fetchPlaylistData() {
+            const playlistUrl = document.getElementById('playlistUrl').value;
+
+            if (!isValidPlaylistUrl(playlistUrl)) {
+                alert("Please enter a valid Spotify playlist URL.");
+                return;
+            }
+
+            const playlistId = extractPlaylistId(playlistUrl);
+            if (!playlistId) {
+                alert("Error extracting playlist ID.");
+                return;
+            }
+
+            // Redirect to the Flask endpoint for playlist breakdown
+            window.location.href = `/show_playlist/${playlistId}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="welcome-section">
+            <h1>Discover Your Music Taste Profile</h1>
+            <p>
+                Welcome to Genre Distro, an intelligent music analysis tool that helps you visualize your listening preferences, compare them with others', and even generate playlists based off other users.
+            </p>
+            <p>
+                If you log in with Spotify or supply a playlist, we will read your top tracks. Your listening data is then analyzed to identify genre patterns. These genre patterns are then visualized through an interactive radar chart. You can also compare your listening history or playlist with any other public playlist.
+            </p>
+            <p>
+                If you allow login through Spotify, we grant enhanced functionality; it allows us to use a clustering algorithm to assign you to a cluster of users with similar genre distributions. You are then able to  generate playlists from other clusters of users based on how far they are from your cluster.
+            </p>
+            <p>
+                Data Disclaimer: By logging into our app, you are consenting to letting us store your user id and top tracks, as well as allowing us to write playlists to your account. Once the session is ended, and you are logged out, we no longer have permissions over your profile; however, your track data is stored for future training.
+            </p>
+            <p>
+                This project was developed at the University of Cincinnati. For questions or feedback, please contact Chris Laney at <a href="mailto:Laneyct@mail.uc.edu">Laneyct@mail.uc.edu</a>.
+            </p>
+        </div>
+
+        <div class="action-buttons">
+            <!-- Login Button -->
+            <button class="action-button" onclick="authenticateAndFetchData()">Login with Spotify</button>
+        </div>
+
+        <!-- Playlist URL Input and Button -->
+        <div class="playlist-input-section">
+            <label for="playlistUrl">Enter Spotify Playlist URL:</label>
+            <div class="playlist-input-container">
+                <input type="text" id="playlistUrl" placeholder="https://open.spotify.com/playlist/...">
+                <button class="comparison-button" onclick="fetchPlaylistData()">Fetch Playlist</button>
+            </div>
+        </div>
+
+        <!-- Loading Message -->
+        <div id="loading" class="loading-message">
+            <p>Loading your data... Please wait.</p>
+        </div>
+    </div>
+</body>
+</html>
