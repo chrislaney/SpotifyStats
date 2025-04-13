@@ -65,93 +65,148 @@ Through the combination of detailed analytics, intelligent recommendations, clea
 The user interface is composed of a few different functional pieces. The initial is the index.html or landing page. This is where a user must log in to spotify to authenticate their account information with us, and give us permission to pull data. Or their is a non login method where they can input a public playlist URL and get the distribution breakdown from that, with no account info. Once a user is authenticated (or not) it will take them to the dashboard side of our project. Which for non-logged in users, will only consist of the first part of these deliverables. There will be 2 polar area charts and a list with percentages of super-genre distribution and sub-genre distribution, respectively. Then a user and scroll down to the compare section where users can compare on a radar chart their own listening distribution with that of either another user in our database via their account share link or a publically available (non spotify made) playlist. This will plot each of their respective distributions on a radar chart showing overlap and variance within the graphic. The third and final part is that of the playlist recommendation / generation aspect. A user then has the ability to click "generate playlists" and 3 possible playlist options could be generated. A playlist with songs that the user likely knows and or enjoys, a playlist with some new music but also some familiar music, and a playlist with music that the user likely does not know. Once generated these playlists will be automatically be added to the users account. 
 
 
-### Design Diagrams
-#### Level 0 Diagram
-D0; User connects their spotify account to our webapp and we redeliver their data to them 
-in a clean way.
-![Level 0 Diagram](/current_docs/Design_Diagrams/D0Diagram.jpg) 
+### Test Plan and Results
+Our testing approach holds a combination of objective tests and subjective tests that may be difficult to quantify. Our plan is to first test the necessary, quantifiable test cases, such as verifying that our API endpoints are functional, that are databases are connected, and that performance is accurate. After this, we will be testing the result of our similarity algorithm, which is at least in part subjective, such that users are ￼as representative of both users’ tastes. Finally, we will make sure that the UI is aesthetically pleasing and intuitive.
+#### Test Cases:
+1)	Fast Load Time Test Case; 
+This test is to ensure that users are admitted to the webapp quickly
+This test will ensure that all users apps load in less than a minute
+Input; user login / Auth 
+Output; Home page
+Normal Boundary
+Black Box
+Performance
+Unit Test
+##### Result;
 
-#### Level 1 Diagram
-D1; A User connects their spotify account to our webapp and we use the spotify api to 
-access their listening history. This data is then sent to 2 different components. One of 
-which breaks down their current analytics and the other uses the data to provide song 
-recommendation. All returned to the user via a webapp. 
-![Level 1 Diagram](/current_docs/Design_Diagrams/D1Diagram.jpg) 
+3)	Access Spotify Data
+This is the test to make sure that the program can successfully pull data from Spotify.
+This test will access data from Spotify after a user authorizes our program.
+Input: User Login / OAuth
+Output: Interface with user data
+Normal Boundary
+White Box
+Functional
+Integration Test
 
-#### Level 2 Diagram
-D2; A user connects to our webapp using the spotify api and letting us access their 
-listening history. We are also collecting other data on general users and music to 
-interpolate for our prediction and reccomendation algorithms. The individual users 
-listening history is also passed to our analytics tool for breakdown and it bundled up in the 
-backend and returned to the user on a UI. 
-![Level 2 Diagram](/current_docs/Design_Diagrams/D2Diagram.jpg) 
+4)	Data is Saved to Database
+This test is to ensure that data is properly saved upon new user login/user data expiration.
+Input: user login/Auth
+Output: User data is stored properly in database
+Normal Boundary
+Blackbox
+Functional
+Unit
 
+5)	Database Connection Test
+This test is to ensure that our program can connect to a cloud database to store data in.
+Input: database login
+Output: successful connection
+Normal Boundary
+Blackbox
+Functional
+Integration
 
----
+6)	Plot Display Test
+The purpose of this test is to verify that, upon request, a user will be able to see themselves upon other users and examine how similar they are to each other. The plot should be interactive and believable based on the songs that are available upon user request.
+Input: User’s song data
+Output: interactive plot of users and their top songs, similarity score
+Normal
+Whitebox
+Functional
+Integration
 
-## Project Tasks and Timeline
+7)	Spider Chart Works
+This test is to ensure a user’s homepage contains a spider chart of their Super Genres
+This test makes sure the user has a spider chart of their super genres displayed when they log into SpotifyStats.
+Input: User’s Super Genre distribution
+Output: Super Genre Spider Chart
+Normal Boundary
+White Box
+Functional
+Integration
 
-## Milestones
-1. Retrieve the first Spotify data and display it on a webpage.
-2. Complete data cleaning and storage processes alongside developing visual components and passing data to the algorithm backend.
-3. Create an initial working version of a recommendation algorithm.
-4. Implement dynamic data visualizations on the front end with live data.
-
---- 
-
-### Task List 
-1. Spotify  
-   1. Research Spotify API
-   2. Obtain a developer Spotify account 
-   3. Integrate Spotify API into program 
-      1. Connect to Spotify API
-      2. Transform data into a Global Format I/O 
-   4. Develop minimum viable product 
-   5. Document use of Spotify API Integration 
-   6. Develop data pipeline from backend to front 
-2. Front End  
-   1. Research \<CODE LANGUAGE\> front-end capabilities 
-   2. Obtain sandbox environment 
-   3. Design Proof of Concept page(s) 
-   4. Develop minimum viable product 
-   5. Document front-end navigation 
-3. Recommendation Algorithm  
-   1. Create Music History Analysis based on Global Format 
-   2. Research Prediction Algorithm 
-   3. Design Prediction Algorithm 
-   4. Implement Prediction Algorithm using Global Format I/O
-   5. Document each prediction algorithm and analysis profile
-
-
-
-### Timeline
-| **Task Description**                                            | **Start Date** | **End Date**   |
-|------------------------------------------------------------------|----------------|----------------|
-| Research Spotify API                                             | 10/1/24        | TBD            |
-| Research framework/language for the web app                     | 10/1/24            | TBD            |
-| Design proof-of-concept pages and mockups                       | 10/1/24            | TBD            |
-| Create front-end navigation map                                  | TBD            | TBD            |
-| Determine planned features accessible via frontend              | TBD            | 1/21/25        |
-| Obtain sandbox environment                                       | 10/1/24            | 11/1/24        |
-| Build out listening history section                              | TBD            | 4/12/25        |
-| Build out recommendation section                                 | TBD            | 4/12/25        |
-| Dynamic data pipeline from API to frontend                      | 1/1/25         | 4/20/25        |
-| Host the website                                                 | TBD            | 4/1/25         |
-| Minimum viable product (MVP) and presentation                   | 4/1/25         | 4/20/25        |
-| Obtain Spotify developer account                                 | 10/14/24       | 10/21/24       |
-| Connect to Spotify API                                           | 10/14/24       | 11/1/24        |
-| Collect and clean data                                           | 10/14/24       | 1/1/25         |
-| Parse and send data to frontend/recommendation algorithm         | 10/14/24       | 1/1/25         |
-| Develop MVP and document Spotify API integration                | 4/1/25         | 4/20/25        |
-| Create music history analysis based on retrievable Spotify data | 10/9/24        | 1/1/25         |
-| Research prediction algorithms                                   | 10/9/24        | 3/1/25         |
-| Design prediction algorithms                                     | 1/1/25         | 4/1/25         |
-| Implement prediction algorithms and coordinate with frontend    | 1/1/25         | 4/1/25         |
-| Document prediction algorithms                                   | 10/1/24        | 4/20/25        |
-| Test and validate algorithms                                    | 3/1/25         | 4/20/25        |
+8)	Super Genre Map Helper
+This is to ensure that a users songs are mapped to the correct genre 
+This will cross reference users subgenres to the super genre map to make sure their genre distributions are accurate
+Input: List of users genres from top 100 songs
+Output: Genre Distribution
+Normal Boundary 
+Black Box
+Functional
+Unit Test
 
 
-### Effort Matrix
+9)	User Similarity Ranking
+This is to ensure that user similarity/dissimilarity rankings work to subjective and objective criteria
+Will use test users and manual data to validate rankings 
+ inputs: test users that have only listened to specified genre playlists
+ outputs: test users rankings compared to other users  
+ Normal boundary 
+White Box
+Functional
+Integration
+
+10)	User Interface Data Transfer Efficiently
+Ensure efficient data transfer from backend to front end graphs
+Input: Data objects from parser
+Output: Data objects in front end
+Normal Boundary
+Black Box
+Performance
+Unit test
+
+11)	User Interface Data Transfer Correctly
+Ensure clean data transfer from middleware/parser to front end graphs
+Input: Data objects from parser
+Output: Data objects in front end / Correct graphs
+Normal Boundary
+Black Box
+Functional
+Unit test
+
+
+12)	User Accessibility Test
+Ensure that our site is easily navigable and understandable by the average user.
+Input: Non-developer user navigating the website
+Output: Review of the site’s accessibility
+Normal Boundary
+White Box
+Performance
+Integration
+ 
+Test Matrix
+
+Normal/
+Abnormal	Blackbox/
+Whitebox	Functional/
+Performance	Unit/
+Integration
+1	Normal	Black	Performance	Unit
+2	Normal	White	Functional	Integration
+3	Normal	Black	Functional	Unit
+4	Normal	Black	Functional	Integration
+5	Normal	White	Functional	Integration
+6	Normal   White	Functional	Integration
+7	Normal	Black	Functional	Unit
+8	Normal	White	Functional	Integration
+9	Normal	Black	Perfromance	Unit
+10	Normal	Black	Functional	Unit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Summary of Hours and Justification
 | **Task Description**                                   | **Assigned To**            | **Hours Estimated or Completed** |
 |-------------------------------------------------------|----------------------------|-----------|
 | Research Spotify API                                  | Seamus                     | 5         |
