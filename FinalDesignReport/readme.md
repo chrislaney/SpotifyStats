@@ -190,7 +190,7 @@ Results; Non project civilizians tested the site and confirmed easy navigation a
 ## User Manual
 
 Upon typing in the link you will be presented with this landing / homepage. Infront of you lies 2 paths. The first button logs into and authenticates a users spotify account, the 2nd option with the textbox asks for a spotify playlist url link to run the analyzer on. We will go with the authentication path because it is more complex.
-![UM1](./FinalDesignReport/UM1)
+![UM1](./UM1)
 Upon clicking you will go to a spotify auth page and sign in to give us permission to pull data. This is what this looks like;
 ![UM2](./FinalDesignReport/UM2)
 Once logged you will be redirected back to a dashboard where your data is being extracted, transformed and loaded. The dashboard will then present. 
