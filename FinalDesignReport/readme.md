@@ -231,7 +231,7 @@ insert link when done
 | Build out listening history section                   | Chris                      | 8         |
 | Build out recommendation section                      | Chris                      | 8         |
 | Dynamic data pipeline from API to frontend            | Seamus                     | 10        |
-| Host the website                                      | Seamus                     | 5         |
+| Host the website                                      | Chris                      | 5         |
 | Minimum viable product and presentation               | All                        | 12        |
 | Obtain Spotify developer account                      | All                        | 0.5       |
 | Connect to Spotify API                                | Seamus                     | 1         |
@@ -241,7 +241,7 @@ insert link when done
 | Research prediction algorithms                        | Noah, Justin               | 6         |
 | Design prediction algorithms                          | Noah, Justin               | 8         |
 | Implement prediction algorithms and coordinate UI/UX  | Noah, Justin, Chris        | 15        |
-| Pipeline data from backend to frontend                | Justin                     | 3         |
+| Pipeline data from backend to frontend                | Justin, Chris              | 3         |
 | Document prediction algorithms                        | Noah, Justin               | 4         |
 | Test and validate algorithms                          | Noah                       | 12        |
 
@@ -262,6 +262,12 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
   - NONE 
 - **Monetary Value of Donations:**  
   - NONE
+    This app was completely produced from free services
+    
+## The Final Design Report Summary of Hours
+
+: Give both semester summaries for each team member (hours and amount); give a total for each team member for the year (hours and amount); give a total for the project (hours and amount); a paragraph of justification of the activities for each team member associated with the hours should be given.  Provide links to project notebooks or to meeting notes, which provides evidence of hours.
+
 
 ---
 
