@@ -203,7 +203,6 @@ The final feature is that of playlist generation. Using your genre breakdowns an
 ![UM6](./UM6.png)
 
 ## Spring Final PPT Presentation
-needs updated
 [Slide show link](https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EafN2-MCRvNFvCqqYHi6TLYB5AMdMXJh9KndGTTmdnqgfQ?e=ANtj2L)
 
 ## Final Expo Poster
@@ -211,7 +210,7 @@ needs updated
 
 ## Assesments
 ### Fall Self-Assessment Essays
-[Self-Assessment Essays Repo](./current_docs/essays) 
+[Self-Assessment Essays Repo](../current_docs/essays) 
 
 ### Spring Self-Assessment Essays
 insert link when done
