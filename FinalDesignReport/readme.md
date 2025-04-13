@@ -204,7 +204,7 @@ The final feature is that of playlist generation. Using your genre breakdowns an
 
 ## Spring Final PPT Presentation
 needs updated
-[PPT Slideshow](./current_docs/SrDesignAssignment8.pptx)
+[Slide show link](https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EafN2-MCRvNFvCqqYHi6TLYB5AMdMXJh9KndGTTmdnqgfQ?e=ANtj2L)
 
 ## Final Expo Poster
 [Final Expo Poster](https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EQm9eA5mRVZPrVERrwZ352MBgSCGfO5FUOmvDLsLlr9oEw?e=nyRmt6)
@@ -258,7 +258,7 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
 ---
 
 ## PPT Slideshow
-[PPT Slideshow](./current_docs/SrDesignAssignment8.pptx)
+[Link here)(https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EafN2-MCRvNFvCqqYHi6TLYB5AMdMXJh9KndGTTmdnqgfQ?e=ANtj2L)
 
 ---
 
