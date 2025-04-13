@@ -202,6 +202,22 @@ The next feature is a compare feature where you can use a public playlist url or
 The final feature is that of playlist generation. Using your genre breakdowns and that of other users we create a few different specialized playlists for a user.
 ![UM6](./UM6.png)
 
+## Spring Final PPT Presentation
+needs updated
+[PPT Slideshow](./current_docs/SrDesignAssignment8.pptx)
+
+## Final Expo Poster
+[Final Expo Poster](https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EQm9eA5mRVZPrVERrwZ352MBgSCGfO5FUOmvDLsLlr9oEw?e=nyRmt6)
+
+## Assesments
+### Fall Self-Assessment Essays
+[Self-Assessment Essays Repo](./current_docs/essays) 
+
+### Spring Self-Assessment Essays
+insert link when done
+
+
+
 
 ### Summary of Hours and Justification
 | **Task Description**                                   | **Assigned To**            | **Hours Estimated or Completed** |
@@ -243,8 +259,6 @@ See the full [Constraint Essay](./current_docs/ConstraintEssayRevised.pdf).
 
 ## PPT Slideshow
 [PPT Slideshow](./current_docs/SrDesignAssignment8.pptx)
-
-[Video Presentation](https://mailuc-my.sharepoint.com/:v:/g/personal/laneyct_mail_uc_edu/EdBwQNEC7LdAmnYO8MOcC4gBi6mM51ssK-GU0cPHtDStDw?e=gQzECU&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ---
 
