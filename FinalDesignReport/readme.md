@@ -65,7 +65,7 @@ Through the combination of detailed analytics, intelligent recommendations, clea
 The user interface is composed of a few different functional pieces. The initial is the index.html or landing page. This is where a user must log in to spotify to authenticate their account information with us, and give us permission to pull data. Or their is a non login method where they can input a public playlist URL and get the distribution breakdown from that, with no account info. Once a user is authenticated (or not) it will take them to the dashboard side of our project. Which for non-logged in users, will only consist of the first part of these deliverables. There will be 2 polar area charts and a list with percentages of super-genre distribution and sub-genre distribution, respectively. Then a user and scroll down to the compare section where users can compare on a radar chart their own listening distribution with that of either another user in our database via their account share link or a publically available (non spotify made) playlist. This will plot each of their respective distributions on a radar chart showing overlap and variance within the graphic. The third and final part is that of the playlist recommendation / generation aspect. A user then has the ability to click "generate playlists" and 3 possible playlist options could be generated. A playlist with songs that the user likely knows and or enjoys, a playlist with some new music but also some familiar music, and a playlist with music that the user likely does not know. Once generated these playlists will be automatically be added to the users account. 
 
 
-### Test Plan and Results
+## Test Plan and Results
 Our testing approach holds a combination of objective tests and subjective tests that may be difficult to quantify. Our plan is to first test the necessary, quantifiable test cases, such as verifying that our API endpoints are functional, that are databases are connected, and that performance is accurate. After this, we will be testing the result of our similarity algorithm, which is at least in part subjective, such that users are ￼as representative of both users’ tastes. Finally, we will make sure that the UI is aesthetically pleasing and intuitive.
 #### Test Cases:
 1)	Fast Load Time Test Case; 
@@ -185,18 +185,22 @@ Normal Boundary
 White Box
 Performance
 Integration
-Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose. 
+Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose.
 
+## User Manual
 
-
-
-
-
-
-
-
-
-
+Upon typing in the link you will be presented with this landing / homepage. Infront of you lies 2 paths. The first button logs into and authenticates a users spotify account, the 2nd option with the textbox asks for a spotify playlist url link to run the analyzer on. We will go with the authentication path because it is more complex.
+![UM1](./FinalDesignReport/UM1)
+Upon clicking you will go to a spotify auth page and sign in to give us permission to pull data. This is what this looks like;
+![UM2](./FinalDesignReport/UM2)
+Once logged you will be redirected back to a dashboard where your data is being extracted, transformed and loaded. The dashboard will then present. 
+![UM3](./FinalDesignReport/UM3)
+From here out it is simply a scroll down to find new features, The first 2 are polar area charts showing the logged in users super and sub genre distributions.
+![UM4](./FinalDesignReport/UM4)
+The next feature is a compare feature where you can use a public playlist url or a spotify user url who is in our database. This distribution is presented on a radar chart.
+![UM5](./FinalDesignReport/UM5)
+The final feature is that of playlist generation. Using your genre breakdowns and that of other users we create a few different specialized playlists for a user.
+![UM6](./FinalDesignReport/UM6)
 
 
 ### Summary of Hours and Justification
