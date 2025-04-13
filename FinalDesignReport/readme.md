@@ -77,7 +77,8 @@ Normal Boundary
 Black Box
 Performance
 Unit Test
-##### Result;
+<br />
+Results; Initial user load takes about 10 seconds which meets our standard. Depending on wifi the playlists are typically generated in 15 seconds upon click, which does meet our standard
 
 3)	Access Spotify Data
 This is the test to make sure that the program can successfully pull data from Spotify.
@@ -88,8 +89,9 @@ Normal Boundary
 White Box
 Functional
 Integration Test
+Results; All data was accurately pulled and parsed using dictionaries, determining we were traversing the dictionary correctly.
 
-4)	Data is Saved to Database
+5)	Data is Saved to Database
 This test is to ensure that data is properly saved upon new user login/user data expiration.
 Input: user login/Auth
 Output: User data is stored properly in database
@@ -97,8 +99,9 @@ Normal Boundary
 Blackbox
 Functional
 Unit
+Results; User data we wanted was saved correctly to the database using standard user schema.
 
-5)	Database Connection Test
+7)	Database Connection Test
 This test is to ensure that our program can connect to a cloud database to store data in.
 Input: database login
 Output: successful connection
@@ -106,8 +109,9 @@ Normal Boundary
 Blackbox
 Functional
 Integration
+Results; Confirmed by induction of the testcase before this. 
 
-6)	Plot Display Test
+9)	Plot Display Test
 The purpose of this test is to verify that, upon request, a user will be able to see themselves upon other users and examine how similar they are to each other. The plot should be interactive and believable based on the songs that are available upon user request.
 Input: User’s song data
 Output: interactive plot of users and their top songs, similarity score
@@ -115,8 +119,9 @@ Normal
 Whitebox
 Functional
 Integration
+Results; User data able to be plotted on polar area chart as well as radar chart. 
 
-7)	Spider Chart Works
+11)	Spider Chart Works
 This test is to ensure a user’s homepage contains a spider chart of their Super Genres
 This test makes sure the user has a spider chart of their super genres displayed when they log into SpotifyStats.
 Input: User’s Super Genre distribution
@@ -125,8 +130,10 @@ Normal Boundary
 White Box
 Functional
 Integration
+Results; Confirmed by induction of the test case above. All plotting and graphing functions do as necessary 
 
-8)	Super Genre Map Helper
+
+13)	Super Genre Map Helper
 This is to ensure that a users songs are mapped to the correct genre 
 This will cross reference users subgenres to the super genre map to make sure their genre distributions are accurate
 Input: List of users genres from top 100 songs
@@ -135,9 +142,10 @@ Normal Boundary
 Black Box
 Functional
 Unit Test
+Results; This works as intended except for the fact that some subgenres do not map to supergenres due to the mapping key we used. In this event we are logging those to a text document for later update. 
 
 
-9)	User Similarity Ranking
+15)	User Similarity Ranking
 This is to ensure that user similarity/dissimilarity rankings work to subjective and objective criteria
 Will use test users and manual data to validate rankings 
  inputs: test users that have only listened to specified genre playlists
@@ -146,8 +154,9 @@ Will use test users and manual data to validate rankings
 White Box
 Functional
 Integration
+Results; Done via a k-means solution but other algos were tested for similarity purposes. This happened to be the best.
 
-10)	User Interface Data Transfer Efficiently
+17)	User Interface Data Transfer Efficiently
 Ensure efficient data transfer from backend to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end
@@ -155,8 +164,9 @@ Normal Boundary
 Black Box
 Performance
 Unit test
+Results; Confirmed via induction of test case 1, 9 and 11 where we test speed and the plotting accuracy of graphs
 
-11)	User Interface Data Transfer Correctly
+19)	User Interface Data Transfer Correctly
 Ensure clean data transfer from middleware/parser to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end / Correct graphs
@@ -164,9 +174,10 @@ Normal Boundary
 Black Box
 Functional
 Unit test
+Results; Confirmed user data does transfer correct and is plotted to an accurate representation of the data points.
 
 
-12)	User Accessibility Test
+21)	User Accessibility Test
 Ensure that our site is easily navigable and understandable by the average user.
 Input: Non-developer user navigating the website
 Output: Review of the site’s accessibility
@@ -174,25 +185,7 @@ Normal Boundary
 White Box
 Performance
 Integration
- 
-Test Matrix
-
-Normal/
-Abnormal	Blackbox/
-Whitebox	Functional/
-Performance	Unit/
-Integration
-1	Normal	Black	Performance	Unit
-2	Normal	White	Functional	Integration
-3	Normal	Black	Functional	Unit
-4	Normal	Black	Functional	Integration
-5	Normal	White	Functional	Integration
-6	Normal   White	Functional	Integration
-7	Normal	Black	Functional	Unit
-8	Normal	White	Functional	Integration
-9	Normal	Black	Perfromance	Unit
-10	Normal	Black	Functional	Unit
-
+Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose. 
 
 
 
