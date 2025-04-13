@@ -1,0 +1,49 @@
+{
+  "user_id": "the_police-5hz7XzZIM1ym4bfrM1qC5Y-2",
+  "top_tracks": [
+    "spotify:track:5veJDT0MLsLbhYsx42GXUD",
+    "spotify:track:2TofEeQobQ9YoK7EFds698",
+    "spotify:track:7HKez549fwJQDzx3zLjHKC",
+    "spotify:track:4rcHWl68ai6KvpXlc8vbnE",
+    "spotify:track:0X5C4WjQNubRysTkHOubz3",
+    "spotify:track:2wnsBaxrmkthIFAm6vqCuX",
+    "spotify:track:2HHtWyy5CgaQbC7XSoOb0e",
+    "spotify:track:7j74lucZ59vqN67Ipe2ZcY",
+    "spotify:track:5zA8vzDGqPl2AzZkEYQGKh",
+    "spotify:track:7FwBtcecmlpc1sLySPXeGE",
+    "spotify:track:0yJvWbn8xQKiDZ84VN5lQG",
+    "spotify:track:40riOy7x9W7GXjyGp4pjAv",
+    "spotify:track:6VnpKLtfNH4Dk09YSGPSyR",
+    "spotify:track:6zeE5tKyr8Nu882DQhhSQI",
+    "spotify:track:70C4NyhjD5OZUMzvWZ3njJ",
+    "spotify:track:62uLNJgVZaFiEiKV4LpoYJ",
+    "spotify:track:71SvEDmsOwIWw1IozsZoMA",
+    "spotify:track:3YRCqOhFifThpSRFJ1VWFM",
+    "spotify:track:5RsUlxLto4NZbhJpqJbHfN",
+    "spotify:track:4dneV7C1yDt9UtyxrQY375",
+    "spotify:track:1V15l05snHYHYVxerjMFGo",
+    "spotify:track:1v2zyAJrChw5JnfafSkwkJ",
+    "spotify:track:1qQSRy9DjrGh3jtsSCU6B1",
+    "spotify:track:7HKxTNVlkHsfMLhigmhC0I",
+    "spotify:track:1JLn8RhQzHz3qDqsChcmBl"
+  ],
+  "subgenres": {
+    "glam metal": 0.0625,
+    "rock": 0.125,
+    "classic rock": 0.21875,
+    "soft rock": 0.15625,
+    "album rock": 0.125,
+    "new wave": 0.0625,
+    "post-punk": 0.0625,
+    "darkwave": 0.0625,
+    "progressive rock": 0.03125,
+    "hard rock": 0.03125,
+    "jangle pop": 0.03125,
+    "alternative rock": 0.03125
+  },
+  "supergenres": {
+    "Metal": 0.06666666666666667,
+    "Rock": 0.9,
+    "Pop": 0.03333333333333333
+  }
+}

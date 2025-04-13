@@ -1,0 +1,53 @@
+{
+  "user_id": "the_beatles-4OWUKCryi1l2GuFYStGokT-2",
+  "top_tracks": [
+    "spotify:track:0vZ97gHhemKm6c64hTfJNA",
+    "spotify:track:1JO1xLtVc8mWhIoE3YaCL0",
+    "spotify:track:5VSAonaAPhhGn0G7hMYwWK",
+    "spotify:track:3eYCJXTViFwl5mdtcTsF4G",
+    "spotify:track:745H5CctFr12Mo7cqa1BMH",
+    "spotify:track:5Qe7NHxeLAn8KoLTNLSdwe",
+    "spotify:track:0iOZM63lendWRTTeKhZBSC",
+    "spotify:track:78lgmZwycJ3nzsdgmPPGNx",
+    "spotify:track:11607FzqoipskTsXrwEHnJ",
+    "spotify:track:5uvosCdMlFdTXhoazkTI5R",
+    "spotify:track:5J2CHimS7dWYMImCHkEFaJ",
+    "spotify:track:3G7tRC24Uh09Hmp1KZ7LQ2",
+    "spotify:track:7pKfPomDEeI4TPT6EOYjn9",
+    "spotify:track:3EFb1qDgIqf9MegIryKtDj",
+    "spotify:track:2BY7ALEWdloFHgQZG6VMLA",
+    "spotify:track:7CZiDzGVjUssMSOXrDNYHL",
+    "spotify:track:2K2M0TcglCRLLpFOzKeFZA",
+    "spotify:track:0qRR9d89hIS0MHRkQ0ejxX",
+    "spotify:track:5zA8vzDGqPl2AzZkEYQGKh",
+    "spotify:track:4YMQXzscifAREG0a7KNGhB",
+    "spotify:track:4joiWvli4qJVEW6qZV2i2J",
+    "spotify:track:476V2d6iA2tWXgQboKmTtA",
+    "spotify:track:54eZmuggBFJbV7k248bTTt",
+    "spotify:track:4BVE5tIIpYabZcYCbephNW",
+    "spotify:track:0VNzEY1G4GLqcNx5qaaTl6"
+  ],
+  "subgenres": {
+    "classic rock": 0.20930232558139536,
+    "psychedelic rock": 0.20930232558139536,
+    "soft rock": 0.09302325581395349,
+    "folk rock": 0.11627906976744186,
+    "acid rock": 0.09302325581395349,
+    "motown": 0.023255813953488372,
+    "soul": 0.023255813953488372,
+    "folk": 0.046511627906976744,
+    "rock": 0.023255813953488372,
+    "hard rock": 0.023255813953488372,
+    "rock and roll": 0.023255813953488372,
+    "proto-punk": 0.023255813953488372,
+    "art rock": 0.023255813953488372,
+    "christmas": 0.023255813953488372,
+    "blues rock": 0.023255813953488372,
+    "singer-songwriter": 0.023255813953488372
+  },
+  "supergenres": {
+    "Rock": 0.875,
+    "R&B": 0.05,
+    "Folk/Acoustic": 0.075
+  }
+}

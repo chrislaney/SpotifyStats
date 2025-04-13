@@ -1,0 +1,44 @@
+{
+  "user_id": "justin_beib-7JHDFzKbOnp3SNGWBWh8bS-2",
+  "top_tracks": [
+    "spotify:track:6QFCMUUq1T2Vf5sFUXcuQ7",
+    "spotify:track:6qn9YLKt13AGvpq9jfO8py",
+    "spotify:track:0g5EKLgdKvNlln7TNqBByK",
+    "spotify:track:0KKkJNfGyhkQ5aFogxQAPU",
+    "spotify:track:6fxVffaTuwjgEk5h9QyRjy",
+    "spotify:track:1nahzW3kfMuwReTka28tH5",
+    "spotify:track:4356Typ82hUiFAynbLYbPn",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:5wANPM4fQCJwkGd4rN57mH",
+    "spotify:track:6hkOqJ5mE093AQf2lbZnsG",
+    "spotify:track:6epn3r7S14KUqlReYr77hA",
+    "spotify:track:01aTsQoKoeXofSTvKuunzv",
+    "spotify:track:1hGy2eLcmC8eKx7qr1tOqx",
+    "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+    "spotify:track:7MXVkk9YMctZqd1Srtv4MB",
+    "spotify:track:6I3mqTwhRpn34SLVafSH7G",
+    "spotify:track:4r6eNCsrZnQWJzzvFh4nlg",
+    "spotify:track:7zsXy7vlHdItvUSH8EwQss",
+    "spotify:track:0RUGuh2uSNFJpGMSsD1F5C",
+    "spotify:track:4QNpBfC0zvjKqPJcyqBy9W",
+    "spotify:track:16wAOAZ2OkqoIDN7TpChjR",
+    "spotify:track:3DarAbFujv6eYNliUTyqtz",
+    "spotify:track:4gbVRS8gloEluzf0GzDOFc",
+    "spotify:track:1zi7xx7UVEFkmKfv06H8x0",
+    "spotify:track:6KOEK6SeCEZOQkLj5M1PxH"
+  ],
+  "subgenres": {
+    "soft pop": 0.1,
+    "r&b": 0.1,
+    "pop": 0.4,
+    "moombahton": 0.2,
+    "rap": 0.1,
+    "hip hop": 0.1
+  },
+  "supergenres": {
+    "R&B": 0.1111111111111111,
+    "Pop": 0.4444444444444444,
+    "Electronic": 0.2222222222222222,
+    "Hip Hop": 0.2222222222222222
+  }
+}

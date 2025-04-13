@@ -1,0 +1,53 @@
+{
+  "user_id": "sleek_lemon-6LII3wPfVtIPoh9eeuuIUH-1",
+  "top_tracks": [
+    "spotify:track:1nQwi9UGdNeN1FyzGE7jDt",
+    "spotify:track:3kZAm2TC74lBJFPDoV40Qc",
+    "spotify:track:0j8ppsOOawdPCJnSTcXgOy",
+    "spotify:track:4iSHIHjbwqztgHdSeTjuMN",
+    "spotify:track:7qHNSOvoAZc7SdeJClZJbq",
+    "spotify:track:5oo7lrBwuD4dVfJbBLyVyI",
+    "spotify:track:6LsMmm02qu6SOmp9JeaIyC",
+    "spotify:track:6tO5bxNnMuh1c3cziSpecA",
+    "spotify:track:0FmrNFYyLLRtIS7XWJPLLk",
+    "spotify:track:2VKHWIONh47ntN7wyoSxEQ",
+    "spotify:track:5de9Ho64dovuQI8Uhn5gPD",
+    "spotify:track:5UGAXwbA17bUC0K9uquGY2",
+    "spotify:track:7AUHZBFJ5c7fiLhl0I9r5S",
+    "spotify:track:3XRQT7EoS4U87rUuJwg5P3",
+    "spotify:track:3IgjZRkRFAWflrCxRimOoL",
+    "spotify:track:240audWazVjwvwh7XwfSZE",
+    "spotify:track:6fsypiJHyWmeINsOLC1cos",
+    "spotify:track:3oDkdAySo1VQQG0ptV7uwa",
+    "spotify:track:03eJ2DclFWXYU8GWgANdmZ",
+    "spotify:track:3YeQsJs1FdLI3w0BqWwpmk",
+    "spotify:track:2ggqfj97qyiORmXoVFzP5j",
+    "spotify:track:42rF3FLOvTSXRpVowkwTGY",
+    "spotify:track:5W7hhtxN03ifV6O0c6XCkS",
+    "spotify:track:44x52QgzCxa1VdrLLNZMaw",
+    "spotify:track:5o7ZDvfOry1MNhNLBOJulo",
+    "spotify:track:4vaxvNDaLSoD36iZX515ug",
+    "spotify:track:2BDOJPAGE1W3roL0EsK2g0",
+    "spotify:track:19n8izXThARSuQAXrOKNbO",
+    "spotify:track:4w552MI4k7dwPHLjI8YOBy",
+    "spotify:track:0flSGzqHO12p9fU9kqaHGE",
+    "spotify:track:5X89UuCSWTnAYjsUfrTEl7",
+    "spotify:track:1smeI4gqEuepGWxlSw3tnC",
+    "spotify:track:7qtzFO7XuvNiSp5Xn7juqZ"
+  ],
+  "subgenres": {
+    "dark trap": 0.17094017094017094,
+    "emo rap": 0.20512820512820512,
+    "horrorcore": 0.13675213675213677,
+    "cloud rap": 0.1623931623931624,
+    "underground hip hop": 0.10256410256410256,
+    "memphis rap": 0.03418803418803419,
+    "punk rap": 0.10256410256410256,
+    "rap metal": 0.03418803418803419,
+    "melodic rap": 0.05128205128205128
+  },
+  "supergenres": {
+    "Hip Hop": 0.9603960396039604,
+    "Metal": 0.039603960396039604
+  }
+}

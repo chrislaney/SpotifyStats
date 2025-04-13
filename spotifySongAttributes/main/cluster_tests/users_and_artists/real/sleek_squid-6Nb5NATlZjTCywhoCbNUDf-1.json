@@ -1,0 +1,50 @@
+{
+  "user_id": "sleek_squid-6Nb5NATlZjTCywhoCbNUDf-1",
+  "top_tracks": [
+    "spotify:track:37zuIvk4KBkAxxLJsxJaHq",
+    "spotify:track:7FOgcfdz9Nx5V9lCNXdBYv",
+    "spotify:track:2tHwzyyOLoWSFqYNjeVMzj",
+    "spotify:track:2qSkIjg1o9h3YT9RAgYN75",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:4IadxL6BUymXlh8RCJJu7T",
+    "spotify:track:5Jh1i0no3vJ9u4deXkb4aV",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:4O2rRsoSPb5aN7N3tG6Y3v",
+    "spotify:track:4U45aEWtQhrm8A5mxPaFZ7",
+    "spotify:track:0k9kGwvEHiGLGKq6OE7TP2",
+    "spotify:track:4xdBrk0nFZaP54vvZj0yx7",
+    "spotify:track:2l7UudWZ44l1WbHx6ANod9",
+    "spotify:track:5hlPrSCx9BvnQ3rCTkblMZ",
+    "spotify:track:57V4uc2b2diZ4RPHXWecb9",
+    "spotify:track:53IRnAWx13PYmoVYtemUBS",
+    "spotify:track:6QT6j7rKt7Vk3IuV2AUO9W",
+    "spotify:track:07UFnnK3uPIuKv5Rs9TmXl",
+    "spotify:track:1ptwL6lZNLc654XAaHqcHb",
+    "spotify:track:3WSOUb3U7tqURbBSgZTrZX",
+    "spotify:track:3wPm5GutqeJtOgsjwbtvnh",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:6gPOwGszseqYL7w02opoy1",
+    "spotify:track:1k2pQc5i348DCHwbn5KTdc",
+    "spotify:track:754kgU5rWscRTfvlsuEwFp",
+    "spotify:track:0FlwhvrncUKrEAhzunmCKm",
+    "spotify:track:0hFTdvxUbHl1CqrdZcbWtZ",
+    "spotify:track:4tKGFmENO69tZR9ahgZu48",
+    "spotify:track:21B4gaTWnTkuSh77iWEXdS",
+    "spotify:track:7ByxizhA4GgEf7Sxomxhze",
+    "spotify:track:6tNgRQ0K2NYZ0Rb9l9DzL8",
+    "spotify:track:5aRZk9oWIYUB5alrTs8TTV",
+    "spotify:track:0fCwTrRNfoNk962ati8n2K"
+  ],
+  "subgenres": {
+    "soft rock": 0.16666666666666666,
+    "country": 0.16666666666666666,
+    "red dirt": 0.16666666666666666,
+    "alt country": 0.16666666666666666,
+    "texas country": 0.16666666666666666,
+    "bluegrass": 0.16666666666666666
+  },
+  "supergenres": {
+    "Rock": 0.2,
+    "Country": 0.8
+  }
+}

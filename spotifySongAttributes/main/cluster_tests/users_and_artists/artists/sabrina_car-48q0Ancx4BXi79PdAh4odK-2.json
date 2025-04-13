@@ -1,0 +1,43 @@
+{
+  "user_id": "sabrina_car-48q0Ancx4BXi79PdAh4odK-2",
+  "top_tracks": [
+    "spotify:track:0b0Dz0Gi86SVdBxYeiQcCP",
+    "spotify:track:2OzhQlSqBEmt7hmkYxfT6m",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:1Qrg8KqiBpW07V7PNxwwwL",
+    "spotify:track:6HU7h9RYOaPRFeh0R3UeAr",
+    "spotify:track:21B4gaTWnTkuSh77iWEXdS",
+    "spotify:track:3DarAbFujv6eYNliUTyqtz",
+    "spotify:track:2262bWmqomIaJXwCRHr13j",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:3j6CeoBBlm40Msn1JE1SPD",
+    "spotify:track:4Wos0h9ECU2Z3oJMTQxpbc",
+    "spotify:track:5Y35SjAfXjjG0sFQ3KOxmm",
+    "spotify:track:1Cbl3Yq8rHo7hhDQmLQagU",
+    "spotify:track:1kuGVB7EU95pJObxwvfwKS",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:1UHS8Rf6h5Ar3CDWRd3wjF",
+    "spotify:track:76JKIsdKrAfWUMjaA0u7v5",
+    "spotify:track:6MzofobZt2dm0Kf1hTThFz",
+    "spotify:track:1yjY7rpaAQvKwpdUliHx0d",
+    "spotify:track:4ZtFanR9U6ndgddUvNcjcG",
+    "spotify:track:6n05BgVkxxz2k5ICZYa2PH",
+    "spotify:track:6wf7Yu7cxBSPrRlWeSeK0Q",
+    "spotify:track:3U5JVgI2x4rDyHGObzJfNf",
+    "spotify:track:6koKhrBBcExADvWuOgceNZ",
+    "spotify:track:48vIfHaK7by6x0T6ucpODL"
+  ],
+  "subgenres": {
+    "pop": 0.125,
+    "r&b": 0.375,
+    "afrobeats": 0.125,
+    "pop punk": 0.125,
+    "emo": 0.125,
+    "emo pop": 0.125
+  },
+  "supergenres": {
+    "Pop": 0.14285714285714285,
+    "R&B": 0.5714285714285714,
+    "Rock": 0.2857142857142857
+  }
+}

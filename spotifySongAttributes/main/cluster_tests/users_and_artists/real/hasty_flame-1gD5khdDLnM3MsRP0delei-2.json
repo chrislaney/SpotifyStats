@@ -1,0 +1,53 @@
+{
+  "user_id": "hasty_flame-1gD5khdDLnM3MsRP0delei-2",
+  "top_tracks": [
+    "spotify:track:5bQ1qgqZhpCS9RQCUZaqBO",
+    "spotify:track:0bWtmYrWat7IWlpx3rmuwc",
+    "spotify:track:3KsGyGBw7HNMVy0pzaozpQ",
+    "spotify:track:45WduJCqST7pBJPvxZ6ZgU",
+    "spotify:track:1yyIxshSIfW89EPTW0xkPH",
+    "spotify:track:1GU6oaDhWaypMzfP51BYKo",
+    "spotify:track:6apWwyYElwjAhkJ6UyRJgS",
+    "spotify:track:1N7Aep1OewK9diaN9WbuuR",
+    "spotify:track:4G21jWo0Cm6lOIUNnZ2mUI",
+    "spotify:track:5IzJBDURDhsfIWXE2kGvWb",
+    "spotify:track:49xISBZpODXRwd7vVxGL93",
+    "spotify:track:0LEs4bUrJXJuNB7j24AB1V",
+    "spotify:track:2UprFtg3HM5XfWyOZoQE4J",
+    "spotify:track:4b1bX5IIemRlU1FA5CtSWP",
+    "spotify:track:0aUAIqpOHwdUvf6jLvjCjl",
+    "spotify:track:6Rebnr2UDaxxg3VNe6CBg2",
+    "spotify:track:11ih2hnSmssgiOXt5E1gCF",
+    "spotify:track:3JjqTp1P1igYmNHFPb6SDH",
+    "spotify:track:7IKGO3n7OEnPUWTbwHE9oo",
+    "spotify:track:7cfr3F2jpzjwqL6ZhGfjtH",
+    "spotify:track:5tuPZgIHazqytaJUMCfqY5",
+    "spotify:track:7wtMcCrzuRDzaqp7QVyc0w",
+    "spotify:track:5rt1XJbhuC5NRqmdKMDscI",
+    "spotify:track:14gOLsbXkOTsrydjlGSAxG",
+    "spotify:track:7aKWgpecgLEqisWcXPElDl",
+    "spotify:track:6N0iywQuqCluRkE6F7WqGg",
+    "spotify:track:1RtgVIxKDwbetk80CvQ2XA",
+    "spotify:track:3UBItNVbFQiVC5hBQlBvnr",
+    "spotify:track:6E1GqcxztjcCbZsdlUh9ol",
+    "spotify:track:3mNecsYFb6LQg7822DPXCP",
+    "spotify:track:7qDx7jt7jySFsEF1HiaB3z",
+    "spotify:track:1scwknKtBQpreYy6MSoJqJ",
+    "spotify:track:2HvMSI2zIT3R8fL0tWbMM3"
+  ],
+  "subgenres": {
+    "spoken word": 0.11764705882352941,
+    "garage rock": 0.11764705882352941,
+    "surf rock": 0.11764705882352941,
+    "indie punk": 0.11764705882352941,
+    "pop punk": 0.35294117647058826,
+    "reggae rock": 0.058823529411764705,
+    "reggae": 0.058823529411764705,
+    "alternative rock": 0.058823529411764705
+  },
+  "supergenres": {
+    "Hip Hop": 0.13333333333333333,
+    "Rock": 0.8,
+    "R&B": 0.06666666666666667
+  }
+}

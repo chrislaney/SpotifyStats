@@ -1,0 +1,53 @@
+{
+  "user_id": "cozyy_robot-4iKlDePfpw3uWf1jpF1Csa-1",
+  "top_tracks": [
+    "spotify:track:2fXwCWkh6YG5zU1IyvQrbs",
+    "spotify:track:4S4QJfBGGrC8jRIjJHf1Ka",
+    "spotify:track:3cjF2OFRmip8spwZYQRKxP",
+    "spotify:track:2J6OF7CkpdQGSfm1wdclqn",
+    "spotify:track:5NijSs5dAwaIybq1GaRTIe",
+    "spotify:track:3xKsf9qdS1CyvXSMEid6g8",
+    "spotify:track:3jHdKaLCkuNEkWcLVmQPCX",
+    "spotify:track:1Is8hGpkGMiePASAxBluxM",
+    "spotify:track:4PMqSO5qyjpvzhlLI5GnID",
+    "spotify:track:221qmpQeBNV87sUjQeUTVH",
+    "spotify:track:2JqkpMe2eJToJNHEqkJeCu",
+    "spotify:track:7zFXmv6vqI4qOt4yGf3jYZ",
+    "spotify:track:4iZ4pt7kvcaH6Yo8UoZ4s2",
+    "spotify:track:6NMtzpDQBTOfJwMzgMX0zl",
+    "spotify:track:2x2olWuWXpqjoeE4bO1NFS",
+    "spotify:track:5oady7OSE7dH7LHiqmb3Cr",
+    "spotify:track:3GZD6HmiNUhxXYf8Gch723",
+    "spotify:track:4IFd7EVCyJsUHesBMXI8ju",
+    "spotify:track:26qQf1Wmyy3ZZkagqCu5kp",
+    "spotify:track:4QTlxavdQGUVitxAvQqqkU",
+    "spotify:track:2aPTvyE09vUCRwVvj0I8WK",
+    "spotify:track:6LyAwkJsHlW7RQ8S1cYAtM",
+    "spotify:track:1Y1jtaZOJYgXBl7lKdLc9o",
+    "spotify:track:1xWkeSPhf3bZqHY7Ncz8vp",
+    "spotify:track:5Se32hEA9raeboZerywxka",
+    "spotify:track:4qS2KPWvsQzLvRa9oCHw41",
+    "spotify:track:1bjeWoagtHmUKputLVyDxQ",
+    "spotify:track:7FAFkQQZFeNwOFzTrSDFIh",
+    "spotify:track:59nOXPmaKlBfGMDeOVGrIK",
+    "spotify:track:0eaVIYo2zeOaGJeqZ5TwYz",
+    "spotify:track:5iwUwADk4uQUvgMF6PlTRl",
+    "spotify:track:4Na2HfNSr58chvfX69fy36",
+    "spotify:track:7tr2za8SQg2CI8EDgrdtNl"
+  ],
+  "subgenres": {
+    "r&b": 0.36363636363636365,
+    "bedroom pop": 0.045454545454545456,
+    "rap": 0.3181818181818182,
+    "hip hop": 0.09090909090909091,
+    "southern hip hop": 0.045454545454545456,
+    "melodic rap": 0.09090909090909091,
+    "edm": 0.045454545454545456
+  },
+  "supergenres": {
+    "R&B": 0.36363636363636365,
+    "Pop": 0.045454545454545456,
+    "Hip Hop": 0.5454545454545454,
+    "Electronic": 0.045454545454545456
+  }
+}

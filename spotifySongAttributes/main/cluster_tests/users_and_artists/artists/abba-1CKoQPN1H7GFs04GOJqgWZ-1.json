@@ -1,0 +1,49 @@
+{
+  "user_id": "abba-1CKoQPN1H7GFs04GOJqgWZ-1",
+  "top_tracks": [
+    "spotify:track:0GjEhVFGZW8afUYGChu3Rr",
+    "spotify:track:7tFiyTwD0nx5a1eklYtX2J",
+    "spotify:track:4S1VYqwfkLit9mKVY3MXoo",
+    "spotify:track:4y1LsJpmMti1PfRQV9AWWe",
+    "spotify:track:7jmHyHMEqm9MJWiMAneF05",
+    "spotify:track:2TxCwUlqaOH3TIyJqGgR91",
+    "spotify:track:4RvWPyQ5RL0ao9LPZeSouE",
+    "spotify:track:2aEuA8PSqLa17Y4hKPj5rr",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:7bkyXSi4GtVfD7itZRUR3e",
+    "spotify:track:3vkQ5DAB1qQMYO4Mr9zJN6",
+    "spotify:track:6dGnYIeXmHdcikdzNNDMm2",
+    "spotify:track:70C4NyhjD5OZUMzvWZ3njJ",
+    "spotify:track:4PTG3Z6ehGkBFwjybzWkR8",
+    "spotify:track:1Je1IMUlBXcx1Fz0WE7oPT",
+    "spotify:track:3oEkrIfXfSh9zGnE7eBzSV",
+    "spotify:track:5WDLRQ3VCdVrKw0njWe5E5",
+    "spotify:track:4joiWvli4qJVEW6qZV2i2J",
+    "spotify:track:0B9x2BRHqj3Qer7biM3pU3",
+    "spotify:track:7wuJGgpTNzbUyn26IOY6rj",
+    "spotify:track:5BckPAYcKEJuYs1eV1BHHe",
+    "spotify:track:4uytiW8D73yWQHkg1PzYlB",
+    "spotify:track:3MjUtNVVq3C8Fn0MP3zhXa",
+    "spotify:track:7iN1s7xHE4ifF5povM6A48",
+    "spotify:track:0ikz6tENMONtK6qGkOrU3c"
+  ],
+  "subgenres": {
+    "classic rock": 0.2,
+    "rock": 0.05,
+    "glam rock": 0.05,
+    "synthpop": 0.1,
+    "new wave": 0.05,
+    "italo disco": 0.05,
+    "europop": 0.05,
+    "eurodance": 0.05,
+    "psychedelic rock": 0.15,
+    "soft rock": 0.05,
+    "musicals": 0.1,
+    "pop": 0.05,
+    "christmas": 0.05
+  },
+  "supergenres": {
+    "Rock": 0.6470588235294118,
+    "Pop": 0.35294117647058826
+  }
+}

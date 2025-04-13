@@ -1,0 +1,43 @@
+{
+  "user_id": "the_neiggbo-5l7T9Q5z13VeUNVyWvxhqO-1",
+  "top_tracks": [
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:7mDTvYD2ieE4Q28XFziMfJ",
+    "spotify:track:5E30LdtzQTGqRvNd7l6kG5",
+    "spotify:track:5LrN7yUQAzvthd4QujgPFr",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:6K4t31amVTZDgR3sKmwUJJ",
+    "spotify:track:1JgknGBbrfmEHeOZH051SS",
+    "spotify:track:2xql0pid3EUwW38AsywxhV",
+    "spotify:track:1oAwsWBovWRIp7qLMGPIet",
+    "spotify:track:4k6Uh1HXdhtusDW5y8Gbvy",
+    "spotify:track:086myS9r57YsLbJpU0TgK9",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:7brQHA2CgQpcMBiOlfiXYb",
+    "spotify:track:2262bWmqomIaJXwCRHr13j",
+    "spotify:track:0yuAWlxq59xT3agQ965OxE",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:5FVd6KXrgO9B3JPmC8OPst",
+    "spotify:track:2K7xn816oNHJZ0aVqdQsha",
+    "spotify:track:2tznHmp70DxMyr2XhWLOW0",
+    "spotify:track:3qhlB30KknSejmIvZZLjOD",
+    "spotify:track:7MXVkk9YMctZqd1Srtv4MB",
+    "spotify:track:6dBUzqjtbnIa1TwYbyw5CM"
+  ],
+  "subgenres": {
+    "indie": 0.29411764705882354,
+    "garage rock": 0.23529411764705882,
+    "bedroom pop": 0.058823529411764705,
+    "dream pop": 0.17647058823529413,
+    "psychedelic pop": 0.11764705882352941,
+    "hyperpop": 0.058823529411764705,
+    "modern rock": 0.058823529411764705
+  },
+  "supergenres": {
+    "Rock": 0.4166666666666667,
+    "Pop": 0.5833333333333334
+  }
+}

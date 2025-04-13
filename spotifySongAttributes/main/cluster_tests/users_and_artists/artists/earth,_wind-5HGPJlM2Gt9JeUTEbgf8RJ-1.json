@@ -1,0 +1,48 @@
+{
+  "user_id": "earth,_wind-5HGPJlM2Gt9JeUTEbgf8RJ-1",
+  "top_tracks": [
+    "spotify:track:3kXoKlD84c6OmIcOLfrfEs",
+    "spotify:track:2JoZzpdeP2G6Csfdq5aLXP",
+    "spotify:track:4RvWPyQ5RL0ao9LPZeSouE",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:0GjEhVFGZW8afUYGChu3Rr",
+    "spotify:track:3koCCeSaVUyrRo3N2gHrd8",
+    "spotify:track:5WDLRQ3VCdVrKw0njWe5E5",
+    "spotify:track:4PTG3Z6ehGkBFwjybzWkR8",
+    "spotify:track:7Kszjzps0xbQXyo1pO4KfE",
+    "spotify:track:5KgbyD2lQQlIupAaPjgiXg",
+    "spotify:track:3cfnGXJ9bmiWvFqEO6ff8B",
+    "spotify:track:0ikz6tENMONtK6qGkOrU3c",
+    "spotify:track:0bfvHnWWOeU1U5XeKyVLbW",
+    "spotify:track:6Dk5fHTvH897XrVzCO64Mx",
+    "spotify:track:2wYKNcoqKW4IEcllj42xz1",
+    "spotify:track:0RgcOUQg4qYAEt9RIdf3oB",
+    "spotify:track:7K8QsHbmUpSX37oOCL4e2g",
+    "spotify:track:2R0zbd80CqwoB0ORDCqDoK",
+    "spotify:track:4y1LsJpmMti1PfRQV9AWWe",
+    "spotify:track:6b8Be6ljOzmkOmFslEb23P",
+    "spotify:track:6ztstiyZL6FXzh4aG46ZPD",
+    "spotify:track:57JVGBtBLCfHw2muk5416J",
+    "spotify:track:62GYoGszQfROZswLee6W3O",
+    "spotify:track:3mRM4NM8iO7UBqrSigCQFH",
+    "spotify:track:1Hv1VTm8zeOeybub15mA2R"
+  ],
+  "subgenres": {
+    "disco": 0.5263157894736842,
+    "new wave": 0.05263157894736842,
+    "synthpop": 0.05263157894736842,
+    "christmas": 0.05263157894736842,
+    "classic rock": 0.05263157894736842,
+    "rock": 0.05263157894736842,
+    "glam rock": 0.05263157894736842,
+    "smooth jazz": 0.05263157894736842,
+    "jazz funk": 0.05263157894736842,
+    "soul jazz": 0.05263157894736842
+  },
+  "supergenres": {
+    "R&B": 0.5555555555555556,
+    "Rock": 0.2222222222222222,
+    "Pop": 0.05555555555555555,
+    "Jazz": 0.16666666666666666
+  }
+}

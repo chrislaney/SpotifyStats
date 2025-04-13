@@ -1,0 +1,41 @@
+{
+  "user_id": "adele-0NtGpbI99cjyyw8P19Q9dV-2",
+  "top_tracks": [
+    "spotify:track:6VObnIkLVruX4UVyxWhlqm",
+    "spotify:track:5wANPM4fQCJwkGd4rN57mH",
+    "spotify:track:1BxfuPKGuaTgP7aM0Bbdwr",
+    "spotify:track:7D0RhFcb3CrfPuTJ0obrod",
+    "spotify:track:1mKXFLRA179hdOWQBwUk9e",
+    "spotify:track:7GgWAITsYJaRM3r50rfh5w",
+    "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+    "spotify:track:1KxwZYyzWNyZSRyErj2ojT",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:4llK75pXNWZz6KAho2Gp16",
+    "spotify:track:19QzuPTNZHJ2SEu5LCQTGI",
+    "spotify:track:3avYqdwHKEq8beXbeWCKqJ",
+    "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+    "spotify:track:0FDzzruyVECATHXKHFs9eJ",
+    "spotify:track:3ZCTVFBt2Brf31RLEnCkWJ",
+    "spotify:track:62PaSfnXSMyLshYJrlTuL3",
+    "spotify:track:1dGr1c8CrMLDpV6mPbImSI",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:0RUGuh2uSNFJpGMSsD1F5C",
+    "spotify:track:1mea3bSkSGXuIRvnydlB5b",
+    "spotify:track:56pHllZT7QOacB0bP56ofx",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:44A0o4jA8F2ZF03Zacwlwx",
+    "spotify:track:17phhZDn6oGtzMe56NuWvj"
+  ],
+  "subgenres": {
+    "soft pop": 0.5,
+    "folk pop": 0.08333333333333333,
+    "pop": 0.25,
+    "indie": 0.08333333333333333,
+    "garage rock": 0.08333333333333333
+  },
+  "supergenres": {
+    "Pop": 0.75,
+    "Rock": 0.25
+  }
+}

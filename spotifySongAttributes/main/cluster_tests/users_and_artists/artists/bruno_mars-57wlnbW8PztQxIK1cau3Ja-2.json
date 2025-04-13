@@ -1,0 +1,41 @@
+{
+  "user_id": "bruno_mars-57wlnbW8PztQxIK1cau3Ja-2",
+  "top_tracks": [
+    "spotify:track:2tJulUYLDKOg9XrtVkMgcJ",
+    "spotify:track:6RUKPb4LETWmmr3iAEQktW",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:46IZ0fSY2mpAiktS3KOqds",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:0RUGuh2uSNFJpGMSsD1F5C",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:4r6eNCsrZnQWJzzvFh4nlg",
+    "spotify:track:5QO79kh1waicV47BqGRL3g",
+    "spotify:track:7B5Npv8NjjTCzk8PLpU66h",
+    "spotify:track:22PMfvdz35fFKYnJyMn077",
+    "spotify:track:2CGNAOSuO1MEFCbBRgUzjd",
+    "spotify:track:54PbBpquVfhfrwRwvjSXbI",
+    "spotify:track:7qiZfU4dY1lWllzX7mPBI3",
+    "spotify:track:5R8dQOPq8haW94K7mgERlO",
+    "spotify:track:6b8Be6ljOzmkOmFslEb23P",
+    "spotify:track:1Q7EgiMOuwDcB0PJC6AzON",
+    "spotify:track:50kpGaPAhYJ3sGmk6vplg0",
+    "spotify:track:0lYBSQXN6rCTvUZvg9S0lU",
+    "spotify:track:6hkOqJ5mE093AQf2lbZnsG",
+    "spotify:track:1ExfPZEiahqhLyajhybFeS",
+    "spotify:track:5uCax9HTNlzGybIStD3vDh",
+    "spotify:track:5O2P9iiztwhomNh8xkR9lJ",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:7JJmb5XwzOO8jgpou264Ml"
+  ],
+  "subgenres": {
+    "pop": 0.42857142857142855,
+    "soft pop": 0.35714285714285715,
+    "hip hop": 0.07142857142857142,
+    "west coast hip hop": 0.07142857142857142,
+    "art pop": 0.07142857142857142
+  },
+  "supergenres": {
+    "Pop": 0.875,
+    "Hip Hop": 0.125
+  }
+}

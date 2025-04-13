@@ -1,0 +1,42 @@
+{
+  "user_id": "harry_style-4lUORhVikyX0refmSdBvM0-1",
+  "top_tracks": [
+    "spotify:track:4Dvkj6JhhA12EX05fT7y2e",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:0ll8uFnc0nANY35E0Lfxvg",
+    "spotify:track:73CMRj62VK8nUS4ezD2wvi",
+    "spotify:track:5QO79kh1waicV47BqGRL3g",
+    "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:46IZ0fSY2mpAiktS3KOqds",
+    "spotify:track:5Ohxk2dO5COHF1krpoPigN",
+    "spotify:track:1oFAF1hdPOickyHgbuRjyX",
+    "spotify:track:5wANPM4fQCJwkGd4rN57mH",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:3jjujdWJ72nww5eGnfs2E7",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:1CS7Sd1u5tWkstBhpssyjP",
+    "spotify:track:5CZ40GBx1sQ9agT82CLQCT",
+    "spotify:track:21jGcNKet2qwijlDFuPiPb",
+    "spotify:track:1qEmFfgcLObUfQm0j1W2CK",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:6VhuP99TE6gYNQRJIlAWFD",
+    "spotify:track:6fxVffaTuwjgEk5h9QyRjy"
+  ],
+  "subgenres": {
+    "soft pop": 0.3,
+    "indie": 0.2,
+    "garage rock": 0.2,
+    "art pop": 0.1,
+    "pop": 0.1,
+    "bedroom pop": 0.1
+  },
+  "supergenres": {
+    "Rock": 0.4,
+    "Pop": 0.6
+  }
+}

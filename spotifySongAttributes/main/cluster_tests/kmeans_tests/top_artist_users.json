@@ -1,0 +1,956 @@
+{
+  "sub": {
+    "standard": {
+      "3": {
+        "k-means++": {
+          "inertia": 31809.84650123652,
+          "silhouette_score": -0.22783731317246309,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 30947.825905777107,
+          "silhouette_score": -0.0209886344872447,
+          "iterations": 5
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 29930.131188313197,
+          "silhouette_score": -0.23430707218177937,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 29940.95058927466,
+          "silhouette_score": -0.0751088277629538,
+          "iterations": 22
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 29371.580351058343,
+          "silhouette_score": -0.23568206898983285,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 29875.97522561699,
+          "silhouette_score": -0.0826499373380967,
+          "iterations": 5
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 28412.337054846837,
+          "silhouette_score": -0.2285328851064336,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 28950.766149846077,
+          "silhouette_score": -0.023927103535386917,
+          "iterations": 12
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 27219.41188406598,
+          "silhouette_score": -0.18674352074513267,
+          "iterations": 9
+        },
+        "random": {
+          "inertia": 28704.951619244603,
+          "silhouette_score": -0.12104307304526836,
+          "iterations": 6
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 27351.993342859518,
+          "silhouette_score": -0.21840519890608098,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 27556.010162803268,
+          "silhouette_score": -0.033966639699409336,
+          "iterations": 7
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 26597.831420833365,
+          "silhouette_score": -0.22219818903232588,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 26813.55789551239,
+          "silhouette_score": -0.011201253608829453,
+          "iterations": 8
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 26138.850976125806,
+          "silhouette_score": -0.2233148718285987,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 26612.930088751895,
+          "silhouette_score": -0.048035394290090454,
+          "iterations": 8
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 25403.673457631263,
+          "silhouette_score": -0.22660223327667417,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 25579.47275487199,
+          "silhouette_score": -0.09960435582781045,
+          "iterations": 7
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 24835.557247975157,
+          "silhouette_score": -0.21924765685672754,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 24653.596194265217,
+          "silhouette_score": -0.05636849888478296,
+          "iterations": 10
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 22957.965248202563,
+          "silhouette_score": -0.22301794109113807,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 25057.215491978845,
+          "silhouette_score": -0.07206781233600988,
+          "iterations": 6
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 22422.119766805215,
+          "silhouette_score": -0.23251425530235675,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 23048.493604977924,
+          "silhouette_score": -0.07180019453611913,
+          "iterations": 8
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 21635.345629657306,
+          "silhouette_score": -0.2195422884288475,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 23479.866301766462,
+          "silhouette_score": -0.034495834893185404,
+          "iterations": 11
+        }
+      }
+    },
+    "None": {
+      "3": {
+        "k-means++": {
+          "inertia": 22.51517555966114,
+          "silhouette_score": 0.20824235231179342,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 20.33660230810231,
+          "silhouette_score": 0.23730274415603486,
+          "iterations": 17
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 18.59263839440245,
+          "silhouette_score": 0.24936114771506282,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 18.55216758328521,
+          "silhouette_score": 0.24306823312190742,
+          "iterations": 12
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 17.287749037834846,
+          "silhouette_score": 0.2262325365498492,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 17.280974681452243,
+          "silhouette_score": 0.19452594971814988,
+          "iterations": 12
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 16.049807524634094,
+          "silhouette_score": 0.17427213545294004,
+          "iterations": 10
+        },
+        "random": {
+          "inertia": 16.01408688461743,
+          "silhouette_score": 0.18543255638591288,
+          "iterations": 6
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 15.303303340496162,
+          "silhouette_score": 0.18734988656514645,
+          "iterations": 10
+        },
+        "random": {
+          "inertia": 14.729509641990953,
+          "silhouette_score": 0.1615977560877397,
+          "iterations": 10
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 14.065688200856911,
+          "silhouette_score": 0.17341522943002263,
+          "iterations": 9
+        },
+        "random": {
+          "inertia": 13.729085750351095,
+          "silhouette_score": 0.21751371224076324,
+          "iterations": 6
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 12.811799772128543,
+          "silhouette_score": 0.1959265955604704,
+          "iterations": 10
+        },
+        "random": {
+          "inertia": 13.404343213628621,
+          "silhouette_score": 0.14797008460861716,
+          "iterations": 6
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 12.41368510592922,
+          "silhouette_score": 0.18708736476869714,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 11.548119890558059,
+          "silhouette_score": 0.23308253853302566,
+          "iterations": 12
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 11.60220177176915,
+          "silhouette_score": 0.1938108165942355,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 12.049866304402006,
+          "silhouette_score": 0.20765713275691977,
+          "iterations": 19
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 10.348407592979605,
+          "silhouette_score": 0.2258712319700759,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 10.469205968221665,
+          "silhouette_score": 0.24592487630400017,
+          "iterations": 12
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 9.587724041548194,
+          "silhouette_score": 0.2399821400925084,
+          "iterations": 8
+        },
+        "random": {
+          "inertia": 10.249973986183187,
+          "silhouette_score": 0.21769524061915216,
+          "iterations": 13
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 9.343582369300153,
+          "silhouette_score": 0.22120290130042983,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 9.463117862623948,
+          "silhouette_score": 0.22318643962965715,
+          "iterations": 19
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 8.472930585984544,
+          "silhouette_score": 0.24271978326689103,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 9.114676952103347,
+          "silhouette_score": 0.23293465467138486,
+          "iterations": 6
+        }
+      }
+    }
+  },
+  "super": {
+    "standard": {
+      "3": {
+        "k-means++": {
+          "inertia": 1815.5572903708712,
+          "silhouette_score": 0.31791373235219106,
+          "iterations": 8
+        },
+        "random": {
+          "inertia": 1782.8594412587124,
+          "silhouette_score": 0.13752512123077273,
+          "iterations": 6
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 1557.268013794481,
+          "silhouette_score": 0.23285040812618796,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 1525.4719091725124,
+          "silhouette_score": 0.30754429787660204,
+          "iterations": 5
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 1343.9203316996654,
+          "silhouette_score": 0.3656882048963585,
+          "iterations": 10
+        },
+        "random": {
+          "inertia": 1402.1646440827658,
+          "silhouette_score": 0.29345746095363845,
+          "iterations": 4
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 1182.6728822956668,
+          "silhouette_score": 0.2717104355297465,
+          "iterations": 9
+        },
+        "random": {
+          "inertia": 1178.9161409205892,
+          "silhouette_score": 0.29109588665292296,
+          "iterations": 5
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 1002.9790358563507,
+          "silhouette_score": 0.34074260944273527,
+          "iterations": 13
+        },
+        "random": {
+          "inertia": 1009.9193344654741,
+          "silhouette_score": 0.33855356299376527,
+          "iterations": 5
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 819.9045977855096,
+          "silhouette_score": 0.36902214421792123,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 938.6295448280741,
+          "silhouette_score": 0.3157207112615396,
+          "iterations": 10
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 700.9537566164961,
+          "silhouette_score": 0.4231077691723325,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 727.4740068413917,
+          "silhouette_score": 0.4052146606324017,
+          "iterations": 9
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 608.7103367507887,
+          "silhouette_score": 0.4086467727333404,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 728.6442669376933,
+          "silhouette_score": 0.418913103402963,
+          "iterations": 10
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 494.2795468992219,
+          "silhouette_score": 0.38968257804310286,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 489.73066742592584,
+          "silhouette_score": 0.3908578011251774,
+          "iterations": 13
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 379.7736022031431,
+          "silhouette_score": 0.3732809242939776,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 461.92452370803926,
+          "silhouette_score": 0.4197544537693186,
+          "iterations": 9
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 337.9021970744434,
+          "silhouette_score": 0.3626113886926421,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 360.707480771218,
+          "silhouette_score": 0.34039636254742356,
+          "iterations": 8
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 312.97672786236285,
+          "silhouette_score": 0.3522828170603632,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 323.3509287640771,
+          "silhouette_score": 0.34448817506116525,
+          "iterations": 10
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 291.22625672709796,
+          "silhouette_score": 0.37422888062294773,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 307.01867232513894,
+          "silhouette_score": 0.3451873576557565,
+          "iterations": 11
+        }
+      }
+    },
+    "None": {
+      "3": {
+        "k-means++": {
+          "inertia": 40.22534588256985,
+          "silhouette_score": 0.40954305489718573,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 37.71650631721575,
+          "silhouette_score": 0.4288021263584789,
+          "iterations": 8
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 27.83499763653445,
+          "silhouette_score": 0.4593942947616908,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 27.742280874161864,
+          "silhouette_score": 0.48369802880264784,
+          "iterations": 8
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 22.306995362259034,
+          "silhouette_score": 0.4963127493555749,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 20.21472407077235,
+          "silhouette_score": 0.5020019538435258,
+          "iterations": 11
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 15.44910805879642,
+          "silhouette_score": 0.52191520259872,
+          "iterations": 8
+        },
+        "random": {
+          "inertia": 15.55551583644641,
+          "silhouette_score": 0.5213507120754394,
+          "iterations": 7
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 13.083184636457167,
+          "silhouette_score": 0.4915775046828637,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 12.868114888855905,
+          "silhouette_score": 0.49502063471493485,
+          "iterations": 4
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 11.680543937477156,
+          "silhouette_score": 0.4605549846815188,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 11.166340374084557,
+          "silhouette_score": 0.509020825104967,
+          "iterations": 19
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 9.94540294879561,
+          "silhouette_score": 0.4814035812115556,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 9.495305572350913,
+          "silhouette_score": 0.5097188655428597,
+          "iterations": 7
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 8.335404182121623,
+          "silhouette_score": 0.5028278929246914,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 8.322561884458308,
+          "silhouette_score": 0.5053054772867195,
+          "iterations": 14
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 7.8131031246896026,
+          "silhouette_score": 0.487062409143158,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 7.484006909238598,
+          "silhouette_score": 0.48993011368580125,
+          "iterations": 11
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 6.7212443596939195,
+          "silhouette_score": 0.49429685164514486,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 6.626089582359329,
+          "silhouette_score": 0.48864259544293875,
+          "iterations": 7
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 6.336862032614046,
+          "silhouette_score": 0.4943665382969859,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 6.06113594932551,
+          "silhouette_score": 0.4910580600326498,
+          "iterations": 9
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 5.871181718940286,
+          "silhouette_score": 0.49591305498721705,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 5.570949457043536,
+          "silhouette_score": 0.4863409604099505,
+          "iterations": 7
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 5.707810285970776,
+          "silhouette_score": 0.4658553101068656,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 5.160705603145423,
+          "silhouette_score": 0.49109435505968524,
+          "iterations": 7
+        }
+      }
+    }
+  },
+  "dynamic": {
+    "standard": {
+      "3": {
+        "k-means++": {
+          "inertia": 37931.555395153904,
+          "silhouette_score": -0.2331347084113157,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 36809.6966291769,
+          "silhouette_score": -0.042160435901590104,
+          "iterations": 6
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 35950.637617443674,
+          "silhouette_score": -0.23540264378299258,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 35622.13036250464,
+          "silhouette_score": -0.09052911339751593,
+          "iterations": 5
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 35219.122979827494,
+          "silhouette_score": -0.2395233909991153,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 35069.59473708425,
+          "silhouette_score": -0.09549808383360955,
+          "iterations": 5
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 34448.56961662913,
+          "silhouette_score": -0.23700476085125607,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 33903.11168776057,
+          "silhouette_score": -0.025664551058388236,
+          "iterations": 9
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 33819.845054216705,
+          "silhouette_score": -0.23170318305008586,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 33545.25461578765,
+          "silhouette_score": -0.1263636022505533,
+          "iterations": 6
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 30952.26331222414,
+          "silhouette_score": -0.2520691011108716,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 32210.09369461401,
+          "silhouette_score": -0.07023541391573568,
+          "iterations": 7
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 30343.90646603571,
+          "silhouette_score": -0.27624500785009926,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 32071.095283009883,
+          "silhouette_score": -0.028019602561632058,
+          "iterations": 6
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 29287.150378406688,
+          "silhouette_score": -0.27743086255077337,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 31855.299784659077,
+          "silhouette_score": -0.15480945994872677,
+          "iterations": 12
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 28397.812849903898,
+          "silhouette_score": -0.2768327081974799,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 30769.19019478003,
+          "silhouette_score": -0.013760826253822068,
+          "iterations": 7
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 27747.90188880042,
+          "silhouette_score": -0.2757852531080222,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 30037.26512505922,
+          "silhouette_score": -0.06199538366036093,
+          "iterations": 8
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 27122.212232633363,
+          "silhouette_score": -0.27032153950137927,
+          "iterations": 2
+        },
+        "random": {
+          "inertia": 29784.12162723487,
+          "silhouette_score": -0.07358627842329872,
+          "iterations": 9
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 26033.012439963244,
+          "silhouette_score": -0.22436002985385184,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 27713.733032111515,
+          "silhouette_score": -0.07529913982282599,
+          "iterations": 9
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 25088.758368371946,
+          "silhouette_score": -0.2100790166051401,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 28231.567818152336,
+          "silhouette_score": -0.02331698667867342,
+          "iterations": 10
+        }
+      }
+    },
+    "None": {
+      "3": {
+        "k-means++": {
+          "inertia": 27.480452814509768,
+          "silhouette_score": 0.2500420122329382,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 27.480452814509768,
+          "silhouette_score": 0.2500420122329382,
+          "iterations": 7
+        }
+      },
+      "4": {
+        "k-means++": {
+          "inertia": 23.523129359957814,
+          "silhouette_score": 0.2879853574556402,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 23.531493302888165,
+          "silhouette_score": 0.2774592624015946,
+          "iterations": 7
+        }
+      },
+      "5": {
+        "k-means++": {
+          "inertia": 22.615350778656293,
+          "silhouette_score": 0.21496429333039593,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 21.43134551817817,
+          "silhouette_score": 0.2007268290474655,
+          "iterations": 10
+        }
+      },
+      "6": {
+        "k-means++": {
+          "inertia": 20.697548288230166,
+          "silhouette_score": 0.23036283980733493,
+          "iterations": 10
+        },
+        "random": {
+          "inertia": 20.319629815077406,
+          "silhouette_score": 0.2033886877764788,
+          "iterations": 9
+        }
+      },
+      "7": {
+        "k-means++": {
+          "inertia": 18.961949403376984,
+          "silhouette_score": 0.22327476816974356,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 18.701651322082764,
+          "silhouette_score": 0.19233501926802818,
+          "iterations": 10
+        }
+      },
+      "8": {
+        "k-means++": {
+          "inertia": 18.595183910852615,
+          "silhouette_score": 0.14782141723151832,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 17.618148798409305,
+          "silhouette_score": 0.2124266694417726,
+          "iterations": 10
+        }
+      },
+      "9": {
+        "k-means++": {
+          "inertia": 17.278711666355434,
+          "silhouette_score": 0.16498277745598267,
+          "iterations": 4
+        },
+        "random": {
+          "inertia": 16.572075556109603,
+          "silhouette_score": 0.1863174541577024,
+          "iterations": 13
+        }
+      },
+      "10": {
+        "k-means++": {
+          "inertia": 16.197032156414988,
+          "silhouette_score": 0.17541478696413718,
+          "iterations": 5
+        },
+        "random": {
+          "inertia": 14.770873453232227,
+          "silhouette_score": 0.2480556509313624,
+          "iterations": 9
+        }
+      },
+      "11": {
+        "k-means++": {
+          "inertia": 14.958542561245785,
+          "silhouette_score": 0.20193538889270507,
+          "iterations": 8
+        },
+        "random": {
+          "inertia": 14.389524630928321,
+          "silhouette_score": 0.2197819519531517,
+          "iterations": 10
+        }
+      },
+      "12": {
+        "k-means++": {
+          "inertia": 14.100331329597882,
+          "silhouette_score": 0.2158174731029745,
+          "iterations": 6
+        },
+        "random": {
+          "inertia": 13.147132798425716,
+          "silhouette_score": 0.23913975695805012,
+          "iterations": 9
+        }
+      },
+      "13": {
+        "k-means++": {
+          "inertia": 13.508364138401681,
+          "silhouette_score": 0.2199982589516324,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 12.593314738425637,
+          "silhouette_score": 0.2572920530209451,
+          "iterations": 12
+        }
+      },
+      "14": {
+        "k-means++": {
+          "inertia": 13.3406842188675,
+          "silhouette_score": 0.21555867888721642,
+          "iterations": 3
+        },
+        "random": {
+          "inertia": 12.174158727755135,
+          "silhouette_score": 0.25206371809117956,
+          "iterations": 14
+        }
+      },
+      "15": {
+        "k-means++": {
+          "inertia": 12.943690370393071,
+          "silhouette_score": 0.1881269581780078,
+          "iterations": 7
+        },
+        "random": {
+          "inertia": 11.796832723038444,
+          "silhouette_score": 0.2321882830249602,
+          "iterations": 5
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "user_id": "train-41wGhbkZXokXDqqDAghvrh-1",
+  "top_tracks": [
+    "spotify:track:0KAiuUOrLTIkzkpfpn9jb9",
+    "spotify:track:7BqBn9nzAq8spo5e7cZ0dJ",
+    "spotify:track:7a86XRg84qjasly9f6bPSD",
+    "spotify:track:003vvx7Niy0yvhvHt4a68B",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:4HlFJV71xXKIGcU3kRyttv",
+    "spotify:track:0ll8uFnc0nANY35E0Lfxvg",
+    "spotify:track:3w3y8KPTfNeOKPiqUTakBh",
+    "spotify:track:3S0OXQeoh0w6AY8WQVckRW",
+    "spotify:track:4IoYz8XqqdowINzfRrFnhi",
+    "spotify:track:2hKdd3qO7cWr2Jo0Bcs0MA",
+    "spotify:track:75JFxkI2RXiU7L9VXzMkle",
+    "spotify:track:285hMzLhJwHVLe9QT9qilk",
+    "spotify:track:6RUKPb4LETWmmr3iAEQktW",
+    "spotify:track:3avYqdwHKEq8beXbeWCKqJ",
+    "spotify:track:2NniAhAtkRACaMeYt48xlD",
+    "spotify:track:5fVZC9GiM4e8vu99W0Xf6J",
+    "spotify:track:0nrRP2bk19rLc0orkWPQk2",
+    "spotify:track:5QpaGzWp0hwB5faV8dkbAz",
+    "spotify:track:3LlAyCYU26dvFZBDUIMb7a",
+    "spotify:track:5B5eTk7DF8KVp1zpQoY1XY",
+    "spotify:track:1mKXFLRA179hdOWQBwUk9e",
+    "spotify:track:1mea3bSkSGXuIRvnydlB5b",
+    "spotify:track:0gmbgwZ8iqyMPmXefof8Yf",
+    "spotify:track:4r6eNCsrZnQWJzzvFh4nlg"
+  ],
+  "subgenres": {
+    "soft pop": 0.35714285714285715,
+    "alternative rock": 0.07142857142857142,
+    "acoustic pop": 0.07142857142857142,
+    "pop": 0.14285714285714285,
+    "edm": 0.07142857142857142,
+    "pop rock": 0.07142857142857142,
+    "nu metal": 0.07142857142857142,
+    "post-grunge": 0.07142857142857142,
+    "rock": 0.07142857142857142
+  },
+  "supergenres": {
+    "Rock": 0.3333333333333333,
+    "Pop": 0.3333333333333333,
+    "Electronic": 0.1111111111111111,
+    "Metal": 0.2222222222222222
+  }
+}

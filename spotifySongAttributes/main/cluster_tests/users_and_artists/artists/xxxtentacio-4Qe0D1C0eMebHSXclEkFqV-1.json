@@ -1,0 +1,44 @@
+{
+  "user_id": "xxxtentacio-4Qe0D1C0eMebHSXclEkFqV-1",
+  "top_tracks": [
+    "spotify:track:3GVkPk8mqxz0itaAriG1L7",
+    "spotify:track:285pBltuF7vW8TeWk8hdRR",
+    "spotify:track:5UGAXwbA17bUC0K9uquGY2",
+    "spotify:track:4jvjzW7Hm0yK4LvvE0Paz9",
+    "spotify:track:29LrGcqtxvdCpVmlBoJ75B",
+    "spotify:track:01TnVDiet1DFTsyWKUKovl",
+    "spotify:track:5oo7lrBwuD4dVfJbBLyVyI",
+    "spotify:track:75SW8IItf7yy1VejSLtv9W",
+    "spotify:track:09riz9pAPJyYYDVynE5xxY",
+    "spotify:track:7eJMfftS33KTjuF7lTsMCx",
+    "spotify:track:7m9OqQk4RVRkw9JJdeAw96",
+    "spotify:track:2kHrlDvECzPyjcbmSQNusl",
+    "spotify:track:4VXIryQMWpIdGgYR4TrjT1",
+    "spotify:track:26OhjtaTamFocE08t83ml6",
+    "spotify:track:240audWazVjwvwh7XwfSZE",
+    "spotify:track:7AFASza1mXqntmGtbxXprO",
+    "spotify:track:5Z3GHaZ6ec9bsiI5BenrbY",
+    "spotify:track:4NgherJDfCXWBZBYheM4jK",
+    "spotify:track:4l2soLCGAoYvSKGyqFtsbJ",
+    "spotify:track:0UKzG4fJ1LXf6DInew5vcV",
+    "spotify:track:5TXDeTFVRVY7Cvt0Dw4vWW",
+    "spotify:track:6QFQqqYye5lAcnhCALvxKJ",
+    "spotify:track:7I4ibsZgwuf46g0xHuTC8s",
+    "spotify:track:4n3aUQnIxtVXpDwFvi66VD",
+    "spotify:track:46eK1kembooWblMi7M7yLM"
+  ],
+  "subgenres": {
+    "emo rap": 0.288135593220339,
+    "melodic rap": 0.05084745762711865,
+    "dark trap": 0.15254237288135594,
+    "horrorcore": 0.11864406779661017,
+    "punk rap": 0.11864406779661017,
+    "cloud rap": 0.15254237288135594,
+    "underground hip hop": 0.1016949152542373,
+    "rap metal": 0.01694915254237288
+  },
+  "supergenres": {
+    "Hip Hop": 0.9807692307692307,
+    "Metal": 0.019230769230769232
+  }
+}

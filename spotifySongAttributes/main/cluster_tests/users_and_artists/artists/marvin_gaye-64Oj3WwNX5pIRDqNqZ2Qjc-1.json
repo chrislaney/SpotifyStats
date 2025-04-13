@@ -1,0 +1,53 @@
+{
+  "user_id": "marvin_gaye-64Oj3WwNX5pIRDqNqZ2Qjc-1",
+  "top_tracks": [
+    "spotify:track:7tqhbajSfrz2F7E1Z75ASX",
+    "spotify:track:7jmHyHMEqm9MJWiMAneF05",
+    "spotify:track:1JQ6Xm1JrvHfvAqhl5pwaA",
+    "spotify:track:745H5CctFr12Mo7cqa1BMH",
+    "spotify:track:6Rqn2GFlmvmV4w9Ala0I1e",
+    "spotify:track:3VZmChrnVW8JK6ano4gSED",
+    "spotify:track:63xdwScd1Ai1GigAwQxE8y",
+    "spotify:track:3mWpUEBYnv9SIFWfixSJFx",
+    "spotify:track:5VJjhHyG8NZ5xdgG6uTb3P",
+    "spotify:track:6Dk5fHTvH897XrVzCO64Mx",
+    "spotify:track:627teoJpK7qZOxRRY8TNnv",
+    "spotify:track:1WN4uNclrDuczTO3bCr8s1",
+    "spotify:track:0bfvHnWWOeU1U5XeKyVLbW",
+    "spotify:track:3cfnGXJ9bmiWvFqEO6ff8B",
+    "spotify:track:5ERZGchTi6sysVmA913Ryx",
+    "spotify:track:1tqT6DhmsrtQgyCKUwotiw",
+    "spotify:track:28285KFbyCq8sJofn58qlD",
+    "spotify:track:6VnpKLtfNH4Dk09YSGPSyR",
+    "spotify:track:7GVUmCP00eSsqc4tzj1sDD",
+    "spotify:track:3qI94hINNNeb4S7xQi18lS",
+    "spotify:track:3Um9toULmYFGCpvaIPFw7l",
+    "spotify:track:5TA4he79xD3fpvy0sidiOV",
+    "spotify:track:2M2WJ7gBlcKNxdhyfPp9zY",
+    "spotify:track:6ztstiyZL6FXzh4aG46ZPD",
+    "spotify:track:2je56j0xuoTi1gYkLLMlJU"
+  ],
+  "subgenres": {
+    "motown": 0.20754716981132076,
+    "soul": 0.18867924528301888,
+    "northern soul": 0.09433962264150944,
+    "quiet storm": 0.1320754716981132,
+    "vocal jazz": 0.018867924528301886,
+    "jazz blues": 0.018867924528301886,
+    "soul jazz": 0.018867924528301886,
+    "jazz": 0.018867924528301886,
+    "blues": 0.018867924528301886,
+    "soul blues": 0.018867924528301886,
+    "disco": 0.1320754716981132,
+    "philly soul": 0.05660377358490566,
+    "christmas": 0.018867924528301886,
+    "post-disco": 0.018867924528301886,
+    "jazz funk": 0.018867924528301886,
+    "funk": 0.018867924528301886
+  },
+  "supergenres": {
+    "R&B": 0.8653846153846154,
+    "Jazz": 0.07692307692307693,
+    "Blues": 0.057692307692307696
+  }
+}

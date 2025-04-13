@@ -24,7 +24,7 @@ def gen_clusters(user_matrix, user_ids, clusterer, scaler=None):
                             'Cluster': clusterer.labels_})
     return mapping, clusterer
 
-def kmeans_tests(users, random_state, max_clusters, filename):
+def kmeans_test(users, random_state, max_clusters, filename):
     """
     Test the kmeans clustering algorithm with a variety of parameters, data, and more;
     This will give us a good idea as to the best model to use for our product
@@ -131,14 +131,15 @@ def dbscan_test(users, random_state, filename):
                                              p=p)
                             #print(f'Calculating cluster for genre:{genre}, eps:{eps}, '
                             #      f'min_sample:{min_sample}, p:{p}')
-                            _, db_scan = gen_clusters(matrix, user_ids, db_scan, scale)
+                            df, db_scan = gen_clusters(matrix, user_ids, db_scan, scale)
+                            num_clusters = len(df['Cluster'].unique())
 
                             labels = db_scan.labels_
                             try:
                                 ss = silhouette_score(matrix, labels)
                             except:
                                 ret_dict[genre][eps][min_sample][p][scaler_label][metric] = {
-                                    'status': 'FAIL'
+                                    'status': 'FAIL',
                                 }
                                 continue
                             if ss > max_ss:
@@ -147,6 +148,7 @@ def dbscan_test(users, random_state, filename):
                                       f"Genre:{genre}; eps:{eps}; p:{p}; scaler:{scaler_label}; metric:{metric}")
                             ret_dict[genre][eps][min_sample][p][scaler_label][metric] = {
                                 'silhouette_score': ss,
+                                'num_clusters': num_clusters
                             }
     output_path = os.path.join(output_dir, f"{filename}.json")
     with open(output_path, 'w') as f:
@@ -162,17 +164,17 @@ def get_cluster_centroid(matrix, ):
 
 
 if __name__ == '__main__':
-    gen_users_dir = "generated_users"
-    top_artist_user_dir = "top_artist_users"
+    gen_users_dir = "users_and_artists/real"
+    top_artist_user_dir = "users_and_artists/artists"
     gen_users = load_users(gen_users_dir)
     top_artist_users = load_users(top_artist_user_dir)
     flat_genres = load_flat_genres()
     random_state = 10 #random state for testing differences in scaling, etc. to see differences
     super_matrix, user_ids = build_fixed_vectors(gen_users, HARDCODED_SUPERGENRES, field='supergenres')
     top_super_matrix, artist_ids = build_fixed_vectors(top_artist_users, HARDCODED_SUPERGENRES, field='supergenres')
-    kmeans = KMeans(n_clusters=8, n_init=30)
-    labeled_ids, kmeans = gen_clusters(super_matrix, user_ids, kmeans, None)
-    labeld_users = super_matrix.join(labeled_ids)
+    #kmeans = KMeans(n_clusters=8, n_init=30)
+    #labeled_ids, kmeans = gen_clusters(super_matrix, user_ids, kmeans, None)
+    #labeld_users = super_matrix.join(labeled_ids)
     scaler = StandardScaler()
 
     #scaled_super_matrix = scaler.fit_transform(super_matrix)
@@ -190,10 +192,10 @@ if __name__ == '__main__':
 
     #print(dynamic_ids)
     #print(user_ids)
-    #kmeans_tests(gen_users, random_state, 15, 'gen_users')
-    #kmeans_tests(top_artist_users, random_state, 15, 'top_artist_users')
-    #dbscan_test(top_artist_users, random_state, 'top_artist_users')
-    #dbscan_test(gen_users, random_state, 'gen_users')
+    kmeans_test(gen_users, random_state, 15, 'gen_users')
+    kmeans_test(top_artist_users, random_state, 15, 'top_artist_users')
+    dbscan_test(top_artist_users, random_state, 'top_artist_users')
+    dbscan_test(gen_users, random_state, 'gen_users')
     #dbscan = DBSCAN()
     #df, dbscan = gen_clusters(super_matrix, user_ids, dbscan)
     #print(df)

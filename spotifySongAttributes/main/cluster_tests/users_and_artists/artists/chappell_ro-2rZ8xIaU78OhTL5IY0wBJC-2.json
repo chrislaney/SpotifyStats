@@ -1,0 +1,43 @@
+{
+  "user_id": "chappell_ro-2rZ8xIaU78OhTL5IY0wBJC-2",
+  "top_tracks": [
+    "spotify:track:3bFC4mJkgF9HvTU1mncW7x",
+    "spotify:track:1kuGVB7EU95pJObxwvfwKS",
+    "spotify:track:19RybK6XDbAVpcdxSbZL1o",
+    "spotify:track:1UHS8Rf6h5Ar3CDWRd3wjF",
+    "spotify:track:3x3K1RP3Zfi2qeMR8kyrNO",
+    "spotify:track:53IRnAWx13PYmoVYtemUBS",
+    "spotify:track:1Bv3h7Vc4AaYA2BcSM3rVd",
+    "spotify:track:6HU7h9RYOaPRFeh0R3UeAr",
+    "spotify:track:3JG1uFc40wfyrqaWC7iv0e",
+    "spotify:track:21B4gaTWnTkuSh77iWEXdS",
+    "spotify:track:4OLiPTQPgksvrf7eJTtYA3",
+    "spotify:track:6MzofobZt2dm0Kf1hTThFz",
+    "spotify:track:629DixmZGHc7ILtEntuiWE",
+    "spotify:track:4w2GLmK2wnioVnb5CPQeex",
+    "spotify:track:3IX0yuEVvDbnqUwMBB3ouC",
+    "spotify:track:4LKYOetuIF5c9XjeLBL9av",
+    "spotify:track:1Iq8oo9XkmmvCQiGOfORiz",
+    "spotify:track:4wJ5Qq0jBN4ajy7ouZIV1c",
+    "spotify:track:1CsMKhwEmNnmvHUuO5nryA",
+    "spotify:track:7B3z0ySL9Rr0XvZEAjWZzM",
+    "spotify:track:5xHgo5JN0wfsV41HnRaos5",
+    "spotify:track:6lKRMylSZMtA7EqPl0pcdI",
+    "spotify:track:7KokYm8cMIXCsGVmUvKtqf",
+    "spotify:track:2gyxAWHebV7xPYVxqoi86f",
+    "spotify:track:5wbg8kepMFoMzHOEuxiI0q"
+  ],
+  "subgenres": {
+    "hyperpop": 0.2222222222222222,
+    "art pop": 0.2222222222222222,
+    "pop punk": 0.1111111111111111,
+    "emo": 0.1111111111111111,
+    "emo pop": 0.1111111111111111,
+    "k-pop": 0.1111111111111111,
+    "bedroom pop": 0.1111111111111111
+  },
+  "supergenres": {
+    "Pop": 0.75,
+    "Rock": 0.25
+  }
+}

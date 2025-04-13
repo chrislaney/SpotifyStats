@@ -1,0 +1,47 @@
+{
+  "user_id": "teddy_swims-4n8yaiXWIqISDKbgn86oCi-1",
+  "top_tracks": [
+    "spotify:track:17phhZDn6oGtzMe56NuWvj",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:5FQxl0Q0qt79GVI9TqucMg",
+    "spotify:track:3BntzKsnLf2pc0dsvE3Zav",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:6cLrGfKIIRHYQw7S0mCDhA",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:3dj4wgM3cPeuLwMNHDuBon",
+    "spotify:track:0fzo0SZtYoefz7umzp835T",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:3x3K1RP3Zfi2qeMR8kyrNO",
+    "spotify:track:76JKIsdKrAfWUMjaA0u7v5",
+    "spotify:track:3YeBXUEWIjCtcsv0tULpz8",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:3yM7PhN6MicdF9j1mTFub8",
+    "spotify:track:5aIVCx5tnk0ntmdiinnYvw",
+    "spotify:track:35ISBknsCeZQtq66xABI9g",
+    "spotify:track:3sXWFs0hku4tR5cy54PnRz",
+    "spotify:track:1dHUB7GIbSk3MdL6a6KGvc",
+    "spotify:track:3Vr3zh0r7ALn8VLqCiRR10",
+    "spotify:track:7zEVTrZzR3ilNtBERuhM2R",
+    "spotify:track:3fqwjXwUGN6vbzIwvyFMhx"
+  ],
+  "subgenres": {
+    "art pop": 0.09090909090909091,
+    "pop": 0.18181818181818182,
+    "melodic bass": 0.09090909090909091,
+    "future bass": 0.09090909090909091,
+    "edm": 0.09090909090909091,
+    "afrobeats": 0.09090909090909091,
+    "country": 0.18181818181818182,
+    "acoustic country": 0.09090909090909091,
+    "pop country": 0.09090909090909091
+  },
+  "supergenres": {
+    "Pop": 0.375,
+    "Electronic": 0.25,
+    "R&B": 0.125,
+    "Country": 0.25
+  }
+}

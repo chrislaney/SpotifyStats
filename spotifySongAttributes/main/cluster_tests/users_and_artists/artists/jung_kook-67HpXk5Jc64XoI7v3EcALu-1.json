@@ -1,0 +1,39 @@
+{
+  "user_id": "jung_kook-67HpXk5Jc64XoI7v3EcALu-1",
+  "top_tracks": [
+    "spotify:track:2KslE17cAJNHTsI2MI0jb2",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:1BxfuPKGuaTgP7aM0Bbdwr",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:6m1TWFMeon7ai9XLOzdbiR",
+    "spotify:track:0eFMbKCRw8KByXyWBw8WO7",
+    "spotify:track:2N0SPREDYqILVEFSsWF5N5",
+    "spotify:track:3ajU531gR5fW71wqsw4tFX",
+    "spotify:track:6dgUya35uo964z7GZXM07g",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:2HRgqmZQC0MC7GeNuDIXHN",
+    "spotify:track:4a9tbd947vo9K8Vti9JwcI",
+    "spotify:track:5ydjxBSUIDn26MFzU3asP4",
+    "spotify:track:3Ua0m0YmEjrMi9XErKcNiR",
+    "spotify:track:1aKvZDoLGkNMxoRYgkckZG",
+    "spotify:track:01qFKNWq73UfEslI0GvumE",
+    "spotify:track:65FftemJ1DbbZ45DUfHJXE",
+    "spotify:track:5FVbvttjEvQ8r2BgUcJgNg",
+    "spotify:track:4HAOgAnILvXCbSODMoRnmD",
+    "spotify:track:5zwwW9Oq7ubSxoCGyW1nbY",
+    "spotify:track:2gkVEnpahpE3bQuvGuCpAV",
+    "spotify:track:69CrOS7vEHIrhC2ILyEi0s",
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:6jjYDGxVJsWS0a5wlVF5vS",
+    "spotify:track:5h1BN75CEh8wdSwE1xrbSe"
+  ],
+  "subgenres": {
+    "k-pop": 0.9047619047619048,
+    "pop": 0.047619047619047616,
+    "k-rap": 0.047619047619047616
+  },
+  "supergenres": {
+    "Pop": 0.9523809523809523,
+    "Hip Hop": 0.047619047619047616
+  }
+}

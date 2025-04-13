@@ -1,0 +1,41 @@
+{
+  "user_id": "travis_scot-3ELdIyKE6YOu3Hv4t1jfhf-2",
+  "top_tracks": [
+    "spotify:track:2xLMifQCjDGFmkHkpNLD9h",
+    "spotify:track:7BPadP3q9qwMkho3IMPU99",
+    "spotify:track:6AI3ezQ4o3HUoP6Dhudph3",
+    "spotify:track:0YThXX1dqUpYBLyJNAsF9N",
+    "spotify:track:4EWCNWgDS8707fNSZ1oaA5",
+    "spotify:track:0hL9gOw6XBWsygEUcVjxEc",
+    "spotify:track:3j84U36KvLeXNDPv4t5pI8",
+    "spotify:track:4Ls53fBNVfaXTROBi6X8Hw",
+    "spotify:track:78QR3Wp35dqAhFEc2qAGjE",
+    "spotify:track:0FZ4Dmg8jJJAPJnvBIzD9z",
+    "spotify:track:27a1mYSG5tYg7dmEjWBcmL",
+    "spotify:track:0JP9xo3adEtGSdUEISiszL",
+    "spotify:track:3B54sVLJ402zGa6Xm4YGNe",
+    "spotify:track:1fewSx2d5KIZ04wsooEBOz",
+    "spotify:track:2eAZfqOm4EnOF9VvN50Tyc",
+    "spotify:track:1PH2MDbcBAU094DlgTIND1",
+    "spotify:track:6rjuKpPydT2SxN15TZpV7r",
+    "spotify:track:3sNVsP50132BTNlImLx70i",
+    "spotify:track:3QzAOrNlsabgbMwlZt7TAY",
+    "spotify:track:2Hh3ETdQKrmSI3QS0hme7g",
+    "spotify:track:4R67rQNSbbsR4TdUVOIdez",
+    "spotify:track:0uxSUdBrJy9Un0EYoBowng",
+    "spotify:track:6PGoSes0D9eUDeeAafB2As",
+    "spotify:track:7AQim7LbvFVZJE3O8TYgf2",
+    "spotify:track:2JvzF1RMd7lE3KmFlsyZD8"
+  ],
+  "subgenres": {
+    "rap": 0.45,
+    "hip hop": 0.1,
+    "west coast hip hop": 0.1,
+    "rage rap": 0.05,
+    "melodic rap": 0.2,
+    "emo rap": 0.1
+  },
+  "supergenres": {
+    "Hip Hop": 1.0
+  }
+}

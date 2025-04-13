@@ -1,0 +1,49 @@
+{
+  "user_id": "the_police-5hz7XzZIM1ym4bfrM1qC5Y-1",
+  "top_tracks": [
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:4RvWPyQ5RL0ao9LPZeSouE",
+    "spotify:track:31AOj9sFz2gM0O3hMARRBx",
+    "spotify:track:0WoFs3EdGOx58yX5BtXvOa",
+    "spotify:track:4S1VYqwfkLit9mKVY3MXoo",
+    "spotify:track:1oYYd2gnWZYrt89EBXdFiO",
+    "spotify:track:63T7DJ1AFDD6Bn8VzG6JE8",
+    "spotify:track:4ogaI0XfmAunA0LyjveMSF",
+    "spotify:track:5rfJ2Bq2PEL8yBjZLzouEu",
+    "spotify:track:2OgVsp77En2nju8pnCieVU",
+    "spotify:track:3EYOJ48Et32uATr9ZmLnAo",
+    "spotify:track:3fH4KjXFYMmljxrcGrbPj9",
+    "spotify:track:4y1LsJpmMti1PfRQV9AWWe",
+    "spotify:track:5CQ30WqJwcep0pYcV4AMNc",
+    "spotify:track:7tFiyTwD0nx5a1eklYtX2J",
+    "spotify:track:44aTAUBF0g6sMkMNE8I5kd",
+    "spotify:track:7snQQk1zcKl8gZ92AnueZW",
+    "spotify:track:7G7tgVYORlDuVprcYHuFJh",
+    "spotify:track:7o9uu2GDtVDr9nsR7ZRN73",
+    "spotify:track:0ee1DiZF94NSqqpG0XHUzH",
+    "spotify:track:6DjKJgwe9c90Bd2iya0fre",
+    "spotify:track:3ZZq9396zv8pcn5GYVhxUi",
+    "spotify:track:5WDLRQ3VCdVrKw0njWe5E5",
+    "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+    "spotify:track:4ByEFOBuLXpCqvO1kw8Wdm"
+  ],
+  "subgenres": {
+    "new wave": 0.1111111111111111,
+    "synthpop": 0.1111111111111111,
+    "jangle pop": 0.037037037037037035,
+    "alternative rock": 0.037037037037037035,
+    "rock": 0.2222222222222222,
+    "classic rock": 0.18518518518518517,
+    "soft rock": 0.037037037037037035,
+    "album rock": 0.037037037037037035,
+    "hard rock": 0.07407407407407407,
+    "rock and roll": 0.037037037037037035,
+    "glam rock": 0.037037037037037035,
+    "glam metal": 0.07407407407407407
+  },
+  "supergenres": {
+    "Rock": 0.7692307692307693,
+    "Pop": 0.15384615384615385,
+    "Metal": 0.07692307692307693
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "user_id": "hozier-0gLJaI8oizE4uW5hnjNfWZ-2",
+  "top_tracks": [
+    "spotify:track:5Apvsk0suoivI1H8CmBglv",
+    "spotify:track:70eyG7pqKozUvKPKXLXmpI",
+    "spotify:track:18E1LAdiOj79wZqSOYMHE7",
+    "spotify:track:0mflMxspEfB0VbI1kyLiAv",
+    "spotify:track:35ISBknsCeZQtq66xABI9g",
+    "spotify:track:57V4uc2b2diZ4RPHXWecb9",
+    "spotify:track:086myS9r57YsLbJpU0TgK9",
+    "spotify:track:7CiDwKE62N6ey3LyG6s7xc",
+    "spotify:track:72s47svN0csVk41h0LdbSe",
+    "spotify:track:2Dct3GykKZ58hpWRFfe2Qd",
+    "spotify:track:1djzKW3eYLyzjjHXazEWWh",
+    "spotify:track:6IJXxWAHTVORSyl7lT5pkY",
+    "spotify:track:6wf7Yu7cxBSPrRlWeSeK0Q",
+    "spotify:track:1SuNH8rKUtcjWJYvZ3bBGo",
+    "spotify:track:4sDbdBjuYQVdNNB4PiHUPo",
+    "spotify:track:1C042FLYy7rP3MfnkOcnha",
+    "spotify:track:13xVnZKZDEGbmXkzBFpJDD",
+    "spotify:track:4KULAymBBJcPRpk1yO4dOG",
+    "spotify:track:3Pbp7cUCx4d3OAkZSCoNvn",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:2SXx7Ofa79CeJfio98aJcG",
+    "spotify:track:1HMQmOWrkieKYWlFsjUP3D",
+    "spotify:track:3lJD5BzSARTxNj1OYRyraX",
+    "spotify:track:4ZJ4vzLQekI0WntDbanNC7",
+    "spotify:track:4sebUbjqbcgDSwG6PbSGI0"
+  ],
+  "subgenres": {
+    "indie": 0.07692307692307693,
+    "garage rock": 0.07692307692307693,
+    "country": 0.23076923076923078,
+    "red dirt": 0.23076923076923078,
+    "folk pop": 0.07692307692307693,
+    "indie folk": 0.23076923076923078,
+    "modern rock": 0.07692307692307693
+  },
+  "supergenres": {
+    "Rock": 0.18181818181818182,
+    "Country": 0.5454545454545454,
+    "Folk/Acoustic": 0.2727272727272727
+  }
+}

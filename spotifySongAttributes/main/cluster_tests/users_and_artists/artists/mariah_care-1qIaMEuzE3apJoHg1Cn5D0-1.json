@@ -1,0 +1,48 @@
+{
+  "user_id": "mariah_care-1qIaMEuzE3apJoHg1Cn5D0-1",
+  "top_tracks": [
+    "spotify:track:3LmvfNUQtglbTrydsdIqFU",
+    "spotify:track:5WphWTUIfRe7x8NZss79cY",
+    "spotify:track:47BBI51FKFwOMlIiX6m8ya",
+    "spotify:track:3MjUtNVVq3C8Fn0MP3zhXa",
+    "spotify:track:33LC84JgLvK2KuW43MfaNq",
+    "spotify:track:2aEuXA1KswHlCGPOuPmCOW",
+    "spotify:track:3x2ksaXI6EZUWidE2BiLXy",
+    "spotify:track:6zWSB11sqCRMTAuWYkccCt",
+    "spotify:track:00WvmRXTkPBZNhhRK3xfdy",
+    "spotify:track:69QIVIjPMnI1ABLBqh9P1b",
+    "spotify:track:6xkryXuiZU360Lngd4sx13",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:0ARK753YaiJbpLUk7z5yIM",
+    "spotify:track:1KGi9sZVMeszgZOWivFpxs",
+    "spotify:track:3BxWKCI06eQ5Od8TY2JBeA",
+    "spotify:track:5mgCMlxQW7fmHbrdJuowbB",
+    "spotify:track:6naxalmIoLFWR0siv8dnQQ",
+    "spotify:track:1Je1IMUlBXcx1Fz0WE7oPT",
+    "spotify:track:68vgtRHr7iZHpzGpon6Jlo",
+    "spotify:track:5EL8hqM8YQJHKKnzGdahly",
+    "spotify:track:4VKnkoNNM6yTb4cXXX3wqD",
+    "spotify:track:6m94NnMDxM5KM5Ut5vgfhR",
+    "spotify:track:7k6IzwMGpxnRghE7YosnXT",
+    "spotify:track:6mwA6YiKDjAUG8kWvRRUPh",
+    "spotify:track:7wZUrN8oemZfsEd1CGkbXE"
+  ],
+  "subgenres": {
+    "christmas": 0.25,
+    "r&b": 0.2,
+    "pop": 0.1,
+    "vari\u00e9t\u00e9 fran\u00e7aise": 0.05,
+    "country": 0.05,
+    "quiet storm": 0.15,
+    "new jack swing": 0.05,
+    "tejano": 0.05,
+    "cumbia": 0.05,
+    "m\u00fasica mexicana": 0.05
+  },
+  "supergenres": {
+    "R&B": 0.6153846153846154,
+    "Pop": 0.15384615384615385,
+    "Country": 0.07692307692307693,
+    "Latin": 0.15384615384615385
+  }
+}

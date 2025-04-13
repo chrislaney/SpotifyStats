@@ -1,0 +1,47 @@
+{
+  "user_id": "rhianna-1Jg22QbjypynvCtXk6Glj0-1",
+  "top_tracks": [
+    "spotify:track:1z9kQ14XBSN0r2v6fx4IdG",
+    "spotify:track:3w3y8KPTfNeOKPiqUTakBh",
+    "spotify:track:73CMRj62VK8nUS4ezD2wvi",
+    "spotify:track:3avYqdwHKEq8beXbeWCKqJ",
+    "spotify:track:3LmvfNUQtglbTrydsdIqFU",
+    "spotify:track:2ENexcMEMsYk0rVJigVD3i",
+    "spotify:track:2gam98EZKrF9XuOkU13ApN",
+    "spotify:track:7BqBn9nzAq8spo5e7cZ0dJ",
+    "spotify:track:4QNpBfC0zvjKqPJcyqBy9W",
+    "spotify:track:4356Typ82hUiFAynbLYbPn",
+    "spotify:track:6qn9YLKt13AGvpq9jfO8py",
+    "spotify:track:09CtPGIpYB4BrO8qb1RGsF",
+    "spotify:track:3ZFTkvIE7kyPt6Nu3PEa7V",
+    "spotify:track:2x7MyWybabEz6Y6wvHuwGE",
+    "spotify:track:1gihuPhrLraKYrJMAEONyc",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:1c8gk2PeTE04A1pIDH9YMk",
+    "spotify:track:4r6eNCsrZnQWJzzvFh4nlg",
+    "spotify:track:15JINEqzVMv3SvJTAXAKED",
+    "spotify:track:5R8dQOPq8haW94K7mgERlO",
+    "spotify:track:789CxjEOtO76BVD1A9yJQH",
+    "spotify:track:2vlDrKpOC0eSTqTDRcbYyw",
+    "spotify:track:3MjUtNVVq3C8Fn0MP3zhXa",
+    "spotify:track:6hkOqJ5mE093AQf2lbZnsG",
+    "spotify:track:5rb9QrpfcKFHM1EUbSIurX"
+  ],
+  "subgenres": {
+    "soft pop": 0.1111111111111111,
+    "pop": 0.3333333333333333,
+    "christmas": 0.05555555555555555,
+    "r&b": 0.1111111111111111,
+    "latin pop": 0.05555555555555555,
+    "art pop": 0.1111111111111111,
+    "edm": 0.1111111111111111,
+    "rap": 0.05555555555555555,
+    "hip hop": 0.05555555555555555
+  },
+  "supergenres": {
+    "Pop": 0.6,
+    "R&B": 0.13333333333333333,
+    "Electronic": 0.13333333333333333,
+    "Hip Hop": 0.13333333333333333
+  }
+}

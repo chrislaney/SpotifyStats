@@ -1,0 +1,52 @@
+{
+  "user_id": "sundress-3aLutwPwoq3LPASQTYU6zX-2",
+  "top_tracks": [
+    "spotify:track:4nNSgSfqhtAQ9upuIp1QgM",
+    "spotify:track:14Evt01gsIZVICaK7lWA29",
+    "spotify:track:16iieqpYBoZKAh9TZPeFma",
+    "spotify:track:5sswGCkwNDBKeiAcK5rfLj",
+    "spotify:track:2TsBRXZQSGp1aaYeNPcT9o",
+    "spotify:track:66180fpvYEsni5icbsGsCH",
+    "spotify:track:4iG2gAwKXsOcijVaVXzRPW",
+    "spotify:track:6QY7dpN2yAviCy4XDqr9ya",
+    "spotify:track:62wdQ5CInFr7cjISqrr46f",
+    "spotify:track:3RIgHHpnFKj5Rni1shokDj",
+    "spotify:track:5HGxLtYxTriF7mMiriSpaz",
+    "spotify:track:0eKF4sUBRK32juUSF0C1pY",
+    "spotify:track:6kblAEj0T0312fv5QWsXzo",
+    "spotify:track:67YPjbcxUypwNOwYBZquq1",
+    "spotify:track:77ZdAoTHYoF6Umo76HFD4m",
+    "spotify:track:5gMZytf2L5iBLiyBEaSAhh",
+    "spotify:track:3hJLKtTpgct9Y9wKww0BiR",
+    "spotify:track:1vW12BfxjOQKYElBm9ttW9",
+    "spotify:track:3JsA2sWDNR9oQogGAzqqtH",
+    "spotify:track:2nGFzvICaeEWjIrBrL2RAx",
+    "spotify:track:4bsMM8V87y5igGk6urk6b7",
+    "spotify:track:39CFOvYse9fcMhIwyS73Fl",
+    "spotify:track:7cLGKaJXLFpUU7Up34vVr1",
+    "spotify:track:1nLaEy1i5XgSoWtLiAlpJ3",
+    "spotify:track:09Rv6ctDE0t9z8zk5FINg8"
+  ],
+  "subgenres": {
+    "bhangra": 0.058823529411764705,
+    "punjabi pop": 0.058823529411764705,
+    "punjabi hip hop": 0.058823529411764705,
+    "desi": 0.11764705882352941,
+    "desi hip hop": 0.058823529411764705,
+    "indie": 0.11764705882352941,
+    "bedroom pop": 0.058823529411764705,
+    "classic rock": 0.058823529411764705,
+    "rock": 0.058823529411764705,
+    "stutter house": 0.11764705882352941,
+    "house": 0.11764705882352941,
+    "bollywood": 0.058823529411764705,
+    "hindi pop": 0.058823529411764705
+  },
+  "supergenres": {
+    "World/Traditional": 0.09090909090909091,
+    "Pop": 0.18181818181818182,
+    "Hip Hop": 0.18181818181818182,
+    "Rock": 0.18181818181818182,
+    "Electronic": 0.36363636363636365
+  }
+}
