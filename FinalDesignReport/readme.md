@@ -221,7 +221,42 @@ Finally, this clustering system is highly **extensible**. While we used genre di
 ### Clustering Visuals
 ![CLUSTERS](./CLUSTERS.gif)
 
+_The visualization above shows a 3D Principal Component Analysis (PCA) projection of user genre vectors clustered using K-Means._
+
+Each colored dot represents a user with similar genre preferences, and the black Xs mark the centroids of each cluster.
+
+This clustering forms the backbone of our playlist generation system. When a new user logs in, we locate their position in the genre space and assign them to the nearest cluster. Based on this assignment, we generate three playlists with distinct recommendation goals:
+
+- **Cluster Mates** – Songs that users in the same cluster are listening to, likely overlapping heavily with the user’s current tastes.
+   ![Cluster Mates](./MATES_SPIDER.png)
+  
+- **Expand My Horizons** – A mix of songs from the user’s cluster and nearby clusters, offering a blend of familiar music and new genres with some unexpected variety.
+   ![Expand My Horizons](./EXPAND_SPIDER.png)
+  
+- **Across the Pond** – A playlist sourced from users in the most dissimilar clusters, encouraging exploration of genres the user may enjoy but would likely never have recommended by traditional Spotify algorithms.
+   ![Across the Pond](./ACROSS_SPIDER.png)
+  
+
+This three-tiered system enables recommendations that are not only personalized and accurate, but also encourage deeper musical discovery.
+
 ### Data Flow
+
+
+![SpotifyStats System Flow Diagram](./FLOW.png)
+
+_The diagram above outlines the complete system architecture and data flow of the SpotifyStats application._
+
+From user interaction to playlist generation, the system is structured to maximize modularity, clarity, and performance.
+
+At the frontend, users can either authenticate their Spotify account or analyze a public playlist. This choice kicks off a backend pipeline that retrieves and processes data through the Spotify Web API. Using Spotipy, we collect users' top tracks over various time ranges and fetch relevant track metadata. This metadata is parsed, cleaned, and stored in DynamoDB alongside genre cache mappings and user profiles.
+
+From here, we compute genre distributions for each user based on their listening history. These vectors are used to drive both our data visualizations (e.g., polar charts, radar comparisons) and our user similarity classifier. The classifier uses clustering techniques like K-Means to group users with similar musical tastes, allowing us to identify both “most similar” and “least similar” neighbors for any given user.
+
+The results of this classification power the generation of three personalized playlists (see: **Clustering Visuals**), each offering a different perspective on the user’s musical landscape. A user can receive songs they likely already love, music just outside their bubble, or content they may never have discovered otherwise.
+
+Critically, this diagram also highlights our use of **artificial user profiles**. Early in development, we collected top Spotify charts and genre-tagged public playlists to create realistic bootstrapped user data. This allowed us to train and test the system without needing immediate adoption or real user volume—making our classifier robust from day one.
+
+By designing the system around genre distribution vectors rather than Spotify’s deprecated audio features, we built a more interpretable, privacy-respecting, and socially-driven recommendation platform. Lightweight retraining strategies and cost-efficient architecture (via AWS DynamoDB and Flask) further ensure the system remains responsive, sustainable, and adaptable to future needs.
 
 
 ## Spring Final PPT Presentation
