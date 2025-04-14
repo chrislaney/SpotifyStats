@@ -202,6 +202,28 @@ The next feature is a compare feature where you can use a public playlist url or
 The final feature is that of playlist generation. Using your genre breakdowns and that of other users we create a few different specialized playlists for a user.
 ![UM6](./UM6.png)
 
+### Clustering and User Generation System
+
+Due to deprecations in the Spotify API, our team pivoted from a traditional feature-based recommendation approach to a more robust and scalable **user clustering model**. Instead of relying on Spotify's proprietary audio features (which are no longer broadly available), we represent users based on the **genre distribution** of their top artists and tracks. Each user is encoded as a normalized vector across a predefined set of supergenres.
+
+We apply **clustering algorithms** (e.g., K-Means) to group users with similar musical profiles. When a new user logs in, we identify their closest cluster and generate multiple playlists: One from their own cluster, one from similar clusters, and one from distant clusters to promote contrast and exploration. This method allows us to build personalized, yet **data-driven recommendations** without relying on opaque or black-box models.
+
+To make this system usable at launch, we developed a realistic **user generation pipeline**. By gathering users top-100 playlists and Spotify's radio playlists manually and creating profiles from fake user IDs, we synthesized over 500 fake-but-believable users. These artificial users were bootstrapped using the same processing logic as real users, ensuring that our clustering and playlist generation tools could be tested thoroughly before full deployment.
+
+This architecture also respects cost and scalability constraints—no heavy ML training is required, and clustering can be updated periodically using lightweight Python scripts. This makes the system easier to maintain and adapt. Our [Data Flow Diagram](/current_docs/Design_Diagrams/DataFlowDiagram.jpg) visualizes how user data is processed—from login and genre vector creation, through clustering and playlist delivery.
+
+By recommending music from users with **similar tastes**, we increase the likelihood that users will discover music they genuinely enjoy, but may have missed due to algorithmic blind spots or genre overlaps. This user-to-user approach feels more transparent and intuitive than traditional black-box recommenders, while still being grounded in meaningful patterns.
+
+Finally, this clustering system is highly **extensible**. While we used genre distribution as our vector representation, the architecture is abstract enough to support **any distribution-based user profile**; whether it’s based on song attributes, mood tags, or even behavioral patterns. This opens up possibilities for applying the same model to entirely different domains outside of music, wherever comparative user data exists.
+
+---
+
+### Clustering Visuals
+![CLUSTERS](./CLUSTERS.gif)
+
+### Data Flow
+
+
 ## Spring Final PPT Presentation
 [Slide show link](https://mailuc-my.sharepoint.com/:p:/g/personal/laneyct_mail_uc_edu/EafN2-MCRvNFvCqqYHi6TLYB5AMdMXJh9KndGTTmdnqgfQ?e=ANtj2L)
 
@@ -259,7 +281,10 @@ The final feature is that of playlist generation. Using your genre breakdowns an
 
 ## Appendix
 - **References:**  
-  - [Spoitfy API WIKI](https://developer.spotify.com/documentation/web-api)
-  - [Render hosting site docs](https://render.com/docs)
-  - [Flask Docs](https://flask.palletsprojects.com/en/stable/)
+   - [Spotify Web API Documentation](https://developer.spotify.com/documentation/web-api)
+   - [Render Hosting Documentation](https://render.com/docs)
+   - [Flask Framework](https://flask.palletsprojects.com/)
+   - [MongoDB Python Driver](https://pymongo.readthedocs.io/)
+   - [K-Means Algorithm Overview (scikit-learn)](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+
   
