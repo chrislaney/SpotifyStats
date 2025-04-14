@@ -229,15 +229,38 @@ This clustering forms the backbone of our playlist generation system. When a new
 
 - **Cluster Mates** – Songs that users in the same cluster are listening to, likely overlapping heavily with the user’s current tastes.
    ![Cluster Mates](./MATES_SPIDER.png)
+  ### THIS NEEDS REDONE WITH PROPER IAMGE AND EXPLANATION
+     This visualization showcases a radar chart comparing a user's supergenre distribution (blue) with that of their assigned cluster mates (green). At first glance, there may appear to be limited overlap, but closer inspection reveals how    effective the clustering system really is.
+   
+   Although this user listens heavily to Hip-Hop, users within their cluster also show strong preferences for both Pop and Hip-Hop. The result is that the **“Cluster Mates”** playlist—generated from this cluster—is likely to contain music    the user enjoys, even if the top-level genres don’t match 1:1.
+   
+   This example highlights the strength of our clustering system: it captures not just dominant genres, but underlying listening *patterns* that may not be obvious on the surface. By leveraging shared genre affinities across users, the    system can recommend music that feels both familiar and fresh—even when it defies initial expectations.
   
 - **Expand My Horizons** – A mix of songs from the user’s cluster and nearby clusters, offering a blend of familiar music and new genres with some unexpected variety.
-   ![Expand My Horizons](./EXPAND_SPIDER.png)
+   ![Chris Taste Comparison](./EXPAND_ONE_SPIDER.png)
+
+  This comparison shows Chris’s listening habits (green) alongside the **Expand My Horizons** playlist generated for him (blue). While Chris primarily listens to Rock and some Country, the playlist incorporates a heavier dose of Hip-Hop. 
+
+  This genre expansion is intentional, it blends familiar patterns with nearby preferences found in similar users, offering new music without feeling random or out of place. It's a bridge between comfort and discovery.
+
+  ![Noah Taste Comparison](./EXPAND_SPIDER_TWO.png)
+
+   Here we see Noah’s dominant taste in Hip-Hop (green) compared to his **Expand My Horizons** playlist (blue). While the core Hip-Hop influence is preserved, the playlist introduces more Pop and Electronic elements from adjacent clusters.
+
+   This ensures Noah receives a playlist that still aligns with his style, while gently introducing tracks that could broaden his taste and promote musical discovery in a way standard algorithms might miss.
+
   
 - **Across the Pond** – A playlist sourced from users in the most dissimilar clusters, encouraging exploration of genres the user may enjoy but would likely never have recommended by traditional Spotify algorithms.
-   ![Across the Pond](./ACROSS_SPIDER.png)
+   ![Justin Taste Comparison](./ACROSS_SPIDER.png)
+
+   This radar chart compares Justin’s genre profile (green) with the **Not Like Me** playlist (blue), sourced from users in the most dissimilar clusters. While Justin listens heavily to Rock, Jazz, and Hip-Hop, the recommended playlist         leans into genres like Pop, Metal, and Electronic areas largely absent from his listening history.
+
+   This contrast isn’t a mismatch, it's a **deliberate exploration mechanism**. By surfacing music from outside the user’s comfort zone, this playlist offers a chance to discover entirely new sounds. It represents the boldest recommendation    path in our system: music the user is least likely to encounter organically through typical streaming algorithms.
   
 
 This three-tiered system enables recommendations that are not only personalized and accurate, but also encourage deeper musical discovery.
+
+**Note:** One current limitation of our system is the availability of genre diversity in our training data. For example, Jazz was underrepresented in our early artificial user generation process. As a result, users with strong niche preferences may sometimes experience less nuanced recommendations until more representative listening data is added to the system. Improving this coverage is a clear path for future refinement.
 
 ### Data Flow
 
