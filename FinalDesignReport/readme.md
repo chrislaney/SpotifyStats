@@ -190,17 +190,17 @@ Results; Non project civilizians tested the site and confirmed easy navigation a
 ## User Manual
 
 Upon typing in the link you will be presented with this landing / homepage. Infront of you lies 2 paths. The first button logs into and authenticates a users spotify account, the 2nd option with the textbox asks for a spotify playlist url link to run the analyzer on. We will go with the authentication path because it is more complex.
-![UM1](./UM1.png)
+![UM1](./final_media/UM1.png)
 Upon clicking you will go to a spotify auth page and sign in to give us permission to pull data. This is what this looks like;
-![UM2](./UM2.png)
+![UM2](./final_media/UM2.png)
 Once logged you will be redirected back to a dashboard where your data is being extracted, transformed and loaded. The dashboard will then present. 
-![UM3](./UM3.png)
+![UM3](./final_media/UM3.png)
 From here out it is simply a scroll down to find new features, The first 2 are polar area charts showing the logged in users super and sub genre distributions.
-![UM4](./UM4.png)
+![UM4](./final_media/UM4.png)
 The next feature is a compare feature where you can use a public playlist url or a spotify user url who is in our database. This distribution is presented on a radar chart.
-![UM5](./UM5.png)
+![UM5](./final_media/UM5.png)
 The final feature is that of playlist generation. Using your genre breakdowns and that of other users we create a few different specialized playlists for a user.
-![UM6](./UM6.png)
+![UM6](./final_media/UM6.png)
 
 ### Clustering and User Generation System
 
@@ -219,7 +219,7 @@ Finally, this clustering system is highly **extensible**. While we used genre di
 ---
 
 ### Clustering Visuals
-![CLUSTERS](./CLUSTERS.gif)
+![CLUSTERS](./final_media/CLUSTERS.gif)
 
 _The visualization above shows a 3D Principal Component Analysis (PCA) projection of user genre vectors clustered using K-Means._
 
@@ -228,7 +228,7 @@ Each colored dot represents a user with similar genre preferences, and the black
 This clustering forms the backbone of our playlist generation system. When a new user logs in, we locate their position in the genre space and assign them to the nearest cluster. Based on this assignment, we generate three playlists with distinct recommendation goals:
 
 - **Cluster Mates** – Songs that users in the same cluster are listening to, likely overlapping heavily with the user’s current tastes.
-   ![Cluster Mates](./MATES_SPIDER.png)
+   ![Cluster Mates](./final_media/MATES_SPIDER.png)
   ### THIS NEEDS REDONE WITH PROPER IAMGE AND EXPLANATION
      This visualization showcases a radar chart comparing a user's supergenre distribution (blue) with that of their assigned cluster mates (green). At first glance, there may appear to be limited overlap, but closer inspection reveals how    effective the clustering system really is.
    
@@ -237,13 +237,13 @@ This clustering forms the backbone of our playlist generation system. When a new
    This example highlights the strength of our clustering system: it captures not just dominant genres, but underlying listening *patterns* that may not be obvious on the surface. By leveraging shared genre affinities across users, the    system can recommend music that feels both familiar and fresh—even when it defies initial expectations.
   
 - **Expand My Horizons** – A mix of songs from the user’s cluster and nearby clusters, offering a blend of familiar music and new genres with some unexpected variety.
-   ![Chris Taste Comparison](./EXPAND_ONE_SPIDER.png)
+   ![Chris Taste Comparison](./final_media/EXPAND_ONE_SPIDER.png)
 
   This comparison shows Chris’s listening habits (green) alongside the **Expand My Horizons** playlist generated for him (blue). While Chris primarily listens to Rock and some Country, the playlist incorporates a heavier dose of Hip-Hop. 
 
   This genre expansion is intentional, it blends familiar patterns with nearby preferences found in similar users, offering new music without feeling random or out of place. It's a bridge between comfort and discovery.
 
-  ![Noah Taste Comparison](./EXPAND_SPIDER_TWO.png)
+  ![Noah Taste Comparison](./final_media/EXPAND_SPIDER_TWO.png)
 
    Here we see Noah’s dominant taste in Hip-Hop (green) compared to his **Expand My Horizons** playlist (blue). While the core Hip-Hop influence is preserved, the playlist introduces more Pop and Electronic elements from adjacent clusters.
 
@@ -251,7 +251,7 @@ This clustering forms the backbone of our playlist generation system. When a new
 
   
 - **Across the Pond** – A playlist sourced from users in the most dissimilar clusters, encouraging exploration of genres the user may enjoy but would likely never have recommended by traditional Spotify algorithms.
-   ![Justin Taste Comparison](./ACROSS_SPIDER.png)
+   ![Justin Taste Comparison](./final_media/ACROSS_SPIDER.png)
 
    This radar chart compares Justin’s genre profile (green) with the **Not Like Me** playlist (blue), sourced from users in the most dissimilar clusters. While Justin listens heavily to Rock, Jazz, and Hip-Hop, the recommended playlist         leans into genres like Pop, Metal, and Electronic areas largely absent from his listening history.
 
@@ -265,7 +265,7 @@ This three-tiered system enables recommendations that are not only personalized 
 ### Data Flow
 
 
-![SpotifyStats System Flow Diagram](./FLOW.png)
+![SpotifyStats System Flow Diagram](./final_media/FLOW.png)
 
 _The diagram above outlines the complete system architecture and data flow of the SpotifyStats application._
 
