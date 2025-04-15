@@ -98,6 +98,7 @@ Normal Boundary
 Blackbox
 Functional
 Unit
+<br />
 Results; User data we wanted was saved correctly to the database using standard user schema.
 
 7)	Database Connection Test
@@ -108,6 +109,7 @@ Normal Boundary
 Blackbox
 Functional
 Integration
+<br />
 Results; Confirmed by induction of the testcase before this. 
 
 9)	Plot Display Test
@@ -118,6 +120,7 @@ Normal
 Whitebox
 Functional
 Integration
+<br />
 Results; User data able to be plotted on polar area chart as well as radar chart. 
 
 11)	Spider Chart Works
