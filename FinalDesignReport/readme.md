@@ -66,7 +66,7 @@ The user interface is composed of a few different functional pieces. The initial
 
 
 ## Test Plan and Results
-Our testing approach holds a combination of objective tests and subjective tests that may be difficult to quantify. Our plan is to first test the necessary, quantifiable test cases, such as verifying that our API endpoints are functional, that are databases are connected, and that performance is accurate. After this, we will be testing the result of our similarity algorithm, which is at least in part subjective, such that users are ￼as representative of both users’ tastes. Finally, we will make sure that the UI is aesthetically pleasing and intuitive.
+Our testing approach holds a combination of objective tests and subjective tests that may be difficult to quantify. Our plan is to first test the necessary, quantifiable test cases, such as verifying that our API endpoints are functional, that are databases are connected, and that performance is accurate. After this, we will be testing the result of our similarity algorithm, which is at least in part subjective, such that users are as representative of both users’ tastes. Finally, we will make sure that the UI is aesthetically pleasing and intuitive.
 #### Test Cases:
 1)	Fast Load Time Test Case; 
 This test is to ensure that users are admitted to the webapp quickly
@@ -77,9 +77,11 @@ Normal Boundary
 Black Box
 Performance
 Unit Test
+<br />
 Results; Initial user load takes about 10 seconds which meets our standard. Depending on wifi the playlists are typically generated in 15 seconds upon click, which does meet our standard
+<br />
 
-3)	Access Spotify Data
+2)	Access Spotify Data
 This is the test to make sure that the program can successfully pull data from Spotify.
 This test will access data from Spotify after a user authorizes our program.
 Input: User Login / OAuth
@@ -88,9 +90,11 @@ Normal Boundary
 White Box
 Functional
 Integration Test
+<br />
 Results; All data was accurately pulled and parsed using dictionaries, determining we were traversing the dictionary correctly.
+<br />
 
-5)	Data is Saved to Database
+3)	Data is Saved to Database
 This test is to ensure that data is properly saved upon new user login/user data expiration.
 Input: user login/Auth
 Output: User data is stored properly in database
@@ -100,8 +104,9 @@ Functional
 Unit
 <br />
 Results; User data we wanted was saved correctly to the database using standard user schema.
+<br />
 
-7)	Database Connection Test
+4)	Database Connection Test
 This test is to ensure that our program can connect to a cloud database to store data in.
 Input: database login
 Output: successful connection
@@ -111,8 +116,9 @@ Functional
 Integration
 <br />
 Results; Confirmed by induction of the testcase before this. 
+<br />
 
-9)	Plot Display Test
+5)	Plot Display Test
 The purpose of this test is to verify that, upon request, a user will be able to see themselves upon other users and examine how similar they are to each other. The plot should be interactive and believable based on the songs that are available upon user request.
 Input: User’s song data
 Output: interactive plot of users and their top songs, similarity score
@@ -122,8 +128,9 @@ Functional
 Integration
 <br />
 Results; User data able to be plotted on polar area chart as well as radar chart. 
+<br />
 
-11)	Spider Chart Works
+6)	Spider Chart Works
 This test is to ensure a user’s homepage contains a spider chart of their Super Genres
 This test makes sure the user has a spider chart of their super genres displayed when they log into SpotifyStats.
 Input: User’s Super Genre distribution
@@ -132,10 +139,11 @@ Normal Boundary
 White Box
 Functional
 Integration
+<br />
 Results; Confirmed by induction of the test case above. All plotting and graphing functions do as necessary 
+<br />
 
-
-13)	Super Genre Map Helper
+8)	Super Genre Map Helper
 This is to ensure that a users songs are mapped to the correct genre 
 This will cross reference users subgenres to the super genre map to make sure their genre distributions are accurate
 Input: List of users genres from top 100 songs
@@ -144,10 +152,11 @@ Normal Boundary
 Black Box
 Functional
 Unit Test
+<br />
 Results; This works as intended except for the fact that some subgenres do not map to supergenres due to the mapping key we used. In this event we are logging those to a text document for later update. 
+<br />
 
-
-15)	User Similarity Ranking
+9)	User Similarity Ranking
 This is to ensure that user similarity/dissimilarity rankings work to subjective and objective criteria
 Will use test users and manual data to validate rankings 
  inputs: test users that have only listened to specified genre playlists
@@ -156,9 +165,11 @@ Will use test users and manual data to validate rankings
 White Box
 Functional
 Integration
+<br />
 Results; Done via a k-means solution but other algos were tested for similarity purposes. This happened to be the best.
+<br />
 
-17)	User Interface Data Transfer Efficiently
+10)	User Interface Data Transfer Efficiently
 Ensure efficient data transfer from backend to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end
@@ -166,9 +177,11 @@ Normal Boundary
 Black Box
 Performance
 Unit test
+<br />
 Results; Confirmed via induction of test case 1, 9 and 11 where we test speed and the plotting accuracy of graphs
+<br />
 
-19)	User Interface Data Transfer Correctly
+11)	User Interface Data Transfer Correctly
 Ensure clean data transfer from middleware/parser to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end / Correct graphs
@@ -176,10 +189,11 @@ Normal Boundary
 Black Box
 Functional
 Unit test
+<br />
 Results; Confirmed user data does transfer correct and is plotted to an accurate representation of the data points.
+<br />
 
-
-21)	User Accessibility Test
+12)	User Accessibility Test
 Ensure that our site is easily navigable and understandable by the average user.
 Input: Non-developer user navigating the website
 Output: Review of the site’s accessibility
@@ -187,7 +201,9 @@ Normal Boundary
 White Box
 Performance
 Integration
+<br />
 Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose.
+<br />
 
 ## User Manual
 
