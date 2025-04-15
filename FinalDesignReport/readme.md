@@ -76,9 +76,8 @@ Output; Home page
 Normal Boundary
 Black Box
 Performance
-Unit Test
-<br />
-Results; Initial user load takes about 10 seconds which meets our standard. Depending on wifi the playlists are typically generated in 15 seconds upon click, which does meet our standard
+Unit Test 
+ -- Results: Initial user load takes about 10 seconds which meets our standard. Depending on wifi the playlists are typically generated in 15 seconds upon click, which does meet our standard
 <br />
 
 2)	Access Spotify Data
@@ -90,8 +89,7 @@ Normal Boundary
 White Box
 Functional
 Integration Test
-<br />
-Results; All data was accurately pulled and parsed using dictionaries, determining we were traversing the dictionary correctly.
+ -- Results; All data was accurately pulled and parsed using dictionaries, determining we were traversing the dictionary correctly.
 <br />
 
 3)	Data is Saved to Database
@@ -101,9 +99,7 @@ Output: User data is stored properly in database
 Normal Boundary
 Blackbox
 Functional
-Unit
-<br />
-Results; User data we wanted was saved correctly to the database using standard user schema.
+Unit -- Results; User data we wanted was saved correctly to the database using standard user schema.
 <br />
 
 4)	Database Connection Test
@@ -114,8 +110,7 @@ Normal Boundary
 Blackbox
 Functional
 Integration
-<br />
-Results; Confirmed by induction of the testcase before this. 
+ -- Results; Confirmed by induction of the testcase before this. 
 <br />
 
 5)	Plot Display Test
@@ -126,8 +121,7 @@ Normal
 Whitebox
 Functional
 Integration
-<br />
-Results; User data able to be plotted on polar area chart as well as radar chart. 
+ -- Results; User data able to be plotted on polar area chart as well as radar chart. 
 <br />
 
 6)	Spider Chart Works
@@ -139,8 +133,8 @@ Normal Boundary
 White Box
 Functional
 Integration
-<br />
-Results; Confirmed by induction of the test case above. All plotting and graphing functions do as necessary 
+
+ -- Results; Confirmed by induction of the test case above. All plotting and graphing functions do as necessary 
 <br />
 
 8)	Super Genre Map Helper
@@ -152,8 +146,7 @@ Normal Boundary
 Black Box
 Functional
 Unit Test
-<br />
-Results; This works as intended except for the fact that some subgenres do not map to supergenres due to the mapping key we used. In this event we are logging those to a text document for later update. 
+ -- Results; This works as intended except for the fact that some subgenres do not map to supergenres due to the mapping key we used. In this event we are logging those to a text document for later update. 
 <br />
 
 9)	User Similarity Ranking
@@ -165,11 +158,10 @@ Will use test users and manual data to validate rankings
 White Box
 Functional
 Integration
-<br />
-Results; Done via a k-means solution but other algos were tested for similarity purposes. This happened to be the best.
+ -- Results; Done via a k-means solution but other algos were tested for similarity purposes. This happened to be the best.
 <br />
 
-10)	User Interface Data Transfer Efficiently
+11)	User Interface Data Transfer Efficiently
 Ensure efficient data transfer from backend to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end
@@ -177,11 +169,10 @@ Normal Boundary
 Black Box
 Performance
 Unit test
-<br />
-Results; Confirmed via induction of test case 1, 9 and 11 where we test speed and the plotting accuracy of graphs
+ -- Results; Confirmed via induction of test case 1, 9 and 11 where we test speed and the plotting accuracy of graphs
 <br />
 
-11)	User Interface Data Transfer Correctly
+12)	User Interface Data Transfer Correctly
 Ensure clean data transfer from middleware/parser to front end graphs
 Input: Data objects from parser
 Output: Data objects in front end / Correct graphs
@@ -189,11 +180,10 @@ Normal Boundary
 Black Box
 Functional
 Unit test
-<br />
-Results; Confirmed user data does transfer correct and is plotted to an accurate representation of the data points.
+ -- Results; Confirmed user data does transfer correct and is plotted to an accurate representation of the data points.
 <br />
 
-12)	User Accessibility Test
+13)	User Accessibility Test
 Ensure that our site is easily navigable and understandable by the average user.
 Input: Non-developer user navigating the website
 Output: Review of the site’s accessibility
@@ -201,8 +191,7 @@ Normal Boundary
 White Box
 Performance
 Integration
-<br />
-Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose.
+ -- Results; Non project civilizians tested the site and confirmed easy navigation and ability to infer purpose.
 <br />
 
 ## User Manual
