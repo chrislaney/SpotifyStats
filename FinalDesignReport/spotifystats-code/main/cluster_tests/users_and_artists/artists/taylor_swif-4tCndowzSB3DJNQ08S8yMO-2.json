@@ -1,0 +1,41 @@
+{
+  "user_id": "taylor_swif-4tCndowzSB3DJNQ08S8yMO-2",
+  "top_tracks": [
+    "spotify:track:6YvqWjhGD8mB5QXcbcUKtx",
+    "spotify:track:6wf7Yu7cxBSPrRlWeSeK0Q",
+    "spotify:track:6HU7h9RYOaPRFeh0R3UeAr",
+    "spotify:track:1zwMYTA5nlNjZxYrvBB2pV",
+    "spotify:track:2nMeu6UenVvwUktBCpLMK9",
+    "spotify:track:1K39ty6o1sHwwlZwO6a7wK",
+    "spotify:track:55n9yjI6qqXh5F2mYvUc2y",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:4ZtFanR9U6ndgddUvNcjcG",
+    "spotify:track:1yjY7rpaAQvKwpdUliHx0d",
+    "spotify:track:1qrpoAMXodY6895hGKoUpA",
+    "spotify:track:6GGtHZgBycCgGBUhZo81xe",
+    "spotify:track:1mKXFLRA179hdOWQBwUk9e",
+    "spotify:track:2tHwzyyOLoWSFqYNjeVMzj",
+    "spotify:track:2tGvwE8GcFKwNdAXMnlbfl",
+    "spotify:track:1Iq8oo9XkmmvCQiGOfORiz",
+    "spotify:track:6VhuP99TE6gYNQRJIlAWFD",
+    "spotify:track:1Ist6PR2BZR3n2z2Y5R6S1",
+    "spotify:track:3G6hD9B2ZHOsgf4WfNu7X1",
+    "spotify:track:2eAvDnpXP5W0cVtiI0PUxV",
+    "spotify:track:214nt20w5wOxJnY462klLw",
+    "spotify:track:1kuGVB7EU95pJObxwvfwKS",
+    "spotify:track:3jjujdWJ72nww5eGnfs2E7",
+    "spotify:track:0Cy7wt6IlRfBPHXXjmZbcP",
+    "spotify:track:6hkOqJ5mE093AQf2lbZnsG"
+  ],
+  "subgenres": {
+    "soft pop": 0.2,
+    "pop punk": 0.2,
+    "emo": 0.2,
+    "emo pop": 0.2,
+    "pop": 0.2
+  },
+  "supergenres": {
+    "Rock": 0.6666666666666666,
+    "Pop": 0.3333333333333333
+  }
+}

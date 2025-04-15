@@ -1,0 +1,53 @@
+{
+  "user_id": "oasis-34fty458ZfppCwtVcILtLv-1",
+  "top_tracks": [
+    "spotify:track:7ygpwy2qP3NbrxVkHvUhXY",
+    "spotify:track:0ll8uFnc0nANY35E0Lfxvg",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:003vvx7Niy0yvhvHt4a68B",
+    "spotify:track:3ZOEytgrvLwQaqXreDs2Jx",
+    "spotify:track:5WTPhYmwwojFP73O7p3Izi",
+    "spotify:track:70LcF31zb1H0PyJoS1Sx1r",
+    "spotify:track:6Qyc6fS4DsZjB2mRW9DsQs",
+    "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+    "spotify:track:75JFxkI2RXiU7L9VXzMkle",
+    "spotify:track:12dU3vAh6AFoJkisorfoUl",
+    "spotify:track:6PwjJ58I4t7Mae9xfZ9l9v",
+    "spotify:track:10nyNJ6zNy2YVYLrcwLccB",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:4P5KoWXOxwuobLmHXLMobV",
+    "spotify:track:0SlpFHdk4UHBDzCEoXzy14",
+    "spotify:track:2m1hi0nfMR9vdGC8UcrnwU",
+    "spotify:track:6L89mwZXSOwYl76YXfX13s",
+    "spotify:track:0nnwn7LWHCAu09jfuH1xTA",
+    "spotify:track:5UWwZ5lm5PKu6eKsHAGxOk",
+    "spotify:track:6TlQ5fbojNRuG0hPQMbxeW",
+    "spotify:track:1G391cbiT3v3Cywg8T7DM1",
+    "spotify:track:0WQiDwKJclirSYG9v5tayI",
+    "spotify:track:6nTiIhLmQ3FWhvrGafw2zj",
+    "spotify:track:0BCPKOYdS2jbQ8iyB56Zns"
+  ],
+  "subgenres": {
+    "britpop": 0.10204081632653061,
+    "madchester": 0.12244897959183673,
+    "rock": 0.22448979591836735,
+    "alternative rock": 0.14285714285714285,
+    "funk rock": 0.04081632653061224,
+    "art rock": 0.04081632653061224,
+    "grunge": 0.061224489795918366,
+    "pop punk": 0.061224489795918366,
+    "punk": 0.061224489795918366,
+    "emo pop": 0.02040816326530612,
+    "skate punk": 0.02040816326530612,
+    "emo": 0.02040816326530612,
+    "post-grunge": 0.02040816326530612,
+    "modern rock": 0.02040816326530612,
+    "new wave": 0.02040816326530612,
+    "jangle pop": 0.02040816326530612
+  },
+  "supergenres": {
+    "Pop": 0.125,
+    "Rock": 0.8333333333333334,
+    "Metal": 0.041666666666666664
+  }
+}

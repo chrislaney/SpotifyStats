@@ -1,0 +1,45 @@
+{
+  "user_id": "billie_eili-6O3A5CbN9OEvEBda15aRKD-1",
+  "top_tracks": [
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:3LPLRNr58Z9Pn0clnEtkXb",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:3ZCTVFBt2Brf31RLEnCkWJ",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:7mDTvYD2ieE4Q28XFziMfJ",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:4Dvkj6JhhA12EX05fT7y2e",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:43zdsphuZLzwA9k4DJhU0I",
+    "spotify:track:1oAwsWBovWRIp7qLMGPIet",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:44A0o4jA8F2ZF03Zacwlwx",
+    "spotify:track:7BRD7x5pt8Lqa1eGYC4dzj",
+    "spotify:track:5LrN7yUQAzvthd4QujgPFr",
+    "spotify:track:3GCdLUSnKSMJhs4Tj6CV3s",
+    "spotify:track:2262bWmqomIaJXwCRHr13j",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW"
+  ],
+  "subgenres": {
+    "art pop": 0.08333333333333333,
+    "pop": 0.16666666666666666,
+    "indie": 0.16666666666666666,
+    "garage rock": 0.16666666666666666,
+    "dream pop": 0.16666666666666666,
+    "bedroom pop": 0.08333333333333333,
+    "hip hop": 0.08333333333333333,
+    "west coast hip hop": 0.08333333333333333
+  },
+  "supergenres": {
+    "Pop": 0.6666666666666666,
+    "Rock": 0.2222222222222222,
+    "Hip Hop": 0.1111111111111111
+  }
+}

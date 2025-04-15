@@ -1,0 +1,50 @@
+{
+  "user_id": "elton_john-4c5RI9pzBbyaZ3sPRAHjbO-1",
+  "top_tracks": [
+    "spotify:track:1jDJFeK9x3OZboIAHsY9k2",
+    "spotify:track:0GjEhVFGZW8afUYGChu3Rr",
+    "spotify:track:70C4NyhjD5OZUMzvWZ3njJ",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:6dGnYIeXmHdcikdzNNDMm2",
+    "spotify:track:3gdewACMIVMEWVbyb8O9sY",
+    "spotify:track:40riOy7x9W7GXjyGp4pjAv",
+    "spotify:track:4ogaI0XfmAunA0LyjveMSF",
+    "spotify:track:7jmHyHMEqm9MJWiMAneF05",
+    "spotify:track:2374M0fQpWi3dLnB54qaLX",
+    "spotify:track:7HW5WIw7ZgZORCzUxv5gW5",
+    "spotify:track:7iN1s7xHE4ifF5povM6A48",
+    "spotify:track:4RvWPyQ5RL0ao9LPZeSouE",
+    "spotify:track:5zA8vzDGqPl2AzZkEYQGKh",
+    "spotify:track:4y1LsJpmMti1PfRQV9AWWe",
+    "spotify:track:6WCeFNVAXUtNczb7lqLiZU",
+    "spotify:track:5WDLRQ3VCdVrKw0njWe5E5",
+    "spotify:track:3BQHpFgAp4l80e1XslIjNI",
+    "spotify:track:2LawezPeJhN4AWuSB0GtAU",
+    "spotify:track:31AOj9sFz2gM0O3hMARRBx",
+    "spotify:track:0e3yhVeNaTfKIWQRw9U9sY",
+    "spotify:track:7o9uu2GDtVDr9nsR7ZRN73",
+    "spotify:track:3kXoKlD84c6OmIcOLfrfEs",
+    "spotify:track:0ikz6tENMONtK6qGkOrU3c",
+    "spotify:track:2OgVsp77En2nju8pnCieVU"
+  ],
+  "subgenres": {
+    "soft rock": 0.20833333333333334,
+    "classic rock": 0.25,
+    "psychedelic rock": 0.125,
+    "new wave": 0.041666666666666664,
+    "synthpop": 0.041666666666666664,
+    "southern rock": 0.041666666666666664,
+    "country rock": 0.041666666666666664,
+    "jangle pop": 0.041666666666666664,
+    "alternative rock": 0.041666666666666664,
+    "rock": 0.041666666666666664,
+    "disco": 0.041666666666666664,
+    "christmas": 0.041666666666666664,
+    "album rock": 0.041666666666666664
+  },
+  "supergenres": {
+    "Rock": 0.8695652173913043,
+    "Pop": 0.08695652173913043,
+    "R&B": 0.043478260869565216
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "user_id": "david_guett-6EPnejp6MHtLjO2fH2IDr5-2",
+  "top_tracks": [
+    "spotify:track:331l3xABO0HMr1Kkyh2LZq",
+    "spotify:track:4r6eNCsrZnQWJzzvFh4nlg",
+    "spotify:track:2rtkijCiF44Uy4EqBhOsQP",
+    "spotify:track:2unqiEdHtabnsbv6TJ7gCW",
+    "spotify:track:07nH4ifBxUB4lZcsf44Brn",
+    "spotify:track:1CcLA0eaauck34YEIrvAAq",
+    "spotify:track:0am001WwFBVGDGLwRh3ixi",
+    "spotify:track:3avYqdwHKEq8beXbeWCKqJ",
+    "spotify:track:1A8j067qyiNwQnZT0bzUpZ",
+    "spotify:track:0E9ZjEAyAwOXZ7wJC0PD33",
+    "spotify:track:63rbP24OzfaQCJjsHWZXnY",
+    "spotify:track:2vlDrKpOC0eSTqTDRcbYyw",
+    "spotify:track:5UqCQaDshqbIk3pkhy4Pjg",
+    "spotify:track:17NHXI2CJp7KgdcwcDnRx4",
+    "spotify:track:7jrMFjEq0t09f7m3HnnWXl",
+    "spotify:track:0uXO2GrNiIb1xHT9LUdxZE",
+    "spotify:track:5R8dQOPq8haW94K7mgERlO",
+    "spotify:track:6E0dc82Da4W5QWXR8ktoGT",
+    "spotify:track:0FDzzruyVECATHXKHFs9eJ",
+    "spotify:track:4slBllHFZYlpg3IjeX5CBl",
+    "spotify:track:1tAutlhI9FwnKn7fVgmd5P",
+    "spotify:track:1NpW5kyvO4XrNJ3rnfcNy3",
+    "spotify:track:5RDUCbvwPZdmjFbhZ5EY4N",
+    "spotify:track:3mfER4ORePHvN35cbZ3dkV",
+    "spotify:track:2tnVG71enUj33Ic2nFN6kZ"
+  ],
+  "subgenres": {
+    "edm": 0.42857142857142855,
+    "dance": 0.23809523809523808,
+    "pop": 0.14285714285714285,
+    "big room": 0.047619047619047616,
+    "hypertechno": 0.047619047619047616,
+    "art pop": 0.047619047619047616,
+    "tropical house": 0.047619047619047616
+  },
+  "supergenres": {
+    "Electronic": 0.8095238095238095,
+    "Pop": 0.19047619047619047
+  }
+}

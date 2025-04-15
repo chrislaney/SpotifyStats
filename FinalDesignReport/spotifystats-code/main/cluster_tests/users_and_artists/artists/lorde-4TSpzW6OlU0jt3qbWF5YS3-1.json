@@ -1,0 +1,43 @@
+{
+  "user_id": "lorde-4TSpzW6OlU0jt3qbWF5YS3-1",
+  "top_tracks": [
+    "spotify:track:3G6hD9B2ZHOsgf4WfNu7X1",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:3FtYbEfBqAlGO46NUDQSAt",
+    "spotify:track:6K8VQ84MqhsoakN5MjrnVR",
+    "spotify:track:14OxJlLdcHNpgsm4DRwDOB",
+    "spotify:track:2tznHmp70DxMyr2XhWLOW0",
+    "spotify:track:2GiJYvgVaD2HtM8GqD9EgQ",
+    "spotify:track:6K4t31amVTZDgR3sKmwUJJ",
+    "spotify:track:2MvvoeRt8NcOXWESkxWn3g",
+    "spotify:track:0GO8y8jQk1PkHzS31d699N",
+    "spotify:track:1U3BASc885MPCYOzYwOIpO",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:14gdERIqymApVn9vcsbmZ3",
+    "spotify:track:6ie2Bw3xLj2JcGowOlcMhb",
+    "spotify:track:0y60itmpH0aPKsFiGxmtnh",
+    "spotify:track:1eyzqe2QqGZUmfcPZtrIyt",
+    "spotify:track:0j3mqDTK4Z6lvrLzFCUUz6",
+    "spotify:track:3ZCTVFBt2Brf31RLEnCkWJ",
+    "spotify:track:51QEyJI5M7uyd8DOh9tqQY",
+    "spotify:track:2uXlHCUbq9OMUwx3hrk06o",
+    "spotify:track:4iG2gAwKXsOcijVaVXzRPW",
+    "spotify:track:2AYEOC02WLhUiOoaig2SEH",
+    "spotify:track:3QhfFRPkhPCR1RMJWV1gde"
+  ],
+  "subgenres": {
+    "bedroom pop": 0.1111111111111111,
+    "indie": 0.4444444444444444,
+    "modern rock": 0.1111111111111111,
+    "psychedelic pop": 0.1111111111111111,
+    "future bass": 0.1111111111111111,
+    "folk pop": 0.1111111111111111
+  },
+  "supergenres": {
+    "Pop": 0.5,
+    "Rock": 0.25,
+    "Electronic": 0.25
+  }
+}

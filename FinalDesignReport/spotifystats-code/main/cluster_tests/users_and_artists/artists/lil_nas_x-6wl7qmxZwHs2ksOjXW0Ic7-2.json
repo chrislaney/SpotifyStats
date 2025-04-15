@@ -1,0 +1,48 @@
+{
+  "user_id": "lil_nas_x-6wl7qmxZwHs2ksOjXW0Ic7-2",
+  "top_tracks": [
+    "spotify:track:38T0tPVZHcPZyhtOcCP7pF",
+    "spotify:track:7eJMfftS33KTjuF7lTsMCx",
+    "spotify:track:0Aqi7ArnBrGblW5T6p2jmD",
+    "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
+    "spotify:track:6RUKPb4LETWmmr3iAEQktW",
+    "spotify:track:0F7FA14euOIX8KcbEturGH",
+    "spotify:track:0e7ipj03S05BNilyu5bRzt",
+    "spotify:track:3Wrjm47oTz2sjIgck11l5e",
+    "spotify:track:2tpWsVSb9UEmDRxAl1zhX1",
+    "spotify:track:7lQ8MOhq6IN2w8EYcFNSUk",
+    "spotify:track:6btdl1Vl6Ta5lUwUSOFW2H",
+    "spotify:track:285pBltuF7vW8TeWk8hdRR",
+    "spotify:track:54ipXppHLA8U4yqpOFTUhr",
+    "spotify:track:1oFAF1hdPOickyHgbuRjyX",
+    "spotify:track:1s7oOCT8vauUh01PbJD6ps",
+    "spotify:track:6zFMeegAMYQo0mt8rXtrli",
+    "spotify:track:3yfqSUWxFvZELEM4PmlwIR",
+    "spotify:track:6CjtS2JZH9RkDz5UVInsa9",
+    "spotify:track:4cktbXiXOapiLBMprHFErI",
+    "spotify:track:1rfofaqEpACxVEHIZBJe6W",
+    "spotify:track:17CWWoszMuoGecCJzmOubE",
+    "spotify:track:56y1jOTK0XSvJzVv9vHQBK",
+    "spotify:track:561jH07mF1jHuk7KlaeF0s",
+    "spotify:track:7BKLCZ1jbUBVqRi2FVlTVw",
+    "spotify:track:3CRDbSIZ4r5MsZ0YwxuEkn"
+  ],
+  "subgenres": {
+    "soft pop": 0.07142857142857142,
+    "rap": 0.21428571428571427,
+    "hip hop": 0.21428571428571427,
+    "melodic rap": 0.07142857142857142,
+    "emo rap": 0.07142857142857142,
+    "afrobeats": 0.07142857142857142,
+    "afrobeat": 0.07142857142857142,
+    "afropop": 0.07142857142857142,
+    "afropiano": 0.07142857142857142,
+    "pop": 0.07142857142857142
+  },
+  "supergenres": {
+    "Hip Hop": 0.6666666666666666,
+    "R&B": 0.08333333333333333,
+    "World/Traditional": 0.08333333333333333,
+    "Pop": 0.16666666666666666
+  }
+}

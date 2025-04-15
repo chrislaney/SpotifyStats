@@ -1,0 +1,52 @@
+{
+  "user_id": "tidal_lilac-6NSWokS0pez4VnnkJCeIXb-1",
+  "top_tracks": [
+    "spotify:track:0wEGo9LsSrSUz9HOtraWAO",
+    "spotify:track:086myS9r57YsLbJpU0TgK9",
+    "spotify:track:2QUlMbvD9bL8wHqfsoqoet",
+    "spotify:track:7yNf9YjeO5JXUE3JEBgnYc",
+    "spotify:track:4pEU0NT64oiem9lDT7nuJn",
+    "spotify:track:6fNaHkjAxP6rI2sZhT7QJn",
+    "spotify:track:0NdTUS4UiNYCNn5FgVqKQY",
+    "spotify:track:3SRtygyWBQnoxuOPtdBPm2",
+    "spotify:track:5hlPrSCx9BvnQ3rCTkblMZ",
+    "spotify:track:6K4t31amVTZDgR3sKmwUJJ",
+    "spotify:track:7nzsY8vlnKdvGOEE0rjAXZ",
+    "spotify:track:2SXx7Ofa79CeJfio98aJcG",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:5hM5arv9KDbCHS0k9uqwjr",
+    "spotify:track:5SehvGGC53A7SZKCLXQcyt",
+    "spotify:track:7Gk8icymiW50sDfFbWLoVG",
+    "spotify:track:6JmSfynzr6E0QllQZNEXEb",
+    "spotify:track:7MlDNspYwfqnHxORufupwq",
+    "spotify:track:5Ltc4ggqNB48N1DlQ0fuOr",
+    "spotify:track:1O1GLjtl8cMiTLWWLU9hQc",
+    "spotify:track:6ctlpLPyLH3R1V16fxoOWE",
+    "spotify:track:4sebUbjqbcgDSwG6PbSGI0",
+    "spotify:track:6JDMChLzb326JIKoakDFyw",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:2oHVOT0JHfD5YXYDklofjI",
+    "spotify:track:2Iq6HhIquO7JKr0KfTNLzU",
+    "spotify:track:2K7xn816oNHJZ0aVqdQsha",
+    "spotify:track:1LPGwuFgIzbJoShfDdw7MY",
+    "spotify:track:7DagTehbTpe96SDIdyGaEu",
+    "spotify:track:3Pzh926pXggbMe2ZpXyMV7",
+    "spotify:track:2bsC6KLZ6a9v6zdoDkziBL",
+    "spotify:track:1BANPzYIhCQkJ1ZFq2Fb0O",
+    "spotify:track:45DElIx0dXqUH4A88yQFdE"
+  ],
+  "subgenres": {
+    "indie": 0.3333333333333333,
+    "garage rock": 0.23809523809523808,
+    "psychedelic pop": 0.09523809523809523,
+    "modern rock": 0.14285714285714285,
+    "pop punk": 0.047619047619047616,
+    "blues rock": 0.047619047619047616,
+    "stoner rock": 0.047619047619047616,
+    "alternative rock": 0.047619047619047616
+  },
+  "supergenres": {
+    "Rock": 0.8571428571428571,
+    "Pop": 0.14285714285714285
+  }
+}

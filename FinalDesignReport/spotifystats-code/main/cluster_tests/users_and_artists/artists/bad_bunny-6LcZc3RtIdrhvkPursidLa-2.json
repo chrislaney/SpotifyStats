@@ -1,0 +1,40 @@
+{
+  "user_id": "bad_bunny-6LcZc3RtIdrhvkPursidLa-2",
+  "top_tracks": [
+    "spotify:track:6Sq7ltF9Qa7SNFBsV5Cogx",
+    "spotify:track:48NXpYRuvv9izul4oXhqS9",
+    "spotify:track:6ifUES3keWjwXgae8pXI3o",
+    "spotify:track:2ctjDCCg1wHoQSjIJ8p6U4",
+    "spotify:track:4DnrAI8WyUY6gkOwl8GlPN",
+    "spotify:track:6J5kc12BW5HuP3d7C3vvx8",
+    "spotify:track:5RqSsdzTNPX1uzkmlHCFvK",
+    "spotify:track:7LABrQFfRYcZUqUwng0Heb",
+    "spotify:track:1kQqiC1rS1FiuVpeBKN0QN",
+    "spotify:track:46YjJXVXWHlQ21odKktg5e",
+    "spotify:track:0E0DRHf5PfMeor0ZCwB3oT",
+    "spotify:track:25ZAibhr3bdlMCLmubZDVt",
+    "spotify:track:4NoOME4Dhf4xgxbHDT7VGe",
+    "spotify:track:1iEwyiSLAunPR6uouANE0O",
+    "spotify:track:1Kgyx7NLtzsa3gWV1efGHu",
+    "spotify:track:2lTm559tuIvatlT1u0JYG2",
+    "spotify:track:6XbtvPmIpyCbjuT0e8cQtp",
+    "spotify:track:63pLfjK6FvcYJYMGwtHjd6",
+    "spotify:track:4t9a07PAghtQMRAIP9FQ7Z",
+    "spotify:track:560GL9Y8gDtKPRIJ41oA3c",
+    "spotify:track:31i56LZnwE6uSu3exoHjtB",
+    "spotify:track:42wdz3j7gstgUuhoFLCXqd",
+    "spotify:track:2AY1UAimvTqjJC8vDJsOyy",
+    "spotify:track:2CeKVsFFXG4QzA415QygGb",
+    "spotify:track:1zsPaEkglFvxjAhrM8yhpr"
+  ],
+  "subgenres": {
+    "reggaeton": 0.40350877192982454,
+    "trap latino": 0.10526315789473684,
+    "urbano latino": 0.2631578947368421,
+    "latin": 0.21052631578947367,
+    "reggaeton chileno": 0.017543859649122806
+  },
+  "supergenres": {
+    "Latin": 1.0
+  }
+}

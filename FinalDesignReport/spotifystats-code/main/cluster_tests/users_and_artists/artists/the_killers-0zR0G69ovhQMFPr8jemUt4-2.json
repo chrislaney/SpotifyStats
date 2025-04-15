@@ -1,0 +1,53 @@
+{
+  "user_id": "the_killers-0zR0G69ovhQMFPr8jemUt4-2",
+  "top_tracks": [
+    "spotify:track:7cX4PJz1old9fyFI8RlfgW",
+    "spotify:track:5UWwZ5lm5PKu6eKsHAGxOk",
+    "spotify:track:0gmbgwZ8iqyMPmXefof8Yf",
+    "spotify:track:1G391cbiT3v3Cywg8T7DM1",
+    "spotify:track:2tznHmp70DxMyr2XhWLOW0",
+    "spotify:track:3KANrKOFYyAxfjQJHkgBdb",
+    "spotify:track:0d28khcov6AiegSCpG5TuT",
+    "spotify:track:6TfBA04WJ3X1d1wXhaCFVT",
+    "spotify:track:25nzKGDiua1lE9Qo5V19GL",
+    "spotify:track:1fJFuvU2ldmeAm5nFIHcPP",
+    "spotify:track:2aZ2Co4NeQRsqWcU930zHT",
+    "spotify:track:7a86XRg84qjasly9f6bPSD",
+    "spotify:track:6SpLc7EXZIPpy0sVko0aoU",
+    "spotify:track:64BbK9SFKH2jk86U3dGj2P",
+    "spotify:track:4iG2gAwKXsOcijVaVXzRPW",
+    "spotify:track:60eVCXFCuw1WYswBuNZc4H",
+    "spotify:track:3dPQuX8Gs42Y7b454ybpMR",
+    "spotify:track:2lwwrWVKdf3LR9lbbhnr6R",
+    "spotify:track:3lPr8ghNDBLc2uZovNyLs9",
+    "spotify:track:48UPSzbZjgc449aqz8bxox",
+    "spotify:track:62BxlOvQCjLNQA5ARA4Dug",
+    "spotify:track:31AOj9sFz2gM0O3hMARRBx",
+    "spotify:track:5PtEpuVX03k9bOUwilL5EO",
+    "spotify:track:1HNE2PX70ztbEl6MLxrpNL",
+    "spotify:track:5dTHtzHFPyi8TlTtzoz1J9"
+  ],
+  "subgenres": {
+    "alternative rock": 0.25,
+    "rock": 0.17307692307692307,
+    "post-grunge": 0.038461538461538464,
+    "grunge": 0.019230769230769232,
+    "modern rock": 0.038461538461538464,
+    "funk rock": 0.057692307692307696,
+    "punk": 0.057692307692307696,
+    "skate punk": 0.057692307692307696,
+    "pop punk": 0.07692307692307693,
+    "emo pop": 0.057692307692307696,
+    "emo": 0.057692307692307696,
+    "indie": 0.038461538461538464,
+    "garage rock": 0.019230769230769232,
+    "blues rock": 0.019230769230769232,
+    "indie rock": 0.019230769230769232,
+    "jangle pop": 0.019230769230769232
+  },
+  "supergenres": {
+    "Rock": 0.8723404255319149,
+    "Metal": 0.10638297872340426,
+    "Pop": 0.02127659574468085
+  }
+}

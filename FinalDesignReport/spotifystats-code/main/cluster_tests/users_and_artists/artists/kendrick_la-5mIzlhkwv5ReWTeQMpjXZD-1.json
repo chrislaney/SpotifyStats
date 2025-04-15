@@ -1,0 +1,46 @@
+{
+  "user_id": "kendrick_la-5mIzlhkwv5ReWTeQMpjXZD-1",
+  "top_tracks": [
+    "spotify:track:3GCdLUSnKSMJhs4Tj6CV3s",
+    "spotify:track:3LPLRNr58Z9Pn0clnEtkXb",
+    "spotify:track:040I32EKLxQrkuxQu1pqvT",
+    "spotify:track:5AJ9hqTS2wcFQCELCFRO7A",
+    "spotify:track:3xKsf9qdS1CyvXSMEid6g8",
+    "spotify:track:2CGNAOSuO1MEFCbBRgUzjd",
+    "spotify:track:7KA4W4McWYRpgf0fWsJZWB",
+    "spotify:track:6DCZcSspjsKoFjzjrWoCdn",
+    "spotify:track:4iZ4pt7kvcaH6Yo8UoZ4s2",
+    "spotify:track:42VsgItocQwOQC3XWZ8JNA",
+    "spotify:track:6AI3ezQ4o3HUoP6Dhudph3",
+    "spotify:track:7DfFc7a6Rwfi3YQMRbDMau",
+    "spotify:track:5wfllwdjglyQislkskYLBv",
+    "spotify:track:285pBltuF7vW8TeWk8hdRR",
+    "spotify:track:0FIDCNYYjNvPVimz5icugS",
+    "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+    "spotify:track:1Is8hGpkGMiePASAxBluxM",
+    "spotify:track:6koKhrBBcExADvWuOgceNZ",
+    "spotify:track:2aPTvyE09vUCRwVvj0I8WK",
+    "spotify:track:0eaVIYo2zeOaGJeqZ5TwYz",
+    "spotify:track:2HbKqm4o0w5wEeEFXm2sD4",
+    "spotify:track:6gBFPUFcJLzWGx4lenP6h2",
+    "spotify:track:2g8HN35AnVGIk7B8yMucww",
+    "spotify:track:3FjK86616FbluOfTxNK2gY",
+    "spotify:track:4rXLjWdF2ZZpXCVTfWcshS"
+  ],
+  "subgenres": {
+    "hip hop": 0.2692307692307692,
+    "west coast hip hop": 0.19230769230769232,
+    "r&b": 0.11538461538461539,
+    "rap": 0.15384615384615385,
+    "melodic rap": 0.07692307692307693,
+    "emo rap": 0.038461538461538464,
+    "gangster rap": 0.038461538461538464,
+    "east coast hip hop": 0.038461538461538464,
+    "brooklyn drill": 0.038461538461538464,
+    "new york drill": 0.038461538461538464
+  },
+  "supergenres": {
+    "Hip Hop": 0.8571428571428571,
+    "R&B": 0.14285714285714285
+  }
+}

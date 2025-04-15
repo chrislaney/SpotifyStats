@@ -1,0 +1,42 @@
+{
+  "user_id": "lord_huron-7kKn8RJ4peGisJ95zhSFk6-2",
+  "top_tracks": [
+    "spotify:track:4FE9SgxcOoCNuGnaaU8TXz",
+    "spotify:track:2tznHmp70DxMyr2XhWLOW0",
+    "spotify:track:3qhlB30KknSejmIvZZLjOD",
+    "spotify:track:5LrN7yUQAzvthd4QujgPFr",
+    "spotify:track:0yuAWlxq59xT3agQ965OxE",
+    "spotify:track:0JfpIwZfcRwDzD6GRYzfKN",
+    "spotify:track:7CiDwKE62N6ey3LyG6s7xc",
+    "spotify:track:18E1LAdiOj79wZqSOYMHE7",
+    "spotify:track:4sDbdBjuYQVdNNB4PiHUPo",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:2g9LXMNIBCqmngHpH9nXv0",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:0NlGoUyOJSuSHmngoibVAs",
+    "spotify:track:7B5Npv8NjjTCzk8PLpU66h",
+    "spotify:track:0y1QJc3SJVPKJ1OvFmFqe6",
+    "spotify:track:3ouRySkzdJhbRmnUffQn3Q",
+    "spotify:track:0EF1EE8zusg3Y869e56JFd",
+    "spotify:track:0u2P5u6lvoDfwTYjAADbn4",
+    "spotify:track:4R2kfaDFhslZEMJqAFNpdd",
+    "spotify:track:70eyG7pqKozUvKPKXLXmpI",
+    "spotify:track:4P21W3eMiIVS9ON4ctlxnb",
+    "spotify:track:6GGtHZgBycCgGBUhZo81xe",
+    "spotify:track:45IFvFqHG8oiEK1fAYdNw1",
+    "spotify:track:6wf7Yu7cxBSPrRlWeSeK0Q",
+    "spotify:track:18V1UiYRvWYwn01CRDbbuR"
+  ],
+  "subgenres": {
+    "modern rock": 0.2,
+    "psychedelic pop": 0.2,
+    "dream pop": 0.2,
+    "indie folk": 0.2,
+    "soft pop": 0.2
+  },
+  "supergenres": {
+    "Rock": 0.25,
+    "Pop": 0.5,
+    "Folk/Acoustic": 0.25
+  }
+}

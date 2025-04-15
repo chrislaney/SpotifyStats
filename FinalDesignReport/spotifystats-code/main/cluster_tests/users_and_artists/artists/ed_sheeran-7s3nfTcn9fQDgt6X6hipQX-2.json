@@ -1,0 +1,41 @@
+{
+  "user_id": "ed_sheeran-7s3nfTcn9fQDgt6X6hipQX-2",
+  "top_tracks": [
+    "spotify:track:1Slwb6dOYkBlWal1PGtnNg",
+    "spotify:track:4llK75pXNWZz6KAho2Gp16",
+    "spotify:track:0lYBSQXN6rCTvUZvg9S0lU",
+    "spotify:track:1c8gk2PeTE04A1pIDH9YMk",
+    "spotify:track:3LlAyCYU26dvFZBDUIMb7a",
+    "spotify:track:50nfwKoDiSYg8zOCREWAm5",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:4P0osvTXoSYZZC2n8IFH3c",
+    "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:0afhq8XCExXpqazXczTSve",
+    "spotify:track:0nJW01T7XtvILxQgC5J7Wh",
+    "spotify:track:7B5Npv8NjjTCzk8PLpU66h",
+    "spotify:track:5O2P9iiztwhomNh8xkR9lJ",
+    "spotify:track:3e7sxremeOE3wTySiOhGiP",
+    "spotify:track:70eFcWOvlMObDhURTqT4Fv",
+    "spotify:track:21jGcNKet2qwijlDFuPiPb",
+    "spotify:track:1p80LdxRV74UKvL8gnD7ky",
+    "spotify:track:0FDzzruyVECATHXKHFs9eJ",
+    "spotify:track:0pqnGHJpmpxLKifKRmU6WP",
+    "spotify:track:6PCUP3dWmTjcTtXY02oFdT",
+    "spotify:track:3U4isOIWM3VvDubwSI3y7a",
+    "spotify:track:4nVBt6MZDDP6tRVdQTgxJg",
+    "spotify:track:0nrRP2bk19rLc0orkWPQk2",
+    "spotify:track:7qEHsqek33rTcFNT9PFqLf"
+  ],
+  "subgenres": {
+    "soft pop": 0.6923076923076923,
+    "pop": 0.15384615384615385,
+    "neo soul": 0.07692307692307693,
+    "edm": 0.07692307692307693
+  },
+  "supergenres": {
+    "Pop": 0.5,
+    "R&B": 0.25,
+    "Electronic": 0.25
+  }
+}

@@ -5,10 +5,10 @@
     "classic blues": 1,
     "soft pop": 590,
     "musicals": 342,
-    "alt country": 509,
+    "alt country": 513,
     "french house": 37,
     "ragga": 144,
-    "west coast hip hop": 824,
+    "west coast hip hop": 828,
     "surf rock": 6,
     "gothic country": 150,
     "newgrass": 9,
@@ -19,7 +19,8 @@
     "folk pop": 28,
     "christian": 45,
     "japanese indie": 32,
-    "punk rap": 252,
+    "punk rap": 265,
     "memphis rap": 2,
-    "darkwave": 1
+    "darkwave": 1,
+    "j-dance": 1
 }

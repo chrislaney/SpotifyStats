@@ -1,0 +1,40 @@
+{
+  "user_id": "sza-5S98I8WQZioGGtPDEgBqJL-1",
+  "top_tracks": [
+    "spotify:track:4iZ4pt7kvcaH6Yo8UoZ4s2",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:3LPLRNr58Z9Pn0clnEtkXb",
+    "spotify:track:2CGNAOSuO1MEFCbBRgUzjd",
+    "spotify:track:3xKsf9qdS1CyvXSMEid6g8",
+    "spotify:track:1Qrg8KqiBpW07V7PNxwwwL",
+    "spotify:track:5aIVCx5tnk0ntmdiinnYvw",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:3DarAbFujv6eYNliUTyqtz",
+    "spotify:track:3GCdLUSnKSMJhs4Tj6CV3s",
+    "spotify:track:040I32EKLxQrkuxQu1pqvT",
+    "spotify:track:0JXXNGljqupsJaZsgSbMZV",
+    "spotify:track:4k6Uh1HXdhtusDW5y8Gbvy",
+    "spotify:track:1Q7EgiMOuwDcB0PJC6AzON",
+    "spotify:track:3FAJ6O0NOHQV8Mc5Ri6ENp",
+    "spotify:track:5Y35SjAfXjjG0sFQ3KOxmm",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:7DfFc7a6Rwfi3YQMRbDMau",
+    "spotify:track:5AJ9hqTS2wcFQCELCFRO7A",
+    "spotify:track:6koKhrBBcExADvWuOgceNZ",
+    "spotify:track:5LrN7yUQAzvthd4QujgPFr",
+    "spotify:track:6dgUya35uo964z7GZXM07g",
+    "spotify:track:1Cbl3Yq8rHo7hhDQmLQagU",
+    "spotify:track:25cUhiAod71TIQSNicOaW3"
+  ],
+  "subgenres": {
+    "r&b": 0.5714285714285714,
+    "hip hop": 0.14285714285714285,
+    "west coast hip hop": 0.14285714285714285,
+    "afrobeats": 0.14285714285714285
+  },
+  "supergenres": {
+    "R&B": 0.8333333333333334,
+    "Hip Hop": 0.16666666666666666
+  }
+}

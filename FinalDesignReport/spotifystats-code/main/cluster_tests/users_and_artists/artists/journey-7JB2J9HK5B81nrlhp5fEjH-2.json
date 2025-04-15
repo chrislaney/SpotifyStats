@@ -1,0 +1,49 @@
+{
+  "user_id": "journey-7JB2J9HK5B81nrlhp5fEjH-2",
+  "top_tracks": [
+    "spotify:track:4KWzsYmXYYbTjb4tYxulvd",
+    "spotify:track:4Q3ERWBrb4lhDvAPyANjY5",
+    "spotify:track:1JLn8RhQzHz3qDqsChcmBl",
+    "spotify:track:2lFFiNm0XtgJ6wkdncTB4k",
+    "spotify:track:70C4NyhjD5OZUMzvWZ3njJ",
+    "spotify:track:0l5TpsCL1ObiTEsHeWA0by",
+    "spotify:track:54b8qPFqYqIndfdxiLApea",
+    "spotify:track:5rfJ2Bq2PEL8yBjZLzouEu",
+    "spotify:track:5X79VgaOn8pDTpTKu3PixN",
+    "spotify:track:67eX1ovaHyVPUinMHeUtIM",
+    "spotify:track:215wUTQQUo2PElJFEFoB0d",
+    "spotify:track:31H6au3jhblhr6MMJiXnCq",
+    "spotify:track:2LawezPeJhN4AWuSB0GtAU",
+    "spotify:track:00qOE7OjRl0BpYiCiweZB2",
+    "spotify:track:5gys5nzVQIYhgHIfiOJYva",
+    "spotify:track:2tWhYbJL0dZbkWXfhZbDZs",
+    "spotify:track:0GONea6G2XdnHWjNZd6zt3",
+    "spotify:track:31AOj9sFz2gM0O3hMARRBx",
+    "spotify:track:5RsUlxLto4NZbhJpqJbHfN",
+    "spotify:track:3MrRksHupTVEQ7YbA0FsZK",
+    "spotify:track:5KUfM9sjoGogDnrBulbVcW",
+    "spotify:track:7o9uu2GDtVDr9nsR7ZRN73",
+    "spotify:track:1QEEqeFIZktqIpPI4jSVSF",
+    "spotify:track:6y4OjcEz7LMrdVGODrcAIv",
+    "spotify:track:0PdM2a6oIjqepoEfcJo0RO"
+  ],
+  "subgenres": {
+    "album rock": 0.25,
+    "classic rock": 0.35,
+    "power pop": 0.025,
+    "new wave": 0.025,
+    "soft rock": 0.075,
+    "rock": 0.05,
+    "glam metal": 0.075,
+    "glam rock": 0.05,
+    "southern rock": 0.025,
+    "country rock": 0.025,
+    "jangle pop": 0.025,
+    "alternative rock": 0.025
+  },
+  "supergenres": {
+    "Rock": 0.875,
+    "Pop": 0.05,
+    "Metal": 0.075
+  }
+}

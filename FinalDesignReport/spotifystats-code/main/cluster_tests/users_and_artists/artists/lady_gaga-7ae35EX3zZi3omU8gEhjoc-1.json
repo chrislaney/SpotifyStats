@@ -1,0 +1,41 @@
+{
+  "user_id": "lady_gaga-7ae35EX3zZi3omU8gEhjoc-1",
+  "top_tracks": [
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:3LPLRNr58Z9Pn0clnEtkXb",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:5R8dQOPq8haW94K7mgERlO",
+    "spotify:track:73CMRj62VK8nUS4ezD2wvi",
+    "spotify:track:7BqBn9nzAq8spo5e7cZ0dJ",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:0SiywuOBRcynK0uKGWdCnn",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:3w3y8KPTfNeOKPiqUTakBh",
+    "spotify:track:1BxfuPKGuaTgP7aM0Bbdwr",
+    "spotify:track:2x7MyWybabEz6Y6wvHuwGE",
+    "spotify:track:1z9kQ14XBSN0r2v6fx4IdG",
+    "spotify:track:2tHwzyyOLoWSFqYNjeVMzj",
+    "spotify:track:1oFAF1hdPOickyHgbuRjyX",
+    "spotify:track:5IVuqXILoxVWvWEPm82Jxr",
+    "spotify:track:2VxeLyX666F8uXCJ0dZF8B",
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:1c8gk2PeTE04A1pIDH9YMk",
+    "spotify:track:0lHAMNU8RGiIObScrsRgmP"
+  ],
+  "subgenres": {
+    "art pop": 0.3333333333333333,
+    "pop": 0.4,
+    "soft pop": 0.13333333333333333,
+    "edm": 0.06666666666666667,
+    "dance": 0.06666666666666667
+  },
+  "supergenres": {
+    "Pop": 0.8461538461538461,
+    "Electronic": 0.15384615384615385
+  }
+}

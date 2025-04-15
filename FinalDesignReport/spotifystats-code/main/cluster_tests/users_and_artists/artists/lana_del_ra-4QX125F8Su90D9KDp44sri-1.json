@@ -1,0 +1,42 @@
+{
+  "user_id": "lana_del_ra-4QX125F8Su90D9KDp44sri-1",
+  "top_tracks": [
+    "spotify:track:5Y6nVaayzitvsD5F7nr3DV",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:7mDTvYD2ieE4Q28XFziMfJ",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:44A0o4jA8F2ZF03Zacwlwx",
+    "spotify:track:2nMeu6UenVvwUktBCpLMK9",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:1oAwsWBovWRIp7qLMGPIet",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:6GGtHZgBycCgGBUhZo81xe",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:7BRD7x5pt8Lqa1eGYC4dzj",
+    "spotify:track:73CMRj62VK8nUS4ezD2wvi",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:3QhfFRPkhPCR1RMJWV1gde",
+    "spotify:track:0yuAWlxq59xT3agQ965OxE",
+    "spotify:track:2262bWmqomIaJXwCRHr13j",
+    "spotify:track:3ZCTVFBt2Brf31RLEnCkWJ",
+    "spotify:track:7D0RhFcb3CrfPuTJ0obrod",
+    "spotify:track:2mdEsXPu8ZmkHRRtAdC09e",
+    "spotify:track:1CS7Sd1u5tWkstBhpssyjP",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:6dBUzqjtbnIa1TwYbyw5CM",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU"
+  ],
+  "subgenres": {
+    "dream pop": 0.3,
+    "indie": 0.2,
+    "garage rock": 0.2,
+    "bedroom pop": 0.1,
+    "soft pop": 0.1,
+    "pop": 0.1
+  },
+  "supergenres": {
+    "Pop": 0.7142857142857143,
+    "Rock": 0.2857142857142857
+  }
+}

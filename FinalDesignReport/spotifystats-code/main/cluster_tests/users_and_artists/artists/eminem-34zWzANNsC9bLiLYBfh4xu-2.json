@@ -1,0 +1,50 @@
+{
+  "user_id": "eminem-34zWzANNsC9bLiLYBfh4xu-2",
+  "top_tracks": [
+    "spotify:track:4woTEX1wYOTGDqNXuavlRC",
+    "spotify:track:0CXVjQI9wsqaGeIARkkpYc",
+    "spotify:track:2Ih217RCGAmyQR68Nn7Cqo",
+    "spotify:track:4LwU4Vp6od3Sb08CsP99GC",
+    "spotify:track:4G8gkOterJn0Ywt6uhqbhp",
+    "spotify:track:3UmaczJpikHgJFyBTAJVoz",
+    "spotify:track:2igwFfvr1OAGX9SKDCPBwO",
+    "spotify:track:2PpruBYCo4H7WOBJ7Q2EwM",
+    "spotify:track:0CAfXk7DXMnon4gLudAp7J",
+    "spotify:track:5D2mYZuzcgjpchVY1pmTPh",
+    "spotify:track:7Ie9W94M7OjPoZVV216Xus",
+    "spotify:track:3CRDbSIZ4r5MsZ0YwxuEkn",
+    "spotify:track:0k2GOhqsrxDTAbFFSdNJjT",
+    "spotify:track:5wfllwdjglyQislkskYLBv",
+    "spotify:track:0I3q5fE6wg7LIfHGngUTnV",
+    "spotify:track:7FIWs0pqAYbP91WWM0vlTQ",
+    "spotify:track:0pqnGHJpmpxLKifKRmU6WP",
+    "spotify:track:6i0V12jOa3mr6uu4WYhUBr",
+    "spotify:track:6btyEL6NwUa97Nex9cZFvo",
+    "spotify:track:4nva9EpKntUTs6CRSGBCn9",
+    "spotify:track:1CDQzbCz4KSQxHe7LMEgRM",
+    "spotify:track:3GpbwCm3YxiWDvy29Uo3vP",
+    "spotify:track:0UFDKFqW2oGspYeYqo9wjA",
+    "spotify:track:2Z8WuEywRWYTKe1NybPQEW",
+    "spotify:track:5TRPicyLGbAF2LGBFbHGvO"
+  ],
+  "subgenres": {
+    "rap": 0.24242424242424243,
+    "hip hop": 0.2727272727272727,
+    "gangster rap": 0.06060606060606061,
+    "west coast hip hop": 0.06060606060606061,
+    "g-funk": 0.06060606060606061,
+    "east coast hip hop": 0.09090909090909091,
+    "southern hip hop": 0.06060606060606061,
+    "dancehall": 0.030303030303030304,
+    "nu metal": 0.030303030303030304,
+    "rap metal": 0.030303030303030304,
+    "rock": 0.030303030303030304,
+    "alternative metal": 0.030303030303030304
+  },
+  "supergenres": {
+    "Hip Hop": 0.8275862068965517,
+    "World/Traditional": 0.034482758620689655,
+    "Metal": 0.10344827586206896,
+    "Rock": 0.034482758620689655
+  }
+}

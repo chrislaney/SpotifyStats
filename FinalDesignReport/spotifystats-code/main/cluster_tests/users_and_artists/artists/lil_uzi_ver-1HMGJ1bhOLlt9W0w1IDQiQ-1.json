@@ -1,0 +1,43 @@
+{
+  "user_id": "lil_uzi_ver-1HMGJ1bhOLlt9W0w1IDQiQ-1",
+  "top_tracks": [
+    "spotify:track:0uxSUdBrJy9Un0EYoBowng",
+    "spotify:track:3ZhTT6yjZwpPph5MIJ53XY",
+    "spotify:track:0nbXyq5TXYPCO7pr3N8S4I",
+    "spotify:track:2gu5fZZlb7BOh8Sr8yvvn2",
+    "spotify:track:2WgoeZDxLJvjEvlOupkr8D",
+    "spotify:track:2eAZfqOm4EnOF9VvN50Tyc",
+    "spotify:track:2JvzF1RMd7lE3KmFlsyZD8",
+    "spotify:track:4ZT9FnbFu1PaBfV3itxiqT",
+    "spotify:track:22LAwLoDA5b4AaGSkg6bKW",
+    "spotify:track:2IRZnDFmlqMuOrYOLnZZyc",
+    "spotify:track:3XiNC94b4Tq1xwv70sQJGN",
+    "spotify:track:1VLtjHwRWOVJiE5Py7JxoQ",
+    "spotify:track:7zkM2VrMD0DvAxNrxZCICt",
+    "spotify:track:6rjuKpPydT2SxN15TZpV7r",
+    "spotify:track:5NqOsPI4rA9Bl6LcCftzI2",
+    "spotify:track:7GX5flRQZVHRAGd6B4TmDO",
+    "spotify:track:2Gn3xsO0hacXJy1Z2EHrgm",
+    "spotify:track:18vXApRmJSgQ6wG2ll9AOg",
+    "spotify:track:2UVbBKQOdFAekPTRsnkzcf",
+    "spotify:track:3j84U36KvLeXNDPv4t5pI8",
+    "spotify:track:4daEMLSZCgZ2Mt7gNm2SRa",
+    "spotify:track:2u7mxWSeoqTXndK5e08jMp",
+    "spotify:track:4CIyxiObT9G35HrSItAblR",
+    "spotify:track:1Y5Jvi3eLi4Chwqch9GMem",
+    "spotify:track:07KXEDMj78x68D884wgVEm"
+  ],
+  "subgenres": {
+    "melodic rap": 0.5833333333333334,
+    "jersey club": 0.041666666666666664,
+    "hyperpop": 0.08333333333333333,
+    "rap": 0.16666666666666666,
+    "rage rap": 0.041666666666666664,
+    "underground hip hop": 0.041666666666666664,
+    "trap": 0.041666666666666664
+  },
+  "supergenres": {
+    "Hip Hop": 0.875,
+    "Pop": 0.125
+  }
+}

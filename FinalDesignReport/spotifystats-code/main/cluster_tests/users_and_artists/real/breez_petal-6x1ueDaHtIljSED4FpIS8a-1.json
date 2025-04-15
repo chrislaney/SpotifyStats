@@ -1,0 +1,53 @@
+{
+  "user_id": "breez_petal-6x1ueDaHtIljSED4FpIS8a-1",
+  "top_tracks": [
+    "spotify:track:51hyZpbJlIgZIaX3TtMxmu",
+    "spotify:track:4E63weMCaNZuGPEFMnuEi8",
+    "spotify:track:2qSkIjg1o9h3YT9RAgYN75",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:0tFRxPQHvAUMTbWYRJUo8R",
+    "spotify:track:2OzhQlSqBEmt7hmkYxfT6m",
+    "spotify:track:5N3hjp1WNayUPZrA8kJmJP",
+    "spotify:track:55ikcenXPbQdzCnO1sOuYg",
+    "spotify:track:3YUHxgPuHedoZGt9KfGlqB",
+    "spotify:track:2FQrifJ1N335Ljm3TjTVVf",
+    "spotify:track:6dgUya35uo964z7GZXM07g",
+    "spotify:track:5TXDeTFVRVY7Cvt0Dw4vWW",
+    "spotify:track:01BDK4Skxzh5mqnTbQzWGy",
+    "spotify:track:7ghXLHZjZtZiiQhFfhyeY4",
+    "spotify:track:3JvrhDOgAt6p7K8mDyZwRd",
+    "spotify:track:7sWRlDoTDX8geTR8zzr2vt",
+    "spotify:track:03zuGqxMwUFFmCwusq0WKE",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:0N3W5peJUQtI4eyR6GJT5O",
+    "spotify:track:7221xIgOnuakPdLqT0F3nP",
+    "spotify:track:4mFcwFOlSCxp6hjemRXwpd",
+    "spotify:track:0tduSYti0mY7p8j5AIO4Pg",
+    "spotify:track:5tz69p7tJuGPeMGwNTxYuV",
+    "spotify:track:629DixmZGHc7ILtEntuiWE",
+    "spotify:track:0gIxF0RR0miqWLs2fPQGBu",
+    "spotify:track:0SpkyS1Q4MD8GaVcP5YjT4",
+    "spotify:track:1Qrg8KqiBpW07V7PNxwwwL",
+    "spotify:track:0AjcdGri5vhJsmZnduCEqd",
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:5naar7XewEOAjOywIp6Jjq",
+    "spotify:track:29jtZGdgpE2lWm2mkIt6HS",
+    "spotify:track:07oO1U722crtVcavi6frX6",
+    "spotify:track:44c9MsAwxoAdAYpCVRBAG1"
+  ],
+  "subgenres": {
+    "emo rap": 0.1,
+    "folk pop": 0.2,
+    "hip hop": 0.1,
+    "west coast hip hop": 0.1,
+    "bedroom pop": 0.2,
+    "dream pop": 0.1,
+    "r&b": 0.1,
+    "indie": 0.1
+  },
+  "supergenres": {
+    "Hip Hop": 0.3333333333333333,
+    "Pop": 0.5,
+    "R&B": 0.16666666666666666
+  }
+}

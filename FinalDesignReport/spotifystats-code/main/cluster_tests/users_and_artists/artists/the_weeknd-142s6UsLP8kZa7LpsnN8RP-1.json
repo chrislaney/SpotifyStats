@@ -1,0 +1,45 @@
+{
+  "user_id": "the_weeknd-142s6UsLP8kZa7LpsnN8RP-1",
+  "top_tracks": [
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:3GCdLUSnKSMJhs4Tj6CV3s",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:7MXVkk9YMctZqd1Srtv4MB",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:3xKsf9qdS1CyvXSMEid6g8",
+    "spotify:track:2CGNAOSuO1MEFCbBRgUzjd",
+    "spotify:track:09mEdoA6zrmBPgTEN5qXmN",
+    "spotify:track:040I32EKLxQrkuxQu1pqvT",
+    "spotify:track:58ge6dfP91o9oXMzq3XkIS",
+    "spotify:track:3DarAbFujv6eYNliUTyqtz",
+    "spotify:track:21jGcNKet2qwijlDFuPiPb",
+    "spotify:track:2LBqCSwhJGcFQeTHMVGwy3",
+    "spotify:track:7BRD7x5pt8Lqa1eGYC4dzj",
+    "spotify:track:4iZ4pt7kvcaH6Yo8UoZ4s2",
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:0lYBSQXN6rCTvUZvg9S0lU",
+    "spotify:track:7fBv7CLKzipRk6EC6TWHOB",
+    "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+    "spotify:track:0JXXNGljqupsJaZsgSbMZV",
+    "spotify:track:09CtPGIpYB4BrO8qb1RGsF",
+    "spotify:track:2OpBganfGk2GVdSlRdxzaX"
+  ],
+  "subgenres": {
+    "art pop": 0.07142857142857142,
+    "pop": 0.14285714285714285,
+    "hip hop": 0.14285714285714285,
+    "west coast hip hop": 0.14285714285714285,
+    "indie": 0.14285714285714285,
+    "garage rock": 0.14285714285714285,
+    "r&b": 0.21428571428571427
+  },
+  "supergenres": {
+    "Pop": 0.3,
+    "Hip Hop": 0.2,
+    "Rock": 0.2,
+    "R&B": 0.3
+  }
+}

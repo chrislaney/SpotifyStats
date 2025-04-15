@@ -1,0 +1,42 @@
+{
+  "user_id": "olivia_rodr-2eRxJsH4O1nWIkYZIYKhYT-1",
+  "top_tracks": [
+    "spotify:track:5CZ40GBx1sQ9agT82CLQCT",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:4Dvkj6JhhA12EX05fT7y2e",
+    "spotify:track:73CMRj62VK8nUS4ezD2wvi",
+    "spotify:track:1kuGVB7EU95pJObxwvfwKS",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:5wANPM4fQCJwkGd4rN57mH",
+    "spotify:track:161DnLWsx1i3u1JT05lzqU",
+    "spotify:track:51rfRCiUSvxXlCSCfIztBy",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:3IX0yuEVvDbnqUwMBB3ouC",
+    "spotify:track:46IZ0fSY2mpAiktS3KOqds",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:0u2P5u6lvoDfwTYjAADbn4",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:6HU7h9RYOaPRFeh0R3UeAr",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:7DSAEUvxU8FajXtRloy8M0",
+    "spotify:track:3vkCueOmm7xQDoJ17W1Pm3",
+    "spotify:track:6wf7Yu7cxBSPrRlWeSeK0Q"
+  ],
+  "subgenres": {
+    "soft pop": 0.25,
+    "art pop": 0.125,
+    "pop": 0.25,
+    "bedroom pop": 0.125,
+    "indie": 0.125,
+    "garage rock": 0.125
+  },
+  "supergenres": {
+    "Pop": 0.8,
+    "Rock": 0.2
+  }
+}

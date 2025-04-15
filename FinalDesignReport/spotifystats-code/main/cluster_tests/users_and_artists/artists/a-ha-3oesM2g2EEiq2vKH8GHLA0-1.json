@@ -1,0 +1,52 @@
+{
+  "user_id": "a-ha-3oesM2g2EEiq2vKH8GHLA0-1",
+  "top_tracks": [
+    "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+    "spotify:track:4RvWPyQ5RL0ao9LPZeSouE",
+    "spotify:track:4PTG3Z6ehGkBFwjybzWkR8",
+    "spotify:track:4ByEFOBuLXpCqvO1kw8Wdm",
+    "spotify:track:4S1VYqwfkLit9mKVY3MXoo",
+    "spotify:track:6a9O11ZNVVkl6zMrbdO3p3",
+    "spotify:track:4y1LsJpmMti1PfRQV9AWWe",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:0GjEhVFGZW8afUYGChu3Rr",
+    "spotify:track:0WoFs3EdGOx58yX5BtXvOa",
+    "spotify:track:5tewIdMVsaJWN19ZnmnPNN",
+    "spotify:track:5rfJ2Bq2PEL8yBjZLzouEu",
+    "spotify:track:7o9uu2GDtVDr9nsR7ZRN73",
+    "spotify:track:0OTO8ZF2YqFQVw9hnZylTd",
+    "spotify:track:2GBWPAsIXtC7NwULhUoHRf",
+    "spotify:track:6c9nkeetGbsoXa7d5E1wHa",
+    "spotify:track:5WDLRQ3VCdVrKw0njWe5E5",
+    "spotify:track:2374M0fQpWi3dLnB54qaLX",
+    "spotify:track:2aEuA8PSqLa17Y4hKPj5rr",
+    "spotify:track:2HHtWyy5CgaQbC7XSoOb0e",
+    "spotify:track:0HoaLXRp7jJtdQFunUyUGc",
+    "spotify:track:0ee1DiZF94NSqqpG0XHUzH",
+    "spotify:track:31AOj9sFz2gM0O3hMARRBx",
+    "spotify:track:2gQaQUhDCNGfBVXTvxAmXQ",
+    "spotify:track:0qi4b1l0eT3jpzeNHeFXDT"
+  ],
+  "subgenres": {
+    "new wave": 0.28125,
+    "synthpop": 0.3125,
+    "eurodance": 0.0625,
+    "funk melody": 0.03125,
+    "freestyle": 0.03125,
+    "soft rock": 0.03125,
+    "italo disco": 0.03125,
+    "europop": 0.03125,
+    "glam metal": 0.03125,
+    "rock": 0.0625,
+    "jangle pop": 0.03125,
+    "alternative rock": 0.03125,
+    "darkwave": 0.03125
+  },
+  "supergenres": {
+    "Rock": 0.41935483870967744,
+    "Pop": 0.4838709677419355,
+    "Country": 0.03225806451612903,
+    "Hip Hop": 0.03225806451612903,
+    "Metal": 0.03225806451612903
+  }
+}

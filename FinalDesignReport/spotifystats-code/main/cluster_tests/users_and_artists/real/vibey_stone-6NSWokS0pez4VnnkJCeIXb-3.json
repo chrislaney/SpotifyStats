@@ -1,0 +1,53 @@
+{
+  "user_id": "vibey_stone-6NSWokS0pez4VnnkJCeIXb-3",
+  "top_tracks": [
+    "spotify:track:6qZjm61s6u8Ead9sWxCDro",
+    "spotify:track:63V2LU9M9pLkimultjujl5",
+    "spotify:track:1s9xuJxhYM0LdVqksjegcg",
+    "spotify:track:0E0GPPvheTzleZgWckjef2",
+    "spotify:track:5mVofe7pQ9uI6VO2o6MTXq",
+    "spotify:track:3BcQFPRZuuUClWStz29WjN",
+    "spotify:track:0ZucyPms79Cydv0RMYV2Oi",
+    "spotify:track:65cQN8pUC0dkKryUhEqJPh",
+    "spotify:track:2AYEOC02WLhUiOoaig2SEH",
+    "spotify:track:0LtOwyZoSNZKJWHqjzADpW",
+    "spotify:track:49oxuPnuWOL793zpF6zgLQ",
+    "spotify:track:6BJHsLiE47Sk0wQkuppqhr",
+    "spotify:track:4riDfclV7kPDT9D58FpmHd",
+    "spotify:track:5qmNiJvNSCvXKRUlPJofZS",
+    "spotify:track:01vv2AjxgP4uUyb8waYO5Y",
+    "spotify:track:2vfGITBrVJaPYSgKaKJv9Z",
+    "spotify:track:4atMrAadB7dS8xn9vfk9PQ",
+    "spotify:track:42LY6qYxu3L6nJ7Dt72gNy",
+    "spotify:track:19kX6hSlYH31js2SL4jgrj",
+    "spotify:track:1mlVyUIqGTEkJy8sB5VchH",
+    "spotify:track:7BgyWwbbybJr2IbQoI1gzH",
+    "spotify:track:5fAeD0Y8eG2EWN2e5ZRpxa",
+    "spotify:track:5HeKOKc4phmLn8e4I7EkzD",
+    "spotify:track:1CS7Sd1u5tWkstBhpssyjP",
+    "spotify:track:3SAga35lAPYdjj3qyfEsCF",
+    "spotify:track:7zwn1eykZtZ5LODrf7c0tS",
+    "spotify:track:6RWNyBKaBMzySlOmecgGF1",
+    "spotify:track:5mjYQaktjmjcMKcUIcqz4s",
+    "spotify:track:0qOCy2LqvdkMora7eZsJhQ",
+    "spotify:track:2KReCz1L5XkGIBhDncQ5VZ",
+    "spotify:track:3zqGpKg3r1iEAHzhyjGXTQ",
+    "spotify:track:6NvRxjfYkkT2SpirAlmsjH",
+    "spotify:track:7szBZqBJuj9eAC8HJ4CyTM"
+  ],
+  "subgenres": {
+    "indie": 0.23529411764705882,
+    "psychedelic pop": 0.11764705882352941,
+    "modern rock": 0.11764705882352941,
+    "garage rock": 0.17647058823529413,
+    "rock": 0.058823529411764705,
+    "blues rock": 0.058823529411764705,
+    "bedroom pop": 0.11764705882352941,
+    "stoner rock": 0.058823529411764705,
+    "alternative rock": 0.058823529411764705
+  },
+  "supergenres": {
+    "Pop": 0.3076923076923077,
+    "Rock": 0.6923076923076923
+  }
+}
