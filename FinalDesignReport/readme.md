@@ -77,7 +77,6 @@ Normal Boundary
 Black Box
 Performance
 Unit Test
-<br />
 Results; Initial user load takes about 10 seconds which meets our standard. Depending on wifi the playlists are typically generated in 15 seconds upon click, which does meet our standard
 
 3)	Access Spotify Data
