@@ -109,12 +109,6 @@ def parse_playlist(sp, playlist_id):
 def get_all_user_playlist_ids(sp):
     """
     Fetch all playlists owned or followed by the current user.
-    
-    Args:
-        sp (spotipy.Spotify): Authenticated Spotify client.
-        
-    Returns:
-        list of str: Playlist IDs.
     """
     playlist_ids = []
     offset = 0
@@ -168,12 +162,6 @@ def get_track_uris_from_cluster_users(db_handler, cluster_id, total_songs,users_
 def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_songs=100, clusters_to_use=2, users_per_cluster=20, playlist = ""):
     """
     Generate playlists based on similarity to user's taste profile.
-
-    Options for `playlist`:
-    - "most_similar"
-    - "similar_clusters"
-    - "least_similar"
-    - "" (empty string) to generate all
     """
     # Get cluster distances
     similar_clusters, least_similar = clusterer.get_similar_clusters({'supergenres': user_vector}, n=8)
@@ -244,13 +232,6 @@ def generate_similarity_playlists(sp, user_vector, db_handler, clusterer, total_
 def get_playlist_tracks_details(sp, playlist_id):
     """
     Get detailed information about all tracks in a playlist.
-    
-    Args:
-        sp: Spotify client
-        playlist_id: ID of the playlist
-        
-    Returns:
-        List of track details
     """
     tracks = []
     results = sp.playlist_items(playlist_id)

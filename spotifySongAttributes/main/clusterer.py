@@ -27,4 +27,3 @@ class Clusterer():
     def predict(self, user):
         ordered_genre_row = get_ordered_user_row(user)
         return int(self.algo.predict(ordered_genre_row.reshape(1, -1))[0])
-

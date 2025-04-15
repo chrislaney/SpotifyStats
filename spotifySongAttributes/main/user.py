@@ -22,15 +22,6 @@ class User:
     def from_spotify(cls, sp, genre_cache, num_tracks=100, time_range='long_term'): ##
         """
         Create a User object from Spotify API data
-
-        Args:
-            sp: Authenticated Spotify client
-            genre_cache: Dictionary of cached artist genres
-            num_tracks: Number of top tracks to fetch
-            time_range: Time range for top tracks ('short_term', 'medium_term', 'long_term')
-
-        Returns:
-            User: A new User object populated with Spotify data
         """
         # Get basic user profile
         profile = sp.current_user()
@@ -55,12 +46,6 @@ class User:
     def from_dynamodb(cls, user_data):
         """
         Create a User object from DynamoDB data
-
-        Args:
-            user_data: Dictionary of user data from DynamoDB
-
-        Returns:
-            User: A User object populated with data from DynamoDB
         """
         user = cls(
             user_id=user_data.get('user_id'),

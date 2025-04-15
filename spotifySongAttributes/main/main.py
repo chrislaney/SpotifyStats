@@ -33,17 +33,6 @@ db_handler = DynamoDBHandler(
     aws_access_key=AWS_ACCESS_KEY,
     aws_secret_key=AWS_SECRET_KEY
 )
-"""
-1. Iniitalize clusterer: check
-2. Get users in database: see about seamus and chris for data: check
-    2a: create matrix out of supergenre distro: check
-
-3. train clusterer, get labels back: check
-    3a: assign users to respective cluster class (in memory lsit?)
-    3b: asiign label to all users
-    3c: update users in database
-4. keep in mem to do cluster assignment
-"""
 
 
 # Create necessary tables if they don't exist
