@@ -1,3 +1,12 @@
+'''
+cluster_test.py: this file is essentially an unorganized playground that Noah was using to finetune the hyperparameters and individual algorithms for
+the clustering that we chose to use. There are some missing for-loops here, as additional hyperparameters were tweaked but found to be inconsequential, and
+were then removed from testing in order to preserve the time of execution of the script, along with the size of the output script such that it could be
+more easily read. The best balance of amount of clusters, silhouette score, and inertia for the data that Noah had at the time was a simple K-means with a random-init of 20;
+once more data is collected, it is likely that random-init would have to be reduced, or replaced with k-means++, and the number of clusters would need to be increased in order to
+make sure each user is well represented by its cluster.
+'''
+
 import sys, os, time
 from random import random
 
@@ -90,7 +99,7 @@ def dbscan_test(users, random_state, filename):
     """
     Function to test dbscan algorithm with variety of parameters to give us idea of what to use in production
     Consider using city-block distance?
-    Should 100% time this; prob takes forever
+    Many failed clusters, with successful clusterings being inconsistent across hyperparameters; also way too many clusters
     """
 
     output_dir = 'dbscan_tests'
@@ -157,7 +166,7 @@ def dbscan_test(users, random_state, filename):
     return
 
 # This needs to be put in a cluster class
-# Returns an n/dimensional vector by summing a dataframe's distances, u kno dat shi
+# Returns an n/dimensional vector by summing a dataframe's distances
 def get_cluster_centroid(matrix, ):
     pass
 

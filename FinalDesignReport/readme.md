@@ -3,19 +3,16 @@
 # Final Fall Design Report
 
 ## Table of Contents
-1. [Team and Project](#team-and-project)
-2. [Project Description](#project-description)
-3. [User Stories and Design Diagrams](#user-stories-and-design-diagrams)
-   - [User Stories](#user-stories)
-   - [Design Diagrams](#design-diagrams)
-4. [Project Tasks and Timeline](#project-tasks-and-timeline)
-   - [Task List](#task-list)
-   - [Timeline](#timeline)
-   - [Effort Matrix](#effort-matrix)
-5. [ABET Concerns Essay](#abet-concerns-essay)
-6. [PPT Slideshow](#ppt-slideshow)
-7. [Self-Assessment Essays](#self-assessment-essays)
-8. [Professional Biographies](#professional-biographies)
+1. [Project Description](#project-description)
+2. [UI Specification](#user-interface-specification)
+3. [Test Plan](#test-plan-and-results)
+4. [User Manual](#user-manual)
+5. [PPT Slideshow](#spring-final-ppt-presentation)
+6. [Expo Poster](#final-expo-poster)
+7. [Self-Assessment Essays](#assesments)
+   - [Fall Essays](#fall-self-assessment-essays)
+   - [Spring Essays](#spring-self-assessment-essays)
+8. [Hours and Justification](#hour-justification)
 9. [Budget](#budget)
 10. [Appendix](#appendix)
 
@@ -47,7 +44,7 @@ Email: [tischjl@mail.uc.edu](mailto:tischjl@mail.uc.edu)
 
 **Project Abstract:**  
 
-SpotifyStats (genre distro) is a web application that will transform users' Spotify listening data into meaningful insights and personalized music recommendations. Through an engaging visualization and interpretation of their historic listening data and future recommendations we are able to provide users with astute genre analysis. This app parses the genre of users top songs and then provides sub-genre and super-genre distributions, for top songs, playlists, and other users on our app as well. We compare multiple users distributions via a radar chart, and a singular users own distributions using polar area charts. In the backend a K means cultering algorithm clusters users based on their genre distributions and is able to make reccomendations based on that. 
+SpotifyStats (genre distro) is a web application that will transform users' Spotify listening data into meaningful insights and personalized music recommendations. Through an engaging visualization and interpretation of their historic listening data and future recommendations we are able to provide users with a genre analysis. This app parses the genre of users' top songs and then provides sub-genre and super-genre distributions for the user, as well as supergenre comparison against playlists and other users in our database. We compare multiple users' distributions via a radar chart, and a singular user's own genre distributions using polar area charts. In the backend, a K-Means clustering algorithm is incorporated. This clustering algorithm is used to group users based on their supergenre distribution, and allows for generation of playlists via user comparison rather than an algorithm that provides new music based on individual song statistics. 
 
 ---
 
@@ -343,5 +340,5 @@ By designing the system around genre distribution vectors rather than Spotify’
    - [Flask Framework](https://flask.palletsprojects.com/)
    - [MongoDB Python Driver](https://pymongo.readthedocs.io/)
    - [K-Means Algorithm Overview (scikit-learn)](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
-
+   - [Spotipy](https://spotipy.readthedocs.io/en/2.25.1/)
   

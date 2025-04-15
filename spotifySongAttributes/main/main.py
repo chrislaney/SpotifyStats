@@ -69,8 +69,12 @@ clusterer = Clusterer(all_user_dicts)
 #        db_handler.save_user_data(dictionary)
 #    except Exception as e:
 #        print(f"Error saving labeled data: {e}")
-
-if True:
+UPDATE_USERS = True
+'''Below updates the value of users' clsuter labels in the database; as the dataset grows, its possible that additional points can disrupt locations
+of individual clusters. As such, it is necessary to update the exisitng users such that the users from the correct cluster are considered when generating
+playlists from the current user. Future considerations to avoid having to do this could be initializing from last calculated cluster centers, only saving cluster
+ centers and retraining every X amount of users; works for now in our scale'''
+if UPDATE_USERS:
     print("\n" + "*_"*80)
     print(" YOU ARE UPDATING CLUSTER ASSIGNMENTS ")
     print("ENSURE THIS IS INTENTIONAL (you've changed the clustering model or inputs)")

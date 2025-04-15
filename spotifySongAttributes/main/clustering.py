@@ -1,4 +1,4 @@
-# clustering.py
+# clustering.py: DEPRECATED; NO LONGER IN USE
 import random
 import numpy as np
 

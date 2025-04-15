@@ -202,8 +202,9 @@ def fetch_unknown_artist_genres(sp, unknown_artist_genres):
     except Exception as e:
         print(f"Error fetching genres: {e}")
     return genres
-# Generates training data from database for clusters; input is a list of dictionaries consisting of user data
+#
 def gen_train_matrix(user_list):
+    '''Generates training data from database for clusters; input is a list of dictionaries consisting of user data'''
     matrix = []
     labels = []
     for user_dict in user_list:
@@ -212,6 +213,7 @@ def gen_train_matrix(user_list):
     return np.array(matrix), labels
 
 def get_ordered_user_row(user_dict):
+    '''return the user's dictionary such that the genres are in the same order as listed to preserve feature integrity'''
     ordered_row = []
     # iterate through genres as listed to preserve order
     for genre in SUPERGENRES:

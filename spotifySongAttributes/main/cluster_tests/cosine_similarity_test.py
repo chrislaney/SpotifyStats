@@ -1,4 +1,6 @@
 ﻿"""
+DEPRECATED; Tool set created by Justin to make functions that took users from a json file and loaded them into vectors with their respective genre
+representation; is not used in production, but was used with Noah's cluster_test.py file to help tune the hyperparameters for the clustering algorithm
 Loads users from generated_users/
 Builds three types of vectors:
 	Flat Subgenre Vector (based on genres_flat.json)
@@ -18,7 +20,7 @@ python analyze_user_similarity.py
 python analyze_user_similarity.py data/users_set_b
 
 """
-#THIS EVAL FILE WAS HEAVILY GENERTED WITH CHAT GPTs AID
+#SOME BOILER PLATE CODE WAS GENERATED WITH CHATGPT
 import os
 import sys
 import json
