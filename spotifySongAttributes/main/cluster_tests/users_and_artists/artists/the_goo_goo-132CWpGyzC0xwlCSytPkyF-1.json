@@ -1,0 +1,47 @@
+{
+  "user_id": "the_goo_goo-132CWpGyzC0xwlCSytPkyF-1",
+  "top_tracks": [
+    "spotify:track:6Qyc6fS4DsZjB2mRW9DsQs",
+    "spotify:track:5QpaGzWp0hwB5faV8dkbAz",
+    "spotify:track:5B5eTk7DF8KVp1zpQoY1XY",
+    "spotify:track:0ll8uFnc0nANY35E0Lfxvg",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:2hiB8QxWic092OablwpoVC",
+    "spotify:track:2nLtzopw4rPReszdYBJU6h",
+    "spotify:track:0gmbgwZ8iqyMPmXefof8Yf",
+    "spotify:track:3YuaBvuZqcwN3CEAyyoaei",
+    "spotify:track:3NLrRZoMF0Lx6zTlYqeIo4",
+    "spotify:track:0nnwn7LWHCAu09jfuH1xTA",
+    "spotify:track:75JFxkI2RXiU7L9VXzMkle",
+    "spotify:track:60a0Rd6pjrkxjPbaKzXjfq",
+    "spotify:track:7BqBn9nzAq8spo5e7cZ0dJ",
+    "spotify:track:4llK75pXNWZz6KAho2Gp16",
+    "spotify:track:1G8jae4jD8mwkXdodqHsBM",
+    "spotify:track:003vvx7Niy0yvhvHt4a68B",
+    "spotify:track:7D0RhFcb3CrfPuTJ0obrod",
+    "spotify:track:3ZOEytgrvLwQaqXreDs2Jx",
+    "spotify:track:5K7AMlpc4796JRWXb26nCV",
+    "spotify:track:5zmaypMaWb21FUGBxbw8hT",
+    "spotify:track:5ghIJDpPoe3CfHMGu71E6T",
+    "spotify:track:0gEyKnHvgkrkBM6fbeHdwK",
+    "spotify:track:1mea3bSkSGXuIRvnydlB5b",
+    "spotify:track:42T2QQv3xgBlpQxaSP7lnK"
+  ],
+  "subgenres": {
+    "pop rock": 0.041666666666666664,
+    "nu metal": 0.125,
+    "rap metal": 0.08333333333333333,
+    "rock": 0.20833333333333334,
+    "alternative metal": 0.125,
+    "post-grunge": 0.16666666666666666,
+    "grunge": 0.08333333333333333,
+    "pop": 0.041666666666666664,
+    "alternative rock": 0.08333333333333333,
+    "funk rock": 0.041666666666666664
+  },
+  "supergenres": {
+    "Rock": 0.4583333333333333,
+    "Metal": 0.5,
+    "Pop": 0.041666666666666664
+  }
+}

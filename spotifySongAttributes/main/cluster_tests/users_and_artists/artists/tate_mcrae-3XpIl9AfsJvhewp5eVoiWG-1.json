@@ -1,0 +1,45 @@
+{
+  "user_id": "tate_mcrae-3XpIl9AfsJvhewp5eVoiWG-1",
+  "top_tracks": [
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:3x3K1RP3Zfi2qeMR8kyrNO",
+    "spotify:track:7l9IqDtVWJurTvkQHq1BGh",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:51rfRCiUSvxXlCSCfIztBy",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:4l0RmWt52FxpVxMNni6i63",
+    "spotify:track:040I32EKLxQrkuxQu1pqvT",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:578Eooad7oUyn4stovZiPg",
+    "spotify:track:6MzofobZt2dm0Kf1hTThFz",
+    "spotify:track:5UJbgR4XF4y1DvbkxEqe8S",
+    "spotify:track:1XBYiRV30ykHw5f4wm6qEn",
+    "spotify:track:1GnTBbaFtxNkHEjUsWEdNu",
+    "spotify:track:35ISBknsCeZQtq66xABI9g",
+    "spotify:track:5CZ40GBx1sQ9agT82CLQCT",
+    "spotify:track:4E63weMCaNZuGPEFMnuEi8",
+    "spotify:track:3bWEONUAlVrGAB4NqQiT2R",
+    "spotify:track:5Y35SjAfXjjG0sFQ3KOxmm",
+    "spotify:track:2cc8Sw1OnCuA5bV8nqWqpE",
+    "spotify:track:36gcliMRX1vCpgnrZE3dFZ"
+  ],
+  "subgenres": {
+    "pop": 0.2,
+    "r&b": 0.2,
+    "sexy drill": 0.1,
+    "edm": 0.1,
+    "trance": 0.1,
+    "big room": 0.1,
+    "house": 0.1,
+    "dance": 0.1
+  },
+  "supergenres": {
+    "Pop": 0.2222222222222222,
+    "R&B": 0.2222222222222222,
+    "Electronic": 0.5555555555555556
+  }
+}

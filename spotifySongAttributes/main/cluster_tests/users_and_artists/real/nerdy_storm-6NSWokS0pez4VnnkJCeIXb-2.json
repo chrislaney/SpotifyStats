@@ -1,0 +1,50 @@
+{
+  "user_id": "nerdy_storm-6NSWokS0pez4VnnkJCeIXb-2",
+  "top_tracks": [
+    "spotify:track:0AjmK0Eai4zGrLaJwPvrDp",
+    "spotify:track:2U94Nj4SVS7TNsUiObLWPm",
+    "spotify:track:2LGdO5MtFdyphi2EihANZG",
+    "spotify:track:6Fp0XYEGecaLjnc5DKu983",
+    "spotify:track:3R2g4RGNW4mluU3PigQmzj",
+    "spotify:track:3Ye5icBka8ODjcaEQakPvZ",
+    "spotify:track:5aQ0bRw9Vk4gbmt8Nd88wy",
+    "spotify:track:3hxIUxnT27p5WcmjGUXNwx",
+    "spotify:track:5UHHuxxYFnuE5KBbpl4Hzu",
+    "spotify:track:2AT8iROs4FQueDv2c8q2KE",
+    "spotify:track:0fjEEHg3EVDBBbL7Vqy2O6",
+    "spotify:track:4bDIAWaOBGAAk95nyXI6zJ",
+    "spotify:track:2oaK4JLVnmRGIO9ytBE1bt",
+    "spotify:track:6wVWJl64yoTzU27EI8ep20",
+    "spotify:track:2I6sRKSNmGPAyHdYnlalVN",
+    "spotify:track:0yzj6eBs5a6X6d3P5qaQ5J",
+    "spotify:track:1eivMnftGIAIeTDUfTssVX",
+    "spotify:track:0d28khcov6AiegSCpG5TuT",
+    "spotify:track:1MsU7LDRTqvMaKbptPp72z",
+    "spotify:track:3sEufjE0ITaW5qhtnW3avv",
+    "spotify:track:454I78HEySdcHE8fcVabTb",
+    "spotify:track:7wZc7nmPQIoJ4xTW0iJcAd",
+    "spotify:track:36GQWaICkYgxYD8I9gJOYJ",
+    "spotify:track:7i9763l5SSfOnqZ35VOcfy",
+    "spotify:track:3lPr8ghNDBLc2uZovNyLs9",
+    "spotify:track:4iZxeyibg6w4EFCOoAQ6Eh",
+    "spotify:track:6lmpIhm4pDXNP1Np1Y9iwL",
+    "spotify:track:5HvDKyJlHWg42BdsE4ycSm",
+    "spotify:track:73KET3327jJ8M42hVqRIEw",
+    "spotify:track:4EmnzJLkWYI9JyYTWtnOVT",
+    "spotify:track:7oQsTGywaC1xhsPAxtwjSX",
+    "spotify:track:3gy21TwRSP40aUMwcY7Rtq",
+    "spotify:track:57RA3JGafJm5zRtKJiKPIm"
+  ],
+  "subgenres": {
+    "indie": 0.3076923076923077,
+    "garage rock": 0.19230769230769232,
+    "modern rock": 0.19230769230769232,
+    "rock": 0.15384615384615385,
+    "funk rock": 0.038461538461538464,
+    "alternative rock": 0.07692307692307693,
+    "blues rock": 0.038461538461538464
+  },
+  "supergenres": {
+    "Rock": 1.0
+  }
+}

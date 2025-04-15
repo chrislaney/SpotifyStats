@@ -1,0 +1,43 @@
+{
+  "user_id": "don_omar-1ZpAt7rQ7xdmJUQWT2QYfS-1",
+  "top_tracks": [
+    "spotify:track:69Ej1xrGjOcHvIMtMKxK0G",
+    "spotify:track:6G4U9avyBNEfP0fAIduev3",
+    "spotify:track:5YJ4BVvTFmVCxUyhKejHfR",
+    "spotify:track:0u4N6w5lBw5xMrzJitRWUo",
+    "spotify:track:40a82F3K2UTbeoLlXXXZBd",
+    "spotify:track:48NXpYRuvv9izul4oXhqS9",
+    "spotify:track:0e8DgtfJnWTBarF9YGMd0N",
+    "spotify:track:65H6t1WQBim6q93yM8fEwn",
+    "spotify:track:1Kgyx7NLtzsa3gWV1efGHu",
+    "spotify:track:388YhDYxPvaDIZQHWqpB4E",
+    "spotify:track:1PZrHbJjt5t7dP9OGRxcD0",
+    "spotify:track:4Xtlw8oXkIOvzV7crUBKeZ",
+    "spotify:track:2Jz1X6ZB0gkkCVgmeVGVGp",
+    "spotify:track:2Bhmj4XK33InfhqKPxcJ1v",
+    "spotify:track:3HqcNJdZ2seoGxhn0wVNDK",
+    "spotify:track:5nJaS3PEpyPfaWiLxIGtRX",
+    "spotify:track:1kQqiC1rS1FiuVpeBKN0QN",
+    "spotify:track:2ctjDCCg1wHoQSjIJ8p6U4",
+    "spotify:track:5gflgO9EPbIBf16n5TKnQS",
+    "spotify:track:0HDHY6RSHHG2ZTE0cMT4GJ",
+    "spotify:track:4cyYC67XY3weSVmSLdKLP8",
+    "spotify:track:0nhbuIdjSaPEdflhu3fK2l",
+    "spotify:track:1q8NdCAQ9QUjpYiqzdd3mv",
+    "spotify:track:560GL9Y8gDtKPRIJ41oA3c",
+    "spotify:track:2WHctubxf8LzrGr62cLz3d"
+  ],
+  "subgenres": {
+    "reggaeton": 0.4166666666666667,
+    "urbano latino": 0.16666666666666666,
+    "bachata": 0.10416666666666667,
+    "bachata pop": 0.10416666666666667,
+    "latin hip hop": 0.0625,
+    "latin": 0.125,
+    "latin alternative": 0.020833333333333332
+  },
+  "supergenres": {
+    "Latin": 0.9302325581395349,
+    "Hip Hop": 0.06976744186046512
+  }
+}

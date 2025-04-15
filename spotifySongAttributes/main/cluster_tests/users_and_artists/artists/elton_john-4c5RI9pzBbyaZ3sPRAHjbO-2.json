@@ -1,0 +1,46 @@
+{
+  "user_id": "elton_john-4c5RI9pzBbyaZ3sPRAHjbO-2",
+  "top_tracks": [
+    "spotify:track:5Wj1rJnCLpMHdLaxsFtJLs",
+    "spotify:track:4U45aEWtQhrm8A5mxPaFZ7",
+    "spotify:track:2TxCwUlqaOH3TIyJqGgR91",
+    "spotify:track:4PTG3Z6ehGkBFwjybzWkR8",
+    "spotify:track:0bfvHnWWOeU1U5XeKyVLbW",
+    "spotify:track:38zsOOcu31XbbYj9BIPUF1",
+    "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+    "spotify:track:49MHCPzvMLXhRjDantBMVH",
+    "spotify:track:0GONea6G2XdnHWjNZd6zt3",
+    "spotify:track:3KfbEIOC7YIv90FIfNSZpo",
+    "spotify:track:4IRHwIZHzlHT1FQpRa5RdE",
+    "spotify:track:4o6BgsqLIBViaGVbx5rbRk",
+    "spotify:track:3vkQ5DAB1qQMYO4Mr9zJN6",
+    "spotify:track:63CHa6rmamv9OsehkRD8oz",
+    "spotify:track:0ee1DiZF94NSqqpG0XHUzH",
+    "spotify:track:2TVxnKdb3tqe1nhQWwwZCO",
+    "spotify:track:0pNeVovbiZHkulpGeOx1Gj",
+    "spotify:track:1WeoeHh0TSzsApyJ6Q8OOK",
+    "spotify:track:5BckPAYcKEJuYs1eV1BHHe",
+    "spotify:track:48i055G1OT5KxGGftwFxWy",
+    "spotify:track:67HKtdqchK0rmODxsBeWT8",
+    "spotify:track:7G7tgVYORlDuVprcYHuFJh",
+    "spotify:track:2lFFiNm0XtgJ6wkdncTB4k",
+    "spotify:track:1fTDYdx5zYfWJSX0JlKO8o",
+    "spotify:track:7GVUmCP00eSsqc4tzj1sDD"
+  ],
+  "subgenres": {
+    "soft rock": 0.3333333333333333,
+    "new wave": 0.1111111111111111,
+    "synthpop": 0.05555555555555555,
+    "classic rock": 0.16666666666666666,
+    "psychedelic rock": 0.1111111111111111,
+    "glam metal": 0.05555555555555555,
+    "rock": 0.05555555555555555,
+    "rockabilly": 0.05555555555555555,
+    "power pop": 0.05555555555555555
+  },
+  "supergenres": {
+    "Rock": 0.8333333333333334,
+    "Pop": 0.1111111111111111,
+    "Metal": 0.05555555555555555
+  }
+}

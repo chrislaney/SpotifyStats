@@ -1,0 +1,41 @@
+{
+  "user_id": "drake-13Cl7qnKBLgBDW0t1If2N2-2",
+  "top_tracks": [
+    "spotify:track:4wVOKKEHUJxHCFFNUWDn0B",
+    "spotify:track:72TFWvU3wUYdUuxejTTIzt",
+    "spotify:track:4X5f3vT8MRuXF68pfjNte5",
+    "spotify:track:2toVe5hfuIi97ytDPDbQFt",
+    "spotify:track:45XhKYRRkyeqoW3teSOkCM",
+    "spotify:track:124NFj84ppZ5pAxTuVQYCQ",
+    "spotify:track:5Y77SQxEr1eiofPeUTPHxM",
+    "spotify:track:6rjuKpPydT2SxN15TZpV7r",
+    "spotify:track:28drn6tQo95MRvO0jQEo5C",
+    "spotify:track:3a1lNhkSLSkpJE4MSHpDu9",
+    "spotify:track:6n3HGiq4v35D6eFOSwqYuo",
+    "spotify:track:7KXjTSCq5nL1LoYtL7XAwS",
+    "spotify:track:07KXEDMj78x68D884wgVEm",
+    "spotify:track:0uxSUdBrJy9Un0EYoBowng",
+    "spotify:track:6vN77lE9LK6HP2DewaN6HZ",
+    "spotify:track:3QLjDkgLh9AOEHlhQtDuhs",
+    "spotify:track:3lb5fWSG2p7x8ik8HN9oFR",
+    "spotify:track:6REbwUNlppTfcnV4d4ZoZi",
+    "spotify:track:0O3TAouZE4vL9dM5SyxgvH",
+    "spotify:track:2eAZfqOm4EnOF9VvN50Tyc",
+    "spotify:track:3O8NlPh2LByMU9lSRSHedm",
+    "spotify:track:2uwnP6tZVVmTovzX5ELooy",
+    "spotify:track:57wp7VFnV8X0pSVnYArGeJ",
+    "spotify:track:3gruCKVuhCsRjs3a3dG8CA",
+    "spotify:track:3j84U36KvLeXNDPv4t5pI8"
+  ],
+  "subgenres": {
+    "rap": 0.4230769230769231,
+    "hip hop": 0.2692307692307692,
+    "r&b": 0.07692307692307693,
+    "melodic rap": 0.15384615384615385,
+    "west coast hip hop": 0.07692307692307693
+  },
+  "supergenres": {
+    "Hip Hop": 0.9166666666666666,
+    "R&B": 0.08333333333333333
+  }
+}

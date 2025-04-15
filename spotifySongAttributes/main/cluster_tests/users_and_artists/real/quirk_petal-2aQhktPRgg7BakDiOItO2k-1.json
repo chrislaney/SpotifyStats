@@ -1,0 +1,52 @@
+{
+  "user_id": "quirk_petal-2aQhktPRgg7BakDiOItO2k-1",
+  "top_tracks": [
+    "spotify:track:5CscrLqFBgPfZR8fGtikov",
+    "spotify:track:7yNf9YjeO5JXUE3JEBgnYc",
+    "spotify:track:7JqH46zlr7XV7vMBt4slE6",
+    "spotify:track:5UXJzLFdBn6u9FJTCnoHrH",
+    "spotify:track:2TOzTqQXNmR2zDJXihjZ2e",
+    "spotify:track:1xLs8Mu1QEVbGCpyHQ2r2U",
+    "spotify:track:5fVZC9GiM4e8vu99W0Xf6J",
+    "spotify:track:38xWaVFKaxZlMFvzNff2aW",
+    "spotify:track:6e5fsRfVK3jvrpUXJpG9mB",
+    "spotify:track:4x5YzxjrF9wvIIXJV7TveC",
+    "spotify:track:2TktkzfozZifbQhXjT6I33",
+    "spotify:track:3DamFFqW32WihKkTVlwTYQ",
+    "spotify:track:53dtP2iUMvaF28JZcHnFuU",
+    "spotify:track:0j1Ia2lQWrcXrQZI4AdJlk",
+    "spotify:track:2tznHmp70DxMyr2XhWLOW0",
+    "spotify:track:75JFxkI2RXiU7L9VXzMkle",
+    "spotify:track:0fX4oNGBWO3dSGUZcVdVV2",
+    "spotify:track:0KAiuUOrLTIkzkpfpn9jb9",
+    "spotify:track:1NhPKVLsHhFUHIOZ32QnS2",
+    "spotify:track:4IoYz8XqqdowINzfRrFnhi",
+    "spotify:track:4S8PxReB1UiDR2F5x1lyIR",
+    "spotify:track:7zw6nQHTwml1mVuQDf5V6k",
+    "spotify:track:7szBZqBJuj9eAC8HJ4CyTM",
+    "spotify:track:1N62wozuHCvczCkY4QidpP",
+    "spotify:track:6AI3ezQ4o3HUoP6Dhudph3",
+    "spotify:track:7e8utCy2JlSB8dRHKi49xM",
+    "spotify:track:1IF5UcqRO42D12vYwceOY6",
+    "spotify:track:6WTFHKrnZpwEBLRS10Ylqs",
+    "spotify:track:77DRzu7ERs0TX3roZcre7Q",
+    "spotify:track:14uhiVl5NwPDCmlRUgo4l6",
+    "spotify:track:4MXE6VCvTsQitHWrAxj7Kg",
+    "spotify:track:5JCoSi02qi3jJeHdZXMmR8",
+    "spotify:track:3TFoEJe5zNuHZStRboWPxg"
+  ],
+  "subgenres": {
+    "bedroom pop": 0.13333333333333333,
+    "modern rock": 0.06666666666666667,
+    "hip hop": 0.26666666666666666,
+    "west coast hip hop": 0.26666666666666666,
+    "soft pop": 0.13333333333333333,
+    "indie": 0.06666666666666667,
+    "garage rock": 0.06666666666666667
+  },
+  "supergenres": {
+    "Pop": 0.25,
+    "Rock": 0.25,
+    "Hip Hop": 0.5
+  }
+}

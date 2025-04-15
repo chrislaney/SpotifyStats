@@ -1,0 +1,41 @@
+{
+  "user_id": "rose-5sqFQ0LflDNdIauWWfhsHX-1",
+  "top_tracks": [
+    "spotify:track:4wJ5Qq0jBN4ajy7ouZIV1c",
+    "spotify:track:6dOtVTDdiauQNBQEDOtlAB",
+    "spotify:track:3LPLRNr58Z9Pn0clnEtkXb",
+    "spotify:track:7so0lgd0zP2Sbgs2d7a1SZ",
+    "spotify:track:7ne4VBA60CxGM75vw0EYad",
+    "spotify:track:2HRqTpkrJO5ggZyyK6NPWz",
+    "spotify:track:1lcBt7LoEikqYmhUoa2cez",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:1BxfuPKGuaTgP7aM0Bbdwr",
+    "spotify:track:0WbMK4wrZ1wFSty9F7FCgu",
+    "spotify:track:5G2f63n7IPVPPjfNIGih7Q",
+    "spotify:track:1z5ebC9238uGoBgzYyvGpQ",
+    "spotify:track:2CGNAOSuO1MEFCbBRgUzjd",
+    "spotify:track:7CyPwkp0oE8Ro9Dd5CUDjW",
+    "spotify:track:3rUGC1vUpkDG9CZFHMur1t",
+    "spotify:track:3x3K1RP3Zfi2qeMR8kyrNO",
+    "spotify:track:2pn8dNVSpYnAtlKFC8Q0DJ",
+    "spotify:track:2tHwzyyOLoWSFqYNjeVMzj",
+    "spotify:track:2OzhQlSqBEmt7hmkYxfT6m",
+    "spotify:track:51ZQ1vr10ffzbwIjDCwqm4",
+    "spotify:track:6EIMUjQ7Q8Zr2VtIUik4He",
+    "spotify:track:3y4q6bBdbXsTIaPiwiiUfy",
+    "spotify:track:35ISBknsCeZQtq66xABI9g",
+    "spotify:track:6dgUya35uo964z7GZXM07g"
+  ],
+  "subgenres": {
+    "k-pop": 0.5,
+    "art pop": 0.1,
+    "pop": 0.2,
+    "hip hop": 0.1,
+    "west coast hip hop": 0.1
+  },
+  "supergenres": {
+    "Pop": 0.8888888888888888,
+    "Hip Hop": 0.1111111111111111
+  }
+}

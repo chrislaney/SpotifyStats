@@ -1,0 +1,48 @@
+{
+  "user_id": "the_goo_goo-132CWpGyzC0xwlCSytPkyF-2",
+  "top_tracks": [
+    "spotify:track:2OetRiA7svb9KwiXkRjhLw",
+    "spotify:track:05rWggLwQ2weA4D2cRAt55",
+    "spotify:track:5DiXcVovI0FcY2s0icWWUu",
+    "spotify:track:4S1VYqwfkLit9mKVY3MXoo",
+    "spotify:track:0BCPKOYdS2jbQ8iyB56Zns",
+    "spotify:track:4KqTGPPmXowMPEoShSVOta",
+    "spotify:track:0COqiPhxzoWICwFCS4eZcp",
+    "spotify:track:10nyNJ6zNy2YVYLrcwLccB",
+    "spotify:track:0wqOReZDnrefefEsrIGeR4",
+    "spotify:track:2RChe0r2cMoyOvuKobZy44",
+    "spotify:track:0RZuCBV900eNA2FXCQ3uUM",
+    "spotify:track:7LVHVU3tWfcxj5aiPFEW4Q",
+    "spotify:track:0lP4HYLmvowOKdsQ7CVkuq",
+    "spotify:track:285hMzLhJwHVLe9QT9qilk",
+    "spotify:track:6nTiIhLmQ3FWhvrGafw2zj",
+    "spotify:track:5fIrBv7PrI2MBcktQOcmpI",
+    "spotify:track:6ZOBP3NvffbU4SZcrnt1k6",
+    "spotify:track:1JSTJqkT5qHq8MDJnJbRE1",
+    "spotify:track:4cKGldbhGJniI8BrB3K6tb",
+    "spotify:track:70LcF31zb1H0PyJoS1Sx1r",
+    "spotify:track:1RC9slv335IfLce5vt9KTW",
+    "spotify:track:6L89mwZXSOwYl76YXfX13s",
+    "spotify:track:5hkdfA87RZvNaxl6XiveOA",
+    "spotify:track:1G391cbiT3v3Cywg8T7DM1",
+    "spotify:track:4IoYz8XqqdowINzfRrFnhi"
+  ],
+  "subgenres": {
+    "post-grunge": 0.15,
+    "rock": 0.15,
+    "synthpop": 0.05,
+    "alternative metal": 0.05,
+    "art rock": 0.1,
+    "alternative rock": 0.15,
+    "glam metal": 0.05,
+    "modern rock": 0.05,
+    "punk": 0.1,
+    "pop punk": 0.1,
+    "funk rock": 0.05
+  },
+  "supergenres": {
+    "Metal": 0.25,
+    "Rock": 0.7,
+    "Pop": 0.05
+  }
+}

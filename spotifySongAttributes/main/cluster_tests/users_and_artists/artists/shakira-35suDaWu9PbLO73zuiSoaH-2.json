@@ -1,0 +1,49 @@
+{
+  "user_id": "shakira-35suDaWu9PbLO73zuiSoaH-2",
+  "top_tracks": [
+    "spotify:track:3TY1PFZXmYeiLcXygB74My",
+    "spotify:track:54zcJnb3tp9c5OVKREZ1Is",
+    "spotify:track:1iRvhKiXRElIH2Uf4gd95P",
+    "spotify:track:40a82F3K2UTbeoLlXXXZBd",
+    "spotify:track:3rdAz1fbUfZxYgaCviYhRo",
+    "spotify:track:7Apo6o7oxgFyXaSmdx6NHN",
+    "spotify:track:53tfEupEzQRtVFOeZvk7xq",
+    "spotify:track:5RqSsdzTNPX1uzkmlHCFvK",
+    "spotify:track:6M8horg7h52MPTxY0I3dQJ",
+    "spotify:track:6Za3190Sbw39BBC77WSS1C",
+    "spotify:track:4M1lEbqPzlEw1JYWB6aE7K",
+    "spotify:track:5PycBIeabfvX3n9ILG7Vrv",
+    "spotify:track:100Tm6z29RfHTdUQ6NIs0s",
+    "spotify:track:2AY1UAimvTqjJC8vDJsOyy",
+    "spotify:track:48NXpYRuvv9izul4oXhqS9",
+    "spotify:track:1w5nWhUzrQqj0WnDXrgsnC",
+    "spotify:track:6ylDpki1VpIsc525KC1ojF",
+    "spotify:track:1IHWl5LamUGEuP4ozKQSXZ",
+    "spotify:track:0c8f8b76ThPP2MInXEZyTY",
+    "spotify:track:4nTduFjaTmGysc9WKNuCcs",
+    "spotify:track:3OJDtCdYs8QJnui708tEU3",
+    "spotify:track:4cyYC67XY3weSVmSLdKLP8",
+    "spotify:track:4NoOME4Dhf4xgxbHDT7VGe",
+    "spotify:track:6Al0Kpd4VrRZ0Z4kTThNPa",
+    "spotify:track:6Z0ybnsUBhbZ9ZjPW64eoF"
+  ],
+  "subgenres": {
+    "latin pop": 0.18518518518518517,
+    "reggaeton": 0.2037037037037037,
+    "latin": 0.2222222222222222,
+    "urbano latino": 0.14814814814814814,
+    "trap latino": 0.037037037037037035,
+    "merengue": 0.018518518518518517,
+    "bachata": 0.05555555555555555,
+    "salsa": 0.018518518518518517,
+    "bachata pop": 0.018518518518518517,
+    "latin rock": 0.018518518518518517,
+    "colombian pop": 0.05555555555555555,
+    "vallenato": 0.018518518518518517
+  },
+  "supergenres": {
+    "Pop": 0.24528301886792453,
+    "Latin": 0.7358490566037735,
+    "Rock": 0.018867924528301886
+  }
+}

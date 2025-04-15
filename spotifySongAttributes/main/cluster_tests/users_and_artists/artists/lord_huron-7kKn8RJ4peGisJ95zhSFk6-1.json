@@ -1,0 +1,41 @@
+{
+  "user_id": "lord_huron-7kKn8RJ4peGisJ95zhSFk6-1",
+  "top_tracks": [
+    "spotify:track:0QZ5yyl6B6utIWkxeBDxQN",
+    "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+    "spotify:track:44A0o4jA8F2ZF03Zacwlwx",
+    "spotify:track:3JvKfv6T31zO0ini8iNItO",
+    "spotify:track:3QaPy1KgI7nu9FJEQUgn6h",
+    "spotify:track:0iMt8ZMe2BsNvsF9LFDOAn",
+    "spotify:track:1CS7Sd1u5tWkstBhpssyjP",
+    "spotify:track:7D0RhFcb3CrfPuTJ0obrod",
+    "spotify:track:2QjOHCTQ1Jl3zawyYOpxh6",
+    "spotify:track:1oAwsWBovWRIp7qLMGPIet",
+    "spotify:track:4UGoW08gaqIEWNTam1UNen",
+    "spotify:track:2262bWmqomIaJXwCRHr13j",
+    "spotify:track:6IPwKM3fUUzlElbvKw2sKl",
+    "spotify:track:75JFxkI2RXiU7L9VXzMkle",
+    "spotify:track:2uXlHCUbq9OMUwx3hrk06o",
+    "spotify:track:7xQg5QTx8eiQnsxEnfynPh",
+    "spotify:track:7mDTvYD2ieE4Q28XFziMfJ",
+    "spotify:track:2psRActEWsTlYYd7EDoyVR",
+    "spotify:track:6VhuP99TE6gYNQRJIlAWFD",
+    "spotify:track:5XeFesFbtLpXzIVDNQP22n",
+    "spotify:track:1bqrRn1pJWowNLA5N9L6uW",
+    "spotify:track:4IhTXiZLKATmwhMZIb1GQN",
+    "spotify:track:6me7F0aaZjwDo6RJ5MrfBD",
+    "spotify:track:6Qyc6fS4DsZjB2mRW9DsQs",
+    "spotify:track:5OGZ2Mx4Cs6RCndDRycGBJ"
+  ],
+  "subgenres": {
+    "dream pop": 0.3333333333333333,
+    "bedroom pop": 0.16666666666666666,
+    "folk pop": 0.16666666666666666,
+    "indie": 0.16666666666666666,
+    "garage rock": 0.16666666666666666
+  },
+  "supergenres": {
+    "Pop": 0.75,
+    "Rock": 0.25
+  }
+}

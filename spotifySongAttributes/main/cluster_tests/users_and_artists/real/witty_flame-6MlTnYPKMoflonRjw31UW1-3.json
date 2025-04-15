@@ -1,0 +1,53 @@
+{
+  "user_id": "witty_flame-6MlTnYPKMoflonRjw31UW1-3",
+  "top_tracks": [
+    "spotify:track:5SN3mwuodiwY3jPejBuUD5",
+    "spotify:track:6dDMbrQuPH2CRtXBPIQVrf",
+    "spotify:track:1YUuNQQPzzVEnr27TuFT9e",
+    "spotify:track:1JiaqVxC0ZKjazNSjjJsnk",
+    "spotify:track:3oWtUqMkeDjjc3As6cMiBt",
+    "spotify:track:1G0z1n7WFA799bd3C1JCn0",
+    "spotify:track:53p7UcKs27t8pP8prii0wB",
+    "spotify:track:7zWuStPwDJfx2C8NHL6NtO",
+    "spotify:track:1UqhkbzB1kuFwt2iy4h29Q",
+    "spotify:track:2XLEPezf0l6wqR4bDjZsby",
+    "spotify:track:7I409u7suf8LtcwU7BlxwQ",
+    "spotify:track:6HGnJDJRjuWz1QR7VMIJuG",
+    "spotify:track:5dFoWIiJ2814hRwMYDcFiU",
+    "spotify:track:0oTelkAghhQaETjlp6QXt3",
+    "spotify:track:2LBM5PZhocu35FDbNsQyI9",
+    "spotify:track:5E5C1JqfyS8I1chhAfyqJI",
+    "spotify:track:1WZbu7aMEJNVKm6yO9LZ9f",
+    "spotify:track:10D79GwTLdXw0kuzYUL69g",
+    "spotify:track:3jOguPISqOdYbXW3AEfaIi",
+    "spotify:track:37BTh5g05cxBIRYMbw8g2T",
+    "spotify:track:2yBVeksU2EtrPJbTu4ZslK",
+    "spotify:track:3jS0d7uwqKGbfwQ2ia2JN0",
+    "spotify:track:2N977oXVcbzWqT4m3U698h",
+    "spotify:track:6TorufIR9E06RXo3VhZaae",
+    "spotify:track:3ssNvVIHaAaRgrILQo20jH",
+    "spotify:track:3BIT6YtDZtuPmiwuDITF8J",
+    "spotify:track:6e15rPNKIJTSnPn74buRwS",
+    "spotify:track:0qEOlAOjRwnOycELAfPLeX",
+    "spotify:track:2dcL0moa4ZOrRNUBrOMojo",
+    "spotify:track:14uhiVl5NwPDCmlRUgo4l6",
+    "spotify:track:5wkEdciZkVGiasumRPReSV",
+    "spotify:track:0yTJtxZJ5VLfBEHhiNUNeY",
+    "spotify:track:4FjcgEhcOTostSAHQ0YYHj"
+  ],
+  "subgenres": {
+    "indie": 0.23529411764705882,
+    "alternative rock": 0.17647058823529413,
+    "soft rock": 0.23529411764705882,
+    "classic rock": 0.058823529411764705,
+    "southern rock": 0.058823529411764705,
+    "retro soul": 0.058823529411764705,
+    "psychedelic pop": 0.11764705882352941,
+    "album rock": 0.058823529411764705
+  },
+  "supergenres": {
+    "Rock": 0.7692307692307693,
+    "R&B": 0.07692307692307693,
+    "Pop": 0.15384615384615385
+  }
+}

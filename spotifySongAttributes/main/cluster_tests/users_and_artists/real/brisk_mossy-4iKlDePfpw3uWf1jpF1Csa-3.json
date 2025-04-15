@@ -1,0 +1,50 @@
+{
+  "user_id": "brisk_mossy-4iKlDePfpw3uWf1jpF1Csa-3",
+  "top_tracks": [
+    "spotify:track:3uouaAVXpQR3X8RYkJyitQ",
+    "spotify:track:5wG3HvLhF6Y5KTGlK0IW3J",
+    "spotify:track:1BpKJw4RZxaFB88NE5uxXf",
+    "spotify:track:7iTTWHbr4tAlsRJN4m4bay",
+    "spotify:track:0uxSUdBrJy9Un0EYoBowng",
+    "spotify:track:2Q3jFbyE61mCjS3SkW4toJ",
+    "spotify:track:7KVPsVMOK3NL7subwJ0dZj",
+    "spotify:track:3JA9Jsuxr4xgHXEawAdCp4",
+    "spotify:track:2V4bv1fNWfTcyRJKmej6Sj",
+    "spotify:track:0ITaSRuI0L1RNL7ZNYTTi7",
+    "spotify:track:34oWbFBfGEElvgO0a5c9V4",
+    "spotify:track:39NDBdU5Xkm5pCFGa5kZtI",
+    "spotify:track:6vN77lE9LK6HP2DewaN6HZ",
+    "spotify:track:6wsqVwoiVH2kde4k4KKAFU",
+    "spotify:track:4sNG6zQBmtq7M8aeeKJRMQ",
+    "spotify:track:4S4Mfvv03M1cHgIOJcbUCL",
+    "spotify:track:4pAl7FkDMNBsjykPXo91B3",
+    "spotify:track:6koKhrBBcExADvWuOgceNZ",
+    "spotify:track:1qMMYpVatbRITKCfq1gasi",
+    "spotify:track:4qNYl4NkngYRqf6DtTyD9I",
+    "spotify:track:72TFWvU3wUYdUuxejTTIzt",
+    "spotify:track:6FBzhcfgGacfXF3AmtfEaX",
+    "spotify:track:1WIZiOuNO3woKfdlSK2gNn",
+    "spotify:track:0JXXNGljqupsJaZsgSbMZV",
+    "spotify:track:0UHB9METy4VCXNgkcGqHqS",
+    "spotify:track:3ZaEs1O8BG581qYPHpQ8d6",
+    "spotify:track:5A8xI7PN4WDe9e61xEdt94",
+    "spotify:track:4CIyxiObT9G35HrSItAblR",
+    "spotify:track:2eAZfqOm4EnOF9VvN50Tyc",
+    "spotify:track:5stbfxsPi8gcOH2LCuA4Le",
+    "spotify:track:2H2ytI7ompfNmRkI2sq8Uk",
+    "spotify:track:1DAibqbopEYULPEtE8WHTE",
+    "spotify:track:7yNf9YjeO5JXUE3JEBgnYc"
+  ],
+  "subgenres": {
+    "rage rap": 0.0625,
+    "melodic rap": 0.25,
+    "rap": 0.375,
+    "hip hop": 0.125,
+    "r&b": 0.125,
+    "memphis rap": 0.0625
+  },
+  "supergenres": {
+    "Hip Hop": 0.8666666666666667,
+    "R&B": 0.13333333333333333
+  }
+}

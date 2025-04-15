@@ -1,0 +1,40 @@
+{
+  "user_id": "ariana_gran-2Drk02sTIc7DzkjNPiPclZ-2",
+  "top_tracks": [
+    "spotify:track:5D34wRmbFS29AjtTOP2QJe",
+    "spotify:track:6dgUya35uo964z7GZXM07g",
+    "spotify:track:5wANPM4fQCJwkGd4rN57mH",
+    "spotify:track:1Q7EgiMOuwDcB0PJC6AzON",
+    "spotify:track:0lYBSQXN6rCTvUZvg9S0lU",
+    "spotify:track:63y6xWR4gXz7bnUGOk8iI6",
+    "spotify:track:09mEdoA6zrmBPgTEN5qXmN",
+    "spotify:track:6qn9YLKt13AGvpq9jfO8py",
+    "spotify:track:5CZ40GBx1sQ9agT82CLQCT",
+    "spotify:track:6ic8OlLUNEATToEFU3xmaH",
+    "spotify:track:35mvY5S1H3J2QZyna3TFe0",
+    "spotify:track:5R8dQOPq8haW94K7mgERlO",
+    "spotify:track:2LBqCSwhJGcFQeTHMVGwy3",
+    "spotify:track:3DarAbFujv6eYNliUTyqtz",
+    "spotify:track:6HU7h9RYOaPRFeh0R3UeAr",
+    "spotify:track:43bCmCI0nSgcT7QdMXY6LV",
+    "spotify:track:1Qrg8KqiBpW07V7PNxwwwL",
+    "spotify:track:6I9VzXrHxO9rA9A5euc8Ak",
+    "spotify:track:4wJ5Qq0jBN4ajy7ouZIV1c",
+    "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+    "spotify:track:5J4ZkQpzMUFojo1CtAZYpn",
+    "spotify:track:2x7MyWybabEz6Y6wvHuwGE",
+    "spotify:track:50kpGaPAhYJ3sGmk6vplg0",
+    "spotify:track:2tHwzyyOLoWSFqYNjeVMzj",
+    "spotify:track:0RUGuh2uSNFJpGMSsD1F5C"
+  ],
+  "subgenres": {
+    "pop": 0.6923076923076923,
+    "art pop": 0.15384615384615385,
+    "r&b": 0.07692307692307693,
+    "k-pop": 0.07692307692307693
+  },
+  "supergenres": {
+    "Pop": 0.9230769230769231,
+    "R&B": 0.07692307692307693
+  }
+}

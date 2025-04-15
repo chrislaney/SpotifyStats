@@ -1,0 +1,41 @@
+{
+  "user_id": "post_malone-5qYngBh76m6Rs2z99rAkr1-1",
+  "top_tracks": [
+    "spotify:track:21jGcNKet2qwijlDFuPiPb",
+    "spotify:track:5W4kiM2cUYBJXKRudNyxjW",
+    "spotify:track:285pBltuF7vW8TeWk8hdRR",
+    "spotify:track:5QO79kh1waicV47BqGRL3g",
+    "spotify:track:1mMLMZYXkMueg65jRRWG1l",
+    "spotify:track:5IZXB5IKAD2qlvTPJYDCFB",
+    "spotify:track:3USxtqRwSYz57Ewm6wWRMp",
+    "spotify:track:7K3BhSpAxZBznislvUMVtn",
+    "spotify:track:4umIPjkehX1r7uhmGvXiSV",
+    "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+    "spotify:track:0RiRZpuVRbi7oqRdSMwhQY",
+    "spotify:track:1Lo0QY9cvc8sUB2vnIOxDT",
+    "spotify:track:3GCdLUSnKSMJhs4Tj6CV3s",
+    "spotify:track:3cBsEDNhFI9E82vPj3kvi3",
+    "spotify:track:3xkHsmpQCBMytMJNiDf3Ii",
+    "spotify:track:7dt6x5M1jzdTEt8oCbisTK",
+    "spotify:track:2OzhQlSqBEmt7hmkYxfT6m",
+    "spotify:track:48UKTR66uUOT9LaUvooTNx",
+    "spotify:track:7MXVkk9YMctZqd1Srtv4MB",
+    "spotify:track:0PAcdVzhPO4gq1Iym9ESnK",
+    "spotify:track:0t3ZvGKlmYmVsDzBJAXK8C",
+    "spotify:track:6I3mqTwhRpn34SLVafSH7G",
+    "spotify:track:17phhZDn6oGtzMe56NuWvj",
+    "spotify:track:7aEtlGHoiPAfRB084NiDmx",
+    "spotify:track:5Z3GHaZ6ec9bsiI5BenrbY"
+  ],
+  "subgenres": {
+    "country": 0.6666666666666666,
+    "melodic rap": 0.08333333333333333,
+    "emo rap": 0.08333333333333333,
+    "hip hop": 0.08333333333333333,
+    "west coast hip hop": 0.08333333333333333
+  },
+  "supergenres": {
+    "Country": 0.7272727272727273,
+    "Hip Hop": 0.2727272727272727
+  }
+}

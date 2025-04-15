@@ -1,0 +1,43 @@
+{
+  "user_id": "lorde-4TSpzW6OlU0jt3qbWF5YS3-2",
+  "top_tracks": [
+    "spotify:track:7ARveOiD31w2Nq0n5FsSf8",
+    "spotify:track:3II5NhDhjzIessLfaSjPQn",
+    "spotify:track:4dTVgHZFPlaq9nPbLVVLSG",
+    "spotify:track:25nzKGDiua1lE9Qo5V19GL",
+    "spotify:track:1Dr5JexwA15wmKe7Y7maA9",
+    "spotify:track:2dLLR6qlu5UJ5gk0dKz0h3",
+    "spotify:track:1OVypFlcraAhyvPqIMWDor",
+    "spotify:track:1UqhkbzB1kuFwt2iy4h29Q",
+    "spotify:track:51rfRCiUSvxXlCSCfIztBy",
+    "spotify:track:2enPRFda84VE2wtI8c86Uf",
+    "spotify:track:6Kkt27YmFyIFrcX3QXFi2o",
+    "spotify:track:2pA4ip3VIEVcIa3qE02oAX",
+    "spotify:track:4prEPl61C8qZpeo3IkYSMl",
+    "spotify:track:4lAnj7Git7s2QrSTwUa54g",
+    "spotify:track:7H0ya83CMmgFcOhw0UB6ow",
+    "spotify:track:74fpNVAJrKGQuqHETi4WSt",
+    "spotify:track:2SonpVAvJS3aOi63oEOTlQ",
+    "spotify:track:1ixbwbeBi5ufN4noUKmW5a",
+    "spotify:track:3HfhB8sYqLlVmpBPb7cc2x",
+    "spotify:track:3j6CeoBBlm40Msn1JE1SPD",
+    "spotify:track:2HotTAoFiOYTeMZkNs1Ces",
+    "spotify:track:086myS9r57YsLbJpU0TgK9",
+    "spotify:track:3zsRP8rH1kaIAo9fmiP4El",
+    "spotify:track:1jJci4qxiYcOHhQR247rEU",
+    "spotify:track:4sebUbjqbcgDSwG6PbSGI0"
+  ],
+  "subgenres": {
+    "synthpop": 0.125,
+    "indie": 0.375,
+    "future bass": 0.125,
+    "dream pop": 0.125,
+    "garage rock": 0.125,
+    "modern rock": 0.125
+  },
+  "supergenres": {
+    "Pop": 0.4,
+    "Electronic": 0.2,
+    "Rock": 0.4
+  }
+}

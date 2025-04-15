@@ -1,0 +1,45 @@
+{
+  "user_id": "marshmello-33Y5wtiaQVW7C4TL3EzYPP-2",
+  "top_tracks": [
+    "spotify:track:3Z8FwOEN59mRMxDCtb8N0A",
+    "spotify:track:4umIPjkehX1r7uhmGvXiSV",
+    "spotify:track:1BxfuPKGuaTgP7aM0Bbdwr",
+    "spotify:track:7BKLCZ1jbUBVqRi2FVlTVw",
+    "spotify:track:0ct6r3EGTcMLPtrXHDvVjc",
+    "spotify:track:35rozLoS6QLE8HX8qswM3k",
+    "spotify:track:1zB4vmk8tFRmM9UULNzbLB",
+    "spotify:track:7JJmb5XwzOO8jgpou264Ml",
+    "spotify:track:3rmo8F54jFF8OgYsqTxm5d",
+    "spotify:track:1s7oOCT8vauUh01PbJD6ps",
+    "spotify:track:4pkb8SbRGeHAvdb87v9rpf",
+    "spotify:track:2iUXsYOEPhVqEBwsqP70rE",
+    "spotify:track:09IStsImFySgyp0pIQdqAc",
+    "spotify:track:54PbBpquVfhfrwRwvjSXbI",
+    "spotify:track:50nfwKoDiSYg8zOCREWAm5",
+    "spotify:track:08bNPGLD8AhKpnnERrAc6G",
+    "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
+    "spotify:track:0pqnGHJpmpxLKifKRmU6WP",
+    "spotify:track:7a53HqqArd4b9NF4XAmlbI",
+    "spotify:track:0hVXuCcriWRGvwMV1r5Yn9",
+    "spotify:track:2HO0uCyq8jOveEzvmo4JEu",
+    "spotify:track:0u2P5u6lvoDfwTYjAADbn4",
+    "spotify:track:3PfIrDoz19wz7qK7tYeu62",
+    "spotify:track:7dt6x5M1jzdTEt8oCbisTK",
+    "spotify:track:60wwxj6Dd9NJlirf84wr2c"
+  ],
+  "subgenres": {
+    "edm": 0.4444444444444444,
+    "pop": 0.16666666666666666,
+    "soft pop": 0.16666666666666666,
+    "afrobeats": 0.05555555555555555,
+    "afrobeat": 0.05555555555555555,
+    "afropop": 0.05555555555555555,
+    "afropiano": 0.05555555555555555
+  },
+  "supergenres": {
+    "Electronic": 0.5714285714285714,
+    "Pop": 0.2857142857142857,
+    "R&B": 0.07142857142857142,
+    "World/Traditional": 0.07142857142857142
+  }
+}

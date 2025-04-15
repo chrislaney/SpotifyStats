@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="playlist-header">
+        <h1>Welcome, {{ user['display_name'] }}</h1>
+    </div>
+
+    <div class="charts-container">
+        <h2>Supergenre Distribution</h2>
+        <div class="chart-wrapper">
+            <canvas id="supergenreChart"></canvas>
+        </div>
+
+        <h4>Your top super genres:</h4>
+        <ul class="genre-list" id="supergenre-list">
+            {% for genre, count in user['supergenres'].items() %}
+            {% if count > 0 %}
+            <li class="genre-item">{{ genre | safe }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h2>Subgenre Distribution</h2>
+        <div class="chart-wrapper">
+            <canvas id="subgenreChart"></canvas>
+        </div>
+
+        <h4>Your top subgenres:</h4>
+        <ul class="genre-list" id="subgenre-list">
+            {% set genre_count = namespace(value=0) %}
+            {% for genre, count in user['subgenres'].items() %}
+            {% if (count | float) > 0 %}
+            {% set genre_count.value = genre_count.value + 1 %}
+            {% if loop.index <= 10 %}
+            <li class="genre-item">{{ genre | safe }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% else %}
+            <li class="genre-item extra-item hidden">{{ genre | safe }} ({{ (count | float * 100) | round(2) }}%)</li>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        {% if genre_count.value > 10 %}
+        <div class="show-more-btn" id="showMoreBtn" onclick="toggleGenres()">Show More</div>
+        {% endif %}
+    </div>
+
+    <!-- Comparison Section -->
+    <div class="comparison-section">
+        <h2>Compare with others</h2>
+        <p>Enter a Spotify playlist or user URL to compare genre distributions</p>
+
+        <div class="comparison-tabs">
+            <button id="tabPlaylist" class="tab-button tab-active" onclick="switchTab('playlist')">Playlist</button>
+            <button id="tabUser" class="tab-button" onclick="switchTab('user')">User</button>
+        </div>
+
+        <div id="playlistInput" class="comparison-input">
+            <input type="text" id="comparePlaylistUrl" placeholder="https://open.spotify.com/playlist/..." />
+            <button class="comparison-button" onclick="comparePlaylist()">Compare</button>
+        </div>
+
+        <div id="userInput" class="comparison-input" style="display: none;">
+            <input type="text" id="compareUserUrl" placeholder="https://open.spotify.com/user/..." />
+            <button class="comparison-button" onclick="compareUser()">Compare</button>
+        </div>
+
+        <div class="comparison-loading" id="comparisonLoading" style="display: none;">
+            Loading comparison data... Please wait.
+        </div>
+
+        <div class="comparison-error" id="comparisonError"></div>
+
+        <div class="comparison-chart-wrapper" id="comparisonChartContainer">
+            <canvas id="radarComparisonChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Playlist Generator Section -->
+    <div class="playlist-generator-section">
+        <h2>Generate Playlists Based on Your Taste</h2>
+
+        <div class="playlist-generator-tabs">
+            <button id="tabSimilar" class="playlist-tab-button tab-active" onclick="switchPlaylistTab('similar')">Cluster Mates</button>
+            <button id="tabExplore" class="playlist-tab-button" onclick="switchPlaylistTab('explore')">Expand My Horizons</button>
+            <button id="tabDifferent" class="playlist-tab-button" onclick="switchPlaylistTab('different')">Across the Pond</button>
+            <button id="tabAll" class="playlist-tab-button" onclick="switchPlaylistTab('all')">All Three</button>
+        </div>
+
+        <div class="playlist-description-container">
+            <p id="similarDescription" class="playlist-type-description">
+                <span class="playlist-type">Cluster Mates</span> - Create a playlist with songs from people within your cluster, classified via genre distribution.
+            </p>
+            <p id="exploreDescription" class="playlist-type-description hidden">
+                <span class="playlist-type">Expand My Horizons</span> - Create a playlist using an equal distribution of your five closest clusters, giving you familiar music as well as some new finds.
+            </p>
+            <p id="differentDescription" class="playlist-type-description hidden">
+                <span class="playlist-type">Across the Pond</span> - Explore music far outside your usual taste from your furthest clusters.
+            </p>
+            <p id="allDescription" class="playlist-type-description hidden">
+                <span class="playlist-type">Generate All Three</span> - Create all three playlists at once: Cluster Mates, Expand My Horizons, and Across the Pond.
+            </p>
+        </div>
+
+        <div class="playlist-generator-controls">
+            <div class="playlist-length-control">
+                <label for="playlistLength">Number of songs:</label>
+                <input type="number" id="playlistLength" min="10" max="200" value="50">
+            </div>
+            <button class="generate-playlist-button" onclick="generatePlaylists()">Generate Playlist</button>
+        </div>
+
+        <div class="playlist-loading" id="playlistLoading" style="display: none;">
+            <p>Generating your playlist(s)... Please wait.</p>
+        </div>
+
+        <div class="playlist-result" id="playlistResultContainer" style="display: none;">
+            <h3>Your Generated Playlists</h3>
+        </div>
+
+        <div class="playlist-error" id="playlistError" style="display: none;"></div>
+
+        <div id="selectedPlaylistContainer" style="display: none;">
+            <!-- Dynamic container for playlists -->
+            <div class="playlists-columns" id="playlistColumnsContainer">
+                <!-- Playlist columns will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="back-button" onclick="window.location.href='/'">Back to Home</button>
+    </div>
+
+    <script>
+        // Store the current user data
+        let currentUserData = {
+            name: "{{ user['display_name'] }}'s Listening",
+            supergenres: {}
+        };
+
+        {% for genre, count in user['supergenres'].items() %}
+            {% if count > 0 %}
+                currentUserData.supergenres["{{ genre | safe }}"] = {{ (count | float * 100) }};
+            {% endif %}
+        {% endfor %}
+
+        function toggleGenres() {
+            const items = document.querySelectorAll('#subgenre-list .extra-item');
+            const button = document.getElementById('showMoreBtn');
+
+            if (button.innerText === "Show More") {
+                items.forEach(item => item.classList.remove('hidden'));
+                button.innerText = "Show Less";
+            } else {
+                items.forEach(item => item.classList.add('hidden'));
+                button.innerText = "Show More";
+            }
+        }
+
+        function switchTab(tab) {
+            // Update tab buttons
+            document.getElementById('tabPlaylist').classList.remove('tab-active');
+            document.getElementById('tabUser').classList.remove('tab-active');
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('tab-active');
+
+            // Update input displays
+            document.getElementById('playlistInput').style.display = tab === 'playlist' ? 'flex' : 'none';
+            document.getElementById('userInput').style.display = tab === 'user' ? 'flex' : 'none';
+
+            // Reset error state
+            document.getElementById('comparisonError').style.display = 'none';
+            document.getElementById('comparisonError').textContent = '';
+        }
+
+        // Global variable to track the current tab
+        let currentPlaylistTab = 'similar';
+
+        function switchPlaylistTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.playlist-tab-button').forEach(btn => {
+                btn.classList.remove('tab-active');
+            });
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('tab-active');
+
+            // Update descriptions
+            document.querySelectorAll('.playlist-type-description').forEach(desc => {
+                desc.classList.add('hidden');
+            });
+            document.getElementById(tab + 'Description').classList.remove('hidden');
+
+            // Store the current tab
+            currentPlaylistTab = tab;
+        }
+
+        async function generatePlaylists() {
+            const playlistLength = document.getElementById('playlistLength').value;
+
+            // Validate input
+            if (playlistLength < 10 || playlistLength > 200) {
+                alert("Please enter a number between 10 and 200 for playlist length");
+                return;
+            }
+
+            // Reset UI and show loading indicator
+            document.getElementById('playlistLoading').style.display = 'block';
+            document.getElementById('playlistResultContainer').style.display = 'none';
+            document.getElementById('playlistError').style.display = 'none';
+            document.getElementById('selectedPlaylistContainer').style.display = 'none';
+
+            // Clear previous playlist columns
+            document.getElementById('playlistColumnsContainer').innerHTML = '';
+
+            try {
+                // Determine which playlist type to generate based on current tab
+                let playlistType = '';
+                if (currentPlaylistTab === 'similar') {
+                    playlistType = 'most_similar';
+                } else if (currentPlaylistTab === 'explore') {
+                    playlistType = 'similar_clusters';
+                } else if (currentPlaylistTab === 'different') {
+                    playlistType = 'least_similar';
+                }
+                // For 'all', we leave playlistType empty to generate all three
+
+                // Build the API URL with the appropriate parameters
+                let apiUrl = `/generate_similarity_playlists?length=${playlistLength}`;
+                if (playlistType) {
+                    apiUrl += `&playlist=${playlistType}`;
+                }
+
+                // Call the API endpoint to generate the playlist(s)
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to generate playlists');
+                }
+
+                const data = await response.json();
+                console.log('Response data:', data);
+
+                // Reset the columns container
+                const columnsContainer = document.getElementById('playlistColumnsContainer');
+                columnsContainer.innerHTML = '';
+
+                // Process the playlists based on which ones were generated
+                if (currentPlaylistTab === 'similar' || currentPlaylistTab === 'all') {
+                    if (data.most_similar) {
+                        const similarColumn = createPlaylistColumn('Similar to My Taste', extractPlaylistId(data.most_similar));
+                        columnsContainer.appendChild(similarColumn);
+                        await fetchAndDisplayTracks(extractPlaylistId(data.most_similar), 'similar');
+                    }
+                }
+
+                if (currentPlaylistTab === 'explore' || currentPlaylistTab === 'all') {
+                    if (data.similar_clusters) {
+                        const exploreColumn = createPlaylistColumn('Expand My Horizons', extractPlaylistId(data.similar_clusters));
+                        columnsContainer.appendChild(exploreColumn);
+                        await fetchAndDisplayTracks(extractPlaylistId(data.similar_clusters), 'explore');
+                    }
+                }
+
+                if (currentPlaylistTab === 'different' || currentPlaylistTab === 'all') {
+                    if (data.least_similar) {
+                        const differentColumn = createPlaylistColumn('Not Like Me', extractPlaylistId(data.least_similar));
+                        columnsContainer.appendChild(differentColumn);
+                        await fetchAndDisplayTracks(extractPlaylistId(data.least_similar), 'different');
+                    }
+                }
+
+
+
+                // Show results
+                document.getElementById('playlistResultContainer').style.display = 'block';
+                document.getElementById('selectedPlaylistContainer').style.display = 'block';
+
+            } catch (error) {
+                // Show error message
+                const errorElement = document.getElementById('playlistError');
+                errorElement.textContent = `Error: ${error.message}`;
+                errorElement.style.display = 'block';
+                console.error('Error generating playlists:', error);
+            } finally {
+                // Hide loading indicator
+                document.getElementById('playlistLoading').style.display = 'none';
+            }
+        }
+
+        function createPlaylistColumn(title, playlistId) {
+            const column = document.createElement('div');
+            column.className = 'playlist-column';
+            column.innerHTML = `
+            <h3>${title}</h3>
+            <div class="playlist-header-card" id="${playlistId}Header">
+                <div class="playlist-header-info">
+                    <div class="playlist-header-text">
+                        <h4>Loading playlist...</h4>
+                        <p>Fetching playlist details...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="playlist-tracks" id="${playlistId}Tracks">
+                <ul id="${playlistId}TracksList" class="tracks-list"></ul>
+            </div>
+        `;
+            return column;
+        }
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function fetchAndDisplayTracks(playlistId, type) {
+            try {
+                // Fetch playlist tracks from our API
+                await delay(1250);
+                const response = await fetch(`/get_playlist_tracks/${playlistId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch playlist tracks');
+                }
+
+                const data = await response.json();
+                console.log(`${type} Track data:`, data);
+
+                // Get the tracks list element
+                const tracksList = document.getElementById(`${playlistId}TracksList`);
+                if (!tracksList) {
+                    console.error(`Tracks list element not found for playlist ${playlistId}`);
+                    return;
+                }
+
+                tracksList.innerHTML = '';
+
+                // Get the tracks container and header
+                const headerElement = document.getElementById(`${playlistId}Header`);
+
+                // Add tracks to the list
+                if (data.tracks && data.tracks.length > 0) {
+                    // Get the playlist URL to link to
+                    const playlistUrl = `https://open.spotify.com/playlist/${playlistId}`;
+
+                    // Update playlist header card with image and make it clickable
+                    headerElement.innerHTML = `
+                    <div class="playlist-header-info" onclick="window.open('${playlistUrl}', '_blank')">
+                        <div class="playlist-header-text">
+                            <h4>${data.playlist.name}</h4>
+                            <p>${data.playlist.description || ''}</p>
+                            <p>${data.playlist.tracks_count} tracks</p>
+                            <span class="open-spotify-text">Open in Spotify</span>
+                        </div>
+                        <div class="playlist-open-icon">
+                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 2H14V6" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.66675 9.33333L14.0001 2" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+
+                    // Display tracks (limited to first 20 to avoid overwhelming the UI)
+                    const maxTracksToShow = Math.min(data.tracks.length, 20);
+                    for (let i = 0; i < maxTracksToShow; i++) {
+                        const track = data.tracks[i];
+                        const trackItem = document.createElement('li');
+                        trackItem.className = 'track-item';
+                        trackItem.onclick = function () {
+                            window.open(track.url, '_blank');
+                        };
+
+                        // Track thumbnail and info
+                        trackItem.innerHTML = `
+                        <div class="track-item-content">
+                            ${track.image ? `<img src="${track.image}" alt="${track.name}" class="track-thumbnail">` : ''}
+                            <div class="track-info">
+                                <div class="track-title">${track.name}</div>
+                                <div class="track-artist">${track.artists}</div>
+                                <div class="track-album">${track.album}</div>
+                            </div>
+                            <a href="${track.url}" target="_blank" class="track-link" onclick="event.stopPropagation();">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 2H14V6" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6.66675 9.33333L14.0001 2" stroke="#1DB954" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+
+                        tracksList.appendChild(trackItem);
+                    }
+
+                    // If there are more tracks, add a note
+                    if (data.tracks.length > maxTracksToShow) {
+                        const noteItem = document.createElement('li');
+                        noteItem.className = 'track-note';
+                        noteItem.textContent = `Plus ${data.tracks.length - maxTracksToShow} more tracks. Open the playlist in Spotify to see all.`;
+                        tracksList.appendChild(noteItem);
+                    }
+                } else {
+                    // No tracks found
+                    const noTracksItem = document.createElement('li');
+                    noTracksItem.textContent = 'No tracks found in this playlist.';
+                    tracksList.appendChild(noTracksItem);
+                }
+            } catch (error) {
+                console.error(`Error fetching and displaying tracks for ${playlistId}:`, error);
+
+                // Show a fallback message
+                const tracksList = document.getElementById(`${playlistId}TracksList`);
+                if (tracksList) {
+                    tracksList.innerHTML = '';
+                    const errorItem = document.createElement('li');
+                    errorItem.className = 'error-message';
+                    errorItem.textContent = `Couldn't load tracks: ${error.message}`;
+                    tracksList.appendChild(errorItem);
+                }
+            }
+        }
+
+        function isValidPlaylistUrl(url) {
+            // Regex pattern to validate playlist URL
+            const playlistPattern = /^https:\/\/open\.spotify\.com\/playlist\/[a-zA-Z0-9]+(\?.*)?$/;
+            return playlistPattern.test(url);
+        }
+
+        function isValidUserUrl(url) {
+            // Regex pattern to validate user URL
+            const userPattern = /^https:\/\/open\.spotify\.com\/user\/[a-zA-Z0-9_-]+(\?.*)?$/;
+            return userPattern.test(url);
+        }
+
+        function extractPlaylistId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting playlist ID:", error);
+                return null;
+            }
+        }
+
+        function extractUserId(url) {
+            try {
+                const parts = url.split('/');
+                const idPart = parts[parts.length - 1].split('?')[0];
+                return idPart;
+            } catch (error) {
+                console.error("Error extracting user ID:", error);
+                return null;
+            }
+        }
+
+        let radarChart = null;
+
+        async function comparePlaylist() {
+            const comparisonUrl = document.getElementById('comparePlaylistUrl').value;
+            const errorElement = document.getElementById('comparisonError');
+            const loadingElement = document.getElementById('comparisonLoading');
+            const chartContainer = document.getElementById('comparisonChartContainer');
+
+            // Reset state
+            errorElement.style.display = 'none';
+            errorElement.textContent = '';
+            chartContainer.style.display = 'none';
+
+            if (!isValidPlaylistUrl(comparisonUrl)) {
+                errorElement.textContent = "Please enter a valid Spotify playlist URL.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            const playlistId = extractPlaylistId(comparisonUrl);
+            if (!playlistId) {
+                errorElement.textContent = "Error extracting playlist ID.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            // Show loading indicator
+            loadingElement.style.display = 'block';
+
+            try {
+                // Fetch comparison playlist data
+                const response = await fetch(`/get_playlist/${playlistId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch playlist data');
+                }
+
+                const comparisonData = await response.json();
+
+                // Hide loading indicator
+                loadingElement.style.display = 'none';
+
+                // Format data for radar chart
+                const comparedPlaylistData = {
+                    name: comparisonData.playlist_metadata.name,
+                    supergenres: {}
+                };
+
+                // Convert supergenre distribution array to object
+                comparisonData.supergenre_distribution.forEach(item => {
+                    if (item[1] > 0) {
+                        comparedPlaylistData.supergenres[item[0]] = item[1];
+                    }
+                });
+
+                // Create radar chart
+                createComparisonChart(currentUserData, comparedPlaylistData);
+
+                // Show chart container
+                chartContainer.style.display = 'block';
+
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = "Error fetching comparison data: " + error.message;
+                errorElement.style.display = 'block';
+                console.error('Error:', error);
+            }
+        }
+
+        async function compareUser() {
+            const comparisonUrl = document.getElementById('compareUserUrl').value;
+            const errorElement = document.getElementById('comparisonError');
+            const loadingElement = document.getElementById('comparisonLoading');
+            const chartContainer = document.getElementById('comparisonChartContainer');
+
+            // Reset state
+            errorElement.style.display = 'none';
+            errorElement.textContent = '';
+            chartContainer.style.display = 'none';
+
+            if (!isValidUserUrl(comparisonUrl)) {
+                errorElement.textContent = "Please enter a valid Spotify user URL.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            const userId = extractUserId(comparisonUrl);
+            if (!userId) {
+                errorElement.textContent = "Error extracting user ID.";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            // Show loading indicator
+            loadingElement.style.display = 'block';
+
+            try {
+                // Fetch comparison user data
+                const response = await fetch(`/get_user_data/${userId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+
+                const userData = await response.json();
+
+                // Hide loading indicator
+                loadingElement.style.display = 'none';
+
+                if (!userData || !userData.supergenres) {
+                    throw new Error('User not found or has no listening data');
+                }
+
+                // Format data for radar chart
+                const comparedUserData = {
+                    name: userData.display_name || `User ${userId}`,
+                    supergenres: {}
+                };
+
+                // Convert supergenre distribution to percentages if needed
+                for (const [genre, value] of Object.entries(userData.supergenres)) {
+                    if (value > 0) {
+                        // Check if value is already a percentage or needs conversion
+                        comparedUserData.supergenres[genre] = value <= 1 ? value * 100 : value;
+                    }
+                }
+
+                // Create radar chart
+                createComparisonChart(currentUserData, comparedUserData);
+
+                // Show chart container
+                chartContainer.style.display = 'block';
+
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = "Error fetching user data: " + error.message;
+                errorElement.style.display = 'block';
+                console.error('Error:', error);
+            }
+        }
+
+        function createComparisonChart(userData, comparisonData) {
+            // Get all unique genres from both sources (excluding those with 0%)
+            const allGenres = [...new Set([
+                ...Object.keys(userData.supergenres),
+                ...Object.keys(comparisonData.supergenres)
+            ])].filter(genre =>
+                (userData.supergenres[genre] || 0) > 5 ||
+                (comparisonData.supergenres[genre] || 0) > 5
+            );
+
+            // Get the maximum value to determine scale
+            const maxValue = Math.max(
+                ...allGenres.map(genre => Math.max(
+                    userData.supergenres[genre] || 0,
+                    comparisonData.supergenres[genre] || 0
+                ))
+            );
+
+            // Add 10% padding to the max value
+            const scalePadding = 1.1;
+            let suggestedMax = Math.ceil(maxValue * scalePadding);
+            if (suggestedMax > 100)
+                suggestedMax = 100;
+
+            // Prepare data for radar chart
+            const chartData = {
+                labels: allGenres,
+                datasets: [
+                    {
+                        label: userData.name,
+                        data: allGenres.map(genre => userData.supergenres[genre] || 0),
+                        backgroundColor: 'rgba(29, 185, 84, 0.2)',
+                        borderColor: 'rgba(29, 185, 84, 1)',
+                        pointBackgroundColor: 'rgba(29, 185, 84, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(29, 185, 84, 1)'
+                    },
+                    {
+                        label: comparisonData.name,
+                        data: allGenres.map(genre => comparisonData.supergenres[genre] || 0),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+                    }
+                ]
+            };
+
+            // Create or update radar chart
+            const ctx = document.getElementById('radarComparisonChart').getContext('2d');
+
+            if (radarChart) {
+                radarChart.destroy();
+            }
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: suggestedMax,
+                            ticks: {
+                                stepSize: Math.ceil(suggestedMax / 5)
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Taste Comparison',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Extract data for subgenre chart
+            const subgenreLabels = [];
+            const subgenreValues = [];
+
+            {% for genre, count in user['subgenres'].items() %}
+                {% if count > 0 %}
+                    subgenreLabels.push("{{ genre | safe }}");
+                    subgenreValues.push({{ count | float }});
+                {% endif %}
+            {% endfor %}
+
+            // Create subgenre chart
+            const subCtx = document.getElementById('subgenreChart').getContext('2d');
+            new Chart(subCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: subgenreLabels,
+                    datasets: [{
+                        label: 'Genre Distribution',
+                        data: subgenreValues,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(199, 199, 199, 0.5)',
+                            'rgba(83, 102, 255, 0.5)',
+                            'rgba(255, 99, 255, 0.5)',
+                            'rgba(0, 204, 102, 0.5)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            display: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Subgenre Distribution'
+                        }
+                    }
+                }
+            });
+
+            // Extract data for supergenre chart
+            const supergenreLabels = [];
+            const supergenreValues = [];
+
+            {% for genre, count in user['supergenres'].items() %}
+                {% if count > 0 %}
+                    supergenreLabels.push("{{ genre | safe }}");
+                    supergenreValues.push({{ count | float }});
+                {% endif %}
+            {% endfor %}
+
+            // Create supergenre chart
+            const superCtx = document.getElementById('supergenreChart').getContext('2d');
+            new Chart(superCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: supergenreLabels,
+                    datasets: [{
+                        label: 'Genre Distribution',
+                        data: supergenreValues,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(199, 199, 199, 0.5)',
+                            'rgba(83, 102, 255, 0.5)',
+                            'rgba(255, 99, 255, 0.5)',
+                            'rgba(0, 204, 102, 0.5)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            display: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Supergenre Distribution'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

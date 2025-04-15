@@ -1,0 +1,40 @@
+{
+  "user_id": "pitbull-6WVrFx3cmTJ27AaA1AizXY-2",
+  "top_tracks": [
+    "spotify:track:13plQdOoWSSXPRUSZc5FuM",
+    "spotify:track:7LcfRTgAVTs5pQGEQgUEzN",
+    "spotify:track:6hkOqJ5mE093AQf2lbZnsG",
+    "spotify:track:5nujrmhLynf4yMoMtj8AQF",
+    "spotify:track:6qn9YLKt13AGvpq9jfO8py",
+    "spotify:track:3rfhI32Il2hVRKDkuGeeen",
+    "spotify:track:3GpbwCm3YxiWDvy29Uo3vP",
+    "spotify:track:4P0osvTXoSYZZC2n8IFH3c",
+    "spotify:track:6KOEK6SeCEZOQkLj5M1PxH",
+    "spotify:track:7MmG8p0F9N3C4AXdK6o6Eb",
+    "spotify:track:0OPyDgTRuIdCJ9B4bYSths",
+    "spotify:track:4DvhkX2ic4zWkQeWMwQ2qf",
+    "spotify:track:6btyEL6NwUa97Nex9cZFvo",
+    "spotify:track:3TGRqZ0a2l1LRblBkJoaDx",
+    "spotify:track:6ic8OlLUNEATToEFU3xmaH",
+    "spotify:track:4Y7XAxTANhu3lmnLAzhWJW",
+    "spotify:track:2P4OICZRVAQcYAV2JReRfj",
+    "spotify:track:2tpWsVSb9UEmDRxAl1zhX1",
+    "spotify:track:01aTsQoKoeXofSTvKuunzv",
+    "spotify:track:2bLqfJjuC5syrsgDsZfGmn",
+    "spotify:track:2cZrrQMjB63c0iIugYH9zS",
+    "spotify:track:6I9VzXrHxO9rA9A5euc8Ak",
+    "spotify:track:1y4eb6hmAvsqlDOl3fx9kk",
+    "spotify:track:1Je1IMUlBXcx1Fz0WE7oPT",
+    "spotify:track:4gbVRS8gloEluzf0GzDOFc"
+  ],
+  "subgenres": {
+    "pop": 0.6923076923076923,
+    "edm": 0.15384615384615385,
+    "soft pop": 0.07692307692307693,
+    "moombahton": 0.07692307692307693
+  },
+  "supergenres": {
+    "Pop": 0.75,
+    "Electronic": 0.25
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "user_id": "maroon_5-28XvQlZz8avJz6SLLEdAVo-2",
+  "top_tracks": [
+    "spotify:track:7LcfRTgAVTs5pQGEQgUEzN",
+    "spotify:track:0nJW01T7XtvILxQgC5J7Wh",
+    "spotify:track:3ZFTkvIE7kyPt6Nu3PEa7V",
+    "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
+    "spotify:track:6qn9YLKt13AGvpq9jfO8py",
+    "spotify:track:4XNrMwGx1SqP01sqkGTDmo",
+    "spotify:track:1mea3bSkSGXuIRvnydlB5b",
+    "spotify:track:0RUGuh2uSNFJpGMSsD1F5C",
+    "spotify:track:2QtJA4gbwe1AcanB2p21aP",
+    "spotify:track:1c8gk2PeTE04A1pIDH9YMk",
+    "spotify:track:4cktbXiXOapiLBMprHFErI",
+    "spotify:track:6KOEK6SeCEZOQkLj5M1PxH",
+    "spotify:track:3RiPr603aXAoi4GHyXx0uy",
+    "spotify:track:0KKkJNfGyhkQ5aFogxQAPU",
+    "spotify:track:0pqnGHJpmpxLKifKRmU6WP",
+    "spotify:track:0tuyEYTaqLxE41yGHSsXjy",
+    "spotify:track:7a86XRg84qjasly9f6bPSD",
+    "spotify:track:5B5eTk7DF8KVp1zpQoY1XY",
+    "spotify:track:1p80LdxRV74UKvL8gnD7ky",
+    "spotify:track:6YUTL4dYpB9xZO5qExPf05",
+    "spotify:track:2bL2gyO6kBdLkNSkxXNh6x",
+    "spotify:track:1ExfPZEiahqhLyajhybFeS",
+    "spotify:track:09CtPGIpYB4BrO8qb1RGsF",
+    "spotify:track:2yPoXCs7BSIUrucMdK5PzV",
+    "spotify:track:4QNpBfC0zvjKqPJcyqBy9W"
+  ],
+  "subgenres": {
+    "pop": 0.5454545454545454,
+    "latin pop": 0.09090909090909091,
+    "edm": 0.18181818181818182,
+    "soft pop": 0.09090909090909091,
+    "nu metal": 0.09090909090909091
+  },
+  "supergenres": {
+    "Pop": 0.7,
+    "Electronic": 0.2,
+    "Metal": 0.1
+  }
+}

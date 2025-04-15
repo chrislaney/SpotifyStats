@@ -1,0 +1,53 @@
+{
+  "user_id": "lynyrd_skyn-6IMlcf2HRrodVeL0Xfk3VD-1",
+  "top_tracks": [
+    "spotify:track:7e89621JPkKaeDSTQ3avtg",
+    "spotify:track:63T7DJ1AFDD6Bn8VzG6JE8",
+    "spotify:track:1Y373MqadDRtclJNdnUXVc",
+    "spotify:track:1QEEqeFIZktqIpPI4jSVSF",
+    "spotify:track:5CQ30WqJwcep0pYcV4AMNc",
+    "spotify:track:5EWPGh7jbTNO2wakv8LjUI",
+    "spotify:track:40riOy7x9W7GXjyGp4pjAv",
+    "spotify:track:43btz2xjMKpcmjkuRsvxyg",
+    "spotify:track:2TofEeQobQ9YoK7EFds698",
+    "spotify:track:5RsUlxLto4NZbhJpqJbHfN",
+    "spotify:track:5rHGRbh5F1oFQ4CdpzFyhN",
+    "spotify:track:52KvuGmgcgRdrLMXOtda0E",
+    "spotify:track:6zeE5tKyr8Nu882DQhhSQI",
+    "spotify:track:6mFkJmJqdDVQ1REhVfGgd1",
+    "spotify:track:0ee1DiZF94NSqqpG0XHUzH",
+    "spotify:track:1ju7EsSGvRybSNEsRvc7qY",
+    "spotify:track:7EHmKkyAr6MZv5Y2FdZbXw",
+    "spotify:track:5bSpsKGoGKXOOfg7F3ZtKz",
+    "spotify:track:7snQQk1zcKl8gZ92AnueZW",
+    "spotify:track:67eX1ovaHyVPUinMHeUtIM",
+    "spotify:track:2OOcagX0sr4SQuBbHJkE5I",
+    "spotify:track:4DMKwE2E2iYDKY01C335Uw",
+    "spotify:track:78lgmZwycJ3nzsdgmPPGNx",
+    "spotify:track:71SvEDmsOwIWw1IozsZoMA",
+    "spotify:track:3dmqIB2Qxe2XZobw9gXxJ6"
+  ],
+  "subgenres": {
+    "southern rock": 0.08955223880597014,
+    "classic rock": 0.31343283582089554,
+    "rock": 0.19402985074626866,
+    "metal": 0.014925373134328358,
+    "heavy metal": 0.014925373134328358,
+    "stoner rock": 0.014925373134328358,
+    "doom metal": 0.014925373134328358,
+    "hard rock": 0.05970149253731343,
+    "album rock": 0.08955223880597014,
+    "rock and roll": 0.029850746268656716,
+    "soft rock": 0.014925373134328358,
+    "glam metal": 0.04477611940298507,
+    "progressive rock": 0.04477611940298507,
+    "psychedelic rock": 0.014925373134328358,
+    "symphonic rock": 0.014925373134328358,
+    "art rock": 0.014925373134328358,
+    "country rock": 0.014925373134328358
+  },
+  "supergenres": {
+    "Rock": 0.9076923076923077,
+    "Metal": 0.09230769230769231
+  }
+}

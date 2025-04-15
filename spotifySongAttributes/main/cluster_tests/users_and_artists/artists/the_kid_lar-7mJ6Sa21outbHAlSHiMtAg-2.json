@@ -1,0 +1,42 @@
+{
+  "user_id": "the_kid_lar-7mJ6Sa21outbHAlSHiMtAg-2",
+  "top_tracks": [
+    "spotify:track:2m6HgwjakjAXimujX8m4sk",
+    "spotify:track:4iJyoBOLtHqaGxP12qzhQI",
+    "spotify:track:2U5WueTLIK5WJLD7mvDODv",
+    "spotify:track:7kDUspsoYfLkWnZR7qwHZl",
+    "spotify:track:5rurggqwwudn9clMdcchxT",
+    "spotify:track:5YnxnTS89l3FElIwfIAeSs",
+    "spotify:track:4jvjzW7Hm0yK4LvvE0Paz9",
+    "spotify:track:3J8EOeKLTLXORtWPpOU5bE",
+    "spotify:track:5YSHygGN9D0mID1NsVd5my",
+    "spotify:track:2qvGI2uUNgNheWnfxQr25W",
+    "spotify:track:7gJr3ockQ0fezUXuUXvaSq",
+    "spotify:track:15og0pCEcTFWEXOFKdcJlU",
+    "spotify:track:3FAJ6O0NOHQV8Mc5Ri6ENp",
+    "spotify:track:1lOe9qE0vR9zwWQAOk6CoO",
+    "spotify:track:2QxekHjOYDnzNO5w8hu2D9",
+    "spotify:track:0c34ovpXiMWWUbKX0IavIH",
+    "spotify:track:0AAMnNeIc6CdnfNU85GwCH",
+    "spotify:track:2ZRo7axmMPeSVUvDbGkJah",
+    "spotify:track:3azJifCSqg9fRij2yKIbWz",
+    "spotify:track:6jIpfTmCaebJyQxfrZb749",
+    "spotify:track:5sZSiLaxwbQZsQSDzhwgo4",
+    "spotify:track:2Y0wPrPQBrGhoLn14xRYCG",
+    "spotify:track:5CT3zRd2FKM7F81KEacXIP",
+    "spotify:track:3GVkPk8mqxz0itaAriG1L7",
+    "spotify:track:2LBqCSwhJGcFQeTHMVGwy3"
+  ],
+  "subgenres": {
+    "melodic rap": 0.35294117647058826,
+    "emo rap": 0.4117647058823529,
+    "cloud rap": 0.058823529411764705,
+    "brooklyn drill": 0.058823529411764705,
+    "r&b": 0.058823529411764705,
+    "rap": 0.058823529411764705
+  },
+  "supergenres": {
+    "Hip Hop": 0.9411764705882353,
+    "R&B": 0.058823529411764705
+  }
+}
