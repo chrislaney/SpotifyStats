@@ -2,6 +2,9 @@
 
 # Final Fall Design Report
 
+### Complete Design Report Here;
+https://github.com/chrislaney/SpotifyStats/tree/main/FinalDesignReport
+
 ## Table of Contents
 1. [Team and Project](#team-and-project)
 2. [Project Description](#project-description)
